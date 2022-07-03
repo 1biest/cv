@@ -1,0 +1,105 @@
+a {
+  text-decoration: none;
+  color: rgb(45, 119, 255);
+}
+
+
+.App {
+  background-color: #ddd;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.Section {
+  margin: 20px;
+  padding-top: 200px;
+  margin-bottom: 200px;
+}
+.Section p{
+  padding-bottom: 10px;
+}
+
+.ModalBody {
+  border-radius: 6px;
+}
+
+.cardBodyClick {
+  scale: (1.0);
+  cursor: pointer;
+  transition: 0.8s;
+}
+.cardBodyClick:hover {
+  transform: scale(1.05);
+}
+
+.Navigation {
+  width: 40%;
+  max-width: 216px;
+  margin-left: 20px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.navWrapper {
+  position: fixed;
+  width: 28%;
+  max-width: 214px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.navFooter {
+  position: fixed;
+  bottom: 20px;
+  width: 28%;
+  max-width: 212px;
+  border-radius: 6px;
+  text-align: center;
+  line-height: 100%;
+  font-size: 0.7em;
+}
+.navFooter h4 {
+  margin-block-start: 0;
+  margin-block-end: 4px;
+}
+.navFooter p {
+  margin-block-start: 0;
+  margin-block-end: 20px;
+
+}
+
+.buttonGroup {
+  border-radius: 6px;
+}
+
+.sectionBody{
+  width: 100%;
+  max-width: 1200px;
+  margin-left: 20px;
+  border-left: solid;
+  border-left-width: 1px;
+  border-left-color: rgba(0,0,0,0.05);
+  background-color: rgba(0,0,0,0.02)
+}
+
+.nameTitle {
+  line-height: 100%;
+}
+
+.nameSubtitle {
+  line-height: 100%;
+  color: rgba(0,0,0,0.5);
+}
+
+.profilePhoto {
+  height: 100px;
+  width: 100px;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 100%;
+  overflow: hidden;
+  border: solid;
+  border-width: 5px;
+  border-color: rgba(0,0,0,0.2);
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
