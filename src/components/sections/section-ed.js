@@ -22,7 +22,7 @@ export default function Section1() {
   return (
     <div id='sectionED' className="Section">
         <h2>Education</h2>
-        <p>I recieved a BFA: New Media from the University of Lethbridge. The program introduced concepts such as graphic design, video production, 3d modeling, and web development. I am continuing to gain certifications in programming with Codecademy.</p>
+        <p className='sectionBodyP'>I recieved a BFA: New Media from the University of Lethbridge. The program introduced concepts such as graphic design, video production, 3d modeling, and web development. I am continuing to gain certifications in programming with Codecademy.</p>
         <Grid 
         container
         direction="row"

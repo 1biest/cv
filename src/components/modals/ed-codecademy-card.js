@@ -14,8 +14,7 @@ export default function ImgMediaCard() {
           Codecademy
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Staking tutorials. Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          Educational courses and certifications of software development languages.
         </Typography>
       </CardContent>
       <CardMedia

@@ -23,7 +23,7 @@ export default function Section1() {
         <Grid container spacing={2}>
             <Grid item xs={6}>
               <h2>Logan Biesterfeldt</h2>
-              <h4>Blockchain Web3 Full Stack Designer/Developer.</h4>
+              <h4>Blockchain Web3<br /> Motion Graphic Designer<br />CSS Animator<br />Full Stack Developer</h4>
             </Grid>
             <Grid item xs={6}>
                 <div className="wrapper-3d">

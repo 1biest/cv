@@ -23,6 +23,7 @@ export default function Section1() {
   return (
     <div id='sectionAG' className="Section">
         <h2>Agriculture</h2>
+        <p className='sectionBodyP'>Raised on a farm in rural southern Alberta, agriculture has been a significant component to my development and growth. There were many opportunities to develop my knowledge of engineering, data, and technology through stewardship of the land and crop production.</p>
         <Grid 
         container
         direction="row"

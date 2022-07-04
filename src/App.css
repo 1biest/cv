@@ -17,14 +17,24 @@ a {
   border-left-width: 1px;
   border-left-color: rgba(0,0,0,0.05);
 }
-/*.sectionBody p{
+.sectionBodyP {
   transform: rotate3d(1, -1, 0, -20deg);
-  transform-origin: 50% 50% 0px;
+  transform-origin: 0% 0% 0px;
+  position: relative;
+  left: 16px;
 }
 .sectionBody h2{
   transform: rotate3d(1, -1, 0, -20deg);
-  transform-origin: 50% 50% 0px;
-}*/
+  transform-origin: 0% 0% 0px;
+  position: relative;
+  left: 20px;
+}
+.sectionBody h4{
+  transform: rotate3d(1, -1, 0, -20deg);
+  transform-origin: 0% 0% 0px;
+  position: relative;
+  left: 18px;
+}
 
 .Section {
   margin: 26px;
@@ -36,8 +46,18 @@ a {
   max-width: 650px;
 }
 
-
 #section1 {
+  padding-bottom: 70px;
+  padding-top: 180px;
+}
+
+#section1 h2 {
+  font-size: 4em;
+  line-height: 100%;
+}
+#section1 h4 {
+  font-size: 1.5em;
+  max-width: 300px;
 }
 
 .ModalBody {
@@ -55,6 +75,12 @@ a {
   padding: 20px;
 }
 
+.youTubeWrapper {
+  padding-top: 20px;
+  width: 90%;
+  margin: auto;
+  aspect-ratio: 16/9;
+}
 
 .cardBodyClick {
   scale: (1.0);
@@ -160,6 +186,6 @@ a {
   overflow: hidden;
   border: solid;
   border-width: 5px;
-  border-color: rgba(0,0,0,0.2);
+  border-color: rgba(0,74,116,0.8);
   box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
 }

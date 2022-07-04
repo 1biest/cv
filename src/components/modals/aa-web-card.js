@@ -14,13 +14,12 @@ export default function ImgMediaCard() {
           Web Development
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Staking tutorials. Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+        Managed a library of over 80 websites.
         </Typography>
       </CardContent>
       <CardMedia
         component="img"
-        alt="Canadian Mortgage Proffesionals web development"
+        alt="Artrageous web development"
         height="210"
         image={Thumbnail}
       />

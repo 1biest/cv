@@ -14,8 +14,7 @@ export default function ImgMediaCard() {
           Video and Social Media
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Staking tutorials. Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+        Managed the content creation for multiple social media clients.
         </Typography>
       </CardContent>
       <CardMedia

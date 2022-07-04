@@ -27,7 +27,7 @@ export default function Modal1() {
             Appsheet Mobile Application
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Appsheet development for tracking status of assets at geographical locations.
+            Appsheet development for tracking status of assets at geographical locations, purchase orders, and inventory management.
           </Typography>
           <img width={'100%'} src={Image} />
         </Box>

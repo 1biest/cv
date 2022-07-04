@@ -27,7 +27,7 @@ export default function Modal1() {
             Web Development
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Among upkeep of the library of over 80 sites, I was the primary developer on a handful of new builds during my time at Artrageous. Here is a website upgrade that I managed for Canadian Mortgage Professionals:
+            Upkeep and maintenance of a library of over 80 WordPress sites. Primary developer on a handful of new builds during my time at Artrageous.
           </Typography>
           <img width={'100%'} style={{paddingTop: "20px"}} src={Image} />
         </Box>

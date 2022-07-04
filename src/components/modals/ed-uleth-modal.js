@@ -26,7 +26,7 @@ export default function Modal1() {
             University of Lethbridge
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Staking tutorials and such.
+            BFA: New Media
           </Typography>
         </Box>
       </Modal>

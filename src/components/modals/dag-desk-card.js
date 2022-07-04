@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
-import Thumbnail from './thumbnails/sf-tutorial.webp';
+import Thumbnail from '../../img/dag-letter.jpg';
 
 export default function ImgMediaCard() {
   return (
@@ -14,8 +14,7 @@ export default function ImgMediaCard() {
           Desk of the Dealer
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Staking tutorials. Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+        Direct mail campaign utilizing existing customer databases
         </Typography>
       </CardContent>
       <CardMedia

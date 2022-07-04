@@ -27,7 +27,7 @@ export default function Modal1() {
             Staking Tutorials
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          Detailed tutorial videos of the techinical steps taken to stake tokens with stakefish using respective wallets and protocols.
+          Detailed tutorial videos of the techinical steps taken to stake tokens with stakefish using respective wallets and protocols. Screen caputred in OBS and tutorial motion graphic composition in Adobe After Effects.
           </Typography>
           <YouTube/>
         </Box>

@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
 import Card from './ag-data-card';
+import Image from '../../img/jdoc-screenshot.png';
 
 export default function Modal1() {
   const [open, setOpen] = React.useState(false);
@@ -26,8 +27,9 @@ export default function Modal1() {
             Agronomy
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Staking tutorials and such.
+            Crop production data, input costs, product applications, and yield maps.
           </Typography>
+          <img width={'100%'} src={Image} />
         </Box>
       </Modal>
     </div>

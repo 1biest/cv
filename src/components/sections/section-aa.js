@@ -24,7 +24,7 @@ export default function Section1() {
     <div id='sectionAA' className="Section">
         <h2>Artrageous Advertising</h2>
         <h4>Dec 2019 - Oct 2020</h4>
-        <p>Advertising agency serving Lethbridge, Alberta with social media management, video production, web development, and graphic design.</p>
+        <p className='sectionBodyP'>Advertising agency serving Lethbridge, Alberta with social media management, video production, web development, and graphic design.</p>
         <Grid 
         container
         direction="row"

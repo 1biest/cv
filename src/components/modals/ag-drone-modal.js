@@ -27,7 +27,7 @@ export default function Modal1() {
             UAV Remote Sensing
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Staking tutorials and such.
+            Utilizing a DJI Matrice 210 and a Slantrange multispectral sensor, we conducted remote sensing operations to determine crop viality to inform decision making on agricultural operations.
           </Typography>
           <YouTube/>
         </Box>

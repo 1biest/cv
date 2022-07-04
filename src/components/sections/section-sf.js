@@ -19,7 +19,7 @@ export default function Section1() {
     <div id='sectionSF' className="Section">
         <h2>stakefish/f2pool</h2>
         <h4>Oct 2020 - July 2022</h4>
-        <p>f2pool and stakefish are leading service providers for blockchain infrastructure security. Their focus on decentralization and security is well regarded in the open source blockchain development community, and as a member of their marketing team, I promoted and raised awareness to projects in the world of crypto.</p>
+        <p className='sectionBodyP'>f2pool and stakefish are leading service providers for blockchain infrastructure security. Their focus on decentralization and security is well regarded in the open source blockchain development community. The marketing team promotes and raises awareness to innovative cutting edge projects in the world of crypto.</p>
         <Grid 
         container
         direction="row"

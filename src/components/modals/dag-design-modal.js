@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
-import Card from './dag-desk-card';
+import Card from './dag-design-card';
 import Image from '../../img/dag-design.png';
 
 export default function Modal1() {
@@ -27,7 +27,7 @@ export default function Modal1() {
             Design
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Adobe Photoshop, Illustrator, and After Effects.
+          Branding and marketing campaign design for new and used vehicle sales, and fixed operations. Tools utilized include Adobe Photoshop, Illustrator, and After Effects.
           </Typography>
           <img width={'100%'} src={Image} />
         </Box>

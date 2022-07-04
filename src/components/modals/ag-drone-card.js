@@ -14,8 +14,7 @@ export default function ImgMediaCard() {
           UAV Remote Sensing
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Staking tutorials. Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+        Remote sensing operations to determine crop viality.
         </Typography>
       </CardContent>
       <CardMedia

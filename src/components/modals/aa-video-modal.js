@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
 import Card from './aa-video-card';
+import YouTube from '../youtube-embed/aa-youtube-embed';
 
 export default function Modal1() {
   const [open, setOpen] = React.useState(false);
@@ -26,8 +27,9 @@ export default function Modal1() {
             Video and Social Media
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Staking tutorials and such.
+          Managed the content creation for multiple social media clients. Produced video, graphic design, and photographic content for enchanced marketing over Facebook and Instagram.
           </Typography>
+          <YouTube />
         </Box>
       </Modal>
     </div>

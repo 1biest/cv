@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
-import Card from './dag-dealertv-card';
+import Card from './dag-video-card';
 import YouTube from '../youtube-embed/dag-youtube-embed';
 
 export default function Modal1() {
@@ -27,7 +27,7 @@ export default function Modal1() {
             Video Production
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Playlist of motion graphics and videos produced during my time with Davis Automotive Group.
+            Motion graphics and videos produced for marketing initiatives at Davis Automotive Group.
           </Typography>
           <YouTube/>
         </Box>

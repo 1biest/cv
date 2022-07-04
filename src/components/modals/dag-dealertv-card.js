@@ -14,7 +14,7 @@ export default function ImgMediaCard() {
           DealerTV
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          The DealerTV digital signage management system was created to manage 30+ displays across 8 dealership locations. The objective was to centrally manage the distribution of advertising content across the network of dealerships.
+        Remotely managed 30+ displays across 8 dealership locations.
         </Typography>
       </CardContent>
       <CardMedia

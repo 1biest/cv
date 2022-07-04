@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
 import Card from './dag-rewards-card';
+import Image from './thumbnails/appsheet.svg';
 
 export default function Modal1() {
   const [open, setOpen] = React.useState(false);
@@ -28,10 +29,7 @@ export default function Modal1() {
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             Implemented a dealer rewards program by utilizing Appsheet and Google Sheets. The advantage of using a tool such as Appsheet is that it can be a no-code editor for an app for database queries and entries. The tooling enables Google Sheets to operate like SQL tables, allowing them to be easily edited by staff, while allowing complex logic for managing, customers, balances, and orders.
           </Typography>
-          <img 
-            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAqQ9qP8xQz5aGJIn0mrL_jncVS24Bj7YdpP8he6B_-UdqT-vP_BD5u4ClQtvRWXZTElTi45NCgtVjRB7wZ9UwxaQPQnfmOSwNmKBkO4L1jgS7OeXqe_oow7Vp5SnuM6pjpIV80X_eHgxmqV3Gj-fUmndGVYKQAdfWHEM0zjZOyMSDHUZPi-IP8X2l/s1999/1.%20-%20should%20be%204png.png"
-            alt="Appsheet Dashboard"
-            />
+          <img width={'100%'} src={Image} />
         </Box>
       </Modal>
     </div>

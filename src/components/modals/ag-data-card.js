@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
-import Thumbnail from './thumbnails/sf-tutorial.webp';
+import Thumbnail from '../../img/jdoc.webp';
 
 export default function ImgMediaCard() {
   return (
@@ -14,13 +14,12 @@ export default function ImgMediaCard() {
           Agronomy
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Staking tutorials. Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+        Crop production data, input costs, product applications, and yield maps.
         </Typography>
       </CardContent>
       <CardMedia
         component="img"
-        alt="Staking SOL with Solflare wallet"
+        alt="Agronomy data"
         height="210"
         image={Thumbnail}
       />

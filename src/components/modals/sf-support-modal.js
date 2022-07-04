@@ -27,7 +27,7 @@ export default function Modal1() {
             Protocol Announcements
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Introductory videos explaining the unique features and advantages of new procols supported by stakefish.
+            Introductory videos explaining the unique features and advantages of new procols supported by stakefish. Created in Adobe After Effects.
           </Typography>
           <YouTube/>
         </Box>

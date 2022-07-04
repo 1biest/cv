@@ -4,6 +4,9 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
 import Card from './aa-reports-card';
+import Image from '../../img/aa-report.png';
+
+
 
 export default function Modal1() {
   const [open, setOpen] = React.useState(false);
@@ -26,8 +29,9 @@ export default function Modal1() {
             Analytics and Reporting
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Staking tutorials and such.
+          Performance analytics of social media accounts displayed on Google Data Studio reports.
           </Typography>
+          <img width={'100%'} style={{paddingTop: "20px"}} src={Image} />
         </Box>
       </Modal>
     </div>

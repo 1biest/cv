@@ -14,8 +14,7 @@ export default function ImgMediaCard() {
           Appsheet Mobile Application
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Staking tutorials. Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+        Appsheet development for tracking status of assets at geographical locations.
         </Typography>
       </CardContent>
       <CardMedia
