@@ -3,8 +3,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
-import Card from './sf-pos-card';
-import YouTube from '../youtube-embed/sf-pos-youtube-embed';
+import Card from './aa-video-card';
 
 export default function Modal1() {
   const [open, setOpen] = React.useState(false);
@@ -24,12 +23,11 @@ export default function Modal1() {
       >
         <Box className="ModalBody">
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            PoS Round-Up
+            Video and Social Media
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            B-weekly educational video series explaining current events in the field of proof of stake. Adobe Character Animator and Adobe After Effects.
+            Staking tutorials and such.
           </Typography>
-          <YouTube/>
         </Box>
       </Modal>
     </div>

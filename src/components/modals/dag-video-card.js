@@ -1,23 +1,26 @@
 import * as React from 'react';
+import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
-import Thumbnail from './thumbnails/sf-announce.png';
+import Thumbnail from './thumbnails/dag-videos.webp';
 
 export default function ImgMediaCard() {
   return (
-    <div className="cardBG" sx={{  }}>      <CardContent>
+    <div className="cardBG">
+      <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Educational Videos
+          Video Production
         </Typography>
         <Typography variant="body2" color="text.secondary">
-        Introductory videos explaining the unique features and advantages of new procols supported by stakefish.
+          Staking tutorials. Lizards are a widespread group of squamate reptiles, with over 6,000
+          species, ranging across all continents except Antarctica
         </Typography>
       </CardContent>
       <CardMedia
         component="img"
-        alt="stakefish supports Evmos"
+        alt="Staking SOL with Solflare wallet"
         height="210"
         image={Thumbnail}
       />

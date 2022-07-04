@@ -1,23 +1,25 @@
 import * as React from 'react';
+import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
-import Thumbnail from './thumbnails/sf-announce.png';
+import Thumbnail from '../../img/dag-design.png';
 
 export default function ImgMediaCard() {
   return (
-    <div className="cardBG" sx={{  }}>      <CardContent>
+    <div className="cardBG">
+      <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Educational Videos
+          Design
         </Typography>
         <Typography variant="body2" color="text.secondary">
-        Introductory videos explaining the unique features and advantages of new procols supported by stakefish.
+          Branding and marketing campaign design for new and used vehicle sales, and fixed operations.
         </Typography>
       </CardContent>
       <CardMedia
         component="img"
-        alt="stakefish supports Evmos"
+        alt="Automotive marketing graphic design"
         height="210"
         image={Thumbnail}
       />

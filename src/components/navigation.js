@@ -11,9 +11,9 @@ import ProfilePhoto from './profilePhoto';
 const buttons = [
     <Button onClick={() => scrollTo("#sectionSF")} key="one">stakefish/f2pool</Button>,
     <Button onClick={() => scrollTo("#sectionAA")} key="two">Artrageous Advertising</Button>,
-    <Button onClick={() => scrollTo("#sectionAG")} key="five">Agriculture</Button>,
     <Button onClick={() => scrollTo("#sectionDAG")} key="three">Davis Automotive Group</Button>,
-    <Button onClick={() => scrollTo("#sectionULETH")} key="five">University of Lethbridge</Button>,
+    <Button onClick={() => scrollTo("#sectionAG")} key="four">Agriculture</Button>,
+    <Button onClick={() => scrollTo("#sectionED")} key="five">Education</Button>,
 ];
 
 
@@ -21,7 +21,7 @@ export default function ImgMediaCard() {
   return (
     <>
         <div className="navWrapper">
-            <ProfilePhoto />
+            <div style={{cursor: 'pointer'}} onClick={() => scrollTo("#section1")} ><ProfilePhoto /></div>
             <h2 className="nameTitle">Logan<br></br> Biesterfeldt</h2>
             <p className="nameSubtitle"></p>
         <ButtonGroup

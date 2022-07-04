@@ -2,11 +2,12 @@
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 
+import Section1 from './sections/section-1';
 import SectionSF from './sections/section-sf';
 import SectionAA from './sections/section-aa';
 import SectionAG from './sections/section-ag';
 import SectionDAG from './sections/section-dag';
-import SectionULETH from './sections/section-uleth';
+import SectionED from './sections/section-ed';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -21,9 +22,9 @@ function App() {
     <div>
       <SectionSF />
       <SectionAA />
-      <SectionAG />
       <SectionDAG />
-      <SectionULETH />
+      <SectionAG />
+      <SectionED />
     </div>
   );
 }

@@ -1,23 +1,25 @@
 import * as React from 'react';
+import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
-import Thumbnail from './thumbnails/sf-announce.png';
+import Thumbnail from './thumbnails/ed-uleth.jpg';
 
 export default function ImgMediaCard() {
   return (
-    <div className="cardBG" sx={{  }}>      <CardContent>
+    <div className="cardBG">
+      <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Educational Videos
+          University of Lethbridge
         </Typography>
         <Typography variant="body2" color="text.secondary">
-        Introductory videos explaining the unique features and advantages of new procols supported by stakefish.
+          BFA: New Media, graduated in 2014.
         </Typography>
       </CardContent>
       <CardMedia
         component="img"
-        alt="stakefish supports Evmos"
+        alt="University of Lethbridge"
         height="210"
         image={Thumbnail}
       />

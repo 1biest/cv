@@ -1,0 +1,182 @@
+
+.anim-3d-wrapper {
+    position: relative;
+    left: 50px;
+    top: -100px;
+  }
+  
+  .anim-3d-layer-bg {
+    position: absolute;
+    transform: rotate3d(1, -1, 0, -20deg);
+    left: -450px;
+    top: -250px;
+    width: 1200px;
+    height: 1200px;
+    transform-origin: 50% 50% -40px;
+    background: rgb(70,175,232);
+    background: radial-gradient(circle, rgba(70,175,232,1) 0%, rgba(162,227,255,0.8) 35%, rgba(199,245,255,0.6) 60%, rgba(202,210,232,0) 70%);
+    z-index: -2;
+    pointer-events: none;
+  }
+  
+  .anim-3d-layer-1 {
+    position: absolute;
+    transform: rotate3d(1, -1, 0, -20deg);
+    transform-origin: 50% 50% -40px;
+    width: 300px;
+    height: 600px;
+    border-radius: 30px;
+    border: solid;
+    border-width: 1px;
+    background-color: rgba (255, 255, 255, 0);
+    top: 0;
+    transition: 0.8s;
+    z-index: 0;
+    pointer-events: none;
+    box-shadow: 20px 20px 100px rgba(255,255,255,0.9);
+  }
+  
+  .anim-3d-layer-3 {
+    position: absolute;
+    transform: rotate3d(1, -1, 0, -20deg);
+    width: 300px;
+    height: 600px;
+    border-radius: 30px;
+    transform-origin: 50% 50% -20px;
+    background-color: #000;
+    top: 0;
+    transition: 0.8s;
+    z-index: 1;
+  }
+  
+  .anim-3d-layer-4 {
+    position: absolute;
+    overflow: hidden;
+    transform: rotate3d(1, -1, 0, -20deg);
+    top: 100px;
+    left: 200px;
+    width: 200px;
+    height: 100px;
+    border-radius: 30px;
+    transform-origin: 50% 50% 80px;
+    background: rgba(0,74,116,0.9);
+    transition: 0.8s;
+    pointer-events: none;
+    z-index: 5;
+  }
+  
+  .anim-3d-layer-5 {
+    position: absolute;
+    overflow: hidden;
+    transform: rotate3d(1, -1, 0, -20deg);
+    top: 340px;
+    left: -100px;
+    width: 260px;
+    height: 200px;
+    border-radius: 30px;
+    transform-origin: 50% 50% 160px;
+    background: rgba(0,74,116,0.9);
+    transition: 0.8s;
+    pointer-events: none;
+    z-index: 6;
+  }
+  
+  .anim-3d-layer-2 {
+    position: absolute;
+    overflow: hidden;
+    transform: rotate3d(1, -1, 0, -20deg);
+    background: rgb(84,255,244);
+    background: linear-gradient(144deg, rgba(84,203,255,1) 0%, rgba(0,74,116,1) 100%);
+    width: 300px;
+    height: 600px;
+    border-radius: 30px;
+    transition: 0.8s;
+    z-index: 3;
+  }
+  
+  .anim-3d-layer-2:hover {
+    transform: rotate3d(0.2, -0.2, 0, -40deg);
+    transition: 0.8s;
+  }
+  
+  .anim-3d-layer-2:hover ~ .anim-3d-layer-1 {
+    transform: rotate3d(0.2, -0.2, 0, -40deg);
+    transition: 0.8s;
+  }
+  
+  .anim-3d-layer-2:hover ~ .anim-3d-layer-3 {
+    transform: rotate3d(0.2, -0.2, 0, -40deg);
+    transition: 0.8s;
+  }
+  
+  .anim-3d-layer-2:hover ~ .anim-3d-layer-4 {
+    transform: rotate3d(0.2, -0.2, 0, -40deg);
+    box-shadow: 20px 20px 60px rgba(255,255,255,0.6);
+    background: rgba(84,185,244,0.5);
+    transition: 0.8s;
+  }
+
+  .anim-3d-layer-2:hover ~ .anim-3d-layer-5 {
+    transform: rotate3d(0.2, -0.2, 0, -40deg);
+    box-shadow: 20px 20px 60px rgba(255,255,255,0.6);
+    background: rgba(84,185,244,0.5);
+    transition: 0.8s;
+  }
+  
+  .anim-3d-layer-2:before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: -300px;
+    width: 80%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 0px 60px 40px rgba(255, 255, 255, 0.6);
+    transform: skewX(-40deg);
+    transition: 0.8s;
+  }
+  
+  .anim-3d-layer-2:hover:before {
+    left: 250px;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 0px 60px 40px rgba(255, 255, 255, 0.3);
+  }
+  
+  .anim-3d-layer-4:before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: -30px;
+    width: 80%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0px 0px 60px 40px rgba(255, 255, 255, 0.6);
+    transform: skewX(-40deg);
+    transition: 0.8s;
+  }
+  
+  .anim-3d-layer-2:hover ~ .anim-3d-layer-4:before {
+    left: 520px;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 0px 60px 40px rgba(255, 255, 255, 0.3);
+  }
+  
+  .anim-3d-layer-5:before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: -130px;
+    width: 80%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0px 0px 60px 40px rgba(255, 255, 255, 0.6);
+    transform: skewX(-40deg);
+    transition: 0.8s;
+  }
+  
+  .anim-3d-layer-2:hover ~ .anim-3d-layer-5:before {
+    left: 500px;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 0px 60px 40px rgba(255, 255, 255, 0.3);
+  }
+  

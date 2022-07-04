@@ -1,35 +1,106 @@
 a {
   text-decoration: none;
-  color: rgb(45, 119, 255);
+  color: rgb(25, 118, 210);
 }
 
 
 .App {
-  background-color: #ddd;
   display: flex;
   justify-content: flex-start;
+  overflow: hidden;
 }
 
+.sectionBody{
+  width: 100%;
+  margin-left: 20px;
+  border-left: solid;
+  border-left-width: 1px;
+  border-left-color: rgba(0,0,0,0.05);
+}
+/*.sectionBody p{
+  transform: rotate3d(1, -1, 0, -20deg);
+  transform-origin: 50% 50% 0px;
+}
+.sectionBody h2{
+  transform: rotate3d(1, -1, 0, -20deg);
+  transform-origin: 50% 50% 0px;
+}*/
+
 .Section {
-  margin: 20px;
-  padding-top: 200px;
+  margin: 26px;
+  padding-top: 100px;
   margin-bottom: 200px;
 }
 .Section p{
   padding-bottom: 10px;
+  max-width: 650px;
+}
+
+
+#section1 {
 }
 
 .ModalBody {
   border-radius: 6px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 80%;
+  overflow: hidden;
+  background-color: rgba(255,255,255,0.95);
+  max-width: 1200px;
+  border: 1px solid #000;
+  padding: 20px;
 }
+
 
 .cardBodyClick {
   scale: (1.0);
   cursor: pointer;
-  transition: 0.8s;
+  overflow: hidden;
+  transition: 0.6s;
+  min-width: 200px;
+  max-width: 400px;
+  transform: rotate3d(1, -1, 0, -20deg);
+  transform-origin: 50% 50% 0px;
 }
 .cardBodyClick:hover {
   transform: scale(1.05);
+  transition: 0.4s;
+  transform: rotate3d(0.2, -0.2, 0, -30deg);
+  transform-origin: 50% 50% 0px;
+}
+.cardBodyClick:before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: -300px;
+  width: 80%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 0px 60px 40px rgba(255, 255, 255, 0.3);
+  transform: skewX(-40deg);
+  transition: 0.6s;
+}
+.cardBodyClick:hover:before {
+  left: 250px;
+  transition: 0.4s;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 0px 60px 40px rgba(255, 255, 255, 0.1);
+}
+.cardBodyNoClick {
+  cursor: default;
+}
+
+.cardBG {
+  overflow: hidden;
+  background-color: rgba(255,255,255,0.5);
+  border: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  border-color: rgba(0,80,200,0.1);
 }
 
 .Navigation {
@@ -71,17 +142,6 @@ a {
 .buttonGroup {
   border-radius: 6px;
 }
-
-.sectionBody{
-  width: 100%;
-  max-width: 1200px;
-  margin-left: 20px;
-  border-left: solid;
-  border-left-width: 1px;
-  border-left-color: rgba(0,0,0,0.05);
-  background-color: rgba(0,0,0,0.02)
-}
-
 .nameTitle {
   line-height: 100%;
 }

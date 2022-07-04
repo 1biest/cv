@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Modal from '@mui/material/Modal';
 
-import Modal1 from '../modals/modal1';
+import Anim3d from '../3d-animation';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -19,17 +19,16 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Section1() {
   return (
-    <div className="Section">
-        <h2>Davis Automotive Group</h2>
+    <div id="section1" className="Section">
         <Grid container spacing={2}>
-            <Grid item xs={4}>
-                <Modal1/>
+            <Grid item xs={6}>
+              <h2>Logan Biesterfeldt</h2>
+              <h4>Blockchain Web3 Full Stack Designer/Developer.</h4>
             </Grid>
-            <Grid item xs={4}>
-                <Modal1/>
-            </Grid>
-            <Grid item xs={4}>
-                <Modal1/>
+            <Grid item xs={6}>
+                <div className="wrapper-3d">
+                  <Anim3d />
+                </div>
             </Grid>
         </Grid>
     </div>
