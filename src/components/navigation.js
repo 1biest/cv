@@ -3,9 +3,10 @@ import '../App.css';
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
+import Box from '@mui/material/Box';
+import scrollTo from 'gatsby-plugin-smoothscroll';
 import IconButton from '@mui/material/IconButton';
 import { Twitter, LinkedIn, GitHub } from '@mui/icons-material';
-import scrollTo from 'gatsby-plugin-smoothscroll';
 
 import ProfilePhoto from './profilePhoto';
 
@@ -16,6 +17,7 @@ const buttons = [
     <Button onClick={() => scrollTo("#sectionAG")} key="four">Agriculture</Button>,
     <Button onClick={() => scrollTo("#sectionED")} key="five">Education</Button>,
 ];
+
 
 export default function ImgMediaCard() {
   return (
