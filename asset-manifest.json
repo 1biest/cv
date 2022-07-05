@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/cv/static/css/main.b2ee2ff5.css",
+    "main.css": "/cv/static/css/main.729b4e45.css",
     "main.js": "/cv/static/js/main.73dc9873.js",
     "static/media/ag-uav.png": "/cv/static/media/ag-uav.f512e64762cde3cac7c5.png",
     "static/media/dag-design.png": "/cv/static/media/dag-design.262095b83b445a1340da.png",
@@ -23,11 +23,11 @@
     "static/media/sf-announce.png": "/cv/static/media/sf-announce.cc350ce2b5e675a2537b.png",
     "index.html": "/cv/index.html",
     "static/media/ethereum.svg": "/cv/static/media/ethereum.cf8aa5e7c7ee6fe226057d2329059293.svg",
-    "main.b2ee2ff5.css.map": "/cv/static/css/main.b2ee2ff5.css.map",
+    "main.729b4e45.css.map": "/cv/static/css/main.729b4e45.css.map",
     "main.73dc9873.js.map": "/cv/static/js/main.73dc9873.js.map"
   },
   "entrypoints": [
-    "static/css/main.b2ee2ff5.css",
+    "static/css/main.729b4e45.css",
     "static/js/main.73dc9873.js"
   ]
 }
