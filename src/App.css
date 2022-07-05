@@ -28,6 +28,7 @@ a {
   transform-origin: 0% 0% 0px;
   position: relative;
   left: 20px;
+  z-index: 10;
 }
 .sectionBody h4{
   transform: rotate3d(1, -1, 0, -20deg);
@@ -188,4 +189,32 @@ a {
   border-width: 5px;
   border-color: rgba(0,74,116,0.8);
   box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+
+
+@media only screen and (max-width: 800px) {
+  .navWrapper {
+    display: none;
+    overflow: hidden;
+    width: 0px;
+  }
+
+  .Navigation {
+    width: 0%;
+    max-width: 216px;
+    margin-left: 0px;
+    margin-top: 0px;
+    overflow: hidden;
+  }
+
+  .navFooter {
+    padding: 10px;
+  }
+
+  .sectionBody{
+    width: 100%;
+    margin-left: 0px;
+    border-left-width: 0px;
+  }
 }
