@@ -14,7 +14,8 @@
     height: 1200px;
     transform-origin: 50% 50% -40px;
     background: rgb(70,175,232);
-    background: radial-gradient(circle, rgba(70,175,232,1) 0%, rgba(162,227,255,0.8) 35%, rgba(199,245,255,0.6) 60%, rgba(202,210,232,0) 70%);
+    background: radial-gradient(circle, rgba(70,175,232,1) 0%, rgba(162,227,255,0.8) 35%, rgba(90,185,242,0.1) 60%, rgba(70,175,232,0) 70%);
+    background-blend-mode: multiply;
     z-index: -2;
     pointer-events: none;
   }
@@ -53,33 +54,70 @@
     position: absolute;
     overflow: hidden;
     transform: rotate3d(1, -1, 0, -20deg);
-    top: 100px;
+    animation: layer-4 10s;
+    animation-delay: 4s;
+    animation-iteration-count: infinite;
+    top: 150px;
     left: 200px;
     width: 200px;
     height: 100px;
     border-radius: 30px;
-    transform-origin: 50% 50% 80px;
+    transform-origin: 50% 50% 130px;
     background: rgba(0,74,116,0.9);
     transition: 0.8s;
     pointer-events: none;
     z-index: 5;
   }
+  @keyframes layer-4 {
+    0% {left: 200px;} 
+    50% {left: 240px;} 
+    100% {left: 200px;} 
+}
   
   .anim-3d-layer-5 {
     position: absolute;
     overflow: hidden;
     transform: rotate3d(1, -1, 0, -20deg);
-    top: 340px;
-    left: -50px;
+    animation: layer-5 8s;
+    animation-iteration-count: infinite;
+    top: 400px;
+    left: -60px;
     width: 260px;
     height: 200px;
     border-radius: 30px;
-    transform-origin: 50% 50% 160px;
+    transform-origin: 50% 50% 390px;
     background: rgba(0,74,116,0.9);
+    opacity: 60%;
     transition: 0.8s;
     pointer-events: none;
-    z-index: 6;
+    z-index: 8;
   }
+    @keyframes layer-5 {
+      0% {left: -60px;} 
+      30% {left: -20px;} 
+      100% {left: -60px;} 
+  }
+  
+  .anim-3d-layer-6 {
+    position: absolute;
+    transform: rotate3d(1, -1, 0, -20deg);
+    animation: layer-6 12s;
+    animation-iteration-count: infinite;
+    top: 190px;
+    left: 34px;
+    width: 500px;
+    height: 200px;
+    transform-origin: 50% 50% 260px;
+    opacity: 10%;
+    transition: 0.8s;
+    pointer-events: none;
+    z-index: 7;
+  }
+  @keyframes layer-6 {
+    0% {top: 170px;} 
+    50% {top: 240px;} 
+    100% {top: 170px;} 
+}
   
   .anim-3d-layer-2 {
     position: absolute;
@@ -120,6 +158,13 @@
     transform: rotate3d(0.2, -0.2, 0, -40deg);
     box-shadow: 20px 20px 60px rgba(255,255,255,0.6);
     background: rgba(84,185,244,0.5);
+    opacity: 60%;
+    transition: 0.8s;
+  }
+
+  .anim-3d-layer-2:hover ~ .anim-3d-layer-6 {
+    transform: rotate3d(0.2, -0.2, 0, -40deg);
+    opacity: 60%;
     transition: 0.8s;
   }
   

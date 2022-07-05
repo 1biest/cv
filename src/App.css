@@ -21,7 +21,7 @@ a {
   transform: rotate3d(1, -1, 0, -20deg);
   transform-origin: 0% 0% 0px;
   position: relative;
-  left: 16px;
+  left: 18px;
 }
 .sectionBody h2{
   transform: rotate3d(1, -1, 0, -20deg);
@@ -33,7 +33,7 @@ a {
   transform: rotate3d(1, -1, 0, -20deg);
   transform-origin: 0% 0% 0px;
   position: relative;
-  left: 18px;
+  left: 19px;
 }
 
 .Section {
@@ -68,10 +68,10 @@ a {
   transform: translate(-50%, -50%);
   width: 70%;
   height: 80%;
-  overflow: hidden;
+  overflow:'hidden';
   background-color: rgba(255,255,255,0.95);
   max-width: 1200px;
-  border: 1px solid #000;
+  border: 1px solid rgba(70,175,232,0.2);
   padding: 20px;
 }
 
@@ -186,6 +186,6 @@ a {
   overflow: hidden;
   border: solid;
   border-width: 5px;
-  border-color: rgba(0,74,116,0.8);
+  border-color: rgba(25, 118, 210);
   box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
 }
