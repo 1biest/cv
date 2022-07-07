@@ -1,7 +1,7 @@
 {
   "name": "cv",
   "homepage": "https://1biest.github.io/cv/",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "private": false,
   "dependencies": {
     "@emotion/react": "^11.9.3",

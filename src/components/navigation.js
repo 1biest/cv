@@ -11,6 +11,7 @@ import { Twitter, LinkedIn, GitHub } from '@mui/icons-material';
 import ProfilePhoto from './profilePhoto';
 
 const buttons = [
+    <Button onClick={() => scrollTo("#sectionPEN")} key="one">CodePen</Button>,
     <Button onClick={() => scrollTo("#sectionSF")} key="one">stakefish/f2pool</Button>,
     <Button onClick={() => scrollTo("#sectionAA")} key="two">Artrageous Advertising</Button>,
     <Button onClick={() => scrollTo("#sectionDAG")} key="three">Davis Automotive Group</Button>,
