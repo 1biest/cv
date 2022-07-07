@@ -1,10 +1,11 @@
 {
   "files": {
     "main.css": "/cv/static/css/main.7455426d.css",
-    "main.js": "/cv/static/js/main.f05db217.js",
+    "main.js": "/cv/static/js/main.c75c95f8.js",
     "static/media/ag-uav.png": "/cv/static/media/ag-uav.f512e64762cde3cac7c5.png",
     "static/media/dag-design.png": "/cv/static/media/dag-design.262095b83b445a1340da.png",
     "static/media/dag-video.png": "/cv/static/media/dag-video.7adace7bd76d46524e59.png",
+    "static/media/homepage-splash.png": "/cv/static/media/homepage-splash.5ca2d304c94a3f7ddf74.png",
     "static/media/dag-dealertv.png": "/cv/static/media/dag-dealertv.0e9c226ce1b8241cdef0.png",
     "static/media/aa-web.png": "/cv/static/media/aa-web.efe793c1272e19917b7a.png",
     "static/media/jdoc-screenshot.png": "/cv/static/media/jdoc-screenshot.adef7f8938c92f24dc0c.png",
@@ -18,19 +19,19 @@
     "static/media/aa-report.png": "/cv/static/media/aa-report.9712b7d719979d40c21c.png",
     "static/media/ed-uleth.jpg": "/cv/static/media/ed-uleth.f338e0a11c35b64e4a9b.jpg",
     "static/media/ag-appsheet.jpg": "/cv/static/media/ag-appsheet.f4602f0e993e6995a0af.jpg",
-    "static/media/homepage-splash.jpg": "/cv/static/media/homepage-splash.28f4e045ca8c84c4be93.jpg",
     "static/media/ed-codecademy.png": "/cv/static/media/ed-codecademy.adbaef28f096c3c2e7e7.png",
     "static/media/aa-video.jpg": "/cv/static/media/aa-video.bfb8df4b401421f6afd7.jpg",
+    "static/media/homepage-splash.jpg": "/cv/static/media/homepage-splash.ac459c5b1bf2db92bb80.jpg",
     "static/media/jdoc.webp": "/cv/static/media/jdoc.d8517597c2b8304ca0b7.webp",
     "static/media/logan-profile-photo.jpg": "/cv/static/media/logan-profile-photo.07021e119313d8aa28ad.jpg",
     "static/media/sf-announce.png": "/cv/static/media/sf-announce.cc350ce2b5e675a2537b.png",
     "index.html": "/cv/index.html",
     "static/media/ethereum.svg": "/cv/static/media/ethereum.cf8aa5e7c7ee6fe226057d2329059293.svg",
     "main.7455426d.css.map": "/cv/static/css/main.7455426d.css.map",
-    "main.f05db217.js.map": "/cv/static/js/main.f05db217.js.map"
+    "main.c75c95f8.js.map": "/cv/static/js/main.c75c95f8.js.map"
   },
   "entrypoints": [
     "static/css/main.7455426d.css",
-    "static/js/main.f05db217.js"
+    "static/js/main.c75c95f8.js"
   ]
 }
