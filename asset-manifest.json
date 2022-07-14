@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/cv/static/css/main.570b844e.css",
-    "main.js": "/cv/static/js/main.493b1195.js",
+    "main.css": "/cv/static/css/main.b2205f2f.css",
+    "main.js": "/cv/static/js/main.01cd781a.js",
     "static/media/ag-uav.png": "/cv/static/media/ag-uav.f512e64762cde3cac7c5.png",
     "static/media/dag-design.png": "/cv/static/media/dag-design.262095b83b445a1340da.png",
     "static/media/dag-video.png": "/cv/static/media/dag-video.7adace7bd76d46524e59.png",
@@ -14,24 +14,24 @@
     "static/media/codepen-2.png": "/cv/static/media/codepen-2.da0367f8bb27e44be008.png",
     "static/media/codepen-1.png": "/cv/static/media/codepen-1.d6b9a51f74aaa3ec6e37.png",
     "static/media/appsheet.svg": "/cv/static/media/appsheet.1a7c784c83adb8e4b65d871e5b28ba70.svg",
+    "static/media/aa-video.png": "/cv/static/media/aa-video.951d9b40ce23f6e42c7e.png",
     "static/media/sf-tutorial.webp": "/cv/static/media/sf-tutorial.af8ed48eee25400a62ab.webp",
     "static/media/sf-pos.webp": "/cv/static/media/sf-pos.093faeaa8706221f9ef5.webp",
     "static/media/aa-report.png": "/cv/static/media/aa-report.9712b7d719979d40c21c.png",
     "static/media/ed-uleth.jpg": "/cv/static/media/ed-uleth.f338e0a11c35b64e4a9b.jpg",
     "static/media/ag-appsheet.jpg": "/cv/static/media/ag-appsheet.f4602f0e993e6995a0af.jpg",
     "static/media/ed-codecademy.png": "/cv/static/media/ed-codecademy.adbaef28f096c3c2e7e7.png",
-    "static/media/aa-video.jpg": "/cv/static/media/aa-video.bfb8df4b401421f6afd7.jpg",
     "static/media/homepage-splash.jpg": "/cv/static/media/homepage-splash.ac459c5b1bf2db92bb80.jpg",
     "static/media/jdoc.webp": "/cv/static/media/jdoc.d8517597c2b8304ca0b7.webp",
     "static/media/logan-profile-photo.jpg": "/cv/static/media/logan-profile-photo.07021e119313d8aa28ad.jpg",
     "static/media/sf-announce.png": "/cv/static/media/sf-announce.cc350ce2b5e675a2537b.png",
     "index.html": "/cv/index.html",
     "static/media/ethereum.svg": "/cv/static/media/ethereum.cf8aa5e7c7ee6fe226057d2329059293.svg",
-    "main.570b844e.css.map": "/cv/static/css/main.570b844e.css.map",
-    "main.493b1195.js.map": "/cv/static/js/main.493b1195.js.map"
+    "main.b2205f2f.css.map": "/cv/static/css/main.b2205f2f.css.map",
+    "main.01cd781a.js.map": "/cv/static/js/main.01cd781a.js.map"
   },
   "entrypoints": [
-    "static/css/main.570b844e.css",
-    "static/js/main.493b1195.js"
+    "static/css/main.b2205f2f.css",
+    "static/js/main.01cd781a.js"
   ]
 }
