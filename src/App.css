@@ -11,23 +11,24 @@ a {
 }
 
 .sectionBody{
-  width: 100%;
-  margin-left: 20px;
-  border-left: solid;
-  border-left-width: 1px;
-  border-left-color: rgba(0,0,0,0.05);
+  width: 70%;
+  margin: auto;
 }
 .sectionBodyP {
   transform: rotate3d(1, -1, 0, -20deg);
   transform-origin: 0% 0% 0px;
   position: relative;
-  left: 16px;
+  left: 14px;
 }
 .sectionBody h2{
   transform: rotate3d(1, -1, 0, -20deg);
   transform-origin: 0% 0% 0px;
   position: relative;
-  left: 20px;
+  color:rgb(25, 118, 210);
+  background: -webkit-linear-gradient(140deg, rgba(84,203,255,1) 50%, rgba(0,74,116,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  left: 16px;
   z-index: 10;
 }
 .sectionBody h4{
@@ -46,19 +47,36 @@ a {
   padding-bottom: 10px;
   max-width: 650px;
 }
+.Section h4{
+  font-weight: 400;
+}
 
 #section1 {
   padding-bottom: 70px;
   padding-top: 180px;
+
 }
 
 #section1 h2 {
-  font-size: 4em;
+  font-size: 5.8em;
   line-height: 100%;
+  width: 520px;
+  left: 11px;
+  color:rgb(25, 118, 210);
+  background: -webkit-linear-gradient(130deg, rgba(84,203,255,1) 0%, rgba(0,74,116,1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 40px;
+  margin-bottom: 4px;
+  transition: 1s;
 }
 #section1 h4 {
   font-size: 1.5em;
   max-width: 300px;
+  left: 10px;
+  font-weight: 400;
+  z-index: 5;
+  transition: 1s;
 }
 
 .ModalBody {
@@ -69,7 +87,7 @@ a {
   transform: translate(-50%, -50%);
   width: 70%;
   height: 80%;
-  overflow: hidden;
+  overflow: scroll;
   background-color: rgba(255,255,255,0.95);
   max-width: 1200px;
   border: 1px solid #000;
@@ -126,7 +144,7 @@ a {
   background-color: rgba(255,255,255,0.5);
   border: solid;
   border-width: 1px;
-  border-radius: 8px;
+  border-radius: 6px;
   border-color: rgba(0,80,200,0.1);
 }
 
@@ -136,6 +154,61 @@ a {
   margin-left: 20px;
   margin-top: 20px;
   overflow: hidden;
+  transition: 0.5s;
+  transition-property: width;
+}
+
+.mobileNav {
+  position: fixed;
+  margin: 10px;
+  z-index: 20;
+  border-width: 1px;
+  border: solid;
+  border-radius: 6px;
+  border-color: rgba(0,80,200,0.1);
+  background-color: rgba(0,80,200,0.1);
+}
+
+.mobileHeader {
+  position: fixed;
+  transition: 1s;
+  left: -110px;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(6px);
+  border: solid;
+  border-width: 1px;
+  border-color: rgba(0,0,0,0.05);
+  width: 92px;
+  height: 63px;
+  border-radius: 0 0 12px 0;
+  z-index: 20;
+}
+
+.mobileNavFixed {
+  padding: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 6px;
+  width: 100%;
+  transition: 1s;
+  margin-left: 10%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 20;
+}
+
+#positioned-menu{
+  height: 1000px;
+  text-align: center;
+}
+
+.mobileMenuInner{
+  width: 270px;
+  height: 100%;
+  padding-bottom: 10px;
+  text-align: center;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(6px);
 }
 
 .navWrapper {
@@ -144,6 +217,9 @@ a {
   max-width: 214px;
   border-radius: 6px;
   text-align: center;
+  transition: 1s;
+  transition-property: opacity;
+  opacity: 100%;
 }
 
 .navFooter {
@@ -155,6 +231,9 @@ a {
   text-align: center;
   line-height: 100%;
   font-size: 0.7em;
+  transition: 1s;
+  transition-property: opacity;
+  opacity: 100%;
 }
 .navFooter h4 {
   margin-block-start: 0;
@@ -163,7 +242,23 @@ a {
 .navFooter p {
   margin-block-start: 0;
   margin-block-end: 20px;
+}
 
+.navFooterMobile {
+  padding-top: 20px;
+  padding-bottom: 16px;
+  border-radius: 6px;
+  text-align: center;
+  line-height: 100%;
+  transition: 1s;
+}
+.navFooterMobile h4 {
+  margin-block-start: 0;
+  margin-block-end: 4px;
+}
+.navFooterMobile p {
+  margin-block-start: 0;
+  margin-block-end: 20px;
 }
 
 .buttonGroup {
@@ -183,39 +278,89 @@ a {
   width: 100px;
   margin: auto;
   margin-top: 20px;
-  border-radius: 100%;
-  overflow: hidden;
   border: solid;
   border-width: 5px;
-  border-color: rgba(0,74,116,0.8);
+  background-clip: border-box;
+  border-color: rgba(0,74,116,0.7);
+  border-radius: 100%;
   box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+.profilePhoto img{
+  transform: scale(100%);
+  border-radius: 100%;
+}
+
+.wrapper-3d{
+  transition: 1s;
 }
 
 
+@media only screen and (max-width: 1400px) {
+  .wrapper-3d{
+    transform: scale(0.75);
+    transition: 1s;
+  }
+  #section1 h2 {
+    font-size: 3.2em;
+    transition: 1s;
+    width: 300px;
+  }
+  #section1 h4 {
+    font-size: 1.2em;
+    transition: 1s;
+  }
+}
+
 
 @media only screen and (max-width: 800px) {
-  .navWrapper {
-    transform: scale(0.5);
-    display: none;
-    overflow: hidden;
-    width: 0px;
-  }
 
   .Navigation {
-    width: 0%;
-    max-width: 216px;
-    margin-left: 0px;
-    margin-top: 0px;
-    overflow: hidden;
+    width: 0px;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+    transition-property: width;
+    pointer-events: none;
   }
 
-  .navFooter {
-    padding: 10px;
+  .navWrapperClose {
+    transition: 1s;
+    transition-property: opacity;
+    opacity: 0;
+  }
+
+  .navFooterClose {
+    transition: 1s;
+    transition-property: opacity;
+    opacity: 0;
   }
 
   .sectionBody{
     width: 100%;
     margin-left: 0px;
     border-left-width: 0px;
+  }
+
+  .wrapper-3d{
+    transform: scale(0.5);
+    transition: 1s;
+  }
+
+  .Section {
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-bottom: 40px;
+  };
+
+  .mobileNavFixed {
+    width: 80%;
+    transition: 1s;
+    overflow: visible;
+    pointer-events: auto;
+  }
+
+  .mobileHeader {
+    position: fixed;
+    left: 0px;
+    transition: 1s;
   }
 }

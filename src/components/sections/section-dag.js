@@ -26,7 +26,7 @@ export default function Section1() {
     <div id='sectionDAG' className="Section">
         <h2>Davis Automotive Group</h2>
         <h4>April 2013 - August 2017</h4>
-        <p className='sectionBodyP'>Starting out of Davis GMC Buick in Lethbridge, Davis Automotive Group was created to be a centralized hub of administrative fuctions for members of the dealer group, featuring IT, BDC, HR, and Marketing departments. As a New Media Administrator for at first Davis GMC Buick, and then later promoted to what was internally referred to as "615". I was responsible for ideation and production of marketing campaigns, video content, web development, and graphic design.</p>
+        <p className='sectionBodyP'>Starting out of Davis GMC Buick in Lethbridge, Davis Automotive Group was created to be a centralized hub of administrative fuctions for members of the dealer group, featuring IT, BDC, HR, and Marketing departments.<br /><br />As a New Media Administrator for at first Davis GMC Buick, and then later promoted to what was internally referred to as "615", I was responsible for ideation and production of marketing campaigns, video content, web development, and graphic design.</p>
         <Grid 
         container
         direction="row"

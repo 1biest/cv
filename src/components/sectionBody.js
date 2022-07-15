@@ -9,6 +9,7 @@ import SectionAA from './sections/section-aa';
 import SectionAG from './sections/section-ag';
 import SectionDAG from './sections/section-dag';
 import SectionED from './sections/section-ed';
+import SectionFOOTER from './sections/section-footer';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -27,6 +28,7 @@ function App() {
       <SectionDAG />
       <SectionAG />
       <SectionED />
+      <SectionFOOTER />
     </div>
   );
 }

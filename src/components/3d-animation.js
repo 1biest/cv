@@ -20,8 +20,6 @@ export default function Anim3d() {
           </div>
           <div className="anim3d anim-3d-layer-9">
           </div>
-          <div className="anim3d anim-3d-layer-10">
-          </div>
           <div className="anim3d anim-3d-layer-bg"></div>
         </div>
     );

@@ -8,6 +8,7 @@ import Grid from '@mui/material/Grid';
 import Modal from '@mui/material/Modal';
 
 import Anim3d from '../3d-animation';
+import Modal1 from '../modals/s1-video-modal';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -21,9 +22,10 @@ export default function Section1() {
   return (
     <div id="section1" className="Section">
         <Grid container spacing={2}>
-            <Grid item xs={6}>
-              <h2>Logan Biesterfeldt</h2>
+            <Grid style={{zIndex: '20'}} item xs={6}>
+              <h2>Logan<br /> Biesterfeldt</h2>
               <h4>Blockchain Web3<br /> Motion Graphic Designer<br />CSS Animator<br />Front End Engineer</h4>
+              <Modal1 />
             </Grid>
             <Grid item xs={6}>
                 <div className="wrapper-3d">

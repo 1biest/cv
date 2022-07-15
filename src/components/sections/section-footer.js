@@ -7,7 +7,9 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Modal from '@mui/material/Modal';
 
-import Modal1 from '../modals/modal1';
+import HomeSplash from '../../img/homepage-splash.jpg';
+import HomeSplash2 from '../../img/homepage-splash.png';
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -19,20 +21,9 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Section1() {
   return (
-    <div id='sectionULETH' className="Section">
-        <h2>University of Lethbridge</h2>
-        <p>Working at stakefish has been an incredible insight into the development of proof of stake blockchains.</p>
-        <Grid container spacing={2}>
-            <Grid item xs={4}>
-                <Modal1/>
-            </Grid>
-            <Grid item xs={4}>
-                <Modal1/>
-            </Grid>
-            <Grid item xs={4}>
-                <Modal1/>
-            </Grid>
-        </Grid>
+    <div id='sectionFOOTER'>
+          <img width={'10px'} src={HomeSplash} />
+          <img width={'10px'} src={HomeSplash2} />
     </div>
   );
 }

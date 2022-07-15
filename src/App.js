@@ -12,6 +12,7 @@ import Modal from '@mui/material/Modal';
 import SectionBody from './components/sectionBody';
 import Navigation from './components/navigation';
 import Section1 from './components/sections/section-1';
+import MobileNav from './components/mobile-nav';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -24,6 +25,11 @@ const Item = styled(Paper)(({ theme }) => ({
 function App() {
   return (
     <div className="App">
+      <div className="mobileHeader">
+        <div className ="mobileNav">
+          <MobileNav />
+        </div>
+      </div>
       <div className="Navigation">
         <Navigation />
       </div>
