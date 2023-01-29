@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Modal from '@mui/material/Modal';
 
-import Modal1 from '../modals/codepen-1-modal';
+import Modal1 from '../modals/hack-dyve-modal';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -20,7 +20,7 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function Section1() {
   return (
     <div className="Section">
-        <h2>Top Engineering Projects</h2>
+        <h2>Hackathon Submissions</h2>
         <Grid container
         direction="row"
         justifyContent="flex-start"

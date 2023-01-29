@@ -2,7 +2,7 @@
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 
-import SectionTOP from './sections/section-top';
+import SectionHACK from './sections/section-hack';
 import SectionPEN from './sections/section-codepen';
 import SectionSF from './sections/section-sf';
 import SectionAA from './sections/section-aa';
@@ -22,7 +22,7 @@ const Item = styled(Paper)(({ theme }) => ({
 function App() {
   return (
     <div>
-      <SectionPEN />
+      <SectionHACK />
       <SectionSF />
       <SectionAA />
       <SectionDAG />
