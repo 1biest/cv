@@ -2,7 +2,17 @@ import React from 'react';
 import Grid from '@mui/material/Grid';
 import { WorkExperience } from '../data/types';
 
+import data from "../data/data.json"
+
 const Section = ({ experience }: { experience: WorkExperience }) => {
+
+  // Filter the project that matches the company in the experience
+  const matchingProjects = data.projects.filter(
+    (project) => project.company === experience.company
+  );
+
+  console.log("matchingProjects", matchingProjects)
+
   return (
     <div className="Section">
       <h2>{experience.company}</h2>
@@ -15,8 +25,12 @@ const Section = ({ experience }: { experience: WorkExperience }) => {
         alignItems="center"
         spacing={2}
       >
-        <Grid item>
-        </Grid>
+        {matchingProjects.map((project, index) => (
+          <div key={index}>
+            <p>{project.title}</p>
+            <p>{project.desc}</p>
+          </div>
+        ))}
       </Grid>
     </div>
   );
