@@ -6,8 +6,6 @@ import scrollTo from "gatsby-plugin-smoothscroll";
 import IconButton from "@mui/material/IconButton";
 import { Twitter, LinkedIn, GitHub, ContactPage } from "@mui/icons-material";
 
-import ProfilePhoto from "./profilePhoto";
-
 const buttons = [
   <Button onClick={() => scrollTo("#sectionPEN")} key="one">
     CodePen
@@ -29,7 +27,7 @@ const buttons = [
   </Button>,
 ];
 
-export default function ImgMediaCard() {
+const Navigation: React.FC = () => {
   return (
     <>
       <div className="navWrapper navWrapperClose">
@@ -37,7 +35,7 @@ export default function ImgMediaCard() {
           style={{ cursor: "pointer" }}
           onClick={() => scrollTo("#section1")}
         >
-          <ProfilePhoto />
+          <img src='../img/logan-profile-photo.jpg' width="100" alt="Logan Biesterfeldt" />
         </div>
         <h2 className="nameTitle">
           Logan<br></br> Biesterfeldt
@@ -105,3 +103,5 @@ export default function ImgMediaCard() {
     </>
   );
 }
+
+export default Navigation;
