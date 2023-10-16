@@ -1,0 +1,83 @@
+{
+  "personalInfo": {
+    "firstName": "Logan",
+    "lastName": "Biesterfeldt",
+    "email": "logan.biesterfeldt@gmail.com",
+    "phone": "+1 (403) 795-3929",
+    "address": "Calgary, Canada"
+  },
+  "education": [
+    {
+      "schoolName": "University of Lethbridge",
+      "degree": "Bachelor's in Fine Arts: New Media",
+      "graduationYear": 2014
+    }
+  ],
+  "workExperience": [
+    {
+      "jobTitle": "Frontend Engineer",
+      "company": "Design DAO",
+      "startDate": "2023-07-01",
+      "endDate": "2023-10-04",
+      "description": "Developed Web3 DeFi applications using React, Next.js and Tailwind."
+    },
+    {
+      "jobTitle": "Frontend Engineer",
+      "company": "Cryptech",
+      "startDate": "2022-08-04",
+      "endDate": "present",
+      "description": "Developed Web3 DeFi applications using React, Next.js and Tailwind."
+    },
+    {
+      "jobTitle": "Motion Designer",
+      "company": "stakefish",
+      "startDate": "2020-03-15",
+      "endDate": "2022-07-29",
+      "description": "Produced motion graphic content for education and marketing for a blockchain validator."
+    }
+  ],
+  "projects": [
+    {
+      "title": "Staking Tutorials",
+      "desc": "Detailed tutorial videos of the techinical steps taken to stake tokens with stakefish using respective wallets and protocols.",
+      "company": "stakefish",
+      "thumbUrl": "./thumbnails/sf-tutorial.webp"
+    },
+    {
+      "title": "Staking Tutorials",
+      "desc": "Detailed tutorial videos of the techinical steps taken to stake tokens with stakefish using respective wallets and protocols.",
+      "company": "stakefish",
+      "thumbUrl": "./thumbnails/sf-tutorial.webp"
+    }
+  ],
+  "skills": [
+    {
+      "skill": "Next.js",
+      "score": 1
+    },
+    {
+      "skill": "Tailwind",
+      "score": 2
+    },
+    {
+      "skill": "TypeScript",
+      "score": 2
+    },
+    {
+      "skill": "HTML/CSS",
+      "score": 5
+    },
+    {
+      "skill": "Web Design",
+      "score": 6
+    },
+    {
+      "skill": "Motion Design",
+      "score": 7
+    },
+    {
+      "skill": "Graphic Design",
+      "score": 9
+    }
+  ]
+}
