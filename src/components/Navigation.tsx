@@ -42,25 +42,25 @@ const Navigation: React.FC = () => {
         </h2>
         <p className="nameSubtitle"></p>
 
-        <IconButton color="primary">
-          <Twitter
+        <IconButton
             onClick={() =>
               window.open("https://twitter.com/1biesterfeldt", "_blank")
-            }
+            } color="primary">
+          <Twitter
           >
             Twitter
           </Twitter>
         </IconButton>
-        <IconButton color="primary">
-          <LinkedIn
+        <IconButton
             onClick={() =>
               window.open("https://www.linkedin.com/in/biest/", "_blank")
-            }
+            } color="primary">
+          <LinkedIn
           />
         </IconButton>
-        <IconButton color="primary">
+        <IconButton
+            onClick={() => window.open("https://github.com/1biest", "_blank")} color="primary">
           <GitHub
-            onClick={() => window.open("https://github.com/1biest", "_blank")}
           />
         </IconButton>
         <div style={{ height: "12px" }} />

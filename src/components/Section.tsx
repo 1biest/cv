@@ -1,8 +1,50 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Grid from '@mui/material/Grid';
-import { WorkExperience } from '../data/types';
+import { Project, WorkExperience } from '../data/types';
+import { CardContent, Typography, CardMedia } from '@mui/material';
 
 import data from "../data/data.json"
+
+const Card = ({ project }: { project: Project }) => {
+  const imageUrl = project.thumbUrl;
+  const [image, setImage] = useState(null);
+
+  useEffect(() => {
+    const importImage = async () => {
+      try {
+        const imageModule = await import(`../img/thumbnails/${imageUrl}`);
+        console.log("imageModule", imageModule)
+        setImage(imageModule.default);
+      } catch (error) {
+        console.error('Error loading image:', error);
+      }
+    };
+
+    importImage();
+  }, [imageUrl]);
+    
+  return (
+    <div className="card-bg">
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {project.title}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {project.desc}
+        </Typography>
+      </CardContent>
+      {image && (
+        <CardMedia
+          component="img"
+          alt={project.title}
+          height="210"
+          width="240"
+          image={image}
+        />
+      )}
+    </div>
+  );
+};
 
 const Section = ({ experience }: { experience: WorkExperience }) => {
 
@@ -11,13 +53,15 @@ const Section = ({ experience }: { experience: WorkExperience }) => {
     (project) => project.company === experience.company
   );
 
-  console.log("matchingProjects", matchingProjects)
-
   return (
     <div className="Section">
       <h2>{experience.company}</h2>
-      <h4>{experience.startDate} - {experience.endDate}</h4>
-      <p>{experience.desc}</p>
+      {experience.startDate ? (
+        <h4>{experience.startDate} - {experience.endDate}</h4>
+      ) : (
+        <h4>{experience.endDate}</h4>
+      )}
+      <h4>{experience.desc}</h4>
       <Grid
         container
         direction="row"
@@ -26,10 +70,7 @@ const Section = ({ experience }: { experience: WorkExperience }) => {
         spacing={2}
       >
         {matchingProjects.map((project, index) => (
-          <div key={index}>
-            <p>{project.title}</p>
-            <p>{project.desc}</p>
-          </div>
+          <Card key={index} project={project} />
         ))}
       </Grid>
     </div>
