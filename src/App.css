@@ -19,17 +19,24 @@ a {
   position: relative;
   left: 14px;
 }
-.sectionBody h2{
+
+h2{
   transform: rotate3d(1, -1, 0, -20deg);
   transform-origin: 0% 0% 0px;
   position: relative;
-  color:rgb(25, 118, 210);
+  color: rgb(25, 118, 210);
+  background: -webkit-linear-gradient(140deg, rgba(84, 203, 255, 1) 0%, rgba(0, 74, 116, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 10;
+}
+.sectionBody h2{
   background: -webkit-linear-gradient(140deg, rgba(84,203,255,1) 50%, rgba(0,74,116,1) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   left: 14px;
-  z-index: 10;
 }
+
 .sectionBody h4{
   transform: rotate3d(1, -1, 0, -20deg);
   transform-origin: 0% 0% 0px;
@@ -214,7 +221,7 @@ a {
 
 .navWrapper {
   position: fixed;
-  width: 28%;
+  width: 20%;
   max-width: 214px;
   border-radius: 6px;
   text-align: center;
@@ -223,10 +230,21 @@ a {
   opacity: 100%;
 }
 
-.navFooter {
+.nav-icons {
+  transform: rotate3d(1, -1, 0, -20deg);
+  transform-origin: 0% 0% 0px;
+  position: relative;
+  color: rgba(0, 74, 116, 1);
+  background: -webkit-linear-gradient(140deg, rgba(84, 203, 255, 1) 0%, rgba(0, 74, 116, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 10;
+}
+
+.nav-footer {
   position: fixed;
   bottom: 20px;
-  width: 28%;
+  width: 20%;
   max-width: 212px;
   border-radius: 6px;
   text-align: center;
@@ -235,14 +253,21 @@ a {
   transition: 1s;
   transition-property: opacity;
   opacity: 100%;
+  transform: rotate3d(1, -1, 0, -20deg);
+  transform-origin: 0% 0% 0px;
 }
-.navFooter h4 {
+.nav-footer h4 {
   margin-block-start: 0;
   margin-block-end: 4px;
 }
-.navFooter p {
+.nav-footer p {
   margin-block-start: 0;
-  margin-block-end: 20px;
+  margin-block-end: 10px;
+  background: -webkit-linear-gradient(140deg, rgba(84, 203, 255, 1) 0%, rgba(0, 74, 116, 1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  line-height: normal;
 }
 
 .navFooterMobile {
@@ -267,11 +292,6 @@ a {
 }
 .nameTitle {
   line-height: 100%;
-}
-
-.nameSubtitle {
-  line-height: 100%;
-  color: rgba(0,0,0,0.5);
 }
 
 .profilePhoto {

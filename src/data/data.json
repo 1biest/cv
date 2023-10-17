@@ -19,28 +19,32 @@
       "company": "Design DAO",
       "startDate": "",
       "endDate": "October 2023",
-      "desc": "A Cosmos focused DAO, designing for and promoting everything ICS and Interchain."
+      "desc": "A Cosmos focused DAO, designing for and promoting everything ICS and Interchain.",
+      "divId": "designDao"
     },
     {
       "jobTitle": "Frontend Engineer",
       "company": "Cryptech",
       "startDate": "August 2022",
       "endDate": "present",
-      "desc": "Developing Web3 DeFi applications using React, Next.js and Tailwind. Responsibilities include UI/UX, Design, Branding, and Engineering in TypeScript."
+      "desc": "Developing Web3 DeFi applications using React, Next.js and Tailwind. Responsibilities include UI/UX, Design, Branding, and Engineering in TypeScript.",
+      "divId": "cryptech"
     },
     {
       "jobTitle": "Frontend Engineer",
       "company": "ETH Global FS Hack 2022",
       "startDate": "",
       "endDate": "July 2022",
-      "desc": "10 day online Ethereum hackathon featuring XYZ as sponsors."
+      "desc": "10 day online Ethereum hackathon featuring Filecoin, Polygon, and The Graph, among others, as sponsors.",
+      "divId": "ethGlobal"
     },
     {
       "jobTitle": "Motion Designer",
       "company": "stakefish/f2pool",
       "startDate": "October 2020",
       "endDate": "July 2022",
-      "desc": "f2pool and stakefish are leading service providers for blockchain infrastructure security. The marketing team promoted and raised awareness to cutting edge projects in the world of crypto."
+      "desc": "f2pool and stakefish are leading service providers for blockchain infrastructure security. The marketing team promoted and raised awareness to cutting edge projects in the world of crypto.",
+      "divId": "stakefish"
     },
     {
       "jobTitle": "Web Design / Video Production",
@@ -60,39 +64,45 @@
   "projects": [
     {
       "title": "Cosmoverse 2023",
-      "desc": "Partnered with Design Dao to develop a dynamically hosted and reactive online schedule. While implemented in Framer CMS, the develpment enviroinment was very limited, requiring no external imports. Features include ICS generator and user configurable values within the Framer interface.",
+      "desc": "Partnered with Design Dao to develop a dynamically hosted and reactive online schedule. While implemented as a Framer component, the develpment environment was limited, with no external imports available. Features include ICS generator and admin configurable values within the Framer interface.",
       "company": "Design DAO",
-      "thumbUrl": "sf-tutorial.webp"
+      "thumbUrl": "designdao-cosmoverse.webp",
+      "link": "https://cosmoverse.org/schedule"
     },
     {
       "title": "Neptune Webapp",
       "desc": "Designed and developed the UI/UX for the frontend web application for the Neptune DeFi protocol. Component library built in Figma. Engineered in Next.js with Tailwind and Material UI.",
       "company": "Cryptech",
-      "thumbUrl": "sf-tutorial.webp"
+      "thumbUrl": "cryptech-nept-app.webp",
+      "link": "https://injective.nept.finance/"
     },
     {
       "title": "Neptune Landing Page",
       "desc": "Designed and developed the landing page for Neptune utilizing Figma, Next.js and Tailwind.",
       "company": "Cryptech",
-      "thumbUrl": "sf-announce.png"
+      "thumbUrl": "cryptech-nept-landing.webp",
+      "link": "https://nept.finance/"
     },
     {
       "title": "Macro Dex",
       "desc": "Front-end development of a DeFi dex interface.",
       "company": "Cryptech",
-      "thumbUrl": "sf-pos.webp"
+      "thumbUrl": "cryptech-macro.webp",
+      "link": "https://macro.noria.network/"
     },
     {
       "title": "Cryptech Website",
       "desc": "Designed and developed the online presence of Cryptech Developments Ltd.",
       "company": "Cryptech",
-      "thumbUrl": "sf-pos.webp"
+      "thumbUrl": "cryptech-web.webp",
+      "link": "https://cryptech.dev/"
     },
     {
       "title": "Dyve",
-      "desc": "NFT shorting. We won awards yo.",
+      "desc": "NFTFi Primitive that allows users to safely Lend, Rent, or Short NFTs. Built with React and Tailwind. Winner of 🏊‍♂️ NFTPort — Pool Prize 🥈 Covalent — Best Use 5️⃣ Polygon — Top 5",
       "company": "ETH Global FS Hack 2022",
-      "thumbUrl": "sf-tutorial.webp"
+      "thumbUrl": "hackfs-dyve.webp",
+      "link": "https://ethglobal.com/showcase/dyve-pxsz9"
     },
     {
       "title": "Staking Tutorials",

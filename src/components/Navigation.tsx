@@ -7,76 +7,74 @@ import IconButton from "@mui/material/IconButton";
 import { Twitter, LinkedIn, GitHub, ContactPage } from "@mui/icons-material";
 
 const buttons = [
-  <Button onClick={() => scrollTo("#sectionPEN")} key="one">
-    CodePen
+  <Button onClick={() => scrollTo("#designDao")} key="one">
+    Design Dao
   </Button>,
-  <Button onClick={() => scrollTo("#sectionSF")} key="one">
-    stakefish/f2pool
+  <Button onClick={() => scrollTo("#cryptech")} key="one">
+    Cryptech
   </Button>,
-  <Button onClick={() => scrollTo("#sectionAA")} key="two">
-    Artrageous Advertising
+  <Button onClick={() => scrollTo("#ethGlobal")} key="two">
+    FS Hack 2022
   </Button>,
-  <Button onClick={() => scrollTo("#sectionDAG")} key="three">
-    Davis Automotive Group
-  </Button>,
-  <Button onClick={() => scrollTo("#sectionAG")} key="four">
-    Agriculture
-  </Button>,
-  <Button onClick={() => scrollTo("#sectionED")} key="five">
-    Education
-  </Button>,
+  <Button onClick={() => scrollTo("#stakefish")} key="three">
+    stakefish
+  </Button>
 ];
 
 const Navigation: React.FC = () => {
   return (
     <>
       <div className="navWrapper navWrapperClose">
-        <div
-          style={{ cursor: "pointer" }}
-          onClick={() => scrollTo("#section1")}
-        >
-          <img src='../img/logan-profile-photo.jpg' width="100" alt="Logan Biesterfeldt" />
-        </div>
-        <h2 className="nameTitle">
-          Logan<br></br> Biesterfeldt
-        </h2>
-        <p className="nameSubtitle"></p>
-
-        <IconButton
+        <h2>Logan<br /> Biesterfeldt</h2>
+        <div className="nav-icons">
+          <IconButton
             onClick={() =>
               window.open("https://twitter.com/1biesterfeldt", "_blank")
-            } color="primary">
-          <Twitter
+            }
+            style={{
+              background: 'transparent',
+              color: 'rgba(0, 74, 116, 1)',
+            }}
           >
-            Twitter
-          </Twitter>
-        </IconButton>
-        <IconButton
+            <Twitter />
+          </IconButton>
+          <IconButton
             onClick={() =>
               window.open("https://www.linkedin.com/in/biest/", "_blank")
-            } color="primary">
-          <LinkedIn
-          />
-        </IconButton>
-        <IconButton
-            onClick={() => window.open("https://github.com/1biest", "_blank")} color="primary">
-          <GitHub
-          />
-        </IconButton>
+            }
+            style={{
+              background: 'transparent',
+              color: 'rgba(0, 74, 116, 1)',
+            }}
+          >
+            <LinkedIn />
+          </IconButton>
+          <IconButton
+            onClick={() => window.open("https://github.com/1biest", "_blank")}
+            style={{
+              background: 'transparent',
+              color: 'rgba(0, 74, 116, 1)',
+            }}
+          >
+            <GitHub />
+          </IconButton>
+        </div>
         <div style={{ height: "12px" }} />
         <ButtonGroup
           orientation="vertical"
           aria-label="vertical button group"
           variant="text"
+          style={{
+            background: 'transparent',
+            color: 'rgba(0, 74, 116, 1)',
+          }}
         >
           {buttons}
         </ButtonGroup>
       </div>
 
-      <div className="navFooter navFooterClose">
+      <div className="nav-footer navFooterClose">
         <Button
-          variant="outlined"
-          style={{ fontWeight: "600", marginBottom: "18px" }}
           startIcon={<ContactPage />}
           onClick={() =>
             window.open(
@@ -84,21 +82,20 @@ const Navigation: React.FC = () => {
               "_blank"
             )
           }
+          style={{
+            background: 'transparent',
+            color: 'rgba(0, 74, 116, 1)',
+            fontWeight: "600",
+            marginBottom: "6px"
+          }}
         >
-          Download CV
+          Resume
         </Button>
-        <h4>Phone</h4>
-        <p>
-          <a href="tel:1-403-795-3929">+1 (403) 795-3929</a>
-        </p>
-        <h4>Email</h4>
         <p>
           <a href="&#109;a&#105;l&#116;o&#58;l&#111;&#103;an&#37;&#50;Eb&#105;est&#101;&#37;72%&#54;6eld%74&#64;gmai&#108;&#46;c%&#54;F%&#54;&#68;">
             &#108;ogan&#46;bi&#101;&#115;&#116;&#101;&#114;feldt&#64;gmai&#108;&#46;&#99;o&#109;
           </a>
         </p>
-        <h4>Location</h4>
-        <p>Calgary, Canada</p>
       </div>
     </>
   );

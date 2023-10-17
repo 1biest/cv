@@ -22,8 +22,8 @@ const Card = ({ project }: { project: Project }) => {
 
     importImage();
   }, [imageUrl]);
-    
-  return (
+
+  const cardContent = (
     <div className="card-bg">
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -43,6 +43,16 @@ const Card = ({ project }: { project: Project }) => {
       )}
     </div>
   );
+
+  return (
+    project.url ? (
+      <a href={project.url} target="_blank">
+        {cardContent}
+      </a>
+    ) : (
+      cardContent
+    )
+  );
 };
 
 const Section = ({ experience }: { experience: WorkExperience }) => {
@@ -53,7 +63,7 @@ const Section = ({ experience }: { experience: WorkExperience }) => {
   );
 
   return (
-    <div className="Section">
+    <div className="Section" id={experience.divId ? experience.divId : undefined}>
       <h2>{experience.company}</h2>
       {experience.startDate ? (
         <h4>{experience.startDate} - {experience.endDate}</h4>

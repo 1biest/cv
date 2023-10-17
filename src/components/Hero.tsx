@@ -7,8 +7,7 @@ const Hero: React.FC = () => {
     <div id="hero" className="Section">
       <Grid container spacing={2}>
         <Grid style={{ zIndex: '20' }} item xs={6}>
-          <h2>Logan<br /> Biesterfeldt</h2>
-          <h4>Front-end Engineer<br />Blockchain Web3<br />Motion Design<br />UI/UX</h4>
+          <h2>Front-end Engineer<br />Blockchain Web3<br />Motion Design<br />UI/UX</h2>
         </Grid>
         <Grid item xs={6}>
           <div className="wrapper-3d">

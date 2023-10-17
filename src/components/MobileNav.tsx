@@ -45,7 +45,7 @@ const PositionedMenu: React.FC = () => {
           <div style={{ cursor: 'pointer' }} onClick={() => scrollTo("#section1")}>
             {/* Include ProfilePhoto component here */}
           </div>
-          <h2 className="nameTitle">Logan<br /> Biesterfeldt</h2>
+          <h2>Logan<br /> Biesterfeldt</h2>
           <p className="nameSubtitle"></p>
 
           <IconButton color="primary">
@@ -60,7 +60,7 @@ const PositionedMenu: React.FC = () => {
         </div>
 
         <div className="navFooterMobile">
-          <Button variant="outlined" style={{ fontWeight: '600', marginBottom: '18px' }} startIcon={<ContactPage />} onClick={() => window.open("https://drive.google.com/file/d/1AwS_CczNhqqmsRkWaFxzTYfP1vN1jTeO/view?usp=sharing", "_blank")}>Download CV</Button>
+          <Button variant="outlined" style={{ fontWeight: '600', marginBottom: '18px' }} startIcon={<ContactPage />} onClick={() => window.open("https://drive.google.com/file/d/1AwS_CczNhqqmsRkWaFxzTYfP1vN1jTeO/view?usp=sharing", "_blank")}>Resume</Button>
           <h4>Phone</h4>
           <p><a href="tel:1-403-795-3929">+1 (403) 795-3929</a></p>
           <h4>Email</h4>

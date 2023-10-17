@@ -20,6 +20,7 @@ export interface PersonalInfo {
     startDate: string;
     endDate: string;
     desc: string;
+    divId?: string;
   }
   
   export interface Project {
@@ -27,6 +28,7 @@ export interface PersonalInfo {
     desc: string;
     company: string;
     thumbUrl: string;
+    url?: string;
   }
   
   export interface Skill {
