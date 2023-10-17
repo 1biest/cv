@@ -27,14 +27,14 @@ a {
   background: -webkit-linear-gradient(140deg, rgba(84,203,255,1) 50%, rgba(0,74,116,1) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  left: 16px;
+  left: 14px;
   z-index: 10;
 }
 .sectionBody h4{
   transform: rotate3d(1, -1, 0, -20deg);
   transform-origin: 0% 0% 0px;
   position: relative;
-  left: 18px;
+  left: 14px;
 }
 
 .Section {
@@ -139,6 +139,7 @@ a {
 }
 
 .card-bg {
+  width: 300px;
   overflow: hidden;
   background-color: rgba(255,255,255,0.5);
   border: solid;

@@ -37,8 +37,7 @@ const Card = ({ project }: { project: Project }) => {
         <CardMedia
           component="img"
           alt={project.title}
-          height="210"
-          width="240"
+          height="170"
           image={image}
         />
       )}
@@ -67,7 +66,7 @@ const Section = ({ experience }: { experience: WorkExperience }) => {
         direction="row"
         justifyContent="flex-start"
         alignItems="center"
-        spacing={2}
+        spacing={1}
       >
         {matchingProjects.map((project, index) => (
           <Card key={index} project={project} />
