@@ -79,13 +79,16 @@ const PositionedMenu: React.FC = () => {
         </div>
 
         <div className="navFooterMobile">
-          <Button
+          {/* <Button
             style={{
               fontWeight: '600',
               marginBottom: '18px',
               color: 'rgba(0, 74, 116, 1)'
             }}
-            startIcon={<ContactPage />} onClick={() => window.open("https://drive.google.com/file/d/1AwS_CczNhqqmsRkWaFxzTYfP1vN1jTeO/view?usp=sharing", "_blank")}>Resume</Button>
+            startIcon={<ContactPage />} onClick={() => window.open("https://drive.google.com/file/d/1AwS_CczNhqqmsRkWaFxzTYfP1vN1jTeO/view?usp=sharing", "_blank")}
+          >
+            Resume
+          </Button> */}
           <p><a href='&#109;a&#105;l&#116;o&#58;l&#111;&#103;an&#37;&#50;Eb&#105;est&#101;&#37;72%&#54;6eld%74&#64;gmai&#108;&#46;c%&#54;F%&#54;&#68;'>&#108;ogan&#46;bi&#101;&#115;&#116;&#101;&#114;feldt&#64;gmai&#108;&#46;&#99;o&#109;</a></p>
         </div>
       </Menu>
