@@ -92,21 +92,21 @@
     },
     {
       "title": "Cosmoverse 2023",
-      "desc": "Partnered with Design Dao to develop a dynamically hosted and reactive online schedule. While implemented as a Framer component, the develpment environment was limited, with no external imports available. Features include ICS generator and admin configurable values within the Framer interface.",
+      "desc": "Partnered with Design DAO to develop a dynamically hosted and reactive online schedule. While implemented as a Framer component, the develpment environment was limited, with no external imports available. Features include ICS generator and admin configurable values within the Framer interface.",
       "company": "Design DAO",
       "thumbUrl": "designdao-cosmoverse.webp",
       "link": "https://cosmoverse.org/schedule"
     },
     {
       "title": "Dyve",
-      "desc": "NFTFi Primitive that allows users to safely Lend, Rent, or Short NFTs. Built with React and Tailwind. Winner of 🏊‍♂️ NFTPort — Pool Prize 🥈 Covalent — Best Use 5️⃣ Polygon — Top 5",
+      "desc": "NFTFi Primitive that allows users to safely Lend, Rent, or Short NFTs. Frontend built with React and Tailwind. Winner of 🏊‍♂️ NFTPort — Pool Prize 🥈 Covalent — Best Use 5️⃣ Polygon — Top 5",
       "company": "ETH Global FS Hack 2022",
       "thumbUrl": "hackfs-dyve.webp",
       "link": "https://ethglobal.com/showcase/dyve-pxsz9"
     },
     {
       "title": "Staking Tutorials",
-      "desc": "Detailed tutorial videos of the techinical steps taken to stake tokens with stakefish using respective wallets and protocols.",
+      "desc": "Detailed tutorial videos of the techinical steps taken to stake tokens with stakefish using respective wallets and protocols. Adobe After Effects.",
       "company": "stakefish/f2pool",
       "thumbUrl": "sf-tutorial.webp"
     },
@@ -125,7 +125,6 @@
     {
       "title": "Web Development",
       "desc": "Designed and developed WordPress websites and themes for local commerce and non profit organizations. Managed a library of over 80 websites.",
-
       "company": "Artrageous Advertising",
       "thumbUrl": "aa-web.png"
     },

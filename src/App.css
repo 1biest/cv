@@ -20,6 +20,19 @@ a {
   left: 14px;
 }
 
+h1 {
+  transform: rotate3d(1, -1, 0, -20deg);
+  transform-origin: 0% 0% 0px;
+  position: relative;
+  font-size: 42px;
+  color: rgba(0, 74, 116, 1);
+  background: -webkit-linear-gradient(140deg, rgba(84, 203, 255, 1) 0%, rgba(0, 74, 116, 1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 10;
+}
+
 h2{
   transform: rotate3d(1, -1, 0, -20deg);
   transform-origin: 0% 0% 0px;
@@ -58,16 +71,18 @@ h3 {
   left: 14px;
 }
 
-.Section {
+.section {
   margin: 26px;
   padding-top: 100px;
   margin-bottom: 200px;
 }
-.Section p{
+
+.section p{
   padding-bottom: 10px;
   max-width: 650px;
 }
-.Section h4{
+
+.section h4{
   font-weight: 400;
 }
 
@@ -171,11 +186,12 @@ h3 {
   padding: 3px;
   border-color: rgba(0,80,200,0.1);
   transform: rotate3d(1, -1, 0, -20deg);
+  transition: 0.2s;
 }
 
 .card-bg:hover {
-  border-width: 3px;
-  padding: 1px;
+  border-color: rgba(0, 74, 116, 1);
+  transition: 0.2s;
 }
 
 .Navigation {
@@ -211,7 +227,7 @@ h3 {
   width: 92px;
   height: 63px;
   border-radius: 0 0 12px 0;
-  z-index: 20;
+  z-index: 50;
 }
 
 .mobileNavFixed {
@@ -224,7 +240,7 @@ h3 {
   margin-left: 10%;
   overflow: hidden;
   pointer-events: none;
-  z-index: 20;
+  z-index: 50;
 }
 
 #positioned-menu{
@@ -402,10 +418,11 @@ h3 {
     transition: 1s;
   }
 
-  .Section {
+  .section {
     padding-left: 6px;
     padding-right: 6px;
     margin-bottom: 40px;
+    z-index: 10;
   };
 
   .mobileNavFixed {
@@ -421,3 +438,63 @@ h3 {
     transition: 1s;
   }
 }
+
+/*scrollbar styles*/
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+
+/* hover */
+::-webkit-scrollbar:hover {
+  width: 8px;
+  border-radius: 8px;
+  background: transparent;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(84,
+    203,
+    255,
+    1);
+  background: linear-gradient(128deg,
+      rgba(84,
+        203,
+        255,
+        1) 0%,
+      rgba(0,
+        74,
+        116,
+        1) 49%);
+  border-radius: 6px;
+  box-shadow: inset 0 0 2px 0px #4760cd;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(84,
+    203,
+    255,
+    1);
+  background: linear-gradient(128deg,
+      rgba(84,
+        203,
+        255,
+        1) 0%,
+      rgba(0,
+        74,
+        116,
+        1) 49%);
+  width: 10px;
+}
+
+/*scrollbar styles*/

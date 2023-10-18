@@ -70,7 +70,7 @@ const Section = ({ experience }: { experience: WorkExperience }) => {
   );
 
   return (
-    <div className="Section" id={experience.divId ? experience.divId : undefined}>
+    <div className="section" id={experience.divId ? experience.divId : undefined}>
       <h2>{experience.company}</h2>
       {experience.startDate ? (
         <h4>{experience.startDate} - {experience.endDate}</h4>
