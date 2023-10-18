@@ -1,6 +1,6 @@
 a {
   text-decoration: none;
-  color: rgb(25, 118, 210);
+  color: rgba(0, 74, 116, 1);
 }
 
 .App {
@@ -24,13 +24,25 @@ h2{
   transform: rotate3d(1, -1, 0, -20deg);
   transform-origin: 0% 0% 0px;
   position: relative;
-  color: rgb(25, 118, 210);
+  color: rgba(0, 74, 116, 1);
   background: -webkit-linear-gradient(140deg, rgba(84, 203, 255, 1) 0%, rgba(0, 74, 116, 1) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   z-index: 10;
 }
+
+h3 {
+  color: rgba(0, 74, 116, 1);
+  background: -webkit-linear-gradient(140deg, rgba(84, 203, 255, 1) 0%, rgba(0, 74, 116, 1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 10;
+  margin: 0px;
+  margin-bottom: 12px;
+}
+
 .sectionBody h2{
   background: -webkit-linear-gradient(140deg, rgba(84,203,255,1) 50%, rgba(0,74,116,1) 100%);
   -webkit-background-clip: text;

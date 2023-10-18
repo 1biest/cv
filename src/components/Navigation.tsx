@@ -7,11 +7,11 @@ import IconButton from "@mui/material/IconButton";
 import { Twitter, LinkedIn, GitHub } from "@mui/icons-material";
 
 const buttons = [
-  <Button onClick={() => scrollTo("#designDao")} key="one">
-    Design Dao
-  </Button>,
   <Button onClick={() => scrollTo("#cryptech")} key="one">
     Cryptech
+  </Button>,
+  <Button onClick={() => scrollTo("#designDao")} key="one">
+    Design Dao
   </Button>,
   <Button onClick={() => scrollTo("#ethGlobal")} key="two">
     FS Hack 2022

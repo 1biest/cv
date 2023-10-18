@@ -16,19 +16,19 @@
   "workExperience": [
     {
       "jobTitle": "Frontend Engineer",
-      "company": "Design DAO",
-      "startDate": "",
-      "endDate": "October 2023",
-      "desc": "A Cosmos focused DAO, designing for and promoting everything ICS and Interchain.",
-      "divId": "designDao"
-    },
-    {
-      "jobTitle": "Frontend Engineer",
       "company": "Cryptech",
       "startDate": "August 2022",
       "endDate": "present",
       "desc": "Developing Web3 DeFi applications using React, Next.js and Tailwind. Responsibilities include UI/UX, Design, Branding, and Engineering in TypeScript.",
       "divId": "cryptech"
+    },
+    {
+      "jobTitle": "Frontend Engineer",
+      "company": "Design DAO",
+      "startDate": "",
+      "endDate": "October 2023",
+      "desc": "A Cosmos focused DAO, designing for and promoting everything ICS and Interchain.",
+      "divId": "designDao"
     },
     {
       "jobTitle": "Frontend Engineer",
@@ -54,21 +54,14 @@
       "desc": "Designed and managed a library of WordPress commercial websites."
     },
     {
-      "jobTitle": "Web Design / Motion Graphics",
+      "jobTitle": "Web Design / Motion Design",
       "company": "Davis Automotive Group",
       "startDate": "April 2013",
       "endDate": "August 2017",
-      "desc": "Produced and managed web, video, and design for automotive retail marketing campaigns."
+      "desc": "Produced and managed web design and development, video production, and graphic design for automotive retail marketing campaigns."
     }
   ],
   "projects": [
-    {
-      "title": "Cosmoverse 2023",
-      "desc": "Partnered with Design Dao to develop a dynamically hosted and reactive online schedule. While implemented as a Framer component, the develpment environment was limited, with no external imports available. Features include ICS generator and admin configurable values within the Framer interface.",
-      "company": "Design DAO",
-      "thumbUrl": "designdao-cosmoverse.webp",
-      "link": "https://cosmoverse.org/schedule"
-    },
     {
       "title": "Neptune Webapp",
       "desc": "Designed and developed the UI/UX for the frontend web application for the Neptune DeFi protocol. Component library built in Figma. Engineered in Next.js with Tailwind and Material UI.",
@@ -96,6 +89,13 @@
       "company": "Cryptech",
       "thumbUrl": "cryptech-web.webp",
       "link": "https://cryptech.dev/"
+    },
+    {
+      "title": "Cosmoverse 2023",
+      "desc": "Partnered with Design Dao to develop a dynamically hosted and reactive online schedule. While implemented as a Framer component, the develpment environment was limited, with no external imports available. Features include ICS generator and admin configurable values within the Framer interface.",
+      "company": "Design DAO",
+      "thumbUrl": "designdao-cosmoverse.webp",
+      "link": "https://cosmoverse.org/schedule"
     },
     {
       "title": "Dyve",

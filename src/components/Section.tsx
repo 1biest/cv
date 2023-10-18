@@ -30,9 +30,9 @@ const Card = ({ project }: { project: Project }) => {
   const cardContent = (
     <div className="card-bg">
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <h3>
           {project.title}
-        </Typography>
+        </h3>
         <Typography variant="body2" color="text.secondary">
           {project.desc}
         </Typography>

@@ -68,6 +68,7 @@
     backdrop-filter: blur(6px);
     pointer-events: none;
     z-index: 8;
+    transition: 2s;
   }
   @keyframes layer-4 {
     0% {left: 180px;} 
@@ -90,6 +91,7 @@
     backdrop-filter: blur(6px);
     pointer-events: none;
     z-index: 8;
+    transition: 3s;
   }
     @keyframes layer-5 {
       0% {left: -60px;} 
@@ -108,6 +110,7 @@
     opacity: 25%;
     pointer-events: none;
     z-index: 7;
+    transition: 4s;
   }
   @keyframes layer-6 {
     0% {top: 170px;} 
@@ -129,6 +132,7 @@
   backdrop-filter: blur(6px);
   pointer-events: none;
   z-index: 1;
+  transition: 5s;
 }
   @keyframes layer-7 {
     0% {left: -300px;} 
@@ -150,6 +154,7 @@
   backdrop-filter: blur(6px);
   pointer-events: none;
   z-index: 0.9;
+  transition: 6s;
 }
   @keyframes layer-8 {
     0% {left: -200px;} 
@@ -171,6 +176,7 @@
   backdrop-filter: blur(6px);
   pointer-events: none;
   z-index: 0.8;
+  transition: 7s;
 }
   @keyframes layer-9 {
     0% {left: -180px;} 
@@ -192,6 +198,7 @@
   backdrop-filter: blur(6px);
   pointer-events: none;
   z-index: 0.7;
+  transition: 8s;
 }
   @keyframes layer-10 {
     0% {left: -290px;} 
@@ -213,54 +220,64 @@
   
   .anim-3d-layer-2:hover {
     transform: rotate3d(0.2, -0.2, 0, -40deg);
+    transition: 0.6s;
   }
   
   .anim-3d-layer-2:hover ~ .anim-3d-layer-1 {
     transform: rotate3d(0.2, -0.2, 0, -40deg);
+    transition: 1.4s;
   }
   
   .anim-3d-layer-2:hover ~ .anim-3d-layer-3 {
     transform: rotate3d(0.2, -0.2, 0, -40deg);
+    transition: 1.0s;
   }
   
   .anim-3d-layer-2:hover ~ .anim-3d-layer-4 {
     transform: rotate3d(0.2, -0.2, 0, -40deg);
     box-shadow: 20px 20px 60px rgba(255,255,255,0.6);
     background: rgba(84,185,244,0.5);
+    transition: 1.8s;
   }
 
   .anim-3d-layer-2:hover ~ .anim-3d-layer-5 {
     transform: rotate3d(0.2, -0.2, 0, -40deg);
     box-shadow: 20px 20px 60px rgba(255,255,255,0.6);
     background: rgba(84,185,244,0.3);
+    transition: 2.2s;
   }
 
   .anim-3d-layer-2:hover ~ .anim-3d-layer-6 {
     transform: rotate3d(0.2, -0.2, 0, -40deg);
+    transition: 2.8s;
   }
 
   .anim-3d-layer-2:hover ~ .anim-3d-layer-7 {
     transform: rotate3d(0.2, -0.2, 0, -40deg);
     box-shadow: 20px 20px 60px rgba(255,255,255,0.6);
     background: rgba(84,185,244,0.2);
+    transition: 3.6s;
   }
 
   .anim-3d-layer-2:hover ~ .anim-3d-layer-8 {
     transform: rotate3d(0.2, -0.2, 0, -40deg);
     box-shadow: 20px 20px 60px rgba(255,255,255,0.6);
     background: rgba(84,185,244,0.2);
+    transition: 4.4s;
   }
 
   .anim-3d-layer-2:hover ~ .anim-3d-layer-9 {
     transform: rotate3d(0.2, -0.2, 0, -40deg);
     box-shadow: 20px 20px 60px rgba(255,255,255,0.6);
     background: rgba(84,185,244,0.2);
+    transition: 5.4s;
   }
 
   .anim-3d-layer-2:hover ~ .anim-3d-layer-10 {
     transform: rotate3d(0.2, -0.2, 0, -40deg);
     box-shadow: 20px 20px 60px rgba(255,255,255,0.6);
     background: rgba(84,185,244,0.2);
+    transition: 6.6s;
   }
   
   .anim-3d-layer-2:before {
@@ -294,13 +311,14 @@
     box-shadow: 0px 0px 60px 40px rgba(255, 255, 255, 0.6);
     filter: blur(10px);
     transform: skewX(-40deg);
-    transition: 0.8s;
+    transition: 2s;
   }
   
   .anim-3d-layer-2:hover ~ .anim-3d-layer-4:before {
     left: 520px;
     background: rgba(255, 255, 255, 0.3);
     box-shadow: 0px 0px 60px 40px rgba(255, 255, 255, 0.3);
+    transition: 1.8s;
   }
   
   .anim-3d-layer-5:before {
@@ -314,12 +332,13 @@
     box-shadow: 0px 0px 60px 40px rgba(255, 255, 255, 0.6);
     filter: blur(10px);
     transform: skewX(-40deg);
-    transition: 0.8s;
+    transition: 3s;
   }
   
   .anim-3d-layer-2:hover ~ .anim-3d-layer-5:before {
     left: 500px;
     background: rgba(255, 255, 255, 0.3);
     box-shadow: 0px 0px 60px 40px rgba(255, 255, 255, 0.3);
+    transition: 2.2s;
   }
   
