@@ -1,9 +1,8 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
-import scrollTo from 'gatsby-plugin-smoothscroll';
 import IconButton from '@mui/material/IconButton';
-import { Twitter, LinkedIn, GitHub, ContactPage } from '@mui/icons-material';
+import { Twitter, LinkedIn, GitHub } from '@mui/icons-material';
 
 const PositionedMenu: React.FC = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);

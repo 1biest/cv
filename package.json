@@ -1,7 +1,7 @@
 {
   "name": "cv",
-  "homepage": "https://1biest.github.io/cv/",
-  "version": "0.4.6",
+  "homepage": "https://biest.ca/",
+  "version": "2.0.0",
   "private": false,
   "dependencies": {
     "@emotion/react": "^11.9.3",
@@ -19,7 +19,6 @@
     "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
@@ -48,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-scripts": "^5.0.1"
   }
 }

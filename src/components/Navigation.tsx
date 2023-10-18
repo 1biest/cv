@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import scrollTo from "gatsby-plugin-smoothscroll";
 import IconButton from "@mui/material/IconButton";
-import { Twitter, LinkedIn, GitHub, ContactPage } from "@mui/icons-material";
+import { Twitter, LinkedIn, GitHub } from "@mui/icons-material";
 
 const buttons = [
   <Button onClick={() => scrollTo("#designDao")} key="one">

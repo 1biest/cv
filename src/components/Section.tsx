@@ -51,7 +51,7 @@ const Card = ({ project }: { project: Project }) => {
 
   return (
     project.link ? (
-      <a href={project.link} target="_blank">
+      <a href={project.link} target="_blank" rel="noreferrer">
         <div style={{ cursor: 'pointer' }} onClick={handleCardClick}>
           {cardContent}
         </div>
