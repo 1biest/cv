@@ -24,7 +24,7 @@ const PositionedMenu: React.FC = () => {
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        MENU
+        {">"}
       </Button>
       <Menu
         id="positioned-menu"
@@ -42,31 +42,51 @@ const PositionedMenu: React.FC = () => {
         }}
       >
         <div className="mobileMenuInner" onClick={handleClose}>
-          <div style={{ cursor: 'pointer' }} onClick={() => scrollTo("#section1")}>
-            {/* Include ProfilePhoto component here */}
-          </div>
           <h2>Logan<br /> Biesterfeldt</h2>
-          <p className="nameSubtitle"></p>
-
-          <IconButton color="primary">
-            <Twitter onClick={() => window.open("https://twitter.com/1biesterfeldt", "_blank")} />
-          </IconButton>
-          <IconButton color="primary">
-            <LinkedIn onClick={() => window.open("https://www.linkedin.com/in/biest/", "_blank")} />
-          </IconButton>
-          <IconButton color="primary">
-            <GitHub onClick={() => window.open("https://github.com/1biest", "_blank")} />
-          </IconButton>
+          <div className="nav-icons">
+            <IconButton
+              onClick={() =>
+                window.open("https://twitter.com/1biesterfeldt", "_blank")
+              }
+              style={{
+                background: 'transparent',
+                color: 'rgba(0, 74, 116, 1)',
+              }}
+            >
+              <Twitter />
+            </IconButton>
+            <IconButton
+              onClick={() =>
+                window.open("https://www.linkedin.com/in/biest/", "_blank")
+              }
+              style={{
+                background: 'transparent',
+                color: 'rgba(0, 74, 116, 1)',
+              }}
+            >
+              <LinkedIn />
+            </IconButton>
+            <IconButton
+              onClick={() => window.open("https://github.com/1biest", "_blank")}
+              style={{
+                background: 'transparent',
+                color: 'rgba(0, 74, 116, 1)',
+              }}
+            >
+              <GitHub />
+            </IconButton>
+          </div>
         </div>
 
         <div className="navFooterMobile">
-          <Button variant="outlined" style={{ fontWeight: '600', marginBottom: '18px' }} startIcon={<ContactPage />} onClick={() => window.open("https://drive.google.com/file/d/1AwS_CczNhqqmsRkWaFxzTYfP1vN1jTeO/view?usp=sharing", "_blank")}>Resume</Button>
-          <h4>Phone</h4>
-          <p><a href="tel:1-403-795-3929">+1 (403) 795-3929</a></p>
-          <h4>Email</h4>
+          <Button
+            style={{
+              fontWeight: '600',
+              marginBottom: '18px',
+              color: 'rgba(0, 74, 116, 1)'
+            }}
+            startIcon={<ContactPage />} onClick={() => window.open("https://drive.google.com/file/d/1AwS_CczNhqqmsRkWaFxzTYfP1vN1jTeO/view?usp=sharing", "_blank")}>Resume</Button>
           <p><a href='&#109;a&#105;l&#116;o&#58;l&#111;&#103;an&#37;&#50;Eb&#105;est&#101;&#37;72%&#54;6eld%74&#64;gmai&#108;&#46;c%&#54;F%&#54;&#68;'>&#108;ogan&#46;bi&#101;&#115;&#116;&#101;&#114;feldt&#64;gmai&#108;&#46;&#99;o&#109;</a></p>
-          <h4>Location</h4>
-          <p>Calgary, Canada</p>
         </div>
       </Menu>
     </div>

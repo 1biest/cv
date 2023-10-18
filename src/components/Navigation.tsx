@@ -59,18 +59,20 @@ const Navigation: React.FC = () => {
             <GitHub />
           </IconButton>
         </div>
-        <div style={{ height: "12px" }} />
-        <ButtonGroup
-          orientation="vertical"
-          aria-label="vertical button group"
-          variant="text"
-          style={{
-            background: 'transparent',
-            color: 'rgba(0, 74, 116, 1)',
-          }}
-        >
-          {buttons}
-        </ButtonGroup>
+        <div className="button-group" style={{ paddingTop: "12px" }}>
+          <ButtonGroup
+            orientation="vertical"
+            aria-label="vertical button group"
+            variant="text"
+            style={{
+              background: 'transparent',
+              color: 'rgba(0, 74, 116, 1)',
+              fontWeight: "600"
+            }}
+          >
+            {buttons}
+          </ButtonGroup>
+        </div>
       </div>
 
       <div className="nav-footer navFooterClose">

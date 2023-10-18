@@ -27,12 +27,14 @@ h2{
   color: rgb(25, 118, 210);
   background: -webkit-linear-gradient(140deg, rgba(84, 203, 255, 1) 0%, rgba(0, 74, 116, 1) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   z-index: 10;
 }
 .sectionBody h2{
   background: -webkit-linear-gradient(140deg, rgba(84,203,255,1) 50%, rgba(0,74,116,1) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   left: 14px;
 }
@@ -71,6 +73,7 @@ h2{
   color:rgb(25, 118, 210);
   background: -webkit-linear-gradient(130deg, rgba(84,203,255,1) 0%, rgba(0,74,116,1));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-top: 40px;
   margin-bottom: 4px;
@@ -152,8 +155,15 @@ h2{
   border: solid;
   border-width: 1px;
   border-radius: 6px;
+  margin: 6px;
+  padding: 3px;
   border-color: rgba(0,80,200,0.1);
   transform: rotate3d(1, -1, 0, -20deg);
+}
+
+.card-bg:hover {
+  border-width: 3px;
+  padding: 1px;
 }
 
 .Navigation {
@@ -237,6 +247,7 @@ h2{
   color: rgba(0, 74, 116, 1);
   background: -webkit-linear-gradient(140deg, rgba(84, 203, 255, 1) 0%, rgba(0, 74, 116, 1) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   z-index: 10;
 }
@@ -265,6 +276,7 @@ h2{
   margin-block-end: 10px;
   background: -webkit-linear-gradient(140deg, rgba(84, 203, 255, 1) 0%, rgba(0, 74, 116, 1) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;
   line-height: normal;
@@ -276,7 +288,8 @@ h2{
   border-radius: 6px;
   text-align: center;
   line-height: 100%;
-  transition: 1s;
+  transition: 1s;transform: rotate3d(1, -1, 0, -20deg);
+  transform-origin: 0% 0% 0px;
 }
 .navFooterMobile h4 {
   margin-block-start: 0;
@@ -284,12 +297,23 @@ h2{
 }
 .navFooterMobile p {
   margin-block-start: 0;
-  margin-block-end: 20px;
+  margin-block-end: 10px;
+  background: -webkit-linear-gradient(140deg, rgba(84, 203, 255, 1) 0%, rgba(0, 74, 116, 1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  line-height: normal;
 }
 
-.buttonGroup {
+.button-group {
   border-radius: 6px;
+  transition: 1s;
+  transform: rotate3d(1, -1, 0, -20deg);
+  transform-origin: 0% 0% 0px;
+  color: rgba(0, 74, 116, 1);
 }
+
 .nameTitle {
   line-height: 100%;
 }

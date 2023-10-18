@@ -134,6 +134,24 @@
       "desc": "Google Data Studio reports generated to study performance analytics of social media campaigns and web traffic.",
       "company": "Artrageous Advertising",
       "thumbUrl": "aa-report.png"
+    },
+    {
+      "title": "Dealer Rewards Program",
+      "desc": "Implemented a dealer rewards program by utilizing Appsheet and Google Sheets.",
+      "company": "Davis Automotive Group",
+      "thumbUrl": "appsheet.svg"
+    },
+    {
+      "title": "DealerTV Digital Signage Management System",
+      "desc": "Remotely managed 30+ displays across 8 dealership locations.",
+      "company": "Davis Automotive Group",
+      "thumbUrl": "dag-dealertv.png"
+    },
+    {
+      "title": "Design",
+      "desc": "Branding and marketing campaign design for new and used vehicle sales, and fixed operations.",
+      "company": "Davis Automotive Group",
+      "thumbUrl": "dag-design.png"
     }
   ],
   "skills": [

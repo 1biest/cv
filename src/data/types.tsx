@@ -28,7 +28,7 @@ export interface PersonalInfo {
     desc: string;
     company: string;
     thumbUrl: string;
-    url?: string;
+    link?: string;
   }
   
   export interface Skill {

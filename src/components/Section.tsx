@@ -9,6 +9,10 @@ const Card = ({ project }: { project: Project }) => {
   const imageUrl = project.thumbUrl;
   const [image, setImage] = useState(null);
 
+  const handleCardClick = () => {
+    window.open(project.link, '_blank');
+  };
+
   useEffect(() => {
     const importImage = async () => {
       try {
@@ -39,15 +43,18 @@ const Card = ({ project }: { project: Project }) => {
           alt={project.title}
           height="170"
           image={image}
+          style={{ borderRadius: "4px"}}
         />
       )}
     </div>
   );
 
   return (
-    project.url ? (
-      <a href={project.url} target="_blank">
-        {cardContent}
+    project.link ? (
+      <a href={project.link} target="_blank">
+        <div style={{ cursor: 'pointer' }} onClick={handleCardClick}>
+          {cardContent}
+        </div>
       </a>
     ) : (
       cardContent
