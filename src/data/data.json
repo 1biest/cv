@@ -64,14 +64,14 @@
   "projects": [
     {
       "title": "Neptune Webapp",
-      "desc": "Lead engineer and maintainer of Neptune DeFi protocol frontend application. Built with Next.js, Tailwind and Material UI. Launched in January of 2024 on Injective. Designed and developed the UI/UX and component library in Figma.",
+      "desc": "Engineer and maintainer of Neptune DeFi protocol frontend application. Built with Next.js, Tailwind and Material UI. Launched in January of 2024 on Injective. Designed and developed the UI/UX and component library in Figma.",
       "company": "Cryptech",
       "thumbUrl": "cryptech-nept-app.webp",
-      "link": "https://app.nept.finance/"
+      "link": "https://inj-testnet.nept.finance/"
     },
     {
       "title": "Neptune Landing Page",
-      "desc": "Designed and developed the landing page for Neptune utilizing Figma, Next.js and Tailwind.",
+      "desc": "Designed and developed the landing page for Neptune Finance utilizing Figma, Next.js and Tailwind.",
       "company": "Cryptech",
       "thumbUrl": "cryptech-nept-landing.webp",
       "link": "https://nept.finance/"
