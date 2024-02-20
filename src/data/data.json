@@ -64,10 +64,10 @@
   "projects": [
     {
       "title": "Neptune Webapp",
-      "desc": "Designed and developed the UI/UX for the frontend web application for the Neptune DeFi protocol. Component library built in Figma. Engineered in Next.js with Tailwind and Material UI.",
+      "desc": "Lead engineer and maintainer of Neptune DeFi protocol frontend application. Built with Next.js, Tailwind and Material UI. Launched in January of 2024 on Injective. Designed and developed the UI/UX and component library in Figma.",
       "company": "Cryptech",
       "thumbUrl": "cryptech-nept-app.webp",
-      "link": "https://injective.nept.finance/"
+      "link": "https://app.nept.finance/"
     },
     {
       "title": "Neptune Landing Page",
@@ -77,13 +77,6 @@
       "link": "https://nept.finance/"
     },
     {
-      "title": "Macro Dex",
-      "desc": "Front-end development of a DeFi dex interface.",
-      "company": "Cryptech",
-      "thumbUrl": "cryptech-macro.webp",
-      "link": "https://macro.noria.network/"
-    },
-    {
       "title": "Cryptech Website",
       "desc": "Designed and developed the online presence of Cryptech Developments Ltd.",
       "company": "Cryptech",
@@ -91,11 +84,18 @@
       "link": "https://cryptech.dev/"
     },
     {
+      "title": "Macro Dex",
+      "desc": "Front-end development of a DeFi dex interface.",
+      "company": "Cryptech",
+      "thumbUrl": "cryptech-macro.webp",
+      "link": ""
+    },
+    {
       "title": "Cosmoverse 2023",
       "desc": "Partnered with Design DAO to develop a dynamically hosted and reactive online schedule. While implemented as a Framer component, the develpment environment was limited, with no external imports available. Features include ICS generator and admin configurable values within the Framer interface.",
       "company": "Design DAO",
       "thumbUrl": "designdao-cosmoverse.webp",
-      "link": "https://cosmoverse.org/schedule"
+      "link": ""
     },
     {
       "title": "Dyve",

@@ -4,7 +4,7 @@ import React from 'react';
 
 const Hero: React.FC = () => {
   return (
-    <div id="hero" className="section">
+    <div id="hero" className="section cursor-default">
       <Grid container spacing={2}>
         <Grid style={{ zIndex: '20' }} item xs={6}>
           <h1>Frontend Engineering<br />Blockchain Web3<br />Motion Design<br />UI/UX</h1>
