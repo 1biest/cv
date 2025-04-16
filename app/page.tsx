@@ -1,4 +1,5 @@
 import BackgroundFX from './Components/BackgroundFx';
+import GithubStatsClient from './Components/GithubStats';
 
 const experience = [
   {
@@ -35,8 +36,11 @@ export default function Home() {
           </p>
 
           {/* Experience Section */}
-          <div className="mt-8">
-            <h3 className="text-2xl font-semibold mb-4">Experience</h3>
+          <div className="flex my-8">
+            {/* <h3 className="text-2xl font-semibold mb-4">Experience</h3> */}
+            <GithubStatsClient owner="1biest" repo="cv" />
+            <GithubStatsClient owner="1biest" repo="cosmoverse-schedule" />
+            <GithubStatsClient owner="1biest" repo="world-antiques" />
             <div className="flex flex-col gap-4">
               {experience.map((item, index) => (
                 <div key={index} className="relative px-4 py-3 group flex flex-col gap-2">
