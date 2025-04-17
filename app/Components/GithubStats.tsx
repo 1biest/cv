@@ -38,7 +38,7 @@ export default function GithubStats({ fetchUrl, color, aggregateWeek }: GithubSt
   return (
     <div className="grid grid-cols-7 gap-[2px] w-[82px]">
       {data.map(([timestamp, commitCount], i) => {
-        const intensity = Math.min(commitCount * 2, 20);
+        const intensity = Math.min(commitCount * 3, 20);
         const opacity = [
           'opacity-0',
           'opacity-5',
