@@ -92,7 +92,7 @@ const BackgroundFX = () => {
         position: 'fixed',
         inset: 0,
         zIndex: -1,
-        backgroundColor: '#101724',
+        /* backgroundColor: '#101724', */
         overflow: 'hidden',
         pointerEvents: 'none',
       }}

@@ -1,41 +1,54 @@
 'use client';
 
-import { useGithubStats } from '../hooks/useGithub';
+import { useEffect, useState } from 'react';
+import { useParseCommitCsv } from '../hooks/useParseCommitCsv';
 
-type Props = {
-  owner: string;
-  repo: string;
+type GithubStatsProps = {
+  fetchUrl: string;
+  color: string;
 };
 
-export default function GithubStatsClient({ owner, repo }: Props) {
-  const { data, loading, error } = useGithubStats(owner, repo);
+export default function GithubStats({ fetchUrl, color }: GithubStatsProps) {
+  const [csv, setCsv] = useState<string>('');
 
-  console.log("githubData", data);
+  useEffect(() => {
+    const fetchCsv = async () => {
+      try {
+        const res = await fetch(fetchUrl);
+        const text = await res.text();
+        setCsv(text);
+      } catch (err) {
+        console.error('Error loading CSV:', err);
+      }
+    };
 
-  /* if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>; */
+    fetchCsv();
+  }, [fetchUrl]);
+
+  const data = useParseCommitCsv(csv);
 
   return (
     <ul className="flex flex-col gap-[2px]">
-  {data?.map(([timestamp, additions, deletions], i) => {
-    const intensity = Math.min(additions, 5); // cap at 4 levels of intensity
-    const color = [
-      "bg-transparent opacity-0", // 0
-      "bg-[#39d353] opacity-20", // 1
-      "bg-[#39d353] opacity-40", // 1
-      "bg-[#39d353] opacity-60", // 2
-      "bg-[#39d353] opacity-80", // 3
-      "bg-[#39d353] opacity-100", // 4
-    ][intensity];
+      {data.map(([timestamp, commitCount], i) => {
+        const intensity = Math.min(commitCount, 5);
+        const opacity = [
+          'opacity-0',
+          'opacity-20',
+          'opacity-40',
+          'opacity-60',
+          'opacity-80',
+          'opacity-100',
+        ][intensity];
 
-    return (
-      <li
-        key={i}
-        className={`w-[10px] h-[10px] ${color} rounded-xs`}
-        title={`+${additions}, -${Math.abs(deletions)} on ${new Date(timestamp * 1000).toLocaleDateString()}`}
-      />
-    );
-  })}
-</ul>
+        return (
+          <li
+            key={i}
+            className={`w-[10px] h-[10px] ${opacity} rounded-xs`}
+            style={{ backgroundColor: color || '#39d353' }} // Inline style for background color
+            title={`${commitCount} commit${commitCount > 1 ? 's' : ''} on ${new Date(timestamp * 1000).toLocaleDateString()}`}
+          />
+        );
+      })}
+    </ul>
   );
 }

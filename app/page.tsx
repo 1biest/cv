@@ -1,5 +1,5 @@
 import BackgroundFX from './Components/BackgroundFx';
-import GithubStatsClient from './Components/GithubStats';
+import GithubStats from './Components/GithubStats';
 
 const experience = [
   {
@@ -36,11 +36,15 @@ export default function Home() {
           </p>
 
           {/* Experience Section */}
-          <div className="flex my-8">
+          <div className="flex my-8 gap-4">
             {/* <h3 className="text-2xl font-semibold mb-4">Experience</h3> */}
-            <GithubStatsClient owner="1biest" repo="cv" />
-            <GithubStatsClient owner="1biest" repo="cosmoverse-schedule" />
-            <GithubStatsClient owner="1biest" repo="world-antiques" />
+            <div className="flex gap-[1px]">
+              <GithubStats fetchUrl={'/neptune-webapp-commit-log.csv'} color={'#bada55'} />
+              <GithubStats fetchUrl={'/neptune-landing-commit-log.csv'} color={'#ba55da'} />
+              <GithubStats fetchUrl={'/cw3-multisig-commit-log.csv'} color={'#55bada'} />
+              <GithubStats fetchUrl={'/cryptech-website-commit-log.csv'} color={'#5555ba'} />
+              <GithubStats fetchUrl={'/macro-web-commit-log.csv'} color={'#ba5555'} />
+            </div>
             <div className="flex flex-col gap-4">
               {experience.map((item, index) => (
                 <div key={index} className="relative px-4 py-3 group flex flex-col gap-2">
