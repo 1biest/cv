@@ -36,9 +36,9 @@ export default function GithubStats({ fetchUrl, color, aggregateWeek }: GithubSt
   const data = useParseCommitCsv(csv, aggregateWeek);
 
   return (
-    <div className="grid grid-cols-7 gap-[2px] w-[82px]">
+    <div className={`grid ${aggregateWeek ? 'grid-cols-1' : 'grid-cols-7'} gap-[2px] w-[82px]`}>
       {data.map(([timestamp, commitCount], i) => {
-        const intensity = Math.min(commitCount * 3, 20);
+        const intensity = Math.min(commitCount * 4, 20);
         const opacity = [
           'opacity-0',
           'opacity-5',
@@ -64,12 +64,16 @@ export default function GithubStats({ fetchUrl, color, aggregateWeek }: GithubSt
         ][intensity];
 
         return (
-          <div
-            key={i}
-            className={`w-[10px] h-[10px] p-0 m-0 ${opacity} rounded-xs`}
-            style={{ backgroundColor: color || '#39d353' }} // Inline style for background color
-            title={`${commitCount} commit${commitCount > 1 ? 's' : ''} on ${new Date(timestamp * 1000).toLocaleDateString()}`}
-          />
+          <div className="relative group" key={i}>
+            <div
+              className={`${aggregateWeek ? 'w-[82]' : 'w-[10px]'} h-[10px] p-0 m-0 ${opacity} rounded-xs`}
+              style={{ backgroundColor: color || '#39d353' }} // Inline style for background color
+              title={`${commitCount} commit${commitCount > 1 ? 's' : ''} on ${new Date(timestamp * 1000).toLocaleDateString()}`}
+            />
+            <div className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-90 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all bg-[#101322] text-[#dde5ed] text-xs px-2 py-1 rounded pointer-events-none z-50 whitespace-nowrap">
+              {`${commitCount} commit${commitCount > 1 ? 's' : ''} on ${new Date(timestamp * 1000).toLocaleDateString()}`}
+            </div>
+          </div>
         );
       })}
     </div>
