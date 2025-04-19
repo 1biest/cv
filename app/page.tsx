@@ -6,8 +6,18 @@ import GithubStats from './Components/GithubStats';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import SocialLinks from './Components/SocialLinks';
+import SectionContent from './Components/SectionContent';
 
-const experience = [
+export type Experience = {
+  title: string;
+  content: string;
+  content2?: string;
+  content3?: string;
+  highlights?: string[];
+  ctas?: string[];
+};
+
+const experience: Experience[] = [
   {
     title: 'Neptune Finance',
     content:
@@ -33,15 +43,17 @@ const experience = [
       'Midjourney',
       'Fleek',
     ],
-    ctas: [['Neptune Finance', 'https://app.nept.finance']],
+    ctas: ['https://app.nept.finance'],
   },
   {
     title: 'Cryptech',
     content: 'Integrated Ethereum smart contracts using ethers.js.',
+    ctas: ['https://nept.finance', 'https://cryptech.dev/'],
   },
   {
     title: 'Injective CW3 Multisig',
     content: 'Integrated Ethereum smart contracts using ethers.js.',
+    highlights: ['TypeScript', 'React', 'Next.js', 'CW3 Multisig', 'Tailwind', 'Vercel'],
   },
   {
     title: 'Cosmoverse Schedule',
@@ -152,60 +164,32 @@ export default function Home() {
           </p> */}
 
           {/* Experience Section */}
-          <div className="flex justify-start mb-8 gap-4">
-            <div className="relative h-full bg-red-300">
-              <div className="absolute inset-0 h-full">
-                <div className="relative opacity-50 z-10">
+          <div className="relative h-full">
+            <div className="absolute inset-0 h-full">
+              <div className="relative opacity-50 z-10">
+                <GithubStats
+                  fetchUrl={githubHighlightData[0]}
+                  color="#EBCB8E"
+                  aggregateWeek={true}
+                />
+              </div>
+              {githubStatsData.map((urls, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 grid grid-cols-7 z-30 ${index === highlightIndex ? 'pointer-events-auto' : 'pointer-events-none'}`}
+                >
                   <GithubStats
-                    fetchUrl={githubHighlightData[0]}
-                    color="#EBCB8E"
-                    aggregateWeek={true}
+                    fetchUrl={urls}
+                    color={index === highlightIndex ? '#EBCB8E' : '#99ACC7'}
+                    aggregateWeek={false}
                   />
                 </div>
-                {githubStatsData.map((urls, index) => (
-                  <div
-                    key={index}
-                    className={`absolute inset-0 grid grid-cols-7 z-30 ${index === highlightIndex ? 'pointer-events-auto' : 'pointer-events-none'}`}
-                  >
-                    <GithubStats
-                      fetchUrl={urls}
-                      color={index === highlightIndex ? '#EBCB8E' : '#99ACC7'}
-                      aggregateWeek={false}
-                    />
-                  </div>
-                ))}
-              </div>
+              ))}
             </div>
-            <div className="flex flex-col gap-8 pl-[100px] cursor-default">
-              <div className="max-w-[700px] relative flex flex-col gap-6">
-                <h4 className="text-3xl font-bold">{experience[highlightIndex].title || ''}</h4>
-                <div className="flex flex-col prose prose-invert max-w-none gap-4">
-                  <p
-                    className="text-[#99ACC7] z-30 relative"
-                    dangerouslySetInnerHTML={{ __html: experience[highlightIndex].content || '' }}
-                  />
-                  <p
-                    className="text-[#99ACC7] z-30 relative"
-                    dangerouslySetInnerHTML={{ __html: experience[highlightIndex].content2 || '' }}
-                  />
-                  <p
-                    className="text-[#99ACC7] z-30 relative"
-                    dangerouslySetInnerHTML={{ __html: experience[highlightIndex].content3 || '' }}
-                  />
-                </div>
-                <div className="flex flex-wrap gap-2 py-1 z-30 relative pointer-events-none">
-                  {experience[highlightIndex].highlights &&
-                    experience[highlightIndex].highlights?.map((highlight, index) => (
-                      <div
-                        key={index}
-                        className="bg-[#EBCB8E] rounded text-[#131A28] text-xs p-1 px-2 cursor-default"
-                      >
-                        <span>{highlight}</span>
-                      </div>
-                    ))}
-                </div>
-                {/* <div className="bg-[#1F2C40] rounded-lg absolute inset-0 z-0 opacity-0 hover:opacity-50 backdrop-blur-sm border  border-white/10 border-t-white/30 backdrop-blur-md transition duration-300 ease-in-out"></div> */}
-              </div>
+          </div>
+          <div className="flex justify-start mb-8 gap-4">
+            <div className="flex flex-col gap-8 pl-[120px] cursor-default">
+              <SectionContent experience={experience} highlightIndex={highlightIndex} />
               <div className="flex justify-start gap-2 mb-2 pr-1 text-2xl">
                 <div
                   className="relative px-4 py-1 group cursor-pointer z-30"
@@ -215,7 +199,7 @@ export default function Home() {
                     )
                   }
                 >
-                  <div className="bg-[#1F2C40] rounded-lg absolute inset-0 z-0 opacity-20 hover:opacity-50 backdrop-blur-sm border  border-white/10 border-t-white/30 backdrop-blur-md transition duration-300 ease-in-out"></div>
+                  {/* <div className="bg-[#1F2C40] rounded-lg absolute inset-0 z-0 opacity-20 hover:opacity-50 backdrop-blur-sm border  border-white/10 border-t-white/30 backdrop-blur-md transition duration-300 ease-in-out"></div> */}
                   <button className="relative group-hover:text-[#EBCB8E] transition z-40 pt-[2px] pointer-events-none">
                     <FontAwesomeIcon icon={faCaretLeft} />
                   </button>
@@ -224,13 +208,12 @@ export default function Home() {
                   className="relative px-4 py-1 group cursor-pointer z-30"
                   onClick={() => setHighlightIndex((prev) => (prev + 1) % githubStatsData.length)}
                 >
-                  <div className="bg-[#1F2C40] rounded-lg absolute inset-0 z-0 opacity-20 hover:opacity-50 backdrop-blur-sm border  border-white/10 border-t-white/30 backdrop-blur-md transition duration-300 ease-in-out"></div>
+                  {/* <div className="bg-[#1F2C40] rounded-lg absolute inset-0 z-0 opacity-20 hover:opacity-50 backdrop-blur-sm border  border-white/10 border-t-white/30 backdrop-blur-md transition duration-300 ease-in-out"></div> */}
                   <button className="relative group-hover:text-[#EBCB8E] transition z-40 pt-[2px] pointer-events-none">
                     <FontAwesomeIcon icon={faCaretRight} />
                   </button>
                 </div>
               </div>
-              <div className="grow"></div>
             </div>
           </div>
         </div>
