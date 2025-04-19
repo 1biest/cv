@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BackgroundFX from './Components/BackgroundFx';
 import GithubStats from './Components/GithubStats';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretLeft, faCaretRight, faFilePdf } from '@fortawesome/free-solid-svg-icons';
+import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
+import SocialLinks from './Components/SocialLinks';
 
 const experience = [
   {
@@ -17,11 +18,12 @@ const experience = [
       'Recent work includes launching Staking and Airdrop pages in support of the NEPT token release, and building Pool pages that integrates Mito and Astroport smart contracts and LP tokens. I introduced novel UX patterns to improve the user experience around liquidity management and implemented gated staking and governance features for NEPT holders.',
     highlights: [
       'TypeScript',
+      'React',
+      'Next.js',
       'CW3 Multisig',
       'CW4 Governance',
       '3rd Party Smart Contracts',
       'InfluxDB',
-      'Next.js',
       'Tailwind',
       'Material UI',
       'Daisy UI',
@@ -83,12 +85,27 @@ const githubHighlightData = [
 
 export default function Home() {
   const [highlightIndex, setHighlightIndex] = useState<number>(0);
+  const [showBackgroundFX, setShowBackgroundFX] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowBackgroundFX(true);
+    }, 0);
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
     <>
-      <div className="grid grid-cols-3 gap-10 px-20 pt-20 selection:bg-[#EBCB8E] selection:text-[#101322]">
+      <div className="grid grid-cols-3 h-full gap-10 px-20 pt-20 selection:bg-[#EBCB8E] selection:text-[#101322]">
         <div className="relative lg:fixed col-span-3 lg:col-span-1 w-full lg:w-[28%] lg:max-w-[600px] flex flex-col gap-6 pr-8 cursor-default">
-          <div className="flex flex-col gap-8">
+          <div
+            className="flex flex-col gap-8 lg:max-h-[calc(100vh-220px)] overflow-y-auto relative"
+            style={{
+              maskImage: 'linear-gradient(to bottom, black 90%, transparent)',
+              WebkitMaskImage: 'linear-gradient(to bottom, black 90%, transparent)',
+            }}
+          >
             <div className="flex flex-col gap-2">
               <h1 className="text-5xl font-bold">Logan Biesterfeldt</h1>
               <h2 className="text-lg pb-1 font-bold">Web3 Frontend Engineer</h2>
@@ -100,8 +117,8 @@ export default function Home() {
               </p>
               <p className="">
                 My GitHub exprience is on the right, but my journey didn&apos;t start there. I have
-                several years of experience in graphic design, motion graphics, and marketing,
-                including my time with{' '}
+                several years of experience in web design & development, graphic design, motion
+                graphics, and marketing, including my time with{' '}
                 <span className="font-bold">
                   <a href="https://stake.fish/" target="_blank" rel="noopener noreferrer">
                     stake.fish
@@ -109,7 +126,7 @@ export default function Home() {
                 </span>
               </p>
             </div>
-            <div className="flex flex-col gap-1 text-xs pt-8">
+            <div className="flex flex-col gap-1 text-xs py-8">
               {experience.map((exp, index) => (
                 <span
                   key={index}
@@ -122,18 +139,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="relative lg:fixed bottom-0 left-0 px-0 lg:px-20 pb-10 lg:pb-20 flex gap-6">
-          <div
-            className="relative px-4 w-36 h-11 py-2 group cursor-pointer z-30 text-2xl"
-            onClick={() => setHighlightIndex((prev) => (prev + 1) % githubStatsData.length)}
-          >
-            <div className="bg-[#1F2C40] rounded-lg absolute inset-0 z-0 opacity-20 hover:opacity-50 backdrop-blur-sm border  border-white/10 border-t-white/30 backdrop-blur-md transition duration-300 ease-in-out"></div>
-            <button className="relative flex group-hover:text-[#EBCB8E] transition z-40 pt-[2px] pointer-events-none">
-              <FontAwesomeIcon icon={faFilePdf} />
-              <span className="pl-2 w-20 text-lg">Resume</span>
-            </button>
-          </div>
-        </div>
+        <SocialLinks />
         <div className="col-span-3 lg:col-span-2 lg:col-start-2 max-w-[1200px] flex flex-col gap-4">
           {/* <h1 className="text-4xl font-bold">Logan Biesterfeldt</h1>
           <h2 className="text-2xl font-semibold text-[#99ACC7] hover:text-[#EAC99C]">
@@ -171,7 +177,7 @@ export default function Home() {
               </div>
             </div>
             <div className="flex flex-col gap-8 pl-[100px] cursor-default">
-              <div className="max-w-[1000px] relative flex flex-col gap-6">
+              <div className="max-w-[700px] relative flex flex-col gap-6">
                 <h4 className="text-3xl font-bold">{experience[highlightIndex].title || ''}</h4>
                 <div className="flex flex-col prose prose-invert max-w-none gap-4">
                   <p
@@ -230,7 +236,7 @@ export default function Home() {
         </div>
       </div>
 
-      <BackgroundFX />
+      {showBackgroundFX && <BackgroundFX />}
     </>
   );
 }
