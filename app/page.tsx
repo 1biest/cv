@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import SocialLinks from './Components/SocialLinks';
 import SectionContent from './Components/SectionContent';
+import { ThemeAccentColor } from './config';
 
 export type Experience = {
   title: string;
@@ -50,7 +51,7 @@ const experience: Experience[] = [
     content:
       'In addition to the Neptune dapp, I led production of the <a href="https://nept.finance" target="_blank" rel="noopener noreferrer"><strong>Neptune Landing</strong></a> site. For the landing pages, I adopted a creative approach to design, integrating time-series data of interest rates into the visual elements to highlight the core focus of the lending market.',
     content2:
-      'In addition to the Neptune web application, I developed the <a href="https://nept.finance" target="_blank" rel="noopener noreferrer"><strong>Cryptech Developments</strong></a> website for the company behind Neptune. I leveraged elements from the logo to guide the design and added mouse parallax effects to enhance the visual appeal and interactivity.',
+      'I also developed the <a href="https://nept.finance" target="_blank" rel="noopener noreferrer"><strong>Cryptech Developments</strong></a> website for the company behind Neptune. I leveraged elements from the logo to guide the design and added mouse parallax effects to enhance the visual appeal and interactivity.',
     content3:
       'Other contributions to Cryptech and Neptune include the creation of token listings and the development of adapters for various platforms such as <a href="https://github.com/cosmos/chain-registry/commit/62b3fa019a0db5a277925859999ab430420a3fa6" target="_blank" rel="noopener noreferrer"><strong>Cosmos Chain Registry</strong></a>, <a href="https://github.com/InjectiveLabs/injective-ts/pull/413" target="_blank" rel="noopener noreferrer"><strong>Injective Labs</strong></a>, <a href="https://github.com/chainapsis/keplr-contract-registry/pull/14" target="_blank" rel="noopener noreferrer"><strong>Keplr Contract Registry</strong></a>, and <a href="https://github.com/DefiLlama/DefiLlama-Adapters/pull/10034" target="_blank" rel="noopener noreferrer"><strong>DeFi Llama Adapters</strong></a>.',
     highlights: [
@@ -166,7 +167,10 @@ export default function Home() {
               {experience.map((exp, index) => (
                 <span
                   key={index}
-                  className={`${index === highlightIndex ? 'text-[#EBCB8E]' : ''} cursor-pointer hover:text-[#EBCB8E]`}
+                  className={`cursor-pointer hover:text-[color:var(--accent-color)] ${
+                    index === highlightIndex ? 'text-[color:var(--accent-color)]' : ''
+                  }`}
+                  style={{ '--accent-color': ThemeAccentColor } as React.CSSProperties}
                   onClick={() => setHighlightIndex(index)}
                 >
                   {exp.title}
@@ -187,7 +191,7 @@ export default function Home() {
                 >
                   <GithubStats
                     fetchUrl={urls}
-                    color={index === highlightIndex ? '#EBCB8E' : '#99ACC7'}
+                    color={index === highlightIndex ? ThemeAccentColor : '#99ACC7'}
                     aggregateWeek={false}
                   />
                 </div>
@@ -198,26 +202,30 @@ export default function Home() {
             <div className="flex flex-col gap-8 pl-[120px] cursor-default">
               <SectionContent experience={experience} highlightIndex={highlightIndex} />
               <div className="flex justify-start gap-2 mb-2 pr-1 text-2xl">
-                <div
-                  className="relative px-2 group cursor-pointer z-30"
-                  onClick={() =>
-                    setHighlightIndex(
-                      (prev) => (prev - 1 + githubStatsData.length) % githubStatsData.length
-                    )
-                  }
-                >
-                  <button className="relative group-hover:text-[#EBCB8E] transition z-40 pointer-events-none">
-                    <FontAwesomeIcon icon={faCaretLeft} />
-                  </button>
-                </div>
-                <div
-                  className="relative px-2 group cursor-pointer z-30"
-                  onClick={() => setHighlightIndex((prev) => (prev + 1) % githubStatsData.length)}
-                >
-                  <button className="relative group-hover:text-[#EBCB8E] transition z-40 pointer-events-none">
-                    <FontAwesomeIcon icon={faCaretRight} />
-                  </button>
-                </div>
+                <a>
+                  <div
+                    className="relative px-2 group cursor-pointer z-30"
+                    onClick={() =>
+                      setHighlightIndex(
+                        (prev) => (prev - 1 + githubStatsData.length) % githubStatsData.length
+                      )
+                    }
+                  >
+                    <button className={`relative transition z-40 pointer-events-none`}>
+                      <FontAwesomeIcon icon={faCaretLeft} />
+                    </button>
+                  </div>
+                </a>
+                <a>
+                  <div
+                    className="relative px-2 group cursor-pointer z-30"
+                    onClick={() => setHighlightIndex((prev) => (prev + 1) % githubStatsData.length)}
+                  >
+                    <button className={`relative transition z-40 pointer-events-none`}>
+                      <FontAwesomeIcon icon={faCaretRight} />
+                    </button>
+                  </div>
+                </a>
               </div>
             </div>
           </div>

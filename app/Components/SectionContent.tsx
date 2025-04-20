@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Experience } from '../page';
 import { useLinkPreviews } from '../hooks/useOpenGraph';
+import { ThemeAccentColor } from '../config';
 
 type SectionContentProps = {
   experience: Experience[];
@@ -62,7 +63,8 @@ const SectionContent: React.FC<SectionContentProps> = ({ experience, highlightIn
           {highlights.map((highlight, index) => (
             <div
               key={index}
-              className="bg-[#EBCB8E] rounded text-[#131A28] text-xs p-1 px-2 cursor-default"
+              className="rounded text-[#131A28] text-xs p-1 px-2 cursor-default"
+              style={{ backgroundColor: ThemeAccentColor }}
             >
               <span>{highlight}</span>
             </div>
@@ -85,8 +87,11 @@ const SectionContent: React.FC<SectionContentProps> = ({ experience, highlightIn
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className="grid grid-cols-3 w-full max-w-xl h-28 bg-[rgba(153,172,199,0.07)] rounded-lg overflow-hidden border border-white/1 hover:border-[rgba(235,203,142,0.5)] group hover:shadow-lg transition duration-300 no-underline cursor-pointer animate-fadeIn"
-              style={{ animationDelay: `${index * 150}ms` }}
+              className="grid grid-cols-3 w-full max-w-xl h-28 rounded-lg overflow-hidden border border-white/10 group hover:bg-[rgba(153,172,199,0.07)] hover:shadow-lg hover:scale-101 transition duration-300 no-underline cursor-pointer animate-fadeIn"
+              style={{
+                animationDelay: `${index * 150}ms`,
+                borderColor: ThemeAccentColor,
+              }}
             >
               {image && (
                 <div
@@ -94,10 +99,13 @@ const SectionContent: React.FC<SectionContentProps> = ({ experience, highlightIn
                   style={{ backgroundImage: `url(${image})` }}
                 />
               )}
-              <div className="col-span-2 flex flex-col justify-between p-3 text-left group-hover:text-[#EBCB8E]">
+              <div
+                className="col-span-2 flex flex-col justify-between p-3 text-left group-hover:text-accent"
+                style={{ '--tw-text-opacity': 1, color: ThemeAccentColor } as React.CSSProperties}
+              >
                 <div className="text-sm font-semibold leading-snug line-clamp-2">{title}</div>
                 <div className="text-xs text-[#99ACC7] mt-1 line-clamp-2">{description}</div>
-                <div className="text-xs text-[#EBCB8E] mt-2">
+                <div className="text-xs mt-2" style={{ color: ThemeAccentColor }}>
                   {url?.replace(/^https?:\/\//, '')}
                 </div>
               </div>
