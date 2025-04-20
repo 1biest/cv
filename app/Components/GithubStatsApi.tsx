@@ -8,7 +8,7 @@ type Props = {
 };
 
 export default function GithubStatsClient({ owner, repo }: Props) {
-  const { data, loading, error } = useGithubStats(owner, repo);
+  const { data } = useGithubStats(owner, repo);
 
   console.log('githubData', data);
 

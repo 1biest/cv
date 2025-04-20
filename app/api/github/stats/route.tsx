@@ -1,7 +1,7 @@
 import { NextRequest } from 'next/server';
 import { Octokit } from '@octokit/core';
 
-const GITHUB_PERSONAL_ACCESS_TOKEN = process.env.GITHUB_PERSONAL_ACCESS_TOKEN;
+/* const GITHUB_PERSONAL_ACCESS_TOKEN = process.env.GITHUB_PERSONAL_ACCESS_TOKEN; */
 const GITHUB_FINE_GRAINED_ACCESS_TOKEN = process.env.GITHUB_FINE_GRAINED_ACCESS_TOKEN;
 
 export async function GET(req: NextRequest) {
