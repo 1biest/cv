@@ -7,7 +7,7 @@ const socialLinks = [
   { icon: faLinkedin, label: '', url: 'https://www.linkedin.com/in/biest/' },
   { icon: faTelegram, label: '', url: 'https://t.me/Biesterfeldt' },
   { icon: faXTwitter, label: '', url: 'https://x.com/1biesterfeldt' },
-  { icon: faFilePdf, label: 'Résumé', url: '/path/to/resume.pdf' },
+  { icon: faFilePdf, label: 'Résumé', url: '/Logan Biesterfeldt Resume 2025.pdf' },
 ];
 
 const SocialLinks = () => {

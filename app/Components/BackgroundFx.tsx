@@ -50,7 +50,7 @@ const BackgroundFX = () => {
 
           lineCtx.lineTo(x, y + combinedWave);
         }
-        lineCtx.strokeStyle = `rgba(245, 245, 255, 0.05)`;
+        lineCtx.strokeStyle = `rgba(153, 172, 199, 0.08)`;
         lineCtx.stroke();
       }
     };
