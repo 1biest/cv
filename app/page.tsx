@@ -8,6 +8,7 @@ import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import SocialLinks from './Components/SocialLinks';
 import SectionContent from './Components/SectionContent';
 import { ThemeAccentColor } from './config';
+import { useSwipeable } from 'react-swipeable';
 
 export type Experience = {
   title: string;
@@ -24,7 +25,7 @@ const experience: Experience[] = [
     content:
       'Most of my experience with modern frontend frameworks comes from leading the development of the <a href="https://app.nept.finance" target="_blank" rel="noopener noreferrer"><strong>Neptune Finance</strong></a> web application — a borrowing and lending platform built with CosmWasm and deployed on the <a href="https://injective.com" target="_blank" rel="noopener noreferrer"><strong>Injective</strong></a> blockchain. My responsibilities have spanned across frontend engineering, UI/UX design, branding, deployments, and overall user experience strategy.',
     content2:
-      'The interface is developed using Next.js and Tailwind CSS, with additional UI components from Material UI and Daisy UI. I’ve also utilized Figma and Midjourney to establish the product’s visual identity and design language. To streamline design and development, I built a custom Figma component library and created reusable assets for marketing materials.',
+      'The interface is developed using Next.js and Tailwind CSS, with additional UI components from Material UI and Daisy UI. I&apos;ve also utilized Figma and Midjourney to establish the product&apos;s visual identity and design language. To streamline design and development, I built a custom Figma component library and created reusable assets for marketing materials.',
     content3:
       'Recent work includes launching <a href="https://app.nept.finance/staking" target="_blank" rel="noopener noreferrer"><strong>Staking</strong></a> and <a href="https://app.nept.finance/airdrop" target="_blank" rel="noopener noreferrer"><strong>Airdrop</strong></a> pages in support of the NEPT token release, and building <a href="https://app.nept.finance/pool/?poolType=astroport&poolContract=inj18ucwme9nyemev9cjhy6jtagtu4laxh7ztzeqqc" target="_blank" rel="noopener noreferrer"><strong>Pool</strong></a> pages that integrates <a href="https://docs.mito.fi/integration/permissionless-vaults" target="_blank" rel="noopener noreferrer"><strong>Mito</strong></a> and <a href="https://docs.astroport.fi/docs/develop/tutorials/farming/providing-withdrawing-liquidity" target="_blank" rel="noopener noreferrer"><strong>Astroport</strong></a> smart contracts and LP tokens. I introduced novel UX patterns to improve the user experience around liquidity management and implemented gated protocol features for NEPT stakers.',
     highlights: [
@@ -129,9 +130,20 @@ export default function Home() {
     return () => clearTimeout(timeout);
   }, []);
 
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => setHighlightIndex((prev) => (prev + 1) % githubStatsData.length),
+    onSwipedRight: () =>
+      setHighlightIndex((prev) => (prev - 1 + githubStatsData.length) % githubStatsData.length),
+    trackTouch: true,
+    trackMouse: false,
+  });
+
   return (
     <>
-      <div className="grid grid-cols-3 h-full gap-10 px-4 sm:px-20 pt-4 sm:pt-20 selection:bg-[#EBCB8E] selection:text-[#101322]">
+      <div
+        className={`grid grid-cols-3 h-full gap-10 px-4 sm:px-20 pt-4 sm:pt-20 selection:bg-[var(--theme-accent)] selection:text-[#101322]`}
+        style={{ '--theme-accent': ThemeAccentColor } as React.CSSProperties}
+      >
         <div className="relative lg:fixed col-span-3 lg:col-span-1 w-full lg:w-[28%] lg:max-w-[600px] flex flex-col gap-6 pr-8 cursor-default">
           <div
             className="flex flex-col gap-8 lg:max-h-[calc(100vh-220px)] overflow-y-auto relative"
@@ -199,9 +211,8 @@ export default function Home() {
             </div>
           </div>
           <div className="flex justify-start mb-8 gap-4">
-            <div className="flex flex-col gap-8 pl-[120px] cursor-default">
-              <SectionContent experience={experience} highlightIndex={highlightIndex} />
-              <div className="flex justify-start gap-2 mb-2 pr-1 text-2xl">
+            <div className="flex flex-col gap-8 pl-[120px] cursor-default" {...swipeHandlers}>
+              <div className="flex justify-start gap-2 text-2xl">
                 <a>
                   <div
                     className="relative px-2 group cursor-pointer z-30"
@@ -227,6 +238,7 @@ export default function Home() {
                   </div>
                 </a>
               </div>
+              <SectionContent experience={experience} highlightIndex={highlightIndex} />
             </div>
           </div>
         </div>

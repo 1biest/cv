@@ -87,11 +87,8 @@ const SectionContent: React.FC<SectionContentProps> = ({ experience, highlightIn
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className="grid grid-cols-3 w-full max-w-xl h-28 rounded-lg overflow-hidden border border-white/10 group hover:bg-[rgba(153,172,199,0.07)] hover:shadow-lg hover:scale-101 transition duration-300 no-underline cursor-pointer animate-fadeIn"
-              style={{
-                animationDelay: `${index * 150}ms`,
-                borderColor: ThemeAccentColor,
-              }}
+              className="grid grid-cols-3 w-full max-w-xl h-28 rounded-lg overflow-hidden border border-white/10 group bg-[rgba(153,172,199,0.07)] hover:shadow-lg hover:border-[var(--theme-accent)] transition duration-300 no-underline cursor-pointer animate-fadeIn"
+              style={{ '--theme-accent': ThemeAccentColor } as React.CSSProperties}
             >
               {image && (
                 <div
@@ -99,11 +96,13 @@ const SectionContent: React.FC<SectionContentProps> = ({ experience, highlightIn
                   style={{ backgroundImage: `url(${image})` }}
                 />
               )}
-              <div
-                className="col-span-2 flex flex-col justify-between p-3 text-left group-hover:text-accent"
-                style={{ '--tw-text-opacity': 1, color: ThemeAccentColor } as React.CSSProperties}
-              >
-                <div className="text-sm font-semibold leading-snug line-clamp-2">{title}</div>
+              <div className="col-span-2 flex flex-col justify-between p-3 text-left">
+                <div
+                  className="text-sm font-semibold leading-snug line-clamp-2 hover:text-[var(--theme-accent)]"
+                  style={{ '--theme-accent': ThemeAccentColor } as React.CSSProperties}
+                >
+                  {title}
+                </div>
                 <div className="text-xs text-[#99ACC7] mt-1 line-clamp-2">{description}</div>
                 <div className="text-xs mt-2" style={{ color: ThemeAccentColor }}>
                   {url?.replace(/^https?:\/\//, '')}

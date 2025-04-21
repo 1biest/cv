@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useParseCommitCsv } from '../hooks/useParseCommitCsv';
+import { ThemeAccentColor } from '../config';
 
 type GithubStatsProps = {
   fetchUrl: string[];
@@ -35,9 +36,26 @@ export default function GithubStats({ fetchUrl, color, aggregateWeek }: GithubSt
 
   const data = useParseCommitCsv(csv, aggregateWeek);
 
+  const today = new Date();
+  const dayOfWeek = today.getDay();
+
+  const daysUntilSunday = (5 - dayOfWeek) % 7;
+
+  const paddedData = [...data];
+
+  for (let i = 0; i < daysUntilSunday; i++) {
+    paddedData.unshift([0, 0]);
+  }
+
+  const reversedWeeklyData = [];
+  for (let i = 0; i < paddedData.length; i += 7) {
+    const week = paddedData.slice(i, i + 7);
+    reversedWeeklyData.push(...week.reverse());
+  }
+
   return (
     <div className={`grid ${aggregateWeek ? 'grid-cols-1' : 'grid-cols-7'} gap-[2px] w-[82px]`}>
-      {data.map(([timestamp, commitCount], i) => {
+      {reversedWeeklyData.map(([timestamp, commitCount], i) => {
         const intensity = Math.min(commitCount * 4, 20);
         const opacity = [
           'opacity-0',
@@ -67,12 +85,16 @@ export default function GithubStats({ fetchUrl, color, aggregateWeek }: GithubSt
           <div className="relative group" key={i}>
             <div
               className={`${aggregateWeek ? 'w-[82]' : 'w-[10px]'} h-[10px] p-0 m-0 ${opacity} rounded-xs`}
-              style={{ backgroundColor: color || '#39d353' }} // Inline style for background color
-              title={`${commitCount} commit${commitCount > 1 ? 's' : ''} on ${new Date(timestamp * 1000).toLocaleDateString()}`}
+              style={{ backgroundColor: color || '#39d353' }}
             />
-            <div className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-90 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all bg-[#101322] text-[#dde5ed] text-xs px-2 py-1 rounded pointer-events-none z-50 whitespace-nowrap">
-              {`${commitCount} commit${commitCount > 1 ? 's' : ''} on ${new Date(timestamp * 1000).toLocaleDateString()}`}
-            </div>
+            {commitCount > 0 && (
+              <div
+                className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-90 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all bg-[#101322] text-[#dde5ed] text-xs px-2 py-1 rounded pointer-events-none z-50 whitespace-nowrap border border-[var(--theme-accent)]"
+                style={{ '--theme-accent': ThemeAccentColor } as React.CSSProperties}
+              >
+                {`${commitCount} commit${commitCount > 1 ? 's' : ''} on ${timestamp ? new Date(timestamp * 1000).toISOString().slice(0, 10) : ''}`}
+              </div>
+            )}
           </div>
         );
       })}

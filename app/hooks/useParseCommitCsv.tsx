@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 function getWeekStart(date: Date): Date {
   const d = new Date(date);
   d.setHours(0, 0, 0, 0);
-  d.setDate(d.getDate() - d.getDay()); // start on Sunday
+  d.setDate(d.getDate() - d.getDay());
   return d;
 }
 

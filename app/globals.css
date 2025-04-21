@@ -25,10 +25,6 @@ a {
   color: #dde5ed;
 }
 
-a:hover {
-  color: #84e1bc;
-}
-
 @keyframes moveLines {
   0% {
     transform: translate(0, 0);
