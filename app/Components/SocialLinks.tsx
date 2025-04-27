@@ -21,7 +21,7 @@ const SocialLinks = () => {
           rel="noopener noreferrer"
           className={`relative ${link.label ? 'w-26 px-3' : 'w-9 px-3'} h-11 py-2 group cursor-pointer z-30 text-2xl text-center`}
         >
-          <div className="relative flex transition z-30 pt-[2px] group-hover:text-[#EBCB8E] justify-center items-center h-full">
+          <div className="relative flex transition z-30 pt-[2px] group-hover:--accent-color justify-center items-center h-full">
             <FontAwesomeIcon icon={link.icon} />
             {link.label && <span className="pl-2 w-20 text-base">{link.label}</span>}
           </div>

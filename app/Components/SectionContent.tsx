@@ -87,7 +87,7 @@ const SectionContent: React.FC<SectionContentProps> = ({ experience, highlightIn
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className="grid grid-cols-3 w-full max-w-xl h-28 rounded-lg overflow-hidden border border-white/10 group bg-[rgba(153,172,199,0.07)] hover:shadow-lg hover:border-[var(--theme-accent)] transition duration-300 no-underline cursor-pointer animate-fadeIn"
+              className="grid grid-cols-3 w-full max-w-xl h-30 rounded-lg overflow-hidden border border-white/10 group bg-[rgba(153,172,199,0.07)] hover:shadow-lg hover:border-[var(--theme-accent)] transition duration-300 no-underline cursor-pointer animate-fadeIn"
               style={{ '--theme-accent': ThemeAccentColor } as React.CSSProperties}
             >
               {image && (

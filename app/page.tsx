@@ -121,6 +121,8 @@ const githubStatsData = [
 export default function Home() {
   const [highlightIndex, setHighlightIndex] = useState<number>(0);
   const [showBackgroundFX, setShowBackgroundFX] = useState(false);
+  const [swipeOffset, setSwipeOffset] = useState(0);
+  const [swiping, setSwiping] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -131,9 +133,23 @@ export default function Home() {
   }, []);
 
   const swipeHandlers = useSwipeable({
-    onSwipedLeft: () => setHighlightIndex((prev) => (prev + 1) % githubStatsData.length),
-    onSwipedRight: () =>
-      setHighlightIndex((prev) => (prev - 1 + githubStatsData.length) % githubStatsData.length),
+    onSwiping: (eventData) => {
+      setSwipeOffset(eventData.deltaX);
+      setSwiping(true);
+    },
+    onSwiped: (eventData) => {
+      const isSwipeLeft = eventData.dir === 'Left';
+      const isSwipeRight = eventData.dir === 'Right';
+
+      if (isSwipeLeft) {
+        setHighlightIndex((prev) => (prev + 1) % githubStatsData.length);
+      } else if (isSwipeRight) {
+        setHighlightIndex((prev) => (prev - 1 + githubStatsData.length) % githubStatsData.length);
+      }
+
+      setSwipeOffset(0);
+      setSwiping(false);
+    },
     trackTouch: true,
     trackMouse: false,
   });
@@ -182,7 +198,6 @@ export default function Home() {
                   className={`cursor-pointer hover:text-[color:var(--accent-color)] ${
                     index === highlightIndex ? 'text-[color:var(--accent-color)]' : ''
                   }`}
-                  style={{ '--accent-color': ThemeAccentColor } as React.CSSProperties}
                   onClick={() => setHighlightIndex(index)}
                 >
                   {exp.title}
@@ -211,34 +226,40 @@ export default function Home() {
             </div>
           </div>
           <div className="flex justify-start mb-8 gap-4">
-            <div className="flex flex-col gap-8 pl-[120px] cursor-default" {...swipeHandlers}>
+            <div
+              className="flex flex-col gap-8 pl-[120px] cursor-default w-full overflow-hidden"
+              {...swipeHandlers}
+            >
               <div className="flex justify-start gap-2 text-2xl">
-                <a>
-                  <div
-                    className="relative px-2 group cursor-pointer z-30"
-                    onClick={() =>
-                      setHighlightIndex(
-                        (prev) => (prev - 1 + githubStatsData.length) % githubStatsData.length
-                      )
-                    }
-                  >
-                    <button className={`relative transition z-40 pointer-events-none`}>
-                      <FontAwesomeIcon icon={faCaretLeft} />
-                    </button>
-                  </div>
-                </a>
-                <a>
-                  <div
-                    className="relative px-2 group cursor-pointer z-30"
-                    onClick={() => setHighlightIndex((prev) => (prev + 1) % githubStatsData.length)}
-                  >
-                    <button className={`relative transition z-40 pointer-events-none`}>
-                      <FontAwesomeIcon icon={faCaretRight} />
-                    </button>
-                  </div>
-                </a>
+                <div
+                  className={`relative px-2 group cursor-pointer z-30 ${swipeOffset < 0 ? 'text-[color:var(--accent-color)]' : ''}`}
+                  onClick={() =>
+                    setHighlightIndex(
+                      (prev) => (prev - 1 + githubStatsData.length) % githubStatsData.length
+                    )
+                  }
+                >
+                  <button className={`relative transition z-40 pointer-events-none`}>
+                    <FontAwesomeIcon icon={faCaretLeft} />
+                  </button>
+                </div>
+                <div
+                  className={`relative px-2 group cursor-pointer z-30 ${swipeOffset > 0 ? 'text-[color:var(--accent-color)]' : ''}`}
+                  onClick={() => setHighlightIndex((prev) => (prev + 1) % githubStatsData.length)}
+                >
+                  <button className={`relative transition z-40 pointer-events-none`}>
+                    <FontAwesomeIcon icon={faCaretRight} />
+                  </button>
+                </div>
               </div>
-              <SectionContent experience={experience} highlightIndex={highlightIndex} />
+              <div
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{
+                  transform: `translateX(${swiping ? `${0 + swipeOffset}px` : `0%`})`,
+                }}
+              >
+                <SectionContent experience={experience} highlightIndex={highlightIndex} />
+              </div>
             </div>
           </div>
         </div>
