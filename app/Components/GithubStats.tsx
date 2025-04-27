@@ -39,7 +39,7 @@ export default function GithubStats({ fetchUrl, color, aggregateWeek }: GithubSt
   const today = new Date();
   const dayOfWeek = today.getDay();
 
-  const daysUntilSunday = (5 - dayOfWeek) % 7;
+  const daysUntilSunday = (6 - dayOfWeek) % 7;
 
   const paddedData = [...data];
 
