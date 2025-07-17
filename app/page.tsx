@@ -67,7 +67,7 @@ const experience: Experience[] = [
       'Figma',
       'Midjourney',
     ],
-    ctas: ['https://nept.finance', 'https://cryptech.dev/'],
+    ctas: ['https://cryptech.dev/', 'https://nept.finance'],
   },
   {
     title: 'Injective CW3 Multisig',
