@@ -1,28 +1,11 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { createPortal } from 'react-dom';
+import projectsData from '../data/projects.json';
 
 export type ImageGalleryProps = {
   title?: string;
 };
-
-const images = [
-  {
-    src: '/screenshots/cryptech-dashboard.png',
-    alt: 'Cryptech Dashboard',
-    category: 'Cryptech',
-  },
-  {
-    src: '/screenshots/cryptech-homepage.png',
-    alt: 'Cryptech Homepage',
-    category: 'Cryptech',
-  },
-  {
-    src: '/screenshots/cryptech-style-guides.png',
-    alt: 'Cryptech Style Guides',
-    category: 'Cryptech',
-  },
-];
 
 function lerp(a: number, b: number, t: number) {
   return a + (b - a) * t;
@@ -45,8 +28,10 @@ export default function ImageGallery({ title }: ImageGalleryProps) {
 
   // Filter images by title if provided
   const filteredImages = title
-    ? images.filter((img) => img.category?.toLowerCase() === title.toLowerCase())
-    : images;
+    ? projectsData.projects
+        .flatMap((project) => project.images.map((img) => ({ ...img, projectId: project.id })))
+        .filter((img) => img.projectId === title)
+    : projectsData.projects.flatMap((project) => project.images);
 
   useEffect(() => {
     setMounted(true);
