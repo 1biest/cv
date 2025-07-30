@@ -3,7 +3,7 @@
     {
       "id": "neptune-finance",
       "title": "Neptune Finance",
-      "content": "Most of my experience with modern frontend frameworks comes from leading the development of the <a href=\"https://app.nept.finance\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Neptune Finance</strong></a> web application — a borrowing and lending platform built with CosmWasm and deployed on the <a href=\"https://injective.com\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Injective</strong></a> blockchain. My responsibilities have spanned across frontend engineering, UI/UX design, branding, deployments, and overall user experience strategy.",
+      "content": "Most of my experience with modern frontend frameworks comes from leading the development of the <a href=\"https://app.nept.finance\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Neptune Finance</strong></a> web application — a borrowing and lending platform built with CosmWasm and deployed on the <a href=\"https://injective.com\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Injective</strong></a> blockchain. My responsibilities have spanned across frontend engineering, UI/UX design, branding, deployments, and overall user experience strategy. I also led the development of the <a href=\"https://nept.finance\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Neptune Landing</strong></a> site. For the landing pages, I adopted a creative approach to design, integrating time-series data of interest rates into the visual elements to highlight the core focus of the lending market.",
       "content2": "The interface is developed using Next.js and Tailwind CSS, with additional UI components from Material UI and Daisy UI. I&apos;ve also utilized Figma and Midjourney to establish the product&apos;s visual identity and design language. To streamline design and development, I built a custom Figma component library and created reusable assets for marketing materials.",
       "content3": "Recent work includes launching <a href=\"https://app.nept.finance/staking\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Staking</strong></a> and <a href=\"https://app.nept.finance/airdrop\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Airdrop</strong></a> pages in support of the NEPT token release, and building <a href=\"https://app.nept.finance/pool/?poolType=astroport&poolContract=inj18ucwme9nyemev9cjhy6jtagtu4laxh7ztzeqqc\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Pool</strong></a> pages that integrates <a href=\"https://docs.mito.fi/integration/permissionless-vaults\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Mito</strong></a> and <a href=\"https://docs.astroport.fi/docs/develop/tutorials/farming/providing-withdrawing-liquidity\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Astroport</strong></a> smart contracts and LP tokens. I introduced novel UX patterns to improve the user experience around liquidity management and implemented gated protocol features for NEPT stakers.",
       "highlights": [
@@ -23,16 +23,53 @@
         "Midjourney",
         "Fleek"
       ],
-      "ctas": ["https://app.nept.finance"],
-      "images": [],
-      "githubStats": ["/neptune-webapp-commit-log.csv"]
+      "ctas": ["https://nept.finance"],
+      "images": [
+        {
+          "src": "/screenshots/neptune-landing-home.png",
+          "alt": "Neptune Landing Home"
+        },
+        {
+          "src": "/screenshots/neptune-landing-rates.png",
+          "alt": "Neptune Landing Rates"
+        },
+        {
+          "src": "/screenshots/neptune-investment-doc.png",
+          "alt": "Neptune Investment Document"
+        },
+        {
+          "src": "/screenshots/neptune-overview-page.png",
+          "alt": "Neptune Overview Page"
+        },
+        {
+          "src": "/screenshots/neptune-asset-detail-page.png",
+          "alt": "Neptune Asset Detail Page"
+        },
+        {
+          "src": "/screenshots/neptune-lending-figma.png",
+          "alt": "Neptune Lending Figma Mockup"
+        },
+        {
+          "src": "/screenshots/neptune-pool-page.png",
+          "alt": "Neptune Pool Page"
+        },
+        {
+          "src": "/screenshots/neptune-token-social-posts.png",
+          "alt": "Neptune Token Social Posts"
+        },
+        {
+          "src": "/screenshots/neptune-component-promo.png",
+          "alt": "Neptune Component Promo"
+        }
+      ],
+      "githubStats": ["/neptune-webapp-commit-log.csv", "/neptune-landing-commit-log.csv"]
     },
     {
       "id": "cryptech",
       "title": "Cryptech",
-      "content": "In addition to the Neptune dapp, I led production of the <a href=\"https://nept.finance\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Neptune Landing</strong></a> site. For the landing pages, I adopted a creative approach to design, integrating time-series data of interest rates into the visual elements to highlight the core focus of the lending market.",
-      "content2": "I also developed the <a href=\"https://nept.finance\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cryptech Developments</strong></a> website for the company behind Neptune. I leveraged elements from the logo to guide the design and added mouse parallax effects to enhance the visual appeal and interactivity.",
-      "content3": "Other contributions to Cryptech and Neptune include the creation of token listings and the development of adapters for various platforms such as <a href=\"https://github.com/cosmos/chain-registry/commit/62b3fa019a0db5a277925859999ab430420a3fa6\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cosmos Chain Registry</strong></a>, <a href=\"https://github.com/InjectiveLabs/injective-ts/pull/413\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Injective Labs</strong></a>, <a href=\"https://github.com/chainapsis/keplr-contract-registry/pull/14\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Keplr Contract Registry</strong></a>, and <a href=\"https://github.com/DefiLlama/DefiLlama-Adapters/pull/10034\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>DeFi Llama Adapters</strong></a>.",
+      "content": "I also developed the <a href=\"https://cryptech.dev\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cryptech Developments</strong></a> website for the company behind Neptune. I leveraged elements from the logo to guide the design and added mouse parallax effects to enhance the visual appeal and interactivity.",
+      "content2": "Other contributions to Cryptech and Neptune include the creation of token listings and the development of adapters for various platforms such as <a href=\"https://github.com/cosmos/chain-registry/commit/62b3fa019a0db5a277925859999ab430420a3fa6\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cosmos Chain Registry</strong></a>, <a href=\"https://github.com/InjectiveLabs/injective-ts/pull/413\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Injective Labs</strong></a>, <a href=\"https://github.com/chainapsis/keplr-contract-registry/pull/14\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Keplr Contract Registry</strong></a>, and <a href=\"https://github.com/DefiLlama/DefiLlama-Adapters/pull/10034\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>DeFi Llama Adapters</strong></a>.",
+      "content3": "I also developed the interface for a project titled Macro DEX for an additional project associated with Cryptech. I developed the brand identity and designed visual and functional components for the application.",
       "highlights": [
         "Javascript",
         "TypeScript",
@@ -45,7 +82,7 @@
         "Figma",
         "Midjourney"
       ],
-      "ctas": ["https://nept.finance", "https://cryptech.dev/"],
+      "ctas": ["https://cryptech.dev/"],
       "images": [
         {
           "src": "/screenshots/cryptech-homepage.png",
@@ -64,15 +101,11 @@
           "alt": "Macro DEX"
         },
         {
-          "src": "/screenshots/macro-dex-concepts.png",
+          "src": "/screenshots/macro-dex-branding-concepts.png",
           "alt": "Macro DEX Concepts"
         }
       ],
-      "githubStats": [
-        "/neptune-landing-commit-log.csv",
-        "/macro-web-commit-log.csv",
-        "/cryptech-website-commit-log.csv"
-      ]
+      "githubStats": ["/macro-web-commit-log.csv", "/cryptech-website-commit-log.csv"]
     },
     {
       "id": "injective-cw3-multisig",

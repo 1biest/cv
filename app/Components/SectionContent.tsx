@@ -73,7 +73,7 @@ const SectionContent: React.FC<SectionContentProps> = ({ experience, highlightIn
         </div>
       )}
 
-      <ImageGallery title={title} />
+      <ImageGallery images={currentExperience.images} />
 
       {/* CTA Links with Previews */}
       <div className="flex flex-col flex-wrap z-30 relative">

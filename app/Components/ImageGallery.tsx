@@ -1,17 +1,17 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { createPortal } from 'react-dom';
-import projectsData from '../data/projects.json';
+import { ProjectImage } from '../types/projects';
 
 export type ImageGalleryProps = {
-  title?: string;
+  images: ProjectImage[];
 };
 
 function lerp(a: number, b: number, t: number) {
   return a + (b - a) * t;
 }
 
-export default function ImageGallery({ title }: ImageGalleryProps) {
+export default function ImageGallery({ images }: ImageGalleryProps) {
   const [open, setOpen] = useState(false);
   const [current, setCurrent] = useState(0);
   const [mounted, setMounted] = useState(false);
@@ -25,13 +25,6 @@ export default function ImageGallery({ title }: ImageGalleryProps) {
   const [imgVisible, setImgVisible] = useState(false);
   const [showImage, setShowImage] = useState(true);
   const [modalVisible, setModalVisible] = useState(false);
-
-  // Filter images by title if provided
-  const filteredImages = title
-    ? projectsData.projects
-        .flatMap((project) => project.images.map((img) => ({ ...img, projectId: project.id })))
-        .filter((img) => img.projectId === title)
-    : projectsData.projects.flatMap((project) => project.images);
 
   useEffect(() => {
     setMounted(true);
@@ -56,12 +49,12 @@ export default function ImageGallery({ title }: ImageGalleryProps) {
       e?.stopPropagation();
       setShowImage(false);
       setTimeout(() => {
-        setCurrent((prev) => (prev + 1) % filteredImages.length);
+        setCurrent((prev) => (prev + 1) % images.length);
         setIsFullSize(false);
         setShowImage(true);
       }, 10);
     },
-    [filteredImages.length]
+    [images.length]
   );
 
   const prevImage = useCallback(
@@ -69,12 +62,12 @@ export default function ImageGallery({ title }: ImageGalleryProps) {
       e?.stopPropagation();
       setShowImage(false);
       setTimeout(() => {
-        setCurrent((prev) => (prev - 1 + filteredImages.length) % filteredImages.length);
+        setCurrent((prev) => (prev - 1 + images.length) % images.length);
         setIsFullSize(false);
         setShowImage(true);
       }, 10);
     },
-    [filteredImages.length]
+    [images.length]
   );
 
   useEffect(() => {
@@ -209,7 +202,7 @@ export default function ImageGallery({ title }: ImageGalleryProps) {
   }, [open]);
 
   // If no images to show, render nothing
-  if (!filteredImages.length) return null;
+  if (!images.length) return null;
 
   const handleImageClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -264,9 +257,9 @@ export default function ImageGallery({ title }: ImageGalleryProps) {
       >
         {showImage && (
           <Image
-            key={filteredImages[current].src}
-            src={filteredImages[current].src}
-            alt={filteredImages[current].alt}
+            key={images[current].src}
+            src={images[current].src}
+            alt={images[current].alt}
             width={8000}
             height={8000}
             style={{
@@ -299,7 +292,7 @@ export default function ImageGallery({ title }: ImageGalleryProps) {
     <div className="my-8 z-200">
       <h3 className="text-lg font-bold mb-4">Project Gallery</h3>
       <div className="flex gap-4 flex-wrap">
-        {filteredImages.map((img, idx) => (
+        {images.map((img, idx) => (
           <div
             key={img.src}
             className="w-40 h-28 relative rounded shadow cursor-pointer hover:scale-105 transition overflow-hidden"
