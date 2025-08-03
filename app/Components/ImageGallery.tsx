@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { createPortal } from 'react-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import { ProjectImage } from '../types/projects';
 
 export type ImageGalleryProps = {
@@ -9,6 +11,20 @@ export type ImageGalleryProps = {
 
 function lerp(a: number, b: number, t: number) {
   return a + (b - a) * t;
+}
+
+/**
+ * Generates a YouTube embed URL with privacy-enhanced settings
+ */
+function getYouTubeEmbedUrl(youtubeId: string): string {
+  return `https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1&showinfo=0`;
+}
+
+/**
+ * Generates a YouTube thumbnail URL using the hqdefault format for reliability
+ */
+function getYouTubeThumbnailUrl(youtubeId: string): string {
+  return `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`;
 }
 
 export default function ImageGallery({ images }: ImageGalleryProps) {
@@ -142,16 +158,29 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
   if (typeof window !== 'undefined' && open && imgDims.width && imgDims.height) {
     const vw = window.innerWidth;
     const vh = window.innerHeight;
+    const maxDisplayWidth = vw * 0.9; // 90% of viewport width
+
     if (!isFullSize) {
-      // Fit to window
-      const scale = Math.min(vw / imgDims.width, vh / imgDims.height, 1);
+      // Fit to window while preserving aspect ratio
+      const scaleX = maxDisplayWidth / imgDims.width;
+      const scaleY = vh / imgDims.height;
+      const scale = Math.min(scaleX, scaleY, 1);
       displayW = imgDims.width * scale;
       displayH = imgDims.height * scale;
+    } else {
+      // Full size - no constraints at all
+      displayW = imgDims.width;
+      displayH = imgDims.height;
     }
-    overflowX = displayW > vw ? displayW - vw : 0;
+
+    // Calculate overflow based on actual displayed size
+    overflowX =
+      displayW > (isFullSize ? vw : maxDisplayWidth)
+        ? displayW - (isFullSize ? vw : maxDisplayWidth)
+        : 0;
     overflowY = displayH > vh ? displayH - vh : 0;
-    // Only allow zoom if the image is larger than the window in at least one dimension
-    canZoom = imgDims.width > vw || imgDims.height > vh;
+    // Only allow zoom if the image would be larger than constraints
+    canZoom = imgDims.width > maxDisplayWidth || imgDims.height > vh;
   }
 
   // Smooth parallax animation and clamp so image never overscrolls
@@ -204,6 +233,9 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
   // If no images to show, render nothing
   if (!images.length) return null;
 
+  const currentItem = images[current];
+  const isYouTube = currentItem && (currentItem.type === 'youtube' || currentItem.youtubeId);
+
   const handleImageClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (!canZoom) return;
@@ -216,12 +248,12 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
     willChange: 'transform',
     width: displayW,
     height: displayH,
-    maxWidth: 'none',
+    maxWidth: isFullSize ? 'none' : '90vw',
     maxHeight: 'none',
     borderRadius: '0.5rem',
-    border: '4px solid white',
     boxShadow: '0 4px 32px rgba(0,0,0,0.5)',
     cursor: canZoom ? (isFullSize ? 'zoom-out' : 'zoom-in') : 'default',
+    objectFit: 'contain',
   };
 
   const modal = (
@@ -248,31 +280,54 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
         onClick={prevImage}
         aria-label="Previous"
       >
-        &#8592;
+        <FontAwesomeIcon icon={faCaretLeft} />
       </button>
       <div
         ref={imgContainerRef}
         className="relative max-h-[100vh] max-w-[100vw] w-auto h-auto flex items-center justify-center overflow-hidden"
         style={{ width: '100vw', height: '100vh' }}
       >
-        {showImage && (
-          <Image
-            key={images[current].src}
-            src={images[current].src}
-            alt={images[current].alt}
-            width={8000}
-            height={8000}
-            style={{
-              ...(imgDims.width > 0 && imgDims.height > 0 ? parallaxStyle : {}),
-              opacity: imgVisible ? 1 : 0,
-              transition: 'opacity 0.4s cubic-bezier(.4,0,.2,1)',
-            }}
-            className="rounded shadow-lg border-4 border-white"
-            onClick={handleImageClick}
-            onLoad={handleImgLoad}
-          />
-        )}
-        {canZoom && (
+        {showImage &&
+          currentItem &&
+          (isYouTube ? (
+            <iframe
+              key={currentItem.youtubeId}
+              src={getYouTubeEmbedUrl(currentItem.youtubeId!)}
+              title={currentItem.alt}
+              className="rounded shadow-lg"
+              style={{
+                width: isFullSize ? '100%' : '90vw',
+                height: isFullSize ? '100vh' : '60vh',
+                maxWidth: '90vw',
+                maxHeight: '90vh',
+                border: 'none',
+              }}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              loading="lazy"
+              onError={() => {
+                // Fallback: could redirect to YouTube or show error message
+                console.warn('YouTube embed failed to load');
+              }}
+            />
+          ) : (
+            <Image
+              key={currentItem.src || currentItem.youtubeId}
+              src={currentItem.src || getYouTubeThumbnailUrl(currentItem.youtubeId!)}
+              alt={currentItem.alt}
+              width={8000}
+              height={8000}
+              style={{
+                ...(imgDims.width > 0 && imgDims.height > 0 ? parallaxStyle : {}),
+                opacity: imgVisible ? 1 : 0,
+                transition: 'opacity 0.4s cubic-bezier(.4,0,.2,1)',
+              }}
+              className="rounded shadow-lg"
+              onClick={handleImageClick}
+              onLoad={handleImgLoad}
+            />
+          ))}
+        {!isYouTube && canZoom && (
           <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white bg-slate-900 bg-opacity-40 px-3 py-1 rounded text-xs pointer-events-none select-none">
             {isFullSize ? 'Click to fit to window' : 'Click to view full size'}
           </span>
@@ -283,7 +338,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
         onClick={nextImage}
         aria-label="Next"
       >
-        &#8594;
+        <FontAwesomeIcon icon={faCaretRight} />
       </button>
     </div>
   );
@@ -292,21 +347,47 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
     <div className="my-8 z-200">
       <h3 className="text-lg font-bold mb-4">Project Gallery</h3>
       <div className="flex gap-4 flex-wrap">
-        {images.map((img, idx) => (
+        {images.map((item, idx) => (
           <div
-            key={img.src}
+            key={item.src || item.youtubeId || idx}
             className="w-40 h-28 relative rounded shadow cursor-pointer hover:scale-105 transition overflow-hidden"
             onClick={() => openModal(idx)}
           >
-            <Image
-              src={img.src}
-              alt={img.alt}
-              fill
-              style={{ objectFit: 'cover' }}
-              sizes="160px"
-              className="rounded"
-              priority={idx === 0}
-            />
+            {item && (item.type === 'youtube' || item.youtubeId) ? (
+              <Image
+                src={item.src || getYouTubeThumbnailUrl(item.youtubeId!)}
+                alt={item.alt}
+                fill
+                style={{ objectFit: 'cover' }}
+                sizes="160px"
+                className="rounded"
+                priority={idx === 0}
+              />
+            ) : item && item.src ? (
+              <Image
+                src={item.src}
+                alt={item.alt}
+                fill
+                style={{ objectFit: 'cover' }}
+                sizes="160px"
+                className="rounded"
+                priority={idx === 0}
+              />
+            ) : null}
+            {item && (item.type === 'youtube' || item.youtubeId) && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg">
+                  <svg
+                    className="w-6 h-6 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    style={{ marginLeft: '2px' }}
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
+            )}
           </div>
         ))}
       </div>

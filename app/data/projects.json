@@ -27,39 +27,48 @@
       "images": [
         {
           "src": "/screenshots/neptune-landing-home.png",
-          "alt": "Neptune Landing Home"
+          "alt": "Neptune Landing Home",
+          "type": "image"
         },
         {
           "src": "/screenshots/neptune-landing-rates.png",
-          "alt": "Neptune Landing Rates"
+          "alt": "Neptune Landing Rates",
+          "type": "image"
         },
         {
           "src": "/screenshots/neptune-investment-doc.png",
-          "alt": "Neptune Investment Document"
+          "alt": "Neptune Investment Document",
+          "type": "image"
         },
         {
           "src": "/screenshots/neptune-overview-page.png",
-          "alt": "Neptune Overview Page"
+          "alt": "Neptune Overview Page",
+          "type": "image"
         },
         {
           "src": "/screenshots/neptune-asset-detail-page.png",
-          "alt": "Neptune Asset Detail Page"
+          "alt": "Neptune Asset Detail Page",
+          "type": "image"
         },
         {
           "src": "/screenshots/neptune-lending-figma.png",
-          "alt": "Neptune Lending Figma Mockup"
+          "alt": "Neptune Lending Figma Mockup",
+          "type": "image"
         },
         {
           "src": "/screenshots/neptune-pool-page.png",
-          "alt": "Neptune Pool Page"
+          "alt": "Neptune Pool Page",
+          "type": "image"
         },
         {
           "src": "/screenshots/neptune-token-social-posts.png",
-          "alt": "Neptune Token Social Posts"
+          "alt": "Neptune Token Social Posts",
+          "type": "image"
         },
         {
           "src": "/screenshots/neptune-component-promo.png",
-          "alt": "Neptune Component Promo"
+          "alt": "Neptune Component Promo",
+          "type": "image"
         }
       ],
       "githubStats": ["/neptune-webapp-commit-log.csv", "/neptune-landing-commit-log.csv"]
@@ -85,24 +94,34 @@
       "ctas": ["https://cryptech.dev/"],
       "images": [
         {
-          "src": "/screenshots/cryptech-homepage.png",
-          "alt": "Cryptech Homepage"
+          "src": "/screenshots/cryptech-dashboard.png",
+          "alt": "Cryptech Dashboard",
+          "type": "image"
         },
         {
-          "src": "/screenshots/cryptech-dashboard.png",
-          "alt": "Cryptech Dashboard Concept"
+          "src": "/screenshots/cryptech-homepage.png",
+          "alt": "Cryptech Homepage",
+          "type": "image"
         },
         {
           "src": "/screenshots/cryptech-style-guides.png",
-          "alt": "Cryptech Style Guides"
+          "alt": "Cryptech Style Guides",
+          "type": "image"
         },
         {
           "src": "/screenshots/macro-dex-screenshot.png",
-          "alt": "Macro DEX"
+          "alt": "Macro DEX",
+          "type": "image"
         },
         {
           "src": "/screenshots/macro-dex-branding-concepts.png",
-          "alt": "Macro DEX Concepts"
+          "alt": "Macro DEX Concepts",
+          "type": "image"
+        },
+        {
+          "youtubeId": "5g6fYIUT7CE",
+          "alt": "Neptune Finance Demo",
+          "type": "youtube"
         }
       ],
       "githubStats": ["/macro-web-commit-log.csv", "/cryptech-website-commit-log.csv"]
