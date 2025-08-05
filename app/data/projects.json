@@ -74,11 +74,77 @@
       "githubStats": ["/neptune-webapp-commit-log.csv", "/neptune-landing-commit-log.csv"]
     },
     {
+      "id": "stakefish",
+      "title": "stakefish / f2pool",
+      "content": "While working with <strong>stakefish</strong>, a leading validator in the Proof-of-Stake ecosystem, I produced a wide range of motion graphics content aimed at educating and engaging the crypto community. This included a full library of explainer videos designed to help users understand how to stake their assets securely and effectively with validators across Ethereum, Cosmos, and Solana.",
+      "content2": "In addition to educational content, I crafted visual assets and animated campaigns for social media, with a focus on protocol health, decentralization, and user participation in staking. These assets helped promote the benefits of staking while reinforcing stakefish’s position as a trusted validator across emerging sectors like DeFi, NFTs, DAOs, and the metaverse.",
+      "content3": "Alongside my work at stakefish, I also contributed motion design and visual content for <strong>f2pool</strong>, Ethereum's leading mining pool at the time, where I supported their Carbon Credits initiative under the BICOWG working group. This involved promoting sustainability efforts and communicating f2pool’s transition narrative in the wake of Ethereum’s move to Proof-of-Stake.",
+      "highlights": [
+        "After Effects",
+        "Premiere Pro",
+        "Element 3D",
+        "Photoshop",
+        "OBS",
+        "Visual Storytelling",
+        "Crypto Education",
+        "Motion Design"
+      ],
+      "ctas": ["https://www.stake.fish", "https://www.f2pool.com"],
+      "images": [
+        {
+          "youtubeId": "-qwSAFcicg8",
+          "alt": "[Ethereum 2.0 Explained] Part II | Phase 0 and the Beacon Chain",
+          "type": "youtube"
+        },
+        {
+          "youtubeId": "5g6fYIUT7CE",
+          "alt": "How to stake Ethereum 2.0 with Ledger Nano X",
+          "type": "youtube"
+        },
+        {
+          "youtubeId": "E9g_rQXF4H8",
+          "alt": "How to stake OSMO with Keplr",
+          "type": "youtube"
+        },
+        {
+          "youtubeId": "rQtx-Llvmvg",
+          "alt": "stakefish Now Supports the Evmos Network",
+          "type": "youtube"
+        },
+        {
+          "youtubeId": "_pp8QrDwSfE",
+          "alt": "Working at stakefish: Our commitment to decentralization",
+          "type": "youtube"
+        },
+        {
+          "youtubeId": "K_SrtqaaGvI",
+          "alt": "Bitcoin Blocks Mined per Mining Pool",
+          "type": "youtube"
+        },
+        {
+          "youtubeId": "QdZSz_6ZSQI",
+          "alt": "F2Pool Carbon Credits initiative as part of the BICOWG",
+          "type": "youtube"
+        }
+      ],
+      "githubStats": []
+    },
+    {
+      "id": "open-source-contributions",
+      "title": "Open Source Contributions",
+      "content": "Neptune Finance identified a gap in the support for the <a href=\"https://github.com/cryptechdev/cw3-injective-multisig-dapp\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>CW3 Fixed Multisig</strong></a> smart contract standard on the Injective blockchain. As part of the Cosmos ecosystem, we were able to leverage open-source software deployed on other platforms. By refactoring a decentralized application (dapp) from <a href=\"https://github.com/public-awesome/cw3-fixed-multisig-dapp\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Stargaze</strong></a>, originally developed for <a href=\"https://github.com/ebaker/cw3-fixed-multisig-dapp\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Juno</strong></a>, Neptune successfully brought this essential service to Injective.",
+      "content2": "The most significant challenge in porting this Cosmos repository was adapting it to the EVM-compatible architecture of Injective. While the dapp was able to query contracts, the transaction submission process required refactoring for compatibility with the <a href=\"https://www.npmjs.com/package/@injectivelabs/sdk-ts\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Injective SDK</strong></a>. Additionally, several quality enhancements were implemented, such as decoding messages from Base64 and enabling formatted output for improved debugging and error detection. I also incorporated local storage functionality to cache frequently accessed contracts, optimizing performance.",
+      "content3": "Other open source contributions include update token listings and the development of adapters for various platforms such as <a href=\"https://github.com/cosmos/chain-registry/commit/62b3fa019a0db5a277925859999ab430420a3fa6\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cosmos Chain Registry</strong></a>, <a href=\"https://github.com/InjectiveLabs/injective-ts/pull/413\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Injective Labs</strong></a>, <a href=\"https://github.com/chainapsis/keplr-contract-registry/pull/14\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Keplr Contract Registry</strong></a>, and <a href=\"https://github.com/DefiLlama/DefiLlama-Adapters/pull/10034\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>DeFi Llama Adapters</strong></a>.",
+      "highlights": ["TypeScript", "React", "Next.js", "CW3 Multisig", "Tailwind", "Vercel"],
+      "ctas": ["https://multisig.nept.finance/"],
+      "images": [],
+      "githubStats": ["/cw3-multisig-commit-log.csv", "/neptune-foundation-commit-log.csv", ""]
+    },
+    {
       "id": "cryptech",
-      "title": "Cryptech",
+      "title": "Cryptech Developments Ltd.",
       "content": "I also developed the <a href=\"https://cryptech.dev\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cryptech Developments</strong></a> website for the company behind Neptune. I leveraged elements from the logo to guide the design and added mouse parallax effects to enhance the visual appeal and interactivity.",
-      "content2": "Other contributions to Cryptech and Neptune include the creation of token listings and the development of adapters for various platforms such as <a href=\"https://github.com/cosmos/chain-registry/commit/62b3fa019a0db5a277925859999ab430420a3fa6\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cosmos Chain Registry</strong></a>, <a href=\"https://github.com/InjectiveLabs/injective-ts/pull/413\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Injective Labs</strong></a>, <a href=\"https://github.com/chainapsis/keplr-contract-registry/pull/14\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Keplr Contract Registry</strong></a>, and <a href=\"https://github.com/DefiLlama/DefiLlama-Adapters/pull/10034\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>DeFi Llama Adapters</strong></a>.",
-      "content3": "I also developed the interface for a project titled Macro DEX for an additional project associated with Cryptech. I developed the brand identity and designed visual and functional components for the application.",
+      "content2": "I also developed the interface for a project titled Macro DEX for an additional project associated with Cryptech. I developed the brand identity and designed visual and functional components for the application.",
       "highlights": [
         "Javascript",
         "TypeScript",
@@ -117,24 +183,9 @@
           "src": "/screenshots/macro-dex-branding-concepts.png",
           "alt": "Macro DEX Concepts",
           "type": "image"
-        },
-        {
-          "youtubeId": "5g6fYIUT7CE",
-          "alt": "Neptune Finance Demo",
-          "type": "youtube"
         }
       ],
       "githubStats": ["/macro-web-commit-log.csv", "/cryptech-website-commit-log.csv"]
-    },
-    {
-      "id": "injective-cw3-multisig",
-      "title": "Injective CW3 Multisig",
-      "content": "Neptune Finance identified a gap in the support for the <a href=\"https://github.com/cryptechdev/cw3-injective-multisig-dapp\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>CW3 Fixed Multisig</strong></a> smart contract standard on the Injective blockchain. As part of the Cosmos ecosystem, we were able to leverage open-source software deployed on other platforms. By refactoring a decentralized application (dapp) from <a href=\"https://github.com/public-awesome/cw3-fixed-multisig-dapp\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Stargaze</strong></a>, originally developed for <a href=\"https://github.com/ebaker/cw3-fixed-multisig-dapp\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Juno</strong></a>, Neptune successfully brought this essential service to Injective.",
-      "content2": "The most significant challenge in porting this Cosmos repository was adapting it to the EVM-compatible architecture of Injective. While the dapp was able to query contracts, the transaction submission process required refactoring for compatibility with the <a href=\"https://www.npmjs.com/package/@injectivelabs/sdk-ts\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Injective SDK</strong></a>. Additionally, several quality enhancements were implemented, such as decoding messages from Base64 and enabling formatted output for improved debugging and error detection. I also incorporated local storage functionality to cache frequently accessed contracts, optimizing performance.",
-      "highlights": ["TypeScript", "React", "Next.js", "CW3 Multisig", "Tailwind", "Vercel"],
-      "ctas": ["https://multisig.nept.finance/"],
-      "images": [],
-      "githubStats": ["/cw3-multisig-commit-log.csv", "/neptune-foundation-commit-log.csv"]
     },
     {
       "id": "cosmoverse-hackathons",
