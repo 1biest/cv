@@ -138,7 +138,7 @@
       "highlights": ["TypeScript", "React", "Next.js", "CW3 Multisig", "Tailwind", "Vercel"],
       "ctas": ["https://multisig.nept.finance/"],
       "images": [],
-      "githubStats": ["/cw3-multisig-commit-log.csv", "/neptune-foundation-commit-log.csv", ""]
+      "githubStats": ["/cw3-multisig-commit-log.csv", "/neptune-foundation-commit-log.csv"]
     },
     {
       "id": "cryptech",
@@ -211,13 +211,12 @@
       "githubStats": [
         "/init-commit-log.csv",
         "/cv-commit-log.csv",
-        "world-antiques-commit-log.csv",
-        "aleo-biest-token-commit-log.csv",
-        "world-antiques-commit-log.csv",
-        "stakefolio-commit-log.csv",
-        "tashina-cv-commit-log.csv",
-        "aab-commit-log.csv",
-        "dungarvan-creek-commit-log.csv"
+        "/world-antiques-commit-log.csv",
+        "/aleo-biest-token-commit-log.csv",
+        "/stakefolio-commit-log.csv",
+        "/tashina-cv-commit-log.csv",
+        "/aab-commit-log.csv",
+        "/dungarvan-creek-commit-log.csv"
       ]
     }
   ]

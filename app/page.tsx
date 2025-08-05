@@ -9,12 +9,12 @@ import SocialLinks from './Components/SocialLinks';
 import SectionContent from './Components/SectionContent';
 import { ThemeAccentColor } from './config';
 import { useSwipeable } from 'react-swipeable';
-import { Project } from './types/projects';
+import { Project, ProjectsData } from './types/projects';
 import projectsData from './data/projects.json';
 
 export type Experience = Project;
 
-const experience: Experience[] = projectsData.projects;
+const experience: Experience[] = (projectsData as ProjectsData).projects;
 
 const githubStatsData = projectsData.projects.map((project) => project.githubStats);
 
