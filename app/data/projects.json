@@ -192,13 +192,19 @@
       "title": "Cosmoverse 2023 / Hackathons",
       "content": "Collaborating with <a href=\"https://designdao.io/\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>DesignDAO</strong></a>, I built a dynamic schedule page for <a href=\"https://github.com/1biest/cosmoverse-schedule\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cosmoverse 2023</strong></a> referencing Google Sheets for easy upkeep and edits of the schedule. The schedule page was constructed as a javascript embed object into a Framer website, the CMS of choice by DesignDAO.",
       "content2": "I have also participated in HackFS 2022, where our team produced <a href=\"https://ethglobal.com/showcase/dyve-pxsz9\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Dyve</strong></a>, an NFT shorting primitive that allows users to lend, rent or short NFTs. The project was winner of 🏊‍♂️ NFTPort — Pool Prize, 🥈 Covalent — Best Use, and 5️⃣ Polygon — Top 5. I also participated in ETHOnline 2024, where our project <a href=\"https://www.figma.com/design/zqDRj40RQEJDNxCKbYrJBr/Turing.bet?node-id=1-2&t=LGO7IYPWtFLn5SsU-1\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Turing.Bet</strong></a> was a dapp to wager if content was real vs AI generated where I developed the UI/UX.",
+      "content3": "I have also submitted <a href=\"https://github.com/All-About-Blockchain/satsuma\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Satsuma</strong></a> for <a href=\"https://dorahacks.io/hackathon/wchl25-qualification-round/detail\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>ICP - WCHL25</strong></a>. Satsuma is a cross-chain yield-to-Bitcoin conversion platform that enables users to deposit yield-bearing stablecoins and automatically convert the generated yield to native Bitcoin across ecosystems. Satsuma operates across <a href=\"https://injective.com\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Injective</strong></a> (yield generation and yield skimming) and <a href=\"https://internetcomputer.org\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Internet Computer (ICP)</strong></a> (yield accumulation and Bitcoin conversion). Flow: USDC deposit → Injective vault → nUSDC; yield is skimmed back to USDC → bridged via <a href=\"https://www.axelar.network\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Axelar GMP</strong></a> → ICP canister → Bitcoin conversion. Technical components include an Injective smart contract with principal tracking and full <a href=\"https://docs.astroport.fi\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Astroport</strong></a> integration for USDC ↔ nUSDC swaps, plus an ICP canister that receives yield, manages BTC conversion, and orchestrates Injective operations.",
       "highlights": ["Javascript", "React", "Framer", "Figma"],
-      "ctas": ["https://cosmoverse.org/", "https://ethglobal.com/showcase/dyve-pxsz9"],
+      "ctas": [
+        "https://cosmoverse.org/",
+        "https://ethglobal.com/showcase/dyve-pxsz9",
+        "https://github.com/All-About-Blockchain/satsuma"
+      ],
       "images": [],
       "githubStats": [
         "/cosmoverse-schedule-commit-log.csv",
         "/dyve-commit-log.csv",
-        "/turing-bet-commit-log.csv"
+        "/turing-bet-commit-log.csv",
+        "/satsuma-commit-log.csv"
       ]
     },
     {
