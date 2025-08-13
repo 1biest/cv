@@ -193,13 +193,19 @@
       "content": "I am a co-founder of All About Blockchain, a DAO running node infrastructure anddeveloping blockchain projects.",
       "content2": "Stakefolio is one of our projects, a platform for tracking and managing staking portfolios. The focus for this project is an approachable UI/UX for beginners to learn about staking and begin their journey.",
       "content3": "",
-      "highlights": ["TypeScript", "React", "Next.js", "Figma", "Tailwind", "Vercel", "Cosmos", "Injective"],
+      "highlights": [
+        "TypeScript",
+        "React",
+        "Next.js",
+        "Figma",
+        "Tailwind",
+        "Vercel",
+        "Cosmos",
+        "Injective"
+      ],
       "ctas": ["https://allaboutblockchain.com/", "https://stake.folio"],
       "images": [],
-      "githubStats": [
-        "/stakefolio-commit-log.csv",
-        "/all-about-blockchain-commit-log.csv"
-      ]
+      "githubStats": ["/stakefolio-commit-log.csv", "/all-about-blockchain-commit-log.csv"]
     },
     {
       "id": "cosmoverse-hackathons",

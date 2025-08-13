@@ -72,23 +72,32 @@ export default function Home() {
               <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-[#dde5ed] to-[#99ACC7] leading-18">
                 Logan Biesterfeldt
               </h1>
-              <h2 className="text-lg pb-1 font-bold">Web3 Frontend Engineer</h2>
+              <h2 className="text-lg pb-1 font-bold">
+                Senior Frontend Engineer · UI/UX Specialist · Web3 Product Innovator
+              </h2>
             </div>
             <div className="flex flex-col gap-4 text-[#99ACC7]">
-              <p className="">
-                I build elegant frontend interfaces for smart contract based decentralized
-                applications.
+              <p>
+                I design and build high-performance, user-centric interfaces for smart
+                contract-powered decentralized applications—bridging technical precision with
+                product-driven design.
               </p>
-              <p className="">
-                My GitHub exprience is <span className="inline sm:hidden">below</span>
-                <span className="hidden sm:inline">on the right</span>, but my journey didn&apos;t
-                start there. I have several years of experience in web design & development, graphic
-                design, motion graphics, and marketing, including my time with{' '}
+              <p>
+                My work spans DeFi platforms, DAO tooling, and on-chain analytics, backed by years
+                in web development, branding, motion graphics, and marketing. Previously, I crafted
+                educational experiences and protocol visuals with{' '}
                 <span className="font-bold">
                   <a href="https://stake.fish/" target="_blank" rel="noopener noreferrer">
                     stake.fish
                   </a>
+                </span>{' '}
+                and{' '}
+                <span className="font-bold">
+                  <a href="https://www.f2pool.com/" target="_blank" rel="noopener noreferrer">
+                    f2pool
+                  </a>
                 </span>
+                .
               </p>
             </div>
             <div className="flex flex-col gap-1 text-xs py-8 pb-12">
