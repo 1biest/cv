@@ -127,8 +127,10 @@ export default function Home() {
                 >
                   <GithubStats
                     fetchUrl={urls}
-                    color={index === highlightIndex ? ThemeAccentColor : '#99ACC7'}
+                    color={ThemeAccentColor}
                     aggregateWeek={false}
+                    isActive={index === highlightIndex}
+                    activeKey={highlightIndex}
                   />
                 </div>
               ))}
