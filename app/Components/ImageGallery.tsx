@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { createPortal } from 'react-dom';
@@ -345,12 +347,11 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
 
   return (
     <div className="my-8 z-200">
-      <h3 className="text-lg font-bold mb-4">Project Gallery</h3>
       <div className="flex gap-4 flex-wrap">
         {images.map((item, idx) => (
           <div
             key={item.src || item.youtubeId || idx}
-            className="w-40 h-28 relative rounded shadow cursor-pointer hover:scale-105 transition overflow-hidden"
+            className="w-80 h-56 relative rounded shadow cursor-pointer hover:scale-105 transition overflow-hidden"
             onClick={() => openModal(idx)}
           >
             {item && (item.type === 'youtube' || item.youtubeId) ? (
@@ -359,7 +360,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
                 alt={item.alt}
                 fill
                 style={{ objectFit: 'cover' }}
-                sizes="160px"
+                sizes="320px"
                 className="rounded"
                 priority={idx === 0}
               />
@@ -369,7 +370,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
                 alt={item.alt}
                 fill
                 style={{ objectFit: 'cover' }}
-                sizes="160px"
+                sizes="320px"
                 className="rounded"
                 priority={idx === 0}
               />

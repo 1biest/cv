@@ -11,6 +11,7 @@ import { ThemeAccentColor } from './config';
 import { useSwipeable } from 'react-swipeable';
 import { Project, ProjectsData } from './types/projects';
 import projectsData from './data/projects.json';
+import NeptuneFinance from './projects/neptune-finance/page';
 
 export type Experience = Project;
 
@@ -141,7 +142,7 @@ export default function Home() {
               className="flex flex-col gap-8 pl-[120px] cursor-default w-full overflow-hidden"
               {...swipeHandlers}
             >
-              <div className="flex justify-start gap-2 text-2xl">
+              {/* <div className="flex justify-start gap-2 text-2xl">
                 <div
                   className={`relative px-2 group cursor-pointer z-30 ${swipeOffset < 0 ? 'text-[color:var(--accent-color)]' : ''}`}
                   onClick={() =>
@@ -162,14 +163,20 @@ export default function Home() {
                     <FontAwesomeIcon icon={faCaretRight} />
                   </button>
                 </div>
-              </div>
+              </div> */}
               <div
                 className="flex transition-transform duration-500 ease-in-out"
                 style={{
                   transform: `translateX(${swiping ? `${0 + swipeOffset}px` : `0%`})`,
                 }}
               >
-                <SectionContent experience={experience} highlightIndex={highlightIndex} />
+                {highlightIndex === 0 ? (
+                  <div className="w-full">
+                    <NeptuneFinance />
+                  </div>
+                ) : (
+                  <SectionContent experience={experience} highlightIndex={highlightIndex} />
+                )}
               </div>
             </div>
           </div>
