@@ -23,34 +23,58 @@ const BackgroundFX = () => {
     };
 
     let animationFrameId: number;
-    let offset = 4;
+    let time = 0;
 
     const drawMovingLines = () => {
       lineCtx.clearRect(0, 0, lineCanvas.width, lineCanvas.height);
-      lineCtx.lineWidth = 1.2;
-      const spacing = 14;
-      const amplitude1 = 8;
-      const frequency1 = 0.02;
-      const amplitude2 = 3;
-      const frequency2 = 0.06;
-      offset += 0.02;
+      lineCtx.lineWidth = 1;
 
-      for (let y = 0; y < lineCanvas.height; y += spacing) {
+      const width = lineCanvas.width;
+      const height = lineCanvas.height;
+      const spacing = 18;
+
+      time += 0.003;
+
+      for (let y = -100; y < height + 100; y += spacing) {
         lineCtx.beginPath();
-        for (let x = 0; x <= lineCanvas.width; x++) {
-          const wave1 =
-            Math.sin(x * frequency1 + offset + y * 0.05) *
-            (amplitude1 + Math.sin(y * 0.02 + offset * 4) * 3);
 
-          const wave2 =
-            Math.sin(x * frequency2 - offset * 1.2 + y * 0.1) *
-            (amplitude2 + Math.cos(x * 0.015 + offset * 2) * 2);
+        const normalizedY = y / height;
+        const distFromCenterY = Math.abs(normalizedY - 0.5);
+        const opacity = 0.015 + 0.15 * Math.max(0, 1 - distFromCenterY * 2.5);
 
-          const combinedWave = wave1 + wave2;
+        for (let x = -50; x <= width + 50; x += 10) {
+          const nx = x / width;
+          const ny = y / height;
 
-          lineCtx.lineTo(x, y + combinedWave);
+          // Multi-frequency dispersed coordinate warping (Simulating Simplex Noise)
+          // Low frequency, high amplitude macro movement
+          const warp1 = Math.sin(nx * 2 + time * 0.4) * Math.cos(ny * 3 - time * 0.3) * 0.25;
+          // Medium frequency swirling
+          const warp2 = Math.sin(nx * 5 - ny * 4 + time * 0.8) * 0.15;
+          // High frequency detail ripples
+          const warp3 = Math.cos(nx * 12 + ny * 10 - time * 1.5) * 0.05;
+
+          const warpedNx = nx + warp1 + warp2;
+          const warpedNy = ny + warp2 + warp3;
+
+          // Main flowing topographic waves across the warped space
+          const wave1 = Math.sin(warpedNx * 4.5 - time * 1.2 + warpedNy * 3.0) * 65;
+          const wave2 = Math.cos(warpedNx * 8.0 + time * 1.6 - warpedNy * 5.5) * 40;
+          const wave3 = Math.sin(warpedNx * 16.0 - time * 2.2 + warpedNy * 8.0) * 15;
+
+          // Additional dispersed vertical distortion
+          const verticalWarp = Math.sin(nx * 8 - time) * Math.cos(ny * 6 + time * 1.5) * 20;
+
+          const combinedWave = wave1 + wave2 + wave3 + verticalWarp;
+
+          if (x === -50) {
+            lineCtx.moveTo(x, y + combinedWave);
+          } else {
+            lineCtx.lineTo(x, y + combinedWave);
+          }
         }
-        lineCtx.strokeStyle = `rgba(153, 172, 199, 0.08)`;
+
+        lineCtx.strokeStyle = `rgba(153, 172, 199, ${Math.max(0.01, opacity)})`;
         lineCtx.stroke();
       }
     };
