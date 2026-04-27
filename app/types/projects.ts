@@ -14,6 +14,7 @@ export interface ProjectImage {
 export interface Project {
   id: string;
   title: string;
+  group: 'professional-experience' | 'protocol-ecosystem' | 'projects';
   content: string;
   content2?: string;
   content3?: string;
@@ -27,5 +28,18 @@ export interface Project {
  * Root data structure containing all projects
  */
 export interface ProjectsData {
+  technicalSummary: string;
+  coreCompetencies: {
+    category: string;
+    items: string[];
+  }[];
+  systemsBuilt: {
+    name: string;
+    domain: string;
+    integrations: string[];
+    constraints: string[];
+    outcome: string;
+    projectId: string;
+  }[];
   projects: Project[];
 }

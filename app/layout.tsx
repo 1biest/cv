@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Logan Biesterfeldt CV',
+  title: 'Senior Frontend Engineer - DeFi Infrastructure',
   description:
-    'I build elegant frontend interfaces for smart contract based decentralized applications. I have several years of experience in web design & development, graphic design, motion graphics, and marketing, including my time with stake.fish',
+    'Senior frontend engineer building DeFi interface systems in React, TypeScript, Next.js, and CosmWasm with a focus on on-chain state synchronization, transaction reliability, and contract-aligned execution flows.',
 };
 
 export default function RootLayout({

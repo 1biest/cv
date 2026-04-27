@@ -11,8 +11,8 @@ export default function NeptuneFinancePage() {
       {/* 1. Hero Section */}
       <ProjectHero
         title="Neptune Finance"
-        subtitle="Frontend Lead / Product Engineer"
-        summary="Built a high-performance borrowing and lending interface on Injective, focused on real-time data and complex DeFi workflows."
+        subtitle="Frontend Lead / DeFi Interface Systems"
+        summary="Built and operated a production lending interface on Injective with contract-aware transaction flows, low-latency market data, and wallet-driven execution paths."
         links={[
           { label: 'Live App', url: 'https://app.nept.finance', primary: true },
           { label: 'Landing Page', url: 'https://nept.finance', primary: false },
@@ -21,14 +21,14 @@ export default function NeptuneFinancePage() {
 
       {/* 2. Snapshot */}
       <SnapshotGrid
-        role="Frontend Lead / Product Engineer"
+        role="Frontend Lead"
         stack="Next.js, TypeScript, Tailwind, CosmWasm"
         domain="DeFi / Lending / Liquidity"
         scope={[
           'Full frontend architecture',
-          'UI/UX + product identity',
+          'Contract and wallet integration surfaces',
           'Smart contract integrations (Mito, Astroport)',
-          'Staking, airdrops, liquidity systems',
+          'Staking, airdrop, and liquidity systems',
         ]}
       />
 
@@ -36,10 +36,10 @@ export default function NeptuneFinancePage() {
         {/* 3. Context */}
         <SectionWrapper title="Context">
           <p>
-            Neptune Finance is a DeFi lending protocol on Injective.
+            Neptune Finance is a DeFi lending protocol on Injective with CosmWasm contracts.
             <br />
-            Goal: make complex financial workflows intuitive and performant with real-time
-            interaction.
+            The frontend coordinates wallet actions, contract state, and market data to keep
+            lending and liquidity flows correct during live transaction execution.
           </p>
           <div className="mt-8">
             <ImageGallery
@@ -63,10 +63,10 @@ export default function NeptuneFinancePage() {
         <SectionWrapper title="Problem Space">
           <BulletList
             items={[
-              'Complex financial workflows → high cognitive load',
-              'Real-time data → performance constraints',
-              'Fragmented UX across integrations',
-              'Weak UX differentiation in DeFi',
+              'On-chain and UI state can drift during pending transactions',
+              'Market-sensitive screens require low-latency updates',
+              'Multi-protocol flows introduce inconsistent contract interfaces',
+              'Wallet signing and broadcast failures need explicit recovery paths',
             ]}
           />
         </SectionWrapper>
@@ -75,10 +75,10 @@ export default function NeptuneFinancePage() {
         <SectionWrapper title="Approach">
           <BulletList
             items={[
-              'Reduce cognitive overhead',
-              'Design for speed + clarity',
-              'Unify multi-protocol UX',
-              'Build reusable architecture',
+              'Model transaction lifecycle states as first-class UI states',
+              'Use reusable query and component primitives for protocol modules',
+              'Align user actions to contract message boundaries',
+              'Provide deterministic error and retry handling around wallet operations',
             ]}
           />
         </SectionWrapper>
@@ -271,9 +271,9 @@ export default function NeptuneFinancePage() {
         <SectionWrapper title="Impact">
           <BulletList
             items={[
-              'Reduced UX friction',
-              'Improved clarity of real-time data',
-              'Unified multi-protocol experience',
+              'Shipped lending, staking, airdrop, and pool workflows in production',
+              'Improved transaction reliability through explicit state handling',
+              'Standardized contract integration patterns across protocol modules',
             ]}
           />
         </SectionWrapper>
@@ -281,7 +281,11 @@ export default function NeptuneFinancePage() {
         {/* 11. Improvements (Senior signal) */}
         <SectionWrapper title="Improvements">
           <BulletList
-            items={['Increase feature set', 'Expand design system', 'Improve onboarding']}
+            items={[
+              'Add automated integration tests for contract message permutations',
+              'Expand observability around failed and delayed transaction states',
+              'Harden cache invalidation for high-frequency market updates',
+            ]}
           />
         </SectionWrapper>
       </div>
