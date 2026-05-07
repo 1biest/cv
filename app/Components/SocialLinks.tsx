@@ -3,28 +3,32 @@ import { faTelegram, faLinkedin, faGithub, faXTwitter } from '@fortawesome/free-
 import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
 
 const socialLinks = [
-  { icon: faGithub, label: '', url: 'https://github.com/1biest' },
-  { icon: faLinkedin, label: '', url: 'https://www.linkedin.com/in/biest/' },
-  { icon: faTelegram, label: '', url: 'https://t.me/Biesterfeldt' },
-  { icon: faXTwitter, label: '', url: 'https://x.com/1biesterfeldt' },
-  { icon: faFilePdf, label: 'Résumé', url: '/Logan Biesterfeldt Resume 2025.pdf' },
+  { icon: faGithub, label: '', ariaLabel: 'GitHub', url: 'https://github.com/1biest' },
+  { icon: faLinkedin, label: '', ariaLabel: 'LinkedIn', url: 'https://www.linkedin.com/in/biest/' },
+  { icon: faTelegram, label: '', ariaLabel: 'Telegram', url: 'https://t.me/Biesterfeldt' },
+  { icon: faXTwitter, label: '', ariaLabel: 'X', url: 'https://x.com/1biesterfeldt' },
+  {
+    icon: faFilePdf,
+    label: 'Résumé',
+    ariaLabel: 'Download résumé PDF',
+    url: '/Logan Biesterfeldt Resume 2025.pdf',
+  },
 ];
 
 const SocialLinks = () => {
   return (
-    <div className="relative lg:fixed bottom-0 left-0 px-0 lg:px-20 pb-10 lg:pb-20 flex gap-2">
+    <div className="flex flex-wrap gap-2">
       {socialLinks.map((link, index) => (
         <a
           key={index}
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          className={`relative ${link.label ? 'w-26 px-3' : 'w-9 px-3'} h-11 py-2 group cursor-pointer z-30 text-2xl text-center`}
+          className={`inline-flex h-11 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] px-3 text-lg text-[var(--text)] shadow-sm transition hover:border-[color:var(--accent-color)] hover:text-[color:var(--accent-color)] ${link.label ? 'gap-2 px-4' : 'w-11 px-0'}`}
+          aria-label={link.ariaLabel}
         >
-          <div className="relative flex transition z-30 pt-[2px] group-hover:--accent-color justify-center items-center h-full">
-            <FontAwesomeIcon icon={link.icon} />
-            {link.label && <span className="pl-2 w-20 text-base">{link.label}</span>}
-          </div>
+          <FontAwesomeIcon icon={link.icon} className="text-[1.1rem]" />
+          {link.label && <span className="text-sm font-medium">{link.label}</span>}
         </a>
       ))}
     </div>

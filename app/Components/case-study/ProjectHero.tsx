@@ -13,26 +13,30 @@ interface ProjectHeroProps {
 
 export const ProjectHero: React.FC<ProjectHeroProps> = ({ title, subtitle, summary, links }) => {
   return (
-    <section className="pt-24 pb-16 md:pt-32 md:pb-24">
-      <div className="max-w-3xl mx-auto px-6">
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-2">{title}</h1>
-        <h2 className="text-xl md:text-2xl text-gray-400 font-medium mb-8">{subtitle}</h2>
-        <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-10 max-w-2xl">
+    <section className="pb-12 pt-4 md:pb-16 md:pt-2">
+      <div className="mx-auto max-w-3xl">
+        <h1 className="mb-2 font-[family-name:var(--font-display)] text-4xl font-semibold tracking-tight text-[var(--text)] md:text-5xl">
+          {title}
+        </h1>
+        <h2 className="mb-8 text-xl font-medium text-[var(--text-muted)] md:text-2xl">
+          {subtitle}
+        </h2>
+        <p className="mb-10 max-w-2xl text-lg leading-relaxed text-[var(--text-muted)] md:text-xl">
           {summary}
         </p>
 
         {links && links.length > 0 && (
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-3">
             {links.map((link, index) => (
               <a
                 key={index}
                 href={link.url}
                 target={link.url.startsWith('http') ? '_blank' : undefined}
                 rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className={`px-6 py-3 rounded-md font-medium transition-all duration-200 ${
+                className={`inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition ${
                   link.primary
-                    ? 'bg-[color:var(--accent-color)] text-[#101322] hover:bg-gray-200 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black border border-transparent'
-                    : 'bg-transparent border border-gray-600 hover:border-white hover:bg-white/5 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black'
+                    ? 'bg-[var(--text)] text-white hover:bg-[color:var(--accent-color)] hover:text-white'
+                    : 'border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] hover:border-[color:var(--accent-color)]'
                 }`}
               >
                 {link.label}

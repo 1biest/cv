@@ -7,15 +7,32 @@
     },
     {
       "category": "On-Chain Integration",
-      "items": ["CosmWasm contracts", "Injective SDK", "Wallet interactions", "Transaction flows", "Contract interface alignment"]
+      "items": [
+        "CosmWasm contracts",
+        "Injective SDK",
+        "Wallet interactions",
+        "Transaction flows",
+        "Contract interface alignment"
+      ]
     },
     {
       "category": "Data and Performance",
-      "items": ["State synchronization", "RPC/indexer aggregation", "Caching", "Render optimization", "Reliability patterns"]
+      "items": [
+        "State synchronization",
+        "RPC/indexer aggregation",
+        "Caching",
+        "Render optimization",
+        "Reliability patterns"
+      ]
     },
     {
       "category": "Delivery",
-      "items": ["Technical scoping", "Cross-functional execution", "Design system implementation", "Production deployment"]
+      "items": [
+        "Technical scoping",
+        "Cross-functional execution",
+        "Design system implementation",
+        "Production deployment"
+      ]
     }
   ],
   "systemsBuilt": [
@@ -23,7 +40,11 @@
       "name": "Neptune Finance Web Application",
       "domain": "DeFi lending, staking, and liquidity on Injective",
       "integrations": ["CosmWasm", "Mito", "Astroport", "Wallet providers"],
-      "constraints": ["On-chain to UI state synchronization", "Transaction reliability", "Latency-sensitive market data"],
+      "constraints": [
+        "On-chain to UI state synchronization",
+        "Transaction reliability",
+        "Latency-sensitive market data"
+      ],
       "outcome": "Delivered a production frontend for lending, staking, airdrop, and liquidity workflows with contract-aware UX and reusable system primitives.",
       "projectId": "neptune-finance"
     },
@@ -31,7 +52,11 @@
       "name": "CW3 Multisig Frontend Port",
       "domain": "Governance tooling for Injective ecosystem",
       "integrations": ["CW3 multisig contracts", "Injective SDK", "Cosmos ecosystem OSS"],
-      "constraints": ["Chain-specific transaction compatibility", "Message decode/debug requirements", "Operational reliability"],
+      "constraints": [
+        "Chain-specific transaction compatibility",
+        "Message decode/debug requirements",
+        "Operational reliability"
+      ],
       "outcome": "Ported and refactored multisig frontend infrastructure to support Injective transaction paths and improved execution diagnostics.",
       "projectId": "open-source-contributions"
     },
@@ -39,7 +64,11 @@
       "name": "Satsuma Cross-Chain Yield Routing",
       "domain": "Yield-to-Bitcoin conversion workflow",
       "integrations": ["Injective contracts", "Astroport", "Axelar GMP", "ICP canister"],
-      "constraints": ["Cross-chain state handoff", "Yield accounting correctness", "Execution sequencing"],
+      "constraints": [
+        "Cross-chain state handoff",
+        "Yield accounting correctness",
+        "Execution sequencing"
+      ],
       "outcome": "Implemented frontend workflow mapping for a multi-network yield conversion pipeline with explicit protocol boundaries.",
       "projectId": "cosmoverse-hackathons"
     }
@@ -174,7 +203,14 @@
       "content": "Led integration work to bring <a href=\"https://github.com/cryptechdev/cw3-injective-multisig-dapp\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>CW3 Fixed Multisig</strong></a> support to Injective by refactoring Cosmos ecosystem frontend code for Injective execution paths.",
       "content2": "Refactored transaction submission to align with <a href=\"https://www.npmjs.com/package/@injectivelabs/sdk-ts\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Injective SDK</strong></a>, improved execution diagnostics through Base64 message decoding, and added local caching for contract-heavy workflows.",
       "content3": "Contributed protocol data and adapters to <a href=\"https://github.com/cosmos/chain-registry/commit/62b3fa019a0db5a277925859999ab430420a3fa6\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cosmos Chain Registry</strong></a>, <a href=\"https://github.com/InjectiveLabs/injective-ts/pull/413\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Injective Labs</strong></a>, <a href=\"https://github.com/chainapsis/keplr-contract-registry/pull/14\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Keplr Contract Registry</strong></a>, and <a href=\"https://github.com/DefiLlama/DefiLlama-Adapters/pull/10034\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>DeFi Llama</strong></a>.",
-      "highlights": ["TypeScript", "React", "CW3 Multisig", "Injective SDK", "Caching", "Transaction pipeline"],
+      "highlights": [
+        "TypeScript",
+        "React",
+        "CW3 Multisig",
+        "Injective SDK",
+        "Caching",
+        "Transaction pipeline"
+      ],
       "ctas": ["https://multisig.nept.finance/"],
       "images": [],
       "githubStats": ["/cw3-multisig-commit-log.csv", "/neptune-foundation-commit-log.csv"]
@@ -251,7 +287,13 @@
       "content": "Built a dynamic event scheduling interface for <a href=\"https://github.com/1biest/cosmoverse-schedule\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cosmoverse 2023</strong></a> with externalized schedule data for fast operational updates.",
       "content2": "Contributed to hackathon systems including <a href=\"https://ethglobal.com/showcase/dyve-pxsz9\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Dyve</strong></a> (NFT lending/renting/shorting primitive) and <a href=\"https://www.figma.com/design/zqDRj40RQEJDNxCKbYrJBr/Turing.bet?node-id=1-2&t=LGO7IYPWtFLn5SsU-1\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Turing.Bet</strong></a> (wallet-connected prediction workflow).",
       "content3": "<a href=\"https://github.com/All-About-Blockchain/satsuma\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Satsuma</strong></a> implemented a cross-chain yield routing system: USDC flow on Injective, yield skimming and swap through Astroport, bridge handoff via Axelar GMP, and Bitcoin conversion orchestration on ICP.",
-      "highlights": ["React", "TypeScript", "Cross-chain flows", "Wallet interactions", "Protocol integrations"],
+      "highlights": [
+        "React",
+        "TypeScript",
+        "Cross-chain flows",
+        "Wallet interactions",
+        "Protocol integrations"
+      ],
       "ctas": [
         "https://cosmoverse.org/",
         "https://ethglobal.com/showcase/dyve-pxsz9",

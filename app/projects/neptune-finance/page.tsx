@@ -7,7 +7,7 @@ import { BulletList } from '../../Components/case-study/BulletList';
 
 export default function NeptuneFinancePage() {
   return (
-    <main className="min-h-screen pb-16">
+    <div className="min-h-0 pb-4">
       {/* 1. Hero Section */}
       <ProjectHero
         title="Neptune Finance"
@@ -38,8 +38,8 @@ export default function NeptuneFinancePage() {
           <p>
             Neptune Finance is a DeFi lending protocol on Injective with CosmWasm contracts.
             <br />
-            The frontend coordinates wallet actions, contract state, and market data to keep
-            lending and liquidity flows correct during live transaction execution.
+            The frontend coordinates wallet actions, contract state, and market data to keep lending
+            and liquidity flows correct during live transaction execution.
           </p>
           <div className="mt-8">
             <ImageGallery
@@ -86,8 +86,8 @@ export default function NeptuneFinancePage() {
         {/* 6. Architecture & Implementation */}
         <SectionWrapper title="Architecture & Implementation">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white/[0.02] border border-white/10 p-6 rounded-xl backdrop-blur-sm">
-              <h3 className="text-xl font-semibold text-white mb-4">Frontend</h3>
+            <div className="rounded-xl border border-[var(--border)] bg-neutral-50/90 p-6">
+              <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">Frontend</h3>
               <BulletList
                 items={[
                   {
@@ -102,8 +102,8 @@ export default function NeptuneFinancePage() {
               />
             </div>
 
-            <div className="bg-white/[0.02] border border-white/10 p-6 rounded-xl backdrop-blur-sm">
-              <h3 className="text-xl font-semibold text-white mb-4">Performance</h3>
+            <div className="rounded-xl border border-[var(--border)] bg-neutral-50/90 p-6">
+              <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">Performance</h3>
               <BulletList
                 items={[
                   {
@@ -118,8 +118,8 @@ export default function NeptuneFinancePage() {
               />
             </div>
 
-            <div className="bg-white/[0.02] border border-white/10 p-6 rounded-xl backdrop-blur-sm">
-              <h3 className="text-xl font-semibold text-white mb-4">Data Layer</h3>
+            <div className="rounded-xl border border-[var(--border)] bg-neutral-50/90 p-6">
+              <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">Data Layer</h3>
               <BulletList
                 items={[
                   {
@@ -134,8 +134,8 @@ export default function NeptuneFinancePage() {
               />
             </div>
 
-            <div className="bg-white/[0.02] border border-white/10 p-6 rounded-xl backdrop-blur-sm">
-              <h3 className="text-xl font-semibold text-white mb-4">Integrations</h3>
+            <div className="rounded-xl border border-[var(--border)] bg-neutral-50/90 p-6">
+              <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">Integrations</h3>
               <BulletList
                 items={[
                   { title: 'Mito', description: 'Automated trading vaults integration.' },
@@ -144,8 +144,8 @@ export default function NeptuneFinancePage() {
               />
             </div>
 
-            <div className="md:col-span-2 bg-white/[0.02] border border-white/10 p-6 rounded-xl backdrop-blur-sm">
-              <h3 className="text-xl font-semibold text-white mb-4">Feature Gating</h3>
+            <div className="md:col-span-2 rounded-xl border border-[var(--border)] bg-neutral-50/90 p-6">
+              <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">Feature Gating</h3>
               <BulletList
                 items={[
                   { title: 'Access control', description: 'NEPT staking-based tiered model.' },
@@ -170,7 +170,7 @@ export default function NeptuneFinancePage() {
             ]}
           />
           <div className="mt-8">
-            <h3 className="text-xl font-semibold text-white mb-4">Landing Pages</h3>
+            <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">Landing Pages</h3>
             <BulletList
               items={['Data-driven visuals (interest rates)', 'Consistent product + marketing UX']}
             />
@@ -229,27 +229,29 @@ export default function NeptuneFinancePage() {
         {/* 9. Features */}
         <SectionWrapper title="Features">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="bg-white/[0.03] border border-white/10 p-5 rounded-lg backdrop-blur-sm">
-              <span className="text-white font-medium">Lending / borrowing</span>
+            <div className="rounded-lg border border-[var(--border)] bg-neutral-50/90 p-5">
+              <span className="font-medium text-[var(--text)]">Lending / borrowing</span>
             </div>
-            <div className="bg-white/[0.03] border border-white/10 p-5 rounded-lg backdrop-blur-sm">
-              <span className="text-white font-medium">Staking + NEPT token</span>
+            <div className="rounded-lg border border-[var(--border)] bg-neutral-50/90 p-5">
+              <span className="font-medium text-[var(--text)]">Staking + NEPT token</span>
             </div>
-            <div className="bg-white/[0.03] border border-white/10 p-5 rounded-lg backdrop-blur-sm">
-              <span className="text-white font-medium">Airdrops</span>
+            <div className="rounded-lg border border-[var(--border)] bg-neutral-50/90 p-5">
+              <span className="font-medium text-[var(--text)]">Airdrops</span>
             </div>
-            <div className="bg-white/[0.03] border border-white/10 p-5 rounded-lg backdrop-blur-sm">
-              <span className="text-white font-medium">Liquidity pools (Mito + Astroport)</span>
+            <div className="rounded-lg border border-[var(--border)] bg-neutral-50/90 p-5">
+              <span className="font-medium text-[var(--text)]">
+                Liquidity pools (Mito + Astroport)
+              </span>
             </div>
-            <div className="bg-white/[0.03] border border-white/10 p-5 rounded-lg backdrop-blur-sm">
-              <span className="text-white font-medium">Gated features</span>
+            <div className="rounded-lg border border-[var(--border)] bg-neutral-50/90 p-5">
+              <span className="font-medium text-[var(--text)]">Gated features</span>
             </div>
-            <div className="bg-white/[0.03] border border-white/10 p-5 rounded-lg backdrop-blur-sm">
-              <span className="text-white font-medium">Landing pages</span>
+            <div className="rounded-lg border border-[var(--border)] bg-neutral-50/90 p-5">
+              <span className="font-medium text-[var(--text)]">Landing pages</span>
             </div>
           </div>
           <div className="mt-8">
-            <h3 className="text-xl font-semibold text-white mb-4">Feature Deep Dives</h3>
+            <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">Feature Deep Dives</h3>
             <ImageGallery
               images={[
                 {
@@ -289,6 +291,6 @@ export default function NeptuneFinancePage() {
           />
         </SectionWrapper>
       </div>
-    </main>
+    </div>
   );
 }
