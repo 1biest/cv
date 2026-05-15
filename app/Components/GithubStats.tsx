@@ -28,6 +28,7 @@ export default function GithubStats({
   );
   const DELAY_PER_INDEX_MS = 0.5;
   const TRANSITION_MS = 200;
+  const EASE = 'cubic-bezier(0.22, 1, 0.36, 1)';
   const BASE_GREY_ALPHA = 0.25;
 
   useEffect(() => {
@@ -106,9 +107,9 @@ export default function GithubStats({
             <div
               className="absolute inset-0 rounded-xs"
               style={{
-                backgroundColor: color || '#39d353',
+                backgroundColor: color || ThemeAccentColor,
                 opacity: currentOpacity,
-                transition: `opacity ${TRANSITION_MS}ms ease-out`,
+                transition: `opacity ${TRANSITION_MS}ms ${EASE}`,
                 transitionDelay: `${i * DELAY_PER_INDEX_MS}ms`,
                 willChange: 'opacity',
                 pointerEvents: 'none',

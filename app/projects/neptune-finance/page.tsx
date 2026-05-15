@@ -7,12 +7,12 @@ import { BulletList } from '../../Components/case-study/BulletList';
 
 export default function NeptuneFinancePage() {
   return (
-    <main className="min-h-screen pb-16">
+    <div className="min-h-0 pb-4">
       {/* 1. Hero Section */}
       <ProjectHero
         title="Neptune Finance"
-        subtitle="Frontend Lead / Product Engineer"
-        summary="Built a high-performance borrowing and lending interface on Injective, focused on real-time data and complex DeFi workflows."
+        subtitle="Frontend Lead / DeFi Interface Systems"
+        summary="Built and operated a production lending interface on Injective with contract-aware transaction flows, low-latency market data, and wallet-driven execution paths."
         links={[
           { label: 'Live App', url: 'https://app.nept.finance', primary: true },
           { label: 'Landing Page', url: 'https://nept.finance', primary: false },
@@ -21,14 +21,14 @@ export default function NeptuneFinancePage() {
 
       {/* 2. Snapshot */}
       <SnapshotGrid
-        role="Frontend Lead / Product Engineer"
+        role="Frontend Lead"
         stack="Next.js, TypeScript, Tailwind, CosmWasm"
         domain="DeFi / Lending / Liquidity"
         scope={[
           'Full frontend architecture',
-          'UI/UX + product identity',
+          'Contract and wallet integration surfaces',
           'Smart contract integrations (Mito, Astroport)',
-          'Staking, airdrops, liquidity systems',
+          'Staking, airdrop, and liquidity systems',
         ]}
       />
 
@@ -36,10 +36,10 @@ export default function NeptuneFinancePage() {
         {/* 3. Context */}
         <SectionWrapper title="Context">
           <p>
-            Neptune Finance is a DeFi lending protocol on Injective.
+            Neptune Finance is a DeFi lending protocol on Injective with CosmWasm contracts.
             <br />
-            Goal: make complex financial workflows intuitive and performant with real-time
-            interaction.
+            The frontend coordinates wallet actions, contract state, and market data to keep lending
+            and liquidity flows correct during live transaction execution.
           </p>
           <div className="mt-8">
             <ImageGallery
@@ -63,10 +63,10 @@ export default function NeptuneFinancePage() {
         <SectionWrapper title="Problem Space">
           <BulletList
             items={[
-              'Complex financial workflows → high cognitive load',
-              'Real-time data → performance constraints',
-              'Fragmented UX across integrations',
-              'Weak UX differentiation in DeFi',
+              'On-chain and UI state can drift during pending transactions',
+              'Market-sensitive screens require low-latency updates',
+              'Multi-protocol flows introduce inconsistent contract interfaces',
+              'Wallet signing and broadcast failures need explicit recovery paths',
             ]}
           />
         </SectionWrapper>
@@ -75,10 +75,10 @@ export default function NeptuneFinancePage() {
         <SectionWrapper title="Approach">
           <BulletList
             items={[
-              'Reduce cognitive overhead',
-              'Design for speed + clarity',
-              'Unify multi-protocol UX',
-              'Build reusable architecture',
+              'Model transaction lifecycle states as first-class UI states',
+              'Use reusable query and component primitives for protocol modules',
+              'Align user actions to contract message boundaries',
+              'Provide deterministic error and retry handling around wallet operations',
             ]}
           />
         </SectionWrapper>
@@ -86,8 +86,8 @@ export default function NeptuneFinancePage() {
         {/* 6. Architecture & Implementation */}
         <SectionWrapper title="Architecture & Implementation">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white/[0.02] border border-white/10 p-6 rounded-xl backdrop-blur-sm">
-              <h3 className="text-xl font-semibold text-white mb-4">Frontend</h3>
+            <div className="rounded-xl border border-[var(--border)] bg-neutral-50/90 p-6">
+              <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">Frontend</h3>
               <BulletList
                 items={[
                   {
@@ -102,8 +102,8 @@ export default function NeptuneFinancePage() {
               />
             </div>
 
-            <div className="bg-white/[0.02] border border-white/10 p-6 rounded-xl backdrop-blur-sm">
-              <h3 className="text-xl font-semibold text-white mb-4">Performance</h3>
+            <div className="rounded-xl border border-[var(--border)] bg-neutral-50/90 p-6">
+              <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">Performance</h3>
               <BulletList
                 items={[
                   {
@@ -118,8 +118,8 @@ export default function NeptuneFinancePage() {
               />
             </div>
 
-            <div className="bg-white/[0.02] border border-white/10 p-6 rounded-xl backdrop-blur-sm">
-              <h3 className="text-xl font-semibold text-white mb-4">Data Layer</h3>
+            <div className="rounded-xl border border-[var(--border)] bg-neutral-50/90 p-6">
+              <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">Data Layer</h3>
               <BulletList
                 items={[
                   {
@@ -134,8 +134,8 @@ export default function NeptuneFinancePage() {
               />
             </div>
 
-            <div className="bg-white/[0.02] border border-white/10 p-6 rounded-xl backdrop-blur-sm">
-              <h3 className="text-xl font-semibold text-white mb-4">Integrations</h3>
+            <div className="rounded-xl border border-[var(--border)] bg-neutral-50/90 p-6">
+              <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">Integrations</h3>
               <BulletList
                 items={[
                   { title: 'Mito', description: 'Automated trading vaults integration.' },
@@ -144,8 +144,8 @@ export default function NeptuneFinancePage() {
               />
             </div>
 
-            <div className="md:col-span-2 bg-white/[0.02] border border-white/10 p-6 rounded-xl backdrop-blur-sm">
-              <h3 className="text-xl font-semibold text-white mb-4">Feature Gating</h3>
+            <div className="md:col-span-2 rounded-xl border border-[var(--border)] bg-neutral-50/90 p-6">
+              <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">Feature Gating</h3>
               <BulletList
                 items={[
                   { title: 'Access control', description: 'NEPT staking-based tiered model.' },
@@ -170,7 +170,7 @@ export default function NeptuneFinancePage() {
             ]}
           />
           <div className="mt-8">
-            <h3 className="text-xl font-semibold text-white mb-4">Landing Pages</h3>
+            <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">Landing Pages</h3>
             <BulletList
               items={['Data-driven visuals (interest rates)', 'Consistent product + marketing UX']}
             />
@@ -229,27 +229,29 @@ export default function NeptuneFinancePage() {
         {/* 9. Features */}
         <SectionWrapper title="Features">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="bg-white/[0.03] border border-white/10 p-5 rounded-lg backdrop-blur-sm">
-              <span className="text-white font-medium">Lending / borrowing</span>
+            <div className="rounded-lg border border-[var(--border)] bg-neutral-50/90 p-5">
+              <span className="font-medium text-[var(--text)]">Lending / borrowing</span>
             </div>
-            <div className="bg-white/[0.03] border border-white/10 p-5 rounded-lg backdrop-blur-sm">
-              <span className="text-white font-medium">Staking + NEPT token</span>
+            <div className="rounded-lg border border-[var(--border)] bg-neutral-50/90 p-5">
+              <span className="font-medium text-[var(--text)]">Staking + NEPT token</span>
             </div>
-            <div className="bg-white/[0.03] border border-white/10 p-5 rounded-lg backdrop-blur-sm">
-              <span className="text-white font-medium">Airdrops</span>
+            <div className="rounded-lg border border-[var(--border)] bg-neutral-50/90 p-5">
+              <span className="font-medium text-[var(--text)]">Airdrops</span>
             </div>
-            <div className="bg-white/[0.03] border border-white/10 p-5 rounded-lg backdrop-blur-sm">
-              <span className="text-white font-medium">Liquidity pools (Mito + Astroport)</span>
+            <div className="rounded-lg border border-[var(--border)] bg-neutral-50/90 p-5">
+              <span className="font-medium text-[var(--text)]">
+                Liquidity pools (Mito + Astroport)
+              </span>
             </div>
-            <div className="bg-white/[0.03] border border-white/10 p-5 rounded-lg backdrop-blur-sm">
-              <span className="text-white font-medium">Gated features</span>
+            <div className="rounded-lg border border-[var(--border)] bg-neutral-50/90 p-5">
+              <span className="font-medium text-[var(--text)]">Gated features</span>
             </div>
-            <div className="bg-white/[0.03] border border-white/10 p-5 rounded-lg backdrop-blur-sm">
-              <span className="text-white font-medium">Landing pages</span>
+            <div className="rounded-lg border border-[var(--border)] bg-neutral-50/90 p-5">
+              <span className="font-medium text-[var(--text)]">Landing pages</span>
             </div>
           </div>
           <div className="mt-8">
-            <h3 className="text-xl font-semibold text-white mb-4">Feature Deep Dives</h3>
+            <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">Feature Deep Dives</h3>
             <ImageGallery
               images={[
                 {
@@ -271,9 +273,9 @@ export default function NeptuneFinancePage() {
         <SectionWrapper title="Impact">
           <BulletList
             items={[
-              'Reduced UX friction',
-              'Improved clarity of real-time data',
-              'Unified multi-protocol experience',
+              'Shipped lending, staking, airdrop, and pool workflows in production',
+              'Improved transaction reliability through explicit state handling',
+              'Standardized contract integration patterns across protocol modules',
             ]}
           />
         </SectionWrapper>
@@ -281,10 +283,14 @@ export default function NeptuneFinancePage() {
         {/* 11. Improvements (Senior signal) */}
         <SectionWrapper title="Improvements">
           <BulletList
-            items={['Increase feature set', 'Expand design system', 'Improve onboarding']}
+            items={[
+              'Add automated integration tests for contract message permutations',
+              'Expand observability around failed and delayed transaction states',
+              'Harden cache invalidation for high-frequency market updates',
+            ]}
           />
         </SectionWrapper>
       </div>
-    </main>
+    </div>
   );
 }

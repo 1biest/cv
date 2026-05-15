@@ -268,7 +268,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
       onClick={closeModal}
     >
       <button
-        className="absolute top-6 right-8 text-white text-3xl font-bold z-60 cursor-pointer drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
+        className="absolute top-6 right-8 z-60 text-3xl font-bold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
         onClick={(e) => {
           e.stopPropagation();
           closeModal();
@@ -278,7 +278,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
         &times;
       </button>
       <button
-        className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl z-60 px-2 cursor-pointer drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
+        className="absolute left-4 top-1/2 z-60 -translate-y-1/2 px-2 text-4xl text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
         onClick={prevImage}
         aria-label="Previous"
       >
@@ -336,7 +336,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
         )}
       </div>
       <button
-        className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl z-60 px-2 cursor-pointer drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
+        className="absolute right-4 top-1/2 z-60 -translate-y-1/2 px-2 text-4xl text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
         onClick={nextImage}
         aria-label="Next"
       >
@@ -349,10 +349,12 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
     <div className="my-8 z-200">
       <div className="flex gap-4 flex-wrap">
         {images.map((item, idx) => (
-          <div
+          <button
             key={item.src || item.youtubeId || idx}
-            className="w-80 h-56 relative rounded shadow cursor-pointer hover:scale-105 transition overflow-hidden"
+            type="button"
+            className="relative h-56 w-80 overflow-hidden rounded-xl border border-[var(--border)] bg-transparent p-0 shadow-sm outline-none transition hover:scale-[1.02] hover:border-neutral-300 focus-visible:ring-2 focus-visible:ring-[color:var(--accent-color)] focus-visible:ring-offset-2"
             onClick={() => openModal(idx)}
+            aria-label={item.alt ? `Open gallery: ${item.alt}` : `Open image ${idx + 1}`}
           >
             {item && (item.type === 'youtube' || item.youtubeId) ? (
               <Image
@@ -389,7 +391,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
                 </div>
               </div>
             )}
-          </div>
+          </button>
         ))}
       </div>
       {open && mounted && typeof window !== 'undefined' && createPortal(modal, document.body)}
