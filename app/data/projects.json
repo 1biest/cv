@@ -299,6 +299,13 @@
         "https://ethglobal.com/showcase/dyve-pxsz9",
         "https://github.com/All-About-Blockchain/satsuma"
       ],
+      "ctaPanelOverrides": [
+        null,
+        null,
+        {
+          "description": "Case studies & shipping scope — cross-chain yield routing UI (Injective, Astroport, Axelar GMP, ICP)."
+        }
+      ],
       "images": [],
       "githubStats": [
         "/cosmoverse-schedule-commit-log.csv",

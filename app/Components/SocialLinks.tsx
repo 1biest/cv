@@ -11,7 +11,7 @@ const socialLinks = [
     icon: faFilePdf,
     label: 'Résumé',
     ariaLabel: 'Download résumé PDF',
-    url: '/Logan Biesterfeldt Resume 2025.pdf',
+    url: '/Logan Biesterfeldt Resume 2026.pdf',
   },
 ];
 

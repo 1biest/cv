@@ -12,7 +12,8 @@ type SectionContentProps = {
 const SectionContent: React.FC<SectionContentProps> = ({ experience, highlightIndex }) => {
   const currentExperience = experience[highlightIndex];
 
-  const { title, group, content, content2, content3, highlights, ctas } = currentExperience;
+  const { title, group, content, content2, content3, highlights, ctas, ctaPanelOverrides } =
+    currentExperience;
   const { data: previews, loading } = useLinkPreviews(ctas || []);
 
   const [hiddenCta, setHiddenCta] = useState(true);
@@ -86,6 +87,9 @@ const SectionContent: React.FC<SectionContentProps> = ({ experience, highlightIn
             if (hiddenCta) return null;
 
             const { url, image, title: previewTitle, description } = preview;
+            const override = ctaPanelOverrides?.[index];
+            const panelTitle = override?.title ?? previewTitle;
+            const panelDescription = override?.description ?? description;
 
             return (
               <a
@@ -103,10 +107,10 @@ const SectionContent: React.FC<SectionContentProps> = ({ experience, highlightIn
                 )}
                 <div className="col-span-2 flex flex-col justify-between p-3 text-left">
                   <div className="line-clamp-2 text-sm font-semibold leading-snug text-[var(--text)] hover:text-[color:var(--accent-color)]">
-                    {previewTitle}
+                    {panelTitle}
                   </div>
                   <div className="mt-1 line-clamp-2 text-xs text-[var(--text-muted)]">
-                    {description}
+                    {panelDescription}
                   </div>
                   <div className="mt-2 text-xs font-medium" style={{ color: ThemeAccentColor }}>
                     {url?.replace(/^https?:\/\//, '')}

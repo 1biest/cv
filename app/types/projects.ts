@@ -20,6 +20,8 @@ export interface Project {
   content3?: string;
   highlights: string[];
   ctas: string[];
+  /** Optional per-CTA overrides (same index as `ctas`) for link preview title/description. */
+  ctaPanelOverrides?: ({ title?: string; description?: string } | null)[];
   images: ProjectImage[];
   githubStats: string[];
 }

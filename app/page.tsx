@@ -127,7 +127,7 @@ export default function Home() {
               View work
             </a>
             <a
-              href="/Logan Biesterfeldt Resume 2025.pdf"
+              href="/Logan Biesterfeldt Resume 2026.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] px-6 py-3 text-sm font-semibold text-[var(--text)] transition hover:border-[color:var(--accent-color)]"
