@@ -39,7 +39,7 @@ export const SnapshotGrid: React.FC<SnapshotGridProps> = ({ role, stack, domain,
           <ul className="space-y-2">
             {scope.map((item, index) => (
               <li key={index} className="flex items-start">
-                <span className="mr-2 mt-1 shrink-0 text-[var(--text-muted)]">—</span>
+                <span className="mr-2 mt-1 shrink-0 text-[var(--text-muted)]">-</span>
                 <span className="text-[var(--text-muted)]">{item}</span>
               </li>
             ))}

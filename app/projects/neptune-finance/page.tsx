@@ -21,11 +21,14 @@ export default function NeptuneFinancePage() {
 
       {/* 2. Snapshot */}
       <SnapshotGrid
-        role="Frontend Lead"
+        role="Design Engineer / Frontend Lead"
         stack="Next.js, TypeScript, Tailwind, CosmWasm"
         domain="DeFi / Lending / Liquidity"
         scope={[
-          'Full frontend architecture',
+          'Full product ownership: Figma design system through production TypeScript',
+          'Custom Figma component library and visual design language',
+          'UX architecture for lending, staking, and liquidity flows',
+          'Full frontend architecture and engineering systems',
           'Contract and wallet integration surfaces',
           'Smart contract integrations (Mito, Astroport)',
           'Staking, airdrop, and liquidity systems',
@@ -63,10 +66,10 @@ export default function NeptuneFinancePage() {
         <SectionWrapper title="Problem Space">
           <BulletList
             items={[
-              'On-chain and UI state can drift during pending transactions',
-              'Market-sensitive screens require low-latency updates',
-              'Multi-protocol flows introduce inconsistent contract interfaces',
-              'Wallet signing and broadcast failures need explicit recovery paths',
+              'On-chain and UI state can drift during pending transactions; users making financial decisions need accurate state at all times',
+              'Market-sensitive screens require low-latency updates and interfaces designed for fast decision-making',
+              'Multi-step flows across lending, staking, and liquidity must feel simple despite significant underlying contract complexity',
+              'Wallet signing and broadcast failures need explicit recovery paths; confusion at this moment breaks user trust and risks funds',
             ]}
           />
         </SectionWrapper>
@@ -191,6 +194,26 @@ export default function NeptuneFinancePage() {
               />
             </div>
           </div>
+          <div className="mt-8 rounded-xl border border-[var(--border)] bg-neutral-50/90 p-6">
+            <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">
+              Self-Directed Feature: Balance Menu
+            </h3>
+            <p className="leading-relaxed text-[var(--text-muted)]">
+              The wallet area showed only an address and a disconnect button, dead real estate at
+              the most-visited point in the UI.
+            </p>
+            <p className="mt-4 leading-relaxed text-[var(--text-muted)]">
+              I identified the gap independently, designed the solution in Figma, and built it in
+              production without a brief. The redesigned balance menu surfaces an asset chart and
+              table, customisation toggles, and an inline swap, allowing users to act without
+              breaking their current flow.
+            </p>
+            <p className="mt-4 leading-relaxed text-[var(--text-muted)]">
+              Outcome: users cited it as one of the most useful additions to the product. Teammates
+              began referencing it as the standard for how to approach UI improvements across the
+              app.
+            </p>
+          </div>
         </SectionWrapper>
 
         {/* 8. Design System */}
@@ -273,9 +296,10 @@ export default function NeptuneFinancePage() {
         <SectionWrapper title="Impact">
           <BulletList
             items={[
-              'Shipped lending, staking, airdrop, and pool workflows in production',
-              'Improved transaction reliability through explicit state handling',
-              'Standardized contract integration patterns across protocol modules',
+              'Shipped lending, staking, airdrop, and liquidity workflows to production users with real funds at stake',
+              'Improved transaction reliability and reduced user confusion through explicit state handling and recovery UX',
+              'Built a design system that kept Figma components and production code in sync across a fast-moving codebase',
+              'Identified and shipped the balance menu independently: no brief, designed in Figma, implemented in production',
             ]}
           />
         </SectionWrapper>

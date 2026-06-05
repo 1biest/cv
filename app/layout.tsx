@@ -21,9 +21,9 @@ const cormorantDisplay = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: 'Senior Frontend Engineer - DeFi Infrastructure',
+  title: 'Design Engineer & Frontend Lead, Logan Biesterfeldt',
   description:
-    'Senior frontend engineer building DeFi interface systems in React, TypeScript, Next.js, and CosmWasm with a focus on on-chain state synchronization, transaction reliability, and contract-aligned execution flows.',
+    'Design Engineer and senior frontend engineer based in Calgary. I own product problems end to end, from Figma to production code, with deep technical experience in DeFi, blockchain infrastructure, and React/TypeScript systems. Open to opportunities.',
 };
 
 export default function RootLayout({

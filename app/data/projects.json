@@ -1,9 +1,24 @@
 {
-  "technicalSummary": "Senior frontend engineer building DeFi interfaces where on-chain state, wallet behavior, and contract execution must stay synchronized under live market conditions. I design and implement React and Next.js systems for lending, staking, and liquidity workflows with a focus on transaction reliability, low-latency data updates, and contract interface correctness across CosmWasm integrations.",
+  "technicalSummary": [
+    "I work at the intersection of design and engineering, owning product problems from Figma to production code without handing off between the two.",
+    "My background is DeFi and blockchain infrastructure, which means I bring technical depth to domains most product designers approach from the outside. At Neptune Finance I built the design function from scratch: custom Figma component library, full design system, and every line of production TypeScript and Tailwind, while maintaining the engineering rigour required for live financial systems where on-chain state, wallet behaviour, and transaction reliability are non-negotiable.",
+    "I use AI tools (Cursor, Claude, and agentic workflows) as a core part of how I prototype and ship. I've directed fully agentic engineering flows, maintaining product and design ownership while accelerating implementation significantly."
+  ],
   "coreCompetencies": [
     {
       "category": "Frontend Systems",
       "items": ["React", "TypeScript", "Next.js", "Tailwind CSS", "Component architecture"]
+    },
+    {
+      "category": "AI-Assisted Development",
+      "items": [
+        "Cursor",
+        "Claude",
+        "Agentic engineering flows",
+        "Figma AI",
+        "Local model experimentation"
+      ],
+      "description": "AI tools are a core part of how I prototype and ship, from directing agentic implementation flows to integrating AI into design iteration and code review."
     },
     {
       "category": "On-Chain Integration",
@@ -69,7 +84,7 @@
         "Yield accounting correctness",
         "Execution sequencing"
       ],
-      "outcome": "Implemented frontend workflow mapping for a multi-network yield conversion pipeline with explicit protocol boundaries.",
+      "outcome": "Designed and built the full frontend workflow for a cross-chain yield-to-Bitcoin conversion pipeline spanning Injective, Astroport, Axelar, and ICP. Shipped at Cosmoverse hackathon operating in a fully agentic engineering flow, directing implementation through chat while maintaining product and design ownership throughout.",
       "projectId": "cosmoverse-hackathons"
     }
   ],
@@ -77,6 +92,7 @@
     {
       "id": "neptune-finance",
       "title": "Neptune Finance",
+      "roleDescriptor": "Design Engineer / Frontend Lead. Full product ownership from Figma to production",
       "group": "professional-experience",
       "content": "Frontend lead for <a href=\"https://app.nept.finance\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Neptune Finance</strong></a>, a lending and borrowing system on <a href=\"https://injective.com\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Injective</strong></a>. Built the application layer that keeps contract state, wallet state, and UI state synchronized during deposits, borrows, repayments, and reward flows.",
       "content2": "Implemented contract-facing features across staking, airdrop, and liquidity routing. Production flows include <a href=\"https://docs.mito.fi/integration/permissionless-vaults\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Mito</strong></a> vault integrations and <a href=\"https://docs.astroport.fi/docs/develop/tutorials/farming/providing-withdrawing-liquidity\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Astroport</strong></a> pool interactions with explicit handling for transaction states, retries, and confirmation boundaries.",
@@ -303,7 +319,7 @@
         null,
         null,
         {
-          "description": "Case studies & shipping scope — cross-chain yield routing UI (Injective, Astroport, Axelar GMP, ICP)."
+          "description": "Case studies & shipping scope: cross-chain yield routing UI (Injective, Astroport, Axelar GMP, ICP)."
         }
       ],
       "images": [],

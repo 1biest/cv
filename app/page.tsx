@@ -106,10 +106,10 @@ export default function Home() {
             Logan Biesterfeldt
           </h1>
           <p className="mt-5 max-w-2xl text-xl font-medium text-[var(--text)] md:text-2xl">
-            Senior Frontend Engineer — DeFi infrastructure & smart-contract UI systems
+            Design Engineer · Frontend Lead
           </p>
           <p className="mt-3 text-sm text-[var(--text-muted)]">
-            React · TypeScript · Next.js · CosmWasm · Injective
+            Figma to production: design systems, React, TypeScript, blockchain
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <span
@@ -149,9 +149,16 @@ export default function Home() {
           <h2 className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-[var(--text)] md:text-4xl">
             About me
           </h2>
-          <p className="mt-8 max-w-3xl text-lg leading-relaxed text-[var(--text-muted)]">
-            {technicalSummary}
-          </p>
+          <div className="max-w-3xl">
+            {technicalSummary.map((paragraph, index) => (
+              <p
+                key={index}
+                className={`text-lg leading-relaxed text-[var(--text-muted)] ${index === 0 ? 'mt-8' : 'mt-6'}`}
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
         </section>
 
         <section id="work" className="scroll-mt-28 border-t border-[var(--border)] py-16 md:py-24">
@@ -238,6 +245,9 @@ export default function Home() {
                   <h3 className="text-xl font-semibold text-[var(--text)] md:text-2xl">
                     {exp.title}
                   </h3>
+                  {exp.roleDescriptor && (
+                    <p className="mt-2 text-sm text-[var(--text-muted)]">{exp.roleDescriptor}</p>
+                  )}
                   {exp.highlights?.length > 0 && (
                     <ul className="mt-6 list-disc space-y-2 pl-5 text-[var(--text-muted)] marker:text-[var(--text-muted)]">
                       {exp.highlights.map((h) => (
@@ -270,6 +280,11 @@ export default function Home() {
                 <p className="mt-3 text-sm leading-relaxed text-[var(--text-muted)]">
                   {group.items.join(' · ')}
                 </p>
+                {group.description && (
+                  <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">
+                    {group.description}
+                  </p>
+                )}
               </div>
             ))}
           </div>
