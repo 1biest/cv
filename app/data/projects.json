@@ -157,7 +157,41 @@
           "type": "image"
         }
       ],
-      "githubStats": ["/neptune-webapp-commit-log.csv", "/neptune-landing-commit-log.csv"]
+      "githubStats": ["/neptune-webapp-commit-log.csv", "/neptune-landing-commit-log.csv"],
+      "role": "Design Engineer / Frontend Lead",
+      "stack": "Next.js, TypeScript, Tailwind, CosmWasm",
+      "domain": "DeFi / Lending / Liquidity",
+      "scope": [
+        "Full product ownership: Figma design system through production TypeScript",
+        "Custom Figma component library and visual design language",
+        "UX architecture for lending, staking, and liquidity flows",
+        "Full frontend architecture and engineering systems",
+        "Contract and wallet integration surfaces",
+        "Smart contract integrations (Mito, Astroport)",
+        "Staking, airdrop, and liquidity systems"
+      ],
+      "context": [
+        "Neptune Finance is a DeFi lending protocol on Injective with CosmWasm contracts.",
+        "The frontend coordinates wallet actions, contract state, and market data to keep lending and liquidity flows correct during live transaction execution."
+      ],
+      "problemSpace": [
+        "On-chain and UI state can drift during pending transactions; users making financial decisions need accurate state at all times",
+        "Market-sensitive screens require low-latency updates and interfaces designed for fast decision-making",
+        "Multi-step flows across lending, staking, and liquidity must feel simple despite significant underlying contract complexity",
+        "Wallet signing and broadcast failures need explicit recovery paths; confusion at this moment breaks user trust and risks funds"
+      ],
+      "approach": [
+        "Model transaction lifecycle states as first-class UI states",
+        "Use reusable query and component primitives for protocol modules",
+        "Align user actions to contract message boundaries",
+        "Provide deterministic error and retry handling around wallet operations"
+      ],
+      "outcomes": [
+        "Shipped lending, staking, airdrop, and liquidity workflows to production users with real funds at stake",
+        "Improved transaction reliability and reduced user confusion through explicit state handling and recovery UX",
+        "Built a design system that kept Figma components and production code in sync across a fast-moving codebase",
+        "Identified and shipped the balance menu independently: no brief, designed in Figma, implemented in production"
+      ]
     },
     {
       "id": "stakefish",
@@ -210,7 +244,31 @@
           "type": "youtube"
         }
       ],
-      "githubStats": []
+      "githubStats": [],
+      "role": "Technical Protocol Educator",
+      "stack": "Video Production, Figma, Protocol Documentation, YouTube API",
+      "domain": "Validator Operations & Protocol Education",
+      "scope": [
+        "Created instructional visual media translating validator operations into repeatable workflows",
+        "Supported protocol updates and network transitions with developer-focused materials",
+        "Built content highlighting EVM and Cosmos ecosystem validation procedures"
+      ],
+      "context": [
+        "Translating technical validator node settings and staking details into visual, error-free step-by-step guides for users and operators.",
+        "Ensuring compliance with chain-specific details so onboarding content matches real-world wallet operations."
+      ],
+      "problemSpace": [
+        "Technical density of staking protocols causes user mistakes during delegate/undelegate transactions",
+        "Chain-specific nuances (Ethereum vs. Solana vs. Cosmos) require highly accurate documentation"
+      ],
+      "approach": [
+        "Model validator onboarding flows based on real network and wallet steps",
+        "Standardize visual workflows and annotations using Figma and clear diagrams"
+      ],
+      "outcomes": [
+        "Shipped validator training materials for Osmosis, Evmos, Ledger, and Beacon Chain workflows",
+        "Handled official protocol messaging during Ethereum's historic transition to Proof-of-Stake"
+      ]
     },
     {
       "id": "open-source-contributions",
@@ -229,7 +287,34 @@
       ],
       "ctas": ["https://multisig.nept.finance/"],
       "images": [],
-      "githubStats": ["/cw3-multisig-commit-log.csv", "/neptune-foundation-commit-log.csv"]
+      "githubStats": ["/cw3-multisig-commit-log.csv", "/neptune-foundation-commit-log.csv"],
+      "role": "Contributor / Design Engineer",
+      "stack": "TypeScript, React, Keplr, Injective SDK, Caching",
+      "domain": "Governance & Multisig Tooling",
+      "scope": [
+        "Ported and refactored multisig frontend infrastructure to Injective chain paths",
+        "Handled CosmWasm contract interfaces and Keplr wallet integrations",
+        "Implemented transaction diagnostics and decoding",
+        "Contributed protocol data and adapters to core registries"
+      ],
+      "context": [
+        "CW3 fixed multisig dApps lacked robust Injective support and chain-specific transaction serialization.",
+        "Refactoring was needed to bring this infrastructure to Injective."
+      ],
+      "problemSpace": [
+        "Incompatible transaction paths with standard Cosmos SDK chains",
+        "Hard-to-debug transaction failures with encoded base64 contract messages",
+        "Caching and performance issues for heavy contract query workloads"
+      ],
+      "approach": [
+        "Refactor submission pipeline to utilize the Injective SDK",
+        "Add Base64 decoding for in-browser message verification",
+        "Leverage query-level caching to avoid rate-limiting on node queries"
+      ],
+      "outcomes": [
+        "Delivered functional CW3 multisig interface for Injective users",
+        "Contributed vital chain registration adapters back to Keystone/Keplr registries and DeFi Llama"
+      ]
     },
     {
       "id": "cryptech",
@@ -273,7 +358,30 @@
           "type": "image"
         }
       ],
-      "githubStats": ["/macro-web-commit-log.csv", "/cryptech-website-commit-log.csv"]
+      "githubStats": ["/macro-web-commit-log.csv", "/cryptech-website-commit-log.csv"],
+      "role": "Frontend / Component Lead",
+      "stack": "React, Next.js, Tailwind CSS, TypeScript",
+      "domain": "Company Web Systems & DEX Branding",
+      "scope": [
+        "Built company landing pages and developer platform dashboard",
+        "Maintained reusable CSS style guide and UI component library",
+        "Integrated Macro DEX exchange interfaces"
+      ],
+      "context": [
+        "Cryptech Developments required a centralized platform dashboard and corporate website that shared components and brand styling."
+      ],
+      "problemSpace": [
+        "Component fragmentation and styling drift between company marketing sites and the developer dashboard",
+        "Responsive alignment and asset packaging for low-latency dashboard operations"
+      ],
+      "approach": [
+        "Create shared Tailwind configurations and custom CSS utility layer",
+        "Wrap interactive states into clean, reusable React components"
+      ],
+      "outcomes": [
+        "Unified developer dashboard and platform sites with shared style guidelines",
+        "Reduced component development time for new features by implementing design tokens"
+      ]
     },
     {
       "id": "all-about-blockchain",
@@ -294,7 +402,30 @@
       ],
       "ctas": ["https://allaboutblockchain.com/", "https://stake.folio"],
       "images": [],
-      "githubStats": ["/stakefolio-commit-log.csv", "/all-about-blockchain-commit-log.csv"]
+      "githubStats": ["/stakefolio-commit-log.csv", "/all-about-blockchain-commit-log.csv"],
+      "role": "Co-founder & Frontend Lead",
+      "stack": "TypeScript, React, Next.js, Figma, Tailwind, Vercel",
+      "domain": "Staking Tracker & Node Infrastructure",
+      "scope": [
+        "Co-founded node validation infrastructure company",
+        "Designed and built Stakefolio, a multi-network staking tracker",
+        "Integrated wallet interactions and aggregated network telemetry"
+      ],
+      "context": [
+        "All About Blockchain was founded to operate secure validator infrastructure while delivering simple interfaces for staking portfolio management."
+      ],
+      "problemSpace": [
+        "Users delegating tokens across multiple networks lack a unified visual overview of their rewards and status",
+        "Maintaining correct portfolio state across different RPC interfaces (Cosmos, Injective) is highly complex"
+      ],
+      "approach": [
+        "Build a multi-chain dashboard using Next.js to aggregate staking indices",
+        "Design visual dashboard layouts directly in Figma and port them to Tailwind utility classes"
+      ],
+      "outcomes": [
+        "Successfully launched node operations on Cosmos and Injective ecosystems",
+        "Delivered Stakefolio tracking tools for managing multi-chain delegation profiles"
+      ]
     },
     {
       "id": "cosmoverse-hackathons",
@@ -328,6 +459,31 @@
         "/dyve-commit-log.csv",
         "/turing-bet-commit-log.csv",
         "/satsuma-commit-log.csv"
+      ],
+      "role": "Design Engineer / Frontend Lead",
+      "stack": "React, TypeScript, Astroport, Axelar GMP, Injective, ICP",
+      "domain": "Cross-chain Yield and Routing",
+      "scope": [
+        "Designed and built the user interface for Satsuma yield routing",
+        "Handled multi-chain wallet status and status transitions",
+        "Implemented yield accounting calculations and route visualization"
+      ],
+      "context": [
+        "Built during the Cosmoverse hackathon to automate the conversion of yield to Bitcoin across multiple chains.",
+        "Shipped at Cosmoverse hackathon operating in a fully agentic engineering flow, directing implementation through chat while maintaining product and design ownership throughout."
+      ],
+      "problemSpace": [
+        "High friction in cross-chain UX due to slow state handoffs between Injective and ICP",
+        "Yield accounting complexity across multiple pools and protocols",
+        "Wallet state syncing across multiple networks simultaneously"
+      ],
+      "approach": [
+        "Model cross-chain transition stages as an animated, step-by-step progress tracker",
+        "Aggregate Astroport pool rates and ICP canister states on the client side"
+      ],
+      "outcomes": [
+        "Shipped the full working prototype under a fast hackathon schedule",
+        "Demonstrated cross-chain yield routing with Astroport and Axelar GMP integrations"
       ]
     },
     {
@@ -348,6 +504,29 @@
         "/tashina-cv-commit-log.csv",
         "/aab-commit-log.csv",
         "/dungarvan-creek-commit-log.csv"
+      ],
+      "role": "Freelance Web Engineer",
+      "stack": "Next.js, TypeScript, Tailwind CSS, Vercel",
+      "domain": "Independent Business Platform & Marketplaces",
+      "scope": [
+        "Built and maintained client commercial websites",
+        "Designed SEO-optimized landing structures and CMS content pipes",
+        "Maintained continuous deployment cycles via Vercel"
+      ],
+      "context": [
+        "Delivered web systems for local businesses, focusing on rapid page loads, clean responsive design, and solid contact conversions."
+      ],
+      "problemSpace": [
+        "Small business websites need very fast page speed and intuitive navigation to minimize bounce rates",
+        "Low-maintenance content management solutions for non-technical administrators"
+      ],
+      "approach": [
+        "Leverage Next.js static page generation and dynamic routing",
+        "Optimize images and load paths, ensuring high core web vitals"
+      ],
+      "outcomes": [
+        "Deployed and maintained production applications for World Antiques and Dungarvan Creek",
+        "Substantially increased search engine visibility and user conversions via semantic layout and custom styling"
       ]
     }
   ]

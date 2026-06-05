@@ -25,6 +25,14 @@ export interface Project {
   ctaPanelOverrides?: ({ title?: string; description?: string } | null)[];
   images: ProjectImage[];
   githubStats: string[];
+  role?: string;
+  stack?: string;
+  domain?: string;
+  scope?: string[];
+  context?: string[];
+  problemSpace?: string[];
+  approach?: string[];
+  outcomes?: string[];
 }
 
 /**

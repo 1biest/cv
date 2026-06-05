@@ -1,12 +1,12 @@
 'use client';
 
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import SocialLinks from './Components/SocialLinks';
-import SectionContent from './Components/SectionContent';
 import { ThemeAccentColor } from './config';
 import { Project, ProjectsData } from './types/projects';
 import projectsData from './data/projects.json';
-import NeptuneFinance from './projects/neptune-finance/page';
+import CaseStudyDrawer from './Components/CaseStudyDrawer';
+import CaseStudyRenderer from './Components/CaseStudyRenderer';
 
 export type Experience = Project;
 
@@ -37,22 +37,83 @@ function groupEyebrow(group: Project['group']): string {
 }
 
 export default function Home() {
-  const [highlightIndex, setHighlightIndex] = useState(0);
-  const detailRef = useRef<HTMLElement>(null);
+  const [activeProjectId, setActiveProjectId] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState('intro');
 
-  const scrollToDetail = useCallback(() => {
-    requestAnimationFrame(() => {
-      detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
+  useEffect(() => {
+    const syncProjectFromUrl = () => {
+      const params = new URLSearchParams(window.location.search);
+      const project = params.get('project');
+      if (project && experience.some((exp) => exp.id === project)) {
+        setActiveProjectId(project);
+      } else {
+        setActiveProjectId(null);
+      }
+    };
+
+    syncProjectFromUrl();
+    window.addEventListener('popstate', syncProjectFromUrl);
+    return () => window.removeEventListener('popstate', syncProjectFromUrl);
   }, []);
 
-  const selectExperience = useCallback(
-    (index: number) => {
-      setHighlightIndex(index);
-      scrollToDetail();
-    },
-    [scrollToDetail]
-  );
+  useEffect(() => {
+    const sections = document.querySelectorAll('section[id]');
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
+
+  const openProject = useCallback((projectId: string) => {
+    setActiveProjectId(projectId);
+    const newUrl = `${window.location.pathname}?project=${projectId}`;
+    window.history.pushState({ project: projectId }, '', newUrl);
+  }, []);
+
+  const closeProject = useCallback(() => {
+    setActiveProjectId(null);
+    const newUrl = window.location.pathname;
+    window.history.pushState(null, '', newUrl);
+  }, []);
+
+  const handleNextProject = useCallback(() => {
+    if (!activeProjectId) return;
+    const currentIndex = experience.findIndex((exp) => exp.id === activeProjectId);
+    if (currentIndex >= 0) {
+      const nextIndex = (currentIndex + 1) % experience.length;
+      openProject(experience[nextIndex].id);
+    }
+  }, [activeProjectId, openProject]);
+
+  const handlePrevProject = useCallback(() => {
+    if (!activeProjectId) return;
+    const currentIndex = experience.findIndex((exp) => exp.id === activeProjectId);
+    if (currentIndex >= 0) {
+      const prevIndex = (currentIndex - 1 + experience.length) % experience.length;
+      openProject(experience[prevIndex].id);
+    }
+  }, [activeProjectId, openProject]);
+
+  const activeProject = experience.find((exp) => exp.id === activeProjectId);
+  const shareUrl =
+    typeof window !== 'undefined' && activeProject
+      ? `${window.location.origin}${window.location.pathname}?project=${activeProject.id}`
+      : '';
 
   return (
     <div
@@ -72,27 +133,41 @@ export default function Home() {
           >
             Logan Biesterfeldt
           </a>
-          <nav className="hidden flex-wrap items-center justify-end gap-x-6 gap-y-2 text-sm font-medium text-[var(--text-muted)] md:flex">
-            {NAV.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="transition-colors hover:text-[color:var(--accent-color)]"
-              >
-                {item.label}
-              </a>
-            ))}
+          <nav className="hidden flex-wrap items-center justify-end gap-x-6 gap-y-2 text-sm font-medium md:flex">
+            {NAV.map((item) => {
+              const isActive = activeSection === item.href.slice(1);
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className={`transition-colors ${
+                    isActive
+                      ? 'text-[color:var(--accent-color)] font-semibold'
+                      : 'text-[var(--text-muted)] hover:text-[color:var(--accent-color)]'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
           </nav>
-          <nav className="flex max-w-[55vw] gap-3 overflow-x-auto pb-0.5 text-xs font-medium text-[var(--text-muted)] md:hidden">
-            {NAV.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="whitespace-nowrap shrink-0 hover:text-[color:var(--accent-color)]"
-              >
-                {item.label}
-              </a>
-            ))}
+          <nav className="flex max-w-[55vw] gap-3 overflow-x-auto pb-0.5 text-xs font-medium md:hidden">
+            {NAV.map((item) => {
+              const isActive = activeSection === item.href.slice(1);
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className={`whitespace-nowrap shrink-0 transition-colors ${
+                    isActive
+                      ? 'text-[color:var(--accent-color)] font-semibold'
+                      : 'text-[var(--text-muted)] hover:text-[color:var(--accent-color)]'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
           </nav>
         </div>
       </header>
@@ -171,44 +246,27 @@ export default function Home() {
             </span>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {systemsBuilt.map((system) => {
-              const linkedIndex = experience.findIndex((exp) => exp.id === system.projectId);
-              return (
-                <button
-                  key={system.name}
-                  type="button"
-                  className="group text-left rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-card)] transition hover:border-[color:var(--accent-color)]"
-                  onClick={() => linkedIndex >= 0 && selectExperience(linkedIndex)}
-                >
-                  <h3 className="text-base font-semibold text-[var(--text)] group-hover:text-[color:var(--accent-color)]">
-                    {system.name}
-                  </h3>
-                  <p className="mt-2 text-sm text-[var(--text-muted)]">{system.domain}</p>
-                  <p className="mt-4 text-xs leading-relaxed text-[var(--text-muted)]">
-                    <span className="font-semibold text-[var(--text)]">Integrations · </span>
-                    {system.integrations.join(', ')}
-                  </p>
-                  <p className="mt-2 text-xs leading-relaxed text-[var(--text-muted)]">
-                    <span className="font-semibold text-[var(--text)]">Outcome · </span>
-                    {system.outcome}
-                  </p>
-                </button>
-              );
-            })}
-          </div>
-        </section>
-
-        <section
-          id="detail"
-          ref={detailRef}
-          className="scroll-mt-28 border-t border-[var(--border)] py-16 md:py-24"
-        >
-          <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-card)] md:p-10">
-            {highlightIndex === 0 ? (
-              <NeptuneFinance />
-            ) : (
-              <SectionContent experience={experience} highlightIndex={highlightIndex} />
-            )}
+            {systemsBuilt.map((system) => (
+              <button
+                key={system.name}
+                type="button"
+                className="group text-left rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-card)] transition hover:border-[color:var(--accent-color)]"
+                onClick={() => system.projectId && openProject(system.projectId)}
+              >
+                <h3 className="text-base font-semibold text-[var(--text)] group-hover:text-[color:var(--accent-color)]">
+                  {system.name}
+                </h3>
+                <p className="mt-2 text-sm text-[var(--text-muted)]">{system.domain}</p>
+                <p className="mt-4 text-xs leading-relaxed text-[var(--text-muted)]">
+                  <span className="font-semibold text-[var(--text)]">Integrations · </span>
+                  {system.integrations.join(', ')}
+                </p>
+                <p className="mt-2 text-xs leading-relaxed text-[var(--text-muted)]">
+                  <span className="font-semibold text-[var(--text)]">Outcome · </span>
+                  {system.outcome}
+                </p>
+              </button>
+            ))}
           </div>
         </section>
 
@@ -221,10 +279,10 @@ export default function Home() {
           </h2>
           <p className="mt-4 max-w-2xl text-[var(--text-muted)]">
             Representative roles, protocol work, and projects. Select an entry to open the full
-            write-up above.
+            write-up in the drawer panel.
           </p>
           <div className="mt-14 flex flex-col gap-16">
-            {experience.map((exp, index) => (
+            {experience.map((exp) => (
               <article
                 key={exp.id}
                 className="grid gap-8 border-b border-[var(--border)] pb-16 last:border-0 last:pb-0 md:grid-cols-[minmax(0,200px)_1fr]"
@@ -235,7 +293,7 @@ export default function Home() {
                   </p>
                   <button
                     type="button"
-                    onClick={() => selectExperience(index)}
+                    onClick={() => openProject(exp.id)}
                     className="mt-4 text-left text-sm font-semibold text-[color:var(--accent-color)] hover:underline"
                   >
                     View details →
@@ -311,14 +369,6 @@ export default function Home() {
                 >
                   github.com/1biest
                 </a>
-                <a
-                  href="https://nept.finance"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-fit text-[var(--text)] hover:text-[color:var(--accent-color)]"
-                >
-                  nept.finance
-                </a>
               </div>
             </div>
             <div>
@@ -335,6 +385,19 @@ export default function Home() {
           </p>
         </section>
       </main>
+
+      {activeProject && (
+        <CaseStudyDrawer
+          isOpen={!!activeProjectId}
+          onClose={closeProject}
+          onNext={handleNextProject}
+          onPrev={handlePrevProject}
+          projectTitle={activeProject.title}
+          projectUrl={shareUrl}
+        >
+          <CaseStudyRenderer project={activeProject} />
+        </CaseStudyDrawer>
+      )}
     </div>
   );
 }
