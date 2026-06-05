@@ -86,6 +86,18 @@
       ],
       "outcome": "Designed and built the full frontend workflow for a cross-chain yield-to-Bitcoin conversion pipeline spanning Injective, Astroport, Axelar, and ICP. Shipped at Cosmoverse hackathon operating in a fully agentic engineering flow, directing implementation through chat while maintaining product and design ownership throughout.",
       "projectId": "cosmoverse-hackathons"
+    },
+    {
+      "name": "Dyve NFT Lending & Shorting Platform",
+      "domain": "Decentralized NFTFi lending, borrowing, and shorting marketplace",
+      "integrations": ["ERC-721", "Covalent", "NFTPort", "IPFS", "Polygon", "Solidity"],
+      "constraints": [
+        "Collateral custody and liquidation boundaries",
+        "Trait-specific metadata matching using IPFS hash analysis",
+        "Trustless peer-to-peer contract execution"
+      ],
+      "outcome": "Designed and built the full React/Next.js frontend interface for trustless NFT borrowing, shorting, and yield-generation workflows.",
+      "projectId": "dyve"
     }
   ],
   "projects": [
@@ -527,6 +539,57 @@
       "outcomes": [
         "Deployed and maintained production applications for World Antiques and Dungarvan Creek",
         "Substantially increased search engine visibility and user conversions via semantic layout and custom styling"
+      ]
+    },
+    {
+      "id": "dyve",
+      "title": "Dyve",
+      "roleDescriptor": "Frontend Developer. Built the NFTFi lending, borrowing, and shorting interface",
+      "group": "projects",
+      "content": "Frontend developer for <a href=\"https://github.com/danielssonn/dyve\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Dyve</strong></a>, a decentralized NFT lending, renting, and shorting platform developed for <strong>HackFS 2022</strong>. Created a brand new NFTFi primitive that allows users to safely lend, borrow, and short NFTs to unlock liquidity and profit from market downturns.",
+      "content2": "Designed and built the entire user interface and client architecture in React/Next.js and Tailwind CSS. Built custom Web3 integrations using Ethers.js and Web3React to facilitate peer-to-peer escrow setup, collateral deposits, and loan duration triggers directly with the Solidity contract suite.",
+      "content3": "Leveraged <strong>NFTPort</strong> and <strong>Covalent</strong> APIs to index collections and query wallet balances securely. Integrated <strong>IPFS</strong> metadata analysis to enable lenders to set trait-specific conditions, giving them control over exact assets, traits, or collection-wide floor parameters. Awarded the Covalent Best Use Prize, the NFTPort Pool Prize, and ranked in the Top 5 projects on Polygon at HackFS 2022.",
+      "highlights": [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Ethers.js",
+        "Web3React",
+        "Solidity",
+        "NFTPort",
+        "Covalent",
+        "IPFS"
+      ],
+      "ctas": ["https://github.com/danielssonn/dyve", "https://ethglobal.com/showcase/dyve-pxsz9"],
+      "images": [],
+      "githubStats": ["/dyve-commit-log.csv"],
+      "role": "Frontend Developer",
+      "stack": "Next.js, TypeScript, Tailwind CSS, Ethers.js, Solidity",
+      "domain": "NFTFi / Peer-to-Peer Lending / Shorting",
+      "scope": [
+        "Designed and built the full Next.js/Tailwind frontend application",
+        "Implemented clean dashboards for active NFT lending pools and borrow durations",
+        "Integrated Web3 wallet states, transaction broadcasts, and contract triggers",
+        "Developed custom IPFS metadata integrations for trait-specific lending rules"
+      ],
+      "context": [
+        "Dyve was created to solve the lack of hedging and yield-generation options for NFT holders during market downturns.",
+        "The project was awarded the Covalent Best Use Prize, the NFTPort Pool Prize, and ranked in the Top 5 projects on Polygon at HackFS 2022."
+      ],
+      "problemSpace": [
+        "Millions of unproductive, idle NFTs in wallets without active yield-generation opportunities",
+        "Lack of financial tooling to hedge floor prices or short specific collections during bear markets",
+        "Vulnerability to scammers and stolen NFTs interacting with DeFi smart contracts"
+      ],
+      "approach": [
+        "Model borrow, lend, and short actions as explicit multi-stage transaction states in the UI",
+        "Utilize IPFS to query and verify trait-specific conditions selected by the lender",
+        "Integrate Covalent and NFTPort to verify NFT provenance and security boundaries"
+      ],
+      "outcomes": [
+        "Successfully shipped the fully interactive MVP at HackFS 2022",
+        "Won three sponsor prizes (Polygon Top 5, Covalent Best Use, NFTPort Pool Prize)",
+        "Delivered a secure frontend mapping peer-to-peer escrow parameters directly to smart contract calls"
       ]
     }
   ]

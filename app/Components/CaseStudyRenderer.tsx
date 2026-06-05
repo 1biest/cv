@@ -10,6 +10,7 @@ import { useLinkPreviews } from '../hooks/useOpenGraph';
 import { ThemeAccentColor } from '../config';
 import { Project } from '../types/projects';
 import NeptuneFinance from '../projects/neptune-finance/page';
+import Dyve from '../projects/dyve/page';
 
 interface CaseStudyRendererProps {
   project: Project;
@@ -51,9 +52,12 @@ export default function CaseStudyRenderer({ project }: CaseStudyRendererProps) {
     }
   }, [loading]);
 
-  // If it's Neptune Finance, return the custom page component directly
+  // If it's Neptune Finance or Dyve, return the custom page component directly
   if (id === 'neptune-finance') {
     return <NeptuneFinance />;
+  }
+  if (id === 'dyve') {
+    return <Dyve />;
   }
 
   // Otherwise, render using the premium unified template
