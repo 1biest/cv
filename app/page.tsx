@@ -253,9 +253,16 @@ export default function Home() {
                 className="group text-left rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-card)] transition hover:border-[color:var(--accent-color)]"
                 onClick={() => system.projectId && openProject(system.projectId)}
               >
-                <h3 className="text-base font-semibold text-[var(--text)] group-hover:text-[color:var(--accent-color)]">
-                  {system.name}
-                </h3>
+                <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
+                  <h3 className="text-base font-semibold text-[var(--text)] group-hover:text-[color:var(--accent-color)]">
+                    {system.name}
+                  </h3>
+                  {system.badge && (
+                    <span className="shrink-0 inline-flex items-center rounded-full bg-[color:var(--accent-color)]/10 px-2.5 py-0.5 text-[10px] font-semibold tracking-wider uppercase text-[color:var(--accent-color)] border border-[color:var(--accent-color)]/20">
+                      {system.badge}
+                    </span>
+                  )}
+                </div>
                 <p className="mt-2 text-sm text-[var(--text-muted)]">{system.domain}</p>
                 <p className="mt-4 text-xs leading-relaxed text-[var(--text-muted)]">
                   <span className="font-semibold text-[var(--text)]">Integrations · </span>
@@ -300,9 +307,16 @@ export default function Home() {
                   </button>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-[var(--text)] md:text-2xl">
-                    {exp.title}
-                  </h3>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <h3 className="text-xl font-semibold text-[var(--text)] md:text-2xl">
+                      {exp.title}
+                    </h3>
+                    {exp.badge && (
+                      <span className="inline-flex items-center rounded-full bg-[color:var(--accent-color)]/10 px-2.5 py-0.5 text-[10px] font-semibold tracking-wider uppercase text-[color:var(--accent-color)] border border-[color:var(--accent-color)]/20">
+                        {exp.badge}
+                      </span>
+                    )}
+                  </div>
                   {exp.roleDescriptor && (
                     <p className="mt-2 text-sm text-[var(--text-muted)]">{exp.roleDescriptor}</p>
                   )}

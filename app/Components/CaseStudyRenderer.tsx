@@ -83,6 +83,7 @@ export default function CaseStudyRenderer({ project }: CaseStudyRendererProps) {
         subtitle={roleDescriptor || role || 'Contributor'}
         summary={heroSummary}
         links={heroLinks}
+        badge={project.badge}
       />
 
       {/* 2. Snapshot */}

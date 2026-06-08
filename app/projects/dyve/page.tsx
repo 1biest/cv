@@ -20,6 +20,7 @@ export default function DyvePage() {
             primary: false,
           },
         ]}
+        badge="Hackathon"
       />
 
       {/* 2. Snapshot */}

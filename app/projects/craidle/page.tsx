@@ -14,6 +14,7 @@ export default function CraidlePage() {
         subtitle="Design Engineer / Agent Orchestrator"
         summary="A self-sustaining AI agent token launchpad and incubation treasury primitive built for the Synthesis Hackathon. Produced entirely through autonomous orchestrated AI agents utilizing the OpenClaw framework and MiniMax."
         links={[{ label: 'Source Code', url: 'https://github.com/1biest/craidle', primary: true }]}
+        badge="Hackathon"
       />
 
       {/* 2. Snapshot */}

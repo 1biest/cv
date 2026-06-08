@@ -9,15 +9,29 @@ interface ProjectHeroProps {
     url: string;
     primary?: boolean;
   }[];
+  badge?: string;
 }
 
-export const ProjectHero: React.FC<ProjectHeroProps> = ({ title, subtitle, summary, links }) => {
+export const ProjectHero: React.FC<ProjectHeroProps> = ({
+  title,
+  subtitle,
+  summary,
+  links,
+  badge,
+}) => {
   return (
     <section className="pb-12 pt-4 md:pb-16 md:pt-2">
       <div className="mx-auto max-w-3xl">
-        <h1 className="mb-2 font-[family-name:var(--font-display)] text-4xl font-semibold tracking-tight text-[var(--text)] md:text-5xl">
-          {title}
-        </h1>
+        <div className="flex flex-wrap items-center gap-3 mb-3">
+          <h1 className="font-[family-name:var(--font-display)] text-4xl font-semibold tracking-tight text-[var(--text)] md:text-5xl">
+            {title}
+          </h1>
+          {badge && (
+            <span className="inline-flex items-center rounded-full bg-[color:var(--accent-color)]/10 px-2.5 py-0.5 text-xs font-semibold tracking-wider uppercase text-[color:var(--accent-color)] border border-[color:var(--accent-color)]/20">
+              {badge}
+            </span>
+          )}
+        </div>
         <h2 className="mb-8 text-xl font-medium text-[var(--text-muted)] md:text-2xl">
           {subtitle}
         </h2>

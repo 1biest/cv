@@ -14,6 +14,7 @@ export interface ProjectImage {
 export interface Project {
   id: string;
   title: string;
+  badge?: string;
   roleDescriptor?: string;
   group: 'professional-experience' | 'protocol-ecosystem' | 'projects';
   content: string;
@@ -52,6 +53,7 @@ export interface ProjectsData {
     constraints: string[];
     outcome: string;
     projectId: string;
+    badge?: string;
   }[];
   projects: Project[];
 }
