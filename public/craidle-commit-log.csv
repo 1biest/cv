@@ -1,0 +1,15 @@
+2026-03-23,Merge pull request #1 from 1biest/main
+2026-03-23,feat: Add self-sustaining agent contracts
+2026-03-23,update readme
+2026-03-23,Fix: Update FACTORY_ADDRESS in Next.js frontend to deployed Sepolia contract
+2026-03-23,Merge origin/master into main with FACTORY_ADDRESS fix
+2026-03-23,Fix: Update FACTORY_ADDRESS to deployed contract on Sepolia
+2026-03-23,improve ui interactions
+2026-03-23,gameboard ui
+2026-03-23,rebuilt with react next tailwind
+2026-03-23,Frontend: Remove Vault Stats section; fix name; add factory null check
+2026-03-23,Frontend: Integrate with smart contract and real wallet
+2026-03-23,Frontend: Remove Vault from nav; remove Wild state; add agent details view
+2026-03-23,feat(frontend): add revenue/sustainability model
+2026-03-23,chore: Ensure latest frontend changes are committed
+2026-03-23,style(frontend): Increased spacing and breathing room between UI elements

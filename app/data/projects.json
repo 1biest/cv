@@ -7,7 +7,13 @@
   "coreCompetencies": [
     {
       "category": "Frontend Systems",
-      "items": ["React", "TypeScript", "Next.js", "Tailwind CSS", "Component architecture"]
+      "items": [
+        "React",
+        "TypeScript",
+        "Next.js",
+        "Tailwind CSS",
+        "Component architecture"
+      ]
     },
     {
       "category": "AI-Assisted Development",
@@ -54,7 +60,12 @@
     {
       "name": "Neptune Finance Web Application",
       "domain": "DeFi lending, staking, and liquidity on Injective",
-      "integrations": ["CosmWasm", "Mito", "Astroport", "Wallet providers"],
+      "integrations": [
+        "CosmWasm",
+        "Mito",
+        "Astroport",
+        "Wallet providers"
+      ],
       "constraints": [
         "On-chain to UI state synchronization",
         "Transaction reliability",
@@ -66,7 +77,11 @@
     {
       "name": "CW3 Multisig Frontend Port",
       "domain": "Governance tooling for Injective ecosystem",
-      "integrations": ["CW3 multisig contracts", "Injective SDK", "Cosmos ecosystem OSS"],
+      "integrations": [
+        "CW3 multisig contracts",
+        "Injective SDK",
+        "Cosmos ecosystem OSS"
+      ],
       "constraints": [
         "Chain-specific transaction compatibility",
         "Message decode/debug requirements",
@@ -78,19 +93,31 @@
     {
       "name": "Satsuma Cross-Chain Yield Routing",
       "domain": "Yield-to-Bitcoin conversion workflow",
-      "integrations": ["Injective contracts", "Astroport", "Axelar GMP", "ICP canister"],
+      "integrations": [
+        "Injective contracts",
+        "Astroport",
+        "Axelar GMP",
+        "ICP canister"
+      ],
       "constraints": [
         "Cross-chain state handoff",
         "Yield accounting correctness",
         "Execution sequencing"
       ],
       "outcome": "Designed and built the full frontend workflow for a cross-chain yield-to-Bitcoin conversion pipeline spanning Injective, Astroport, Axelar, and ICP. Shipped at Cosmoverse hackathon operating in a fully agentic engineering flow, directing implementation through chat while maintaining product and design ownership throughout.",
-      "projectId": "cosmoverse-hackathons"
+      "projectId": "satsuma"
     },
     {
       "name": "Dyve NFT Lending & Shorting Platform",
       "domain": "Decentralized NFTFi lending, borrowing, and shorting marketplace",
-      "integrations": ["ERC-721", "Covalent", "NFTPort", "IPFS", "Polygon", "Solidity"],
+      "integrations": [
+        "ERC-721",
+        "Covalent",
+        "NFTPort",
+        "IPFS",
+        "Polygon",
+        "Solidity"
+      ],
       "constraints": [
         "Collateral custody and liquidation boundaries",
         "Trait-specific metadata matching using IPFS hash analysis",
@@ -98,6 +125,59 @@
       ],
       "outcome": "Designed and built the full React/Next.js frontend interface for trustless NFT borrowing, shorting, and yield-generation workflows.",
       "projectId": "dyve"
+    },
+    {
+      "name": "CrAIdle Yield-Budgeted Treasury & Launchpad",
+      "domain": "Self-sustaining AI agent token launchpad and incubation treasury",
+      "integrations": [
+        "OpenClaw",
+        "MiniMax",
+        "Base Sepolia",
+        "Solidity",
+        "Ethers.js",
+        "Lido stETH"
+      ],
+      "constraints": [
+        "Principal locked during incubation",
+        "Yield compute budget routing",
+        "Orchestrated entirely via AI agents (OpenClaw + MiniMax)"
+      ],
+      "outcome": "Designed and deployed a yield-budgeted agent incubator treasury and launchpad on Base Sepolia. Shipped entirely via orchestrated AI agents.",
+      "projectId": "craidle"
+    },
+    {
+      "name": "Monad Blockchain Heartbeat",
+      "domain": "Real-time block explorer and transaction lifecycle visualizer",
+      "integrations": [
+        "Monad RPC",
+        "WebSockets",
+        "EVM Wallet providers",
+        "getblock.io"
+      ],
+      "constraints": [
+        "Real-time state transitions (Mempool to Finality)",
+        "Mouse-responsive 3D perspective animations",
+        "High-frequency WebSocket data throughput"
+      ],
+      "outcome": "Designed and built an interactive 3D node and transaction visualizer showing block progression through speculative, execution, consensus, and finalization stages.",
+      "projectId": "monad-heartbeat"
+    },
+    {
+      "name": "ether.fi Cash Demo Interface",
+      "domain": "DeFi-native credit card dashboard and collateral manager",
+      "integrations": [
+        "ether.fi Liquid Vaults",
+        "Radix UI",
+        "TanStack Query",
+        "Tailwind CSS"
+      ],
+      "constraints": [
+        "Interactive borrowing and credit limit computations",
+        "Real-time yield and interest accrual simulation",
+        "Premium dark-themed visual consistency"
+      ],
+      "outcome": "Developed a high-fidelity interactive dashboard demo for ether.fi Cash, simulating staking, borrowing against crypto collateral, and managing card controls.",
+      "projectId": "etherfi-demo"
     }
   ],
   "projects": [
@@ -121,7 +201,9 @@
         "Mito integration",
         "State synchronization"
       ],
-      "ctas": ["https://nept.finance"],
+      "ctas": [
+        "https://nept.finance"
+      ],
       "images": [
         {
           "src": "/screenshots/neptune-landing-home.png",
@@ -169,7 +251,10 @@
           "type": "image"
         }
       ],
-      "githubStats": ["/neptune-webapp-commit-log.csv", "/neptune-landing-commit-log.csv"],
+      "githubStats": [
+        "/neptune-webapp-commit-log.csv",
+        "/neptune-landing-commit-log.csv"
+      ],
       "role": "Design Engineer / Frontend Lead",
       "stack": "Next.js, TypeScript, Tailwind, CosmWasm",
       "domain": "DeFi / Lending / Liquidity",
@@ -218,7 +303,10 @@
         "Staking operations",
         "Cross-chain documentation"
       ],
-      "ctas": ["https://www.stake.fish", "https://www.f2pool.com"],
+      "ctas": [
+        "https://www.stake.fish",
+        "https://www.f2pool.com"
+      ],
       "images": [
         {
           "youtubeId": "-qwSAFcicg8",
@@ -297,9 +385,14 @@
         "Caching",
         "Transaction pipeline"
       ],
-      "ctas": ["https://multisig.nept.finance/"],
+      "ctas": [
+        "https://multisig.nept.finance/"
+      ],
       "images": [],
-      "githubStats": ["/cw3-multisig-commit-log.csv", "/neptune-foundation-commit-log.csv"],
+      "githubStats": [
+        "/cw3-multisig-commit-log.csv",
+        "/neptune-foundation-commit-log.csv"
+      ],
       "role": "Contributor / Design Engineer",
       "stack": "TypeScript, React, Keplr, Injective SDK, Caching",
       "domain": "Governance & Multisig Tooling",
@@ -342,7 +435,9 @@
         "Frontend architecture",
         "Component systems"
       ],
-      "ctas": ["https://cryptech.dev/"],
+      "ctas": [
+        "https://cryptech.dev/"
+      ],
       "images": [
         {
           "src": "/screenshots/cryptech-dashboard.png",
@@ -370,7 +465,10 @@
           "type": "image"
         }
       ],
-      "githubStats": ["/macro-web-commit-log.csv", "/cryptech-website-commit-log.csv"],
+      "githubStats": [
+        "/macro-web-commit-log.csv",
+        "/cryptech-website-commit-log.csv"
+      ],
       "role": "Frontend / Component Lead",
       "stack": "React, Next.js, Tailwind CSS, TypeScript",
       "domain": "Company Web Systems & DEX Branding",
@@ -412,9 +510,15 @@
         "Cosmos",
         "Injective"
       ],
-      "ctas": ["https://allaboutblockchain.com/", "https://stake.folio"],
+      "ctas": [
+        "https://allaboutblockchain.com/",
+        "https://stake.folio"
+      ],
       "images": [],
-      "githubStats": ["/stakefolio-commit-log.csv", "/all-about-blockchain-commit-log.csv"],
+      "githubStats": [
+        "/stakefolio-commit-log.csv",
+        "/all-about-blockchain-commit-log.csv"
+      ],
       "role": "Co-founder & Frontend Lead",
       "stack": "TypeScript, React, Next.js, Figma, Tailwind, Vercel",
       "domain": "Staking Tracker & Node Infrastructure",
@@ -499,13 +603,75 @@
       ]
     },
     {
+      "id": "satsuma",
+      "title": "Satsuma",
+      "roleDescriptor": "Design Engineer / Frontend Lead. Cross-chain yield-to-Bitcoin conversion routing built at Cosmoverse Hackathon",
+      "group": "projects",
+      "content": "Design engineer and frontend lead for <a href=\"https://github.com/All-About-Blockchain/satsuma\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Satsuma</strong></a>, a cross-chain yield routing and yield-to-Bitcoin conversion platform built during the <strong>Cosmoverse Hackathon</strong>.",
+      "content2": "Satsuma orchestrates a multi-network yield optimization pipeline: routing USDC deposits on Injective, executing yield skimming and automated token swaps via Astroport pools, coordinating cross-chain messaging using Axelar GMP, and executing Bitcoin purchases via canisters on the Internet Computer Protocol (ICP).",
+      "content3": "Designed and implemented a real-time cross-chain transition tracker visualizing exact deposit, bridge, and swap states, and integrated multiple wallet protocols (Keplr, OIS, Metamask, ICP Internet Identity) into a single client interface. Shipped operating in a fully agentic engineering flow, directing implementation through chat while maintaining complete product and design ownership.",
+      "highlights": [
+        "React",
+        "TypeScript",
+        "Injective",
+        "Astroport",
+        "Axelar GMP",
+        "ICP Canisters",
+        "Cross-chain flows",
+        "Multi-wallet connection",
+        "Agentic workflows"
+      ],
+      "ctas": [
+        "https://github.com/All-About-Blockchain/satsuma"
+      ],
+      "images": [],
+      "githubStats": [
+        "/satsuma-commit-log.csv"
+      ],
+      "role": "Design Engineer / Frontend Lead",
+      "stack": "React, TypeScript, Astroport, Axelar GMP, Injective, ICP",
+      "domain": "Cross-chain DeFi / Yield Routing / Interoperability",
+      "scope": [
+        "Designed the multi-chain dashboard and transaction tracker in Figma",
+        "Implemented the Injective contract interactions and wallet state sync (Keplr)",
+        "Developed Axelar General Message Passing (GMP) transaction monitoring",
+        "Integrated ICP canister queries for yield-to-Bitcoin routing calculations",
+        "Coordinated 100% of frontend development using agentic AI chat workflows"
+      ],
+      "context": [
+        "Satsuma was created at the Cosmoverse Hackathon to address the complexity of routing yield across disparate ecosystems (Cosmos/Injective, Axelar, and ICP).",
+        "The frontend coordinates multiple asynchronous state transitions across chains to ensure transactions don't get stuck without visual feedback."
+      ],
+      "problemSpace": [
+        "High friction and lack of visibility in multi-chain transactions, leading to user anxiety during cross-chain asset routing",
+        "Complexity of aggregating data from Injective indexers, Astroport pools, and ICP canisters concurrently",
+        "Managing state and transaction signatures across Cosmos (Keplr) and ICP (Internet Identity) wallets simultaneously"
+      ],
+      "approach": [
+        "Model cross-chain transition stages as an animated, step-by-step progress tracker that updates reactively as contract messages are broadcast",
+        "Abstract multi-chain wallet status into a unified provider that updates the interface based on active chain context"
+      ],
+      "outcomes": [
+        "Successfully delivered the working cross-chain yield routing prototype during the 48-hour Cosmoverse Hackathon",
+        "Proven feasibility of directing complex cross-chain frontend integrations through agentic engineering flows while maintaining product quality"
+      ]
+    },
+    {
       "id": "personal-projects",
       "title": "Personal Projects",
       "group": "projects",
       "content": "Independent web systems delivered outside DeFi, including marketplace and business websites with production deployments and ongoing maintenance.",
       "content2": "Representative work includes <a href=\"https://worldantiques.ca/\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>World Antiques and Collectables</strong></a> and <a href=\"https://dungarvancreek.com/\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Dungarvan Creek</strong></a>.",
-      "highlights": ["TypeScript", "React", "Next.js", "Tailwind CSS", "Vercel"],
-      "ctas": ["https://worldantiques.ca/"],
+      "highlights": [
+        "TypeScript",
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "Vercel"
+      ],
+      "ctas": [
+        "https://worldantiques.ca/"
+      ],
       "images": [],
       "githubStats": [
         "/init-commit-log.csv",
@@ -560,9 +726,14 @@
         "Covalent",
         "IPFS"
       ],
-      "ctas": ["https://github.com/danielssonn/dyve", "https://ethglobal.com/showcase/dyve-pxsz9"],
+      "ctas": [
+        "https://github.com/danielssonn/dyve",
+        "https://ethglobal.com/showcase/dyve-pxsz9"
+      ],
       "images": [],
-      "githubStats": ["/dyve-commit-log.csv"],
+      "githubStats": [
+        "/dyve-commit-log.csv"
+      ],
       "role": "Frontend Developer",
       "stack": "Next.js, TypeScript, Tailwind CSS, Ethers.js, Solidity",
       "domain": "NFTFi / Peer-to-Peer Lending / Shorting",
@@ -590,6 +761,165 @@
         "Successfully shipped the fully interactive MVP at HackFS 2022",
         "Won three sponsor prizes (Polygon Top 5, Covalent Best Use, NFTPort Pool Prize)",
         "Delivered a secure frontend mapping peer-to-peer escrow parameters directly to smart contract calls"
+      ]
+    },
+    {
+      "id": "craidle",
+      "title": "CrAIdle",
+      "roleDescriptor": "Design Engineer / Agent Orchestrator. Directed autonomous agentic engineering flow",
+      "group": "projects",
+      "content": "Lead engineer and agent orchestrator for <a href=\"https://github.com/1biest/craidle\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>CrAIdle</strong></a>, a self-sustaining AI agent token launchpad and incubation treasury primitive developed for the <strong>Synthesis Hackathon</strong>. Enabled hatched AI agents to launch their own ERC-20 tokens on Base, with automated revenue streams flowing from trading fees directly back to their budgets.",
+      "content2": "Designed and deployed a yield-budgeted treasury model: user principal is deposited into a locked incubator vault, remaining protected and non-spendable, while generated yield (via Lido stETH) is dynamically routed to agent compute wallets. This separation of capital protects investor principal while sustaining long agent incubation cycles.",
+      "content3": "Directed a novel development pipeline, producing the entire Solidity contract suite and reactive Next.js/Tailwind gameboard-style interface entirely through autonomous orchestrated AI agents using the <strong>OpenClaw</strong> agent framework and <strong>MiniMax</strong> model platform. Deployed live on Base Sepolia with active wallet integrations.",
+      "highlights": [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "OpenClaw",
+        "MiniMax",
+        "Solidity",
+        "Base Sepolia",
+        "Ethers.js",
+        "Lido stETH",
+        "Agentic workflows"
+      ],
+      "ctas": [
+        "https://github.com/1biest/craidle"
+      ],
+      "images": [],
+      "githubStats": [
+        "/craidle-commit-log.csv"
+      ],
+      "role": "Design Engineer / Agent Orchestrator",
+      "stack": "Next.js, TypeScript, Tailwind CSS, OpenClaw, MiniMax, Solidity",
+      "domain": "AI Agents / Token Launchpad / Yield Treasuries",
+      "scope": [
+        "Designed and built the yield-budgeted treasury and token factory smart contracts",
+        "Orchestrated autonomous coding agent pipelines (OpenClaw + MiniMax) for code implementation",
+        "Designed a premium dark-mode gameboard dashboard interface for agent monitoring",
+        "Implemented Base Sepolia smart contract wallet connectivity and live data feeds"
+      ],
+      "context": [
+        "CrAIdle was created to solve runway fragility in autonomous AI agent systems where compute spend depletes investor principal.",
+        "The project demonstrates a fully self-building agent workflow, where all code was successfully generated, tested, and optimized by autonomous agents."
+      ],
+      "problemSpace": [
+        "Compute costs drain agent capital runway rapidly, leading to premature termination of agent systems",
+        "No native mechanism exists to partition protected investment principal from operational compute spend",
+        "Visualizing multi-step incubation states, graduation thresholds, and yield budgeting is highly complex"
+      ],
+      "approach": [
+        "Design an Incubator Vault that locks principal and splits yield to a compute budget contract",
+        "Utilize OpenClaw autonomous agents and MiniMax models to generate, refine, and deploy frontend and Solidity code",
+        "Model agent incubation phases (Incubating, Graduated) as explicit, real-time visual trackers on a dark-themed cyberpunk dashboard"
+      ],
+      "outcomes": [
+        "Successfully deployed fully functional AgentToken, AgentTokenFactory, IncubatorVault, and GraduationManager contracts on Base Sepolia",
+        "Shipped a highly responsive, custom-designed Next.js/Tailwind gameboard-style interface for agent creation and monitoring",
+        "Proven zero-shot/few-shot agent code orchestration: 100% of codebase produced and optimized by AI agents"
+      ]
+    },
+    {
+      "id": "monad-heartbeat",
+      "title": "Monad Heartbeat",
+      "roleDescriptor": "Frontend Developer / Designer. Built a real-time 3D node and transaction visualizer",
+      "group": "projects",
+      "content": "Lead developer and designer for <a href=\"https://github.com/1biest/monad-heartbeat\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Monad Heartbeat</strong></a>, a real-time block explorer and transaction lifecycle visualization tool for the Monad blockchain. Displays block progression from speculative mempool states to consensus, execution, and finality.",
+      "content2": "Built using Next.js, React, and Tailwind CSS, featuring mouse-responsive 3D block animations with custom perspective transforms. Integrated WebSocket support with fallback HTTP polling for continuous connection health indicators.",
+      "content3": "Designed a responsive transaction builder allowing users to construct and submit transaction payloads directly through EVM wallet interfaces, complete with connection monitoring and chain state feedback.",
+      "highlights": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "WebSockets",
+        "Ethers.js",
+        "3D CSS/Animations",
+        "RPC Nodes"
+      ],
+      "ctas": [
+        "https://monad-heartbeat.vercel.app/",
+        "https://github.com/1biest/monad-heartbeat"
+      ],
+      "images": [],
+      "githubStats": [
+        "/monad-heartbeat-commit-log.csv"
+      ],
+      "role": "Frontend Developer / Designer",
+      "stack": "Next.js, React, TypeScript, Tailwind CSS, WebSockets, Ethers.js",
+      "domain": "Blockchain / Explorer / 3D Visualization",
+      "scope": [
+        "Designed and implemented interactive 3D block components with CSS transform perspectives",
+        "Configured real-time block tracking and status indicators via WebSocket connections",
+        "Integrated EVM wallet adapters and built a custom payload transaction builder",
+        "Engineered automatic HTTP polling recovery for connection stability"
+      ],
+      "context": [
+        "Monad Heartbeat was created to provide an interactive, high-fidelity visualization of Monad's fast block times and transaction pipeline.",
+        "The application models the lifecycle of block states (Speculative, Executing, Consensus, Finalized) to make blockchain state changes tangible."
+      ],
+      "problemSpace": [
+        "Visualizing sub-second block times and complex transaction states can feel static or confusing on traditional explorers",
+        "Maintaining reliable connection states with high-frequency WebSocket streams requires robust client-side socket managers"
+      ],
+      "approach": [
+        "Model blocks as mouse-responsive 3D cubes whose color and animation state change based on blockchain consensus status",
+        "Separate connection handling into a unified hook that manages socket state and falls back to JSON-RPC polling when needed"
+      ],
+      "outcomes": [
+        "Shipped a real-time visualization dashboard and transaction builder to Monad developers and community members",
+        "Delivered smooth 3D CSS rendering and reliable connection state UI across mobile and desktop browsers"
+      ]
+    },
+    {
+      "id": "etherfi-demo",
+      "title": "ether.fi Cash Demo",
+      "roleDescriptor": "Frontend Developer. Developed a high-fidelity interactive DeFi credit card dashboard",
+      "group": "projects",
+      "content": "Frontend developer for <a href=\"https://github.com/1biest/etherfi-demo\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>ether.fi Cash Demo</strong></a>, an interactive frontend application demonstrating the ether.fi Cash credit card product.",
+      "content2": "Designed a custom dark-mode dashboard that enables users to manage collateral (ETH, weETH, USDC) in liquid vaults, calculate borrowing capabilities, and simulate real-world card transaction streams with instant feedback.",
+      "content3": "Implemented responsive layouts and sleek interactive animations using React, Radix UI, TanStack Query, and Tailwind CSS, including a 3D perspective credit card mockup and interactive spending/credit controls.",
+      "highlights": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Radix UI",
+        "TanStack Query",
+        "3D CSS/Animations"
+      ],
+      "ctas": [
+        "https://etherfi-demo.vercel.app/cash",
+        "https://github.com/1biest/etherfi-demo"
+      ],
+      "images": [],
+      "githubStats": [
+        "/etherfi-demo-commit-log.csv"
+      ],
+      "role": "Frontend Developer",
+      "stack": "Next.js, React, Radix UI, Tailwind CSS, TanStack Query",
+      "domain": "DeFi / Credit Cards / Staking & Yield",
+      "scope": [
+        "Built the interactive dashboard layout and sidebar navigation structures",
+        "Developed a 3D responsive credit card visual card-details panel with perspective controls",
+        "Created vault deposit and borrowing calculators integrating Liquid Vault yield metrics",
+        "Implemented custom spending limits and security settings state management"
+      ],
+      "context": [
+        "ether.fi Cash is a DeFi-native credit card that allows cardholders to spend or borrow against their crypto balance in real-world environments.",
+        "The demo highlights the user experience of managing staked assets while maintaining spending power."
+      ],
+      "problemSpace": [
+        "Explaining borrowing boundaries and liquidation risks for collateralized credit cards in a clean, visual manner",
+        "Structuring responsive dashboard panels that load heavy mock transaction data smoothly without UI stuttering"
+      ],
+      "approach": [
+        "Provide a high-fidelity interactive dashboard that mimics real mobile and desktop credit card applications",
+        "Implement real-time balance calculations as users adjust deposit sliders, demonstrating direct effects of interest accrual"
+      ],
+      "outcomes": [
+        "Delivered a fully interactive card management and collateral dashboard demo, showcasing ether.fi Cash features",
+        "Shipped smooth page transitions, custom light/dark theme components, and responsive spending limit panels"
       ]
     }
   ]

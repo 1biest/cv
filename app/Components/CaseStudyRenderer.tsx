@@ -11,6 +11,7 @@ import { ThemeAccentColor } from '../config';
 import { Project } from '../types/projects';
 import NeptuneFinance from '../projects/neptune-finance/page';
 import Dyve from '../projects/dyve/page';
+import Craidle from '../projects/craidle/page';
 
 interface CaseStudyRendererProps {
   project: Project;
@@ -58,6 +59,9 @@ export default function CaseStudyRenderer({ project }: CaseStudyRendererProps) {
   }
   if (id === 'dyve') {
     return <Dyve />;
+  }
+  if (id === 'craidle') {
+    return <Craidle />;
   }
 
   // Otherwise, render using the premium unified template

@@ -105,6 +105,27 @@
       "link": "https://ethglobal.com/showcase/dyve-pxsz9"
     },
     {
+      "title": "CrAIdle",
+      "desc": "A self-sustaining AI agent token launchpad and treasury incubation primitive built for the Synthesis Hackathon. Produced entirely through autonomous orchestrated AI agents utilizing OpenClaw and MiniMax. Deployed on Base Sepolia.",
+      "company": "Synthesis Hackathon 2026",
+      "thumbUrl": "craidle-dashboard.png",
+      "link": "https://github.com/1biest/craidle"
+    },
+    {
+      "title": "Monad Heartbeat",
+      "desc": "A real-time node explorer and block visualizer for the Monad blockchain, showcasing stages of consensus and speculative execution using interactive 3D elements and WebSockets.",
+      "company": "Personal Project",
+      "thumbUrl": "monad-heartbeat.png",
+      "link": "https://github.com/1biest/monad-heartbeat"
+    },
+    {
+      "title": "ether.fi Cash Demo",
+      "desc": "An interactive dashboard demo for the ether.fi Cash credit card system, featuring collateral calculators, mock transactions, and settings management.",
+      "company": "Personal Project",
+      "thumbUrl": "etherfi-demo.png",
+      "link": "https://github.com/1biest/etherfi-demo"
+    },
+    {
       "title": "Staking Tutorials",
       "desc": "Detailed tutorial videos of the techinical steps taken to stake tokens with stakefish using respective wallets and protocols. Adobe After Effects.",
       "company": "stakefish/f2pool",
