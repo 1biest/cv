@@ -22,7 +22,7 @@ const cormorantDisplay = Cormorant_Garamond({
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://logan-cv.vercel.app';
-const title = 'Design Engineer & Frontend Lead, Logan Biesterfeldt';
+const title = 'Logan Biesterfeldt | Design Engineer & Frontend Lead';
 const description =
   'Design Engineer and senior frontend engineer based in Calgary. I own product problems end to end, from Figma to production code, with deep technical experience in DeFi, blockchain infrastructure, and React/TypeScript systems. Open to opportunities.';
 

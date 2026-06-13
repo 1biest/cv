@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import SocialLinks from './Components/SocialLinks';
 import Reveal from './Components/Reveal';
@@ -195,8 +196,16 @@ export default function Home() {
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 md:px-8">
           <a
             href="#intro"
-            className="font-[family-name:var(--font-display)] text-lg font-semibold tracking-tight text-[var(--text)] transition-colors hover:text-[color:var(--accent-color)]"
+            className="group flex items-center gap-3 font-[family-name:var(--font-display)] text-lg font-semibold tracking-tight text-[var(--text)] transition-colors hover:text-[color:var(--accent-color)]"
           >
+            <Image
+              src="/logan-biesterfeldt-headshot.png"
+              alt="Logan Biesterfeldt"
+              width={36}
+              height={36}
+              priority
+              className="h-9 w-9 rounded-full border border-[var(--border)] object-cover shadow-sm transition group-hover:border-[color:var(--accent-color)]"
+            />
             Logan Biesterfeldt
           </a>
           <nav className="hidden flex-wrap items-center justify-end gap-x-6 gap-y-2 text-sm font-medium md:flex">
