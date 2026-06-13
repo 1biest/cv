@@ -1,8 +1,14 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTelegram, faLinkedin, faGithub, faXTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
+import { faFilePdf, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const socialLinks = [
+  {
+    icon: faEnvelope,
+    label: '',
+    ariaLabel: 'Email Logan',
+    url: 'mailto:logan.biesterfeldt@gmail.com?subject=Opportunity%20for%20Logan%20%E2%80%94%20Design%20Engineer',
+  },
   { icon: faGithub, label: '', ariaLabel: 'GitHub', url: 'https://github.com/1biest' },
   { icon: faLinkedin, label: '', ariaLabel: 'LinkedIn', url: 'https://www.linkedin.com/in/biest/' },
   { icon: faTelegram, label: '', ariaLabel: 'Telegram', url: 'https://t.me/Biesterfeldt' },
