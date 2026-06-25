@@ -84,7 +84,7 @@
         "Yield accounting correctness",
         "Execution sequencing"
       ],
-      "outcome": "Designed and built the full frontend workflow for a cross-chain yield-to-Bitcoin conversion pipeline spanning Injective, Astroport, Axelar, and ICP. Shipped at Cosmoverse hackathon operating in a fully agentic engineering flow, directing implementation through chat while maintaining product and design ownership throughout.",
+      "outcome": "Designed and built the full frontend workflow for a cross-chain yield-to-Bitcoin conversion pipeline spanning Injective, Astroport, Axelar, and ICP. Shipped at a hackathon operating in a fully agentic engineering flow, directing implementation through chat while maintaining product and design ownership throughout.",
       "projectId": "satsuma",
       "badge": "Hackathon"
     },
@@ -124,7 +124,7 @@
     {
       "name": "Monad Blockchain Heartbeat",
       "domain": "Real-time block explorer and transaction lifecycle visualizer",
-      "integrations": ["Monad RPC", "WebSockets", "EVM Wallet providers", "getblock.io"],
+      "integrations": ["Monad RPC", "WebSockets", "EVM Wallet providers"],
       "constraints": [
         "Real-time state transitions (Mempool to Finality)",
         "Mouse-responsive 3D perspective animations",
@@ -137,13 +137,12 @@
     {
       "name": "ether.fi Cash Demo Interface",
       "domain": "DeFi-native credit card dashboard and collateral manager",
-      "integrations": ["ether.fi Liquid Vaults", "Radix UI", "TanStack Query", "Tailwind CSS"],
+      "integrations": ["ether.fi Liquid Vaults", "Tailwind CSS"],
       "constraints": [
-        "Interactive borrowing and credit limit computations",
-        "Real-time yield and interest accrual simulation",
+        "Interactive Neobank UI simulations",
         "Premium dark-themed visual consistency"
       ],
-      "outcome": "Developed a high-fidelity interactive dashboard demo for ether.fi Cash, simulating staking, borrowing against crypto collateral, and managing card controls.",
+      "outcome": "Developed a high-fidelity interactive dashboard demo for ether.fi Cash.",
       "projectId": "etherfi-demo",
       "badge": "Demo"
     }
@@ -305,8 +304,8 @@
         }
       ],
       "githubStats": [],
-      "role": "Technical Protocol Educator",
-      "stack": "Video Production, Figma, Protocol Documentation, YouTube API",
+      "role": "Technical Content Creator",
+      "stack": "After Effects, Figma, Protocol Documentation",
       "domain": "Validator Operations & Protocol Education",
       "scope": [
         "Created instructional visual media translating validator operations into repeatable workflows",
