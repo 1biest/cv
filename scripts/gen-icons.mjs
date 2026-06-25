@@ -6,7 +6,7 @@ const src = 'public/logan-biesterfeldt-headshot.png';
 function circleMask(size) {
   const r = size / 2;
   return Buffer.from(
-    `<svg width="${size}" height="${size}"><circle cx="${r}" cy="${r}" r="${r}" fill="#fff"/></svg>`,
+    `<svg width="${size}" height="${size}"><circle cx="${r}" cy="${r}" r="${r}" fill="#fff"/></svg>`
   );
 }
 

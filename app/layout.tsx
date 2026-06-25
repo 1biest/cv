@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Cormorant_Garamond } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
+import Script from 'next/script';
 import './globals.css';
 import { ThemeAccentColor } from './config';
 
@@ -137,6 +138,19 @@ export default function RootLayout({
       >
         {children}
         <Analytics />
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID ?? 'G-X4G4BGPMJX'}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', '${process.env.NEXT_PUBLIC_GA_ID ?? 'G-X4G4BGPMJX'}');
+          `}
+        </Script>
       </body>
     </html>
   );
