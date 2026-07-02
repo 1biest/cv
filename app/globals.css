@@ -54,6 +54,14 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+  }
+
+  /* Disable snapping if user prefers reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-snap-type: none !important;
+    }
   }
 
   body {
@@ -341,3 +349,9 @@
   background-color: rgba(20, 20, 20, 0.15);
   border-radius: 6px;
 }
+
+.slide-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+

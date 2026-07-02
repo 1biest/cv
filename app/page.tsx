@@ -10,6 +10,7 @@ import { Project, ProjectsData } from './types/projects';
 import projectsData from './data/projects.json';
 import CaseStudyDrawer from './Components/CaseStudyDrawer';
 import CaseStudyRenderer from './Components/CaseStudyRenderer';
+import { useScrollProgress } from './hooks/useScrollProgress';
 
 export type Experience = Project;
 
@@ -92,8 +93,34 @@ function SectionEyebrow({ index, children }: { index: string; children: React.Re
 
 export default function Home() {
   const [activeProjectId, setActiveProjectId] = useState<string | null>(null);
-  const [activeSection, setActiveSection] = useState('intro');
   const [copied, setCopied] = useState(false);
+  const [prefersReduced, setPrefersReduced] = useState(false);
+
+  // Set up slide elements and IDs
+  const experienceSlideIds = experience.map((exp) => `experience-${exp.id}`);
+  const allSlideIds = [
+    'intro',
+    'about',
+    'work',
+    'experience-header',
+    ...experienceSlideIds,
+    'stack',
+    'contact',
+  ];
+
+  // Scroll tracking hook
+  const { progresses, activeSection } = useScrollProgress(allSlideIds);
+
+  // Sync reduced motion preferences
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReduced(mediaQuery.matches);
+    const handleMediaChange = (e: MediaQueryListEvent) => {
+      setPrefersReduced(e.matches);
+    };
+    mediaQuery.addEventListener('change', handleMediaChange);
+    return () => mediaQuery.removeEventListener('change', handleMediaChange);
+  }, []);
 
   useEffect(() => {
     const syncProjectFromUrl = () => {
@@ -109,29 +136,6 @@ export default function Home() {
     syncProjectFromUrl();
     window.addEventListener('popstate', syncProjectFromUrl);
     return () => window.removeEventListener('popstate', syncProjectFromUrl);
-  }, []);
-
-  useEffect(() => {
-    const sections = document.querySelectorAll('section[id]');
-    const observerOptions = {
-      root: null,
-      rootMargin: '-20% 0px -60% 0px',
-      threshold: 0,
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    }, observerOptions);
-
-    sections.forEach((section) => observer.observe(section));
-
-    return () => {
-      sections.forEach((section) => observer.unobserve(section));
-    };
   }, []);
 
   const openProject = useCallback((projectId: string) => {
@@ -174,6 +178,38 @@ export default function Home() {
     }
   }, []);
 
+  // Helper to calculate progressive transforms for slides
+  const getSlideStyles = useCallback(
+    (progress: number | undefined, active: boolean): React.CSSProperties => {
+      if (prefersReduced || progress === undefined) return {};
+
+      let opacity = 1;
+      let scale = 1;
+      let translateY = 0;
+
+      if (progress < 0.5) {
+        // Entering from bottom (progress goes 0.0 -> 0.5)
+        const enterProgress = Math.max(0, Math.min(1, (progress - 0.2) * 3.33));
+        opacity = enterProgress;
+        translateY = (1 - enterProgress) * 24;
+      } else {
+        // Exiting at top (progress goes 0.5 -> 1.0)
+        const exitProgress = Math.max(0, Math.min(1, (progress - 0.5) * 3.33));
+        opacity = 1 - exitProgress;
+        scale = 1 - exitProgress * 0.05; // slightly scale down
+        translateY = -exitProgress * 30; // slide up out of view
+      }
+
+      return {
+        opacity,
+        transform: `scale(${scale}) translateY(${translateY}px)`,
+        transition: 'transform 0.1s ease-out, opacity 0.1s ease-out',
+        willChange: 'transform, opacity',
+      };
+    },
+    [prefersReduced]
+  );
+
   const activeProject = experience.find((exp) => exp.id === activeProjectId);
   const shareUrl =
     typeof window !== 'undefined' && activeProject
@@ -182,7 +218,7 @@ export default function Home() {
 
   return (
     <div
-      className="min-h-screen selection:text-[var(--text)] pb-24"
+      className="min-h-screen selection:text-[var(--text)] pb-0"
       style={
         {
           '--text': '#141414',
@@ -192,7 +228,45 @@ export default function Home() {
     >
       <Backdrop />
 
-      <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--bg-page)]/85 backdrop-blur-md">
+      {/* Slide Deck Pagination Dots */}
+      <div className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-3 bg-[var(--surface)]/80 backdrop-blur-md p-3.5 rounded-full border border-[var(--border)] shadow-sm">
+        {allSlideIds.map((id) => {
+          let label = '';
+          if (id === 'intro') label = 'Intro';
+          else if (id === 'about') label = 'About';
+          else if (id === 'work') label = 'Work';
+          else if (id === 'experience-header') label = 'Experience';
+          else if (id.startsWith('experience-')) {
+            const expId = id.replace('experience-', '');
+            const expItem = experience.find((e) => e.id === expId);
+            label = expItem ? `Role: ${expItem.title}` : 'Experience';
+          } else if (id === 'stack') label = 'Stack';
+          else if (id === 'contact') label = 'Contact';
+
+          const isActive = activeSection === id;
+
+          return (
+            <button
+              key={id}
+              onClick={() => {
+                document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className={`group relative w-3 h-3 rounded-full transition-all duration-300 ${
+                isActive
+                  ? 'bg-[color:var(--accent-color)] scale-125'
+                  : 'bg-[var(--text-subtle)]/40 hover:bg-[color:var(--accent-color)]/60'
+              }`}
+              aria-label={`Scroll to ${label}`}
+            >
+              <span className="absolute right-7 top-1/2 -translate-y-1/2 bg-[var(--text)] text-white text-[10px] font-semibold tracking-wide uppercase px-2 py-1 rounded shadow-md opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap border border-neutral-700">
+                {label}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
+      <header className="fixed top-0 inset-x-0 z-50 border-b border-[var(--border)] bg-[var(--bg-page)]/85 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 md:px-8">
           <a
             href="#intro"
@@ -210,11 +284,15 @@ export default function Home() {
           </a>
           <nav className="hidden flex-wrap items-center justify-end gap-x-6 gap-y-2 text-sm font-medium md:flex">
             {NAV.map((item) => {
-              const isActive = activeSection === item.href.slice(1);
+              const href = item.href === '#experience' ? '#experience-header' : item.href;
+              const isActive =
+                item.href === '#experience'
+                  ? activeSection === 'experience-header' || activeSection.startsWith('experience-')
+                  : activeSection === item.href.slice(1);
               return (
                 <a
                   key={item.href}
-                  href={item.href}
+                  href={href}
                   className={`link-underline transition-colors ${
                     isActive
                       ? 'text-[color:var(--accent-color)] font-semibold'
@@ -236,11 +314,15 @@ export default function Home() {
           </nav>
           <nav className="flex max-w-[55vw] gap-3 overflow-x-auto pb-0.5 text-xs font-medium md:hidden">
             {NAV.map((item) => {
-              const isActive = activeSection === item.href.slice(1);
+              const href = item.href === '#experience' ? '#experience-header' : item.href;
+              const isActive =
+                item.href === '#experience'
+                  ? activeSection === 'experience-header' || activeSection.startsWith('experience-')
+                  : activeSection === item.href.slice(1);
               return (
                 <a
                   key={item.href}
-                  href={item.href}
+                  href={href}
                   className={`whitespace-nowrap shrink-0 transition-colors ${
                     isActive
                       ? 'text-[color:var(--accent-color)] font-semibold'
@@ -257,30 +339,27 @@ export default function Home() {
       </header>
 
       <main className="relative z-10 mx-auto max-w-6xl px-5 md:px-8">
-        <section id="intro" className="relative scroll-mt-28 pt-14 pb-20 md:pt-24 md:pb-28">
-          <div className="relative z-10">
-            <Reveal immediate index={0}>
-              <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-[var(--text-muted)]">
+        {/* Slide 1: Intro */}
+        <section id="intro" className="slide-section relative min-h-screen pt-[4.5rem] flex flex-col justify-center">
+          <div
+            className="w-full py-12 md:py-20 group/slide transition-all duration-700 ease-out"
+            data-active={activeSection === 'intro' ? 'true' : 'false'}
+            style={getSlideStyles(progresses['intro']?.progress, progresses['intro']?.active)}
+          >
+            <div className="relative z-10">
+              <p className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-0 mb-4 text-sm font-medium uppercase tracking-[0.2em] text-[var(--text-muted)]">
                 Portfolio
               </p>
-            </Reveal>
-            <Reveal immediate index={1}>
-              <h1 className="font-[family-name:var(--font-display)] text-[clamp(2.5rem,6vw,4.5rem)] font-semibold leading-[1.05] tracking-tight text-[var(--text)]">
+              <h1 className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-[100ms] font-[family-name:var(--font-display)] text-[clamp(2.5rem,6vw,4.5rem)] font-semibold leading-[1.05] tracking-tight text-[var(--text)]">
                 Logan Biesterfeldt
               </h1>
-            </Reveal>
-            <Reveal immediate index={2}>
-              <p className="mt-5 max-w-2xl text-xl font-medium text-[var(--text)] md:text-2xl">
+              <p className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-[200ms] mt-5 max-w-2xl text-xl font-medium text-[var(--text)] md:text-2xl">
                 Design Engineer · Frontend Lead
               </p>
-            </Reveal>
-            <Reveal immediate index={3}>
-              <p className="mt-3 text-sm text-[var(--text-muted)]">
+              <p className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-[300ms] mt-3 text-sm text-[var(--text-muted)]">
                 Figma to production: design systems, React, TypeScript, blockchain
               </p>
-            </Reveal>
-            <Reveal immediate index={4}>
-              <div className="mt-8 flex flex-wrap items-center gap-3">
+              <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-[400ms] mt-8 flex flex-wrap items-center gap-3">
                 <span
                   className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--text)]"
                   style={{ boxShadow: 'var(--shadow-card)' }}
@@ -292,9 +371,7 @@ export default function Home() {
                   Calgary, Canada · Remote-friendly
                 </span>
               </div>
-            </Reveal>
-            <Reveal immediate index={5}>
-              <div className="mt-10 flex flex-wrap gap-3">
+              <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-[500ms] mt-10 flex flex-wrap gap-3">
                 <a
                   href="#work"
                   className="inline-flex items-center justify-center rounded-full bg-[var(--text)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[color:var(--accent-color)] hover:text-white active:scale-[0.98]"
@@ -324,49 +401,63 @@ export default function Home() {
                   GitHub
                 </a>
               </div>
-            </Reveal>
-          </div>
-        </section>
-
-        <section id="about" className="scroll-mt-28 border-t border-[var(--border)] py-16 md:py-24">
-          <Reveal>
-            <SectionEyebrow index="01">About</SectionEyebrow>
-            <h2 className="heading-accent font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-[var(--text)] md:text-4xl">
-              About me
-            </h2>
-          </Reveal>
-          <div className="max-w-3xl">
-            {technicalSummary.map((paragraph, index) => (
-              <Reveal key={index} index={Math.min(index, 4)}>
-                <p
-                  className={`text-lg leading-relaxed text-[var(--text-muted)] ${index === 0 ? 'mt-8' : 'mt-6'}`}
-                >
-                  {paragraph}
-                </p>
-              </Reveal>
-            ))}
-          </div>
-        </section>
-
-        <section id="work" className="scroll-mt-28 border-t border-[var(--border)] py-16 md:py-24">
-          <Reveal>
-            <SectionEyebrow index="02">Work</SectionEyebrow>
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-              <h2 className="heading-accent font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-[var(--text)] md:text-4xl">
-                Selected systems
-              </h2>
-              <span className="text-sm font-medium text-[var(--text-muted)]">
-                Case studies &amp; shipping scope
-              </span>
             </div>
-          </Reveal>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {systemsBuilt.map((system, i) => (
-              <Reveal key={system.name} index={Math.min(i, 5)}>
+          </div>
+        </section>
+
+        {/* Slide 2: About */}
+        <section id="about" className="slide-section border-t border-[var(--border)] min-h-screen pt-[4.5rem] flex flex-col justify-center">
+          <div
+            className="w-full py-12 md:py-20 group/slide transition-all duration-700 ease-out"
+            data-active={activeSection === 'about' ? 'true' : 'false'}
+            style={getSlideStyles(progresses['about']?.progress, progresses['about']?.active)}
+          >
+            <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-0">
+              <SectionEyebrow index="01">About</SectionEyebrow>
+              <h2 className="heading-accent font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-[var(--text)] md:text-4xl">
+                About me
+              </h2>
+            </div>
+            <div className="max-w-3xl">
+              {technicalSummary.map((paragraph, index) => (
+                <div
+                  key={index}
+                  className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 mt-6 first:mt-8 text-lg leading-relaxed text-[var(--text-muted)]"
+                  style={{ transitionDelay: `${(index + 1) * 100}ms` }}
+                >
+                  <p>{paragraph}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Slide 3: Work */}
+        <section id="work" className="slide-section border-t border-[var(--border)] min-h-screen pt-[4.5rem] flex flex-col justify-center">
+          <div
+            className="w-full py-12 md:py-20 group/slide transition-all duration-700 ease-out"
+            data-active={activeSection === 'work' ? 'true' : 'false'}
+            style={getSlideStyles(progresses['work']?.progress, progresses['work']?.active)}
+          >
+            <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-0">
+              <SectionEyebrow index="02">Work</SectionEyebrow>
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                <h2 className="heading-accent font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-[var(--text)] md:text-4xl">
+                  Selected systems
+                </h2>
+                <span className="text-sm font-medium text-[var(--text-muted)]">
+                  Case studies &amp; shipping scope
+                </span>
+              </div>
+            </div>
+            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {systemsBuilt.map((system, i) => (
                 <button
+                  key={system.name}
                   type="button"
-                  className="card-interactive group h-full w-full text-left rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-card)]"
                   onClick={() => system.projectId && openProject(system.projectId)}
+                  className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 card-interactive group h-full w-full text-left rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-card)]"
+                  style={{ transitionDelay: `${(i + 1) * 75}ms` }}
                 >
                   <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
                     <h3 className="text-base font-semibold text-[var(--text)] transition-colors group-hover:text-[color:var(--accent-color)]">
@@ -394,47 +485,69 @@ export default function Home() {
                     </span>
                   </span>
                 </button>
-              </Reveal>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
-        <section
-          id="experience"
-          className="scroll-mt-28 border-t border-[var(--border)] py-16 md:py-24"
-        >
-          <Reveal>
-            <SectionEyebrow index="03">Experience</SectionEyebrow>
-            <h2 className="heading-accent font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-[var(--text)] md:text-4xl">
-              Experience
-            </h2>
-            <p className="mt-4 max-w-2xl text-[var(--text-muted)]">
-              Representative roles, protocol work, and projects. Select an entry to open the full
-              write-up in the drawer panel.
-            </p>
-          </Reveal>
-          <div className="mt-14 flex flex-col gap-16">
-            {experience.map((exp, i) => (
-              <Reveal key={exp.id} index={Math.min(i % 3, 2)}>
-                <article className="grid gap-8 border-b border-[var(--border)] pb-16 last:border-0 last:pb-0 md:grid-cols-[minmax(0,200px)_1fr]">
-                  <div>
-                    <p className="text-sm font-medium uppercase tracking-wider text-[var(--text-muted)]">
-                      {groupEyebrow(exp.group)}
-                    </p>
-                    <button
-                      type="button"
-                      onClick={() => openProject(exp.id)}
-                      className="group/btn mt-4 inline-flex items-center gap-1 text-left text-sm font-semibold text-[color:var(--accent-color)] hover:underline"
-                    >
-                      View details
-                      <span className="transition-transform duration-200 group-hover/btn:translate-x-1">
-                        →
-                      </span>
-                    </button>
-                  </div>
-                  <div>
+        {/* Slide 4: Experience Header */}
+        <section id="experience-header" className="slide-section border-t border-[var(--border)] min-h-screen pt-[4.5rem] flex flex-col justify-center">
+          <div
+            className="w-full py-12 md:py-20 group/slide transition-all duration-700 ease-out"
+            data-active={activeSection === 'experience-header' ? 'true' : 'false'}
+            style={getSlideStyles(progresses['experience-header']?.progress, progresses['experience-header']?.active)}
+          >
+            <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-0">
+              <SectionEyebrow index="03">Experience</SectionEyebrow>
+              <h2 className="heading-accent font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-[var(--text)] md:text-4xl">
+                Experience
+              </h2>
+            </div>
+            <div className="max-w-2xl opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-[100ms]">
+              <p className="mt-8 text-lg leading-relaxed text-[var(--text-muted)]">
+                Representative roles, protocol work, and projects. Scroll down to browse individual case studies.
+              </p>
+              <div className="mt-8 flex items-center gap-2 text-sm text-[var(--text-subtle)] font-medium">
+                <span>Scroll to start browsing</span>
+                <span className="animate-bounce">↓</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Slides 5-16: Individual Experiences */}
+        {experience.map((exp) => (
+          <section
+            key={exp.id}
+            id={`experience-${exp.id}`}
+            className="slide-section border-t border-[var(--border)] min-h-screen pt-[4.5rem] flex flex-col justify-center"
+          >
+            <div
+              className="w-full py-12 md:py-20 group/slide transition-all duration-700 ease-out"
+              data-active={activeSection === `experience-${exp.id}` ? 'true' : 'false'}
+              style={getSlideStyles(progresses[`experience-${exp.id}`]?.progress, progresses[`experience-${exp.id}`]?.active)}
+            >
+              <article className="grid gap-8 md:grid-cols-[minmax(0,250px)_1fr]">
+                <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-0">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[var(--text-subtle)] mb-2">
+                    {groupEyebrow(exp.group)}
+                  </p>
+                  <h4 className="text-sm font-medium text-[var(--text-muted)]">{exp.role || 'Contributor'}</h4>
+                  <button
+                    type="button"
+                    onClick={() => openProject(exp.id)}
+                    className="group/btn mt-6 inline-flex items-center gap-1.5 text-left text-sm font-bold text-[color:var(--accent-color)] hover:underline"
+                  >
+                    View details
+                    <span className="transition-transform duration-200 group-hover/btn:translate-x-1">
+                      →
+                    </span>
+                  </button>
+                </div>
+                <div>
+                  <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-[100ms]">
                     <div className="flex flex-wrap items-center gap-3">
-                      <h3 className="text-xl font-semibold text-[var(--text)] md:text-2xl">
+                      <h3 className="text-2xl font-bold text-[var(--text)] md:text-3xl leading-tight">
                         {exp.title}
                       </h3>
                       {exp.badge && (
@@ -444,70 +557,83 @@ export default function Home() {
                       )}
                     </div>
                     {exp.roleDescriptor && (
-                      <p className="mt-2 text-sm text-[var(--text-muted)]">{exp.roleDescriptor}</p>
-                    )}
-                    {exp.highlights?.length > 0 && (
-                      <ul className="mt-6 list-disc space-y-2 pl-5 text-[var(--text-muted)] marker:text-[var(--text-muted)]">
-                        {exp.highlights.map((h) => (
-                          <li key={h} className="leading-relaxed">
-                            {h}
-                          </li>
-                        ))}
-                      </ul>
+                      <p className="mt-3 text-base text-[var(--text-muted)] leading-relaxed">
+                        {exp.roleDescriptor}
+                      </p>
                     )}
                   </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </section>
+                  {exp.highlights?.length > 0 && (
+                    <ul className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-[200ms] mt-6 list-disc space-y-2.5 pl-5 text-[var(--text-muted)] marker:text-[var(--text-muted)]">
+                      {exp.highlights.map((h) => (
+                        <li key={h} className="leading-relaxed text-sm">
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </article>
+            </div>
+          </section>
+        ))}
 
-        <section id="stack" className="scroll-mt-28 border-t border-[var(--border)] py-16 md:py-24">
-          <Reveal>
-            <SectionEyebrow index="04">Stack</SectionEyebrow>
-            <h2 className="heading-accent font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-[var(--text)] md:text-4xl">
-              Stack
-            </h2>
-            <p className="mt-4 max-w-2xl text-[var(--text-muted)]">
-              Tools and domains I work across most often.
-            </p>
-          </Reveal>
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {competencies.map((group, i) => (
-              <Reveal key={group.category} index={Math.min(i, 5)}>
-                <div className="card-interactive h-full rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-card)]">
+        {/* Slide 17: Stack */}
+        <section id="stack" className="slide-section border-t border-[var(--border)] min-h-screen pt-[4.5rem] flex flex-col justify-center">
+          <div
+            className="w-full py-12 md:py-20 group/slide transition-all duration-700 ease-out"
+            data-active={activeSection === 'stack' ? 'true' : 'false'}
+            style={getSlideStyles(progresses['stack']?.progress, progresses['stack']?.active)}
+          >
+            <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-0">
+              <SectionEyebrow index="04">Stack</SectionEyebrow>
+              <h2 className="heading-accent font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-[var(--text)] md:text-4xl">
+                Stack
+              </h2>
+              <p className="mt-4 max-w-2xl text-[var(--text-muted)]">
+                Tools and domains I work across most often.
+              </p>
+            </div>
+            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {competencies.map((group, i) => (
+                <div
+                  key={group.category}
+                  className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 card-interactive h-full rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-card)]"
+                  style={{ transitionDelay: `${(i + 1) * 75}ms` }}
+                >
                   <h3 className="text-sm font-semibold text-[var(--text)]">{group.category}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-[var(--text-muted)]">
+                  <p className="mt-3 text-sm leading-relaxed text-[var(--text-muted)] font-medium">
                     {group.items.join(' · ')}
                   </p>
                   {group.description && (
-                    <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">
+                    <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)] font-normal">
                       {group.description}
                     </p>
                   )}
                 </div>
-              </Reveal>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
-        <section
-          id="contact"
-          className="scroll-mt-28 border-t border-[var(--border)] py-16 md:py-24"
-        >
-          <Reveal>
-            <SectionEyebrow index="05">Contact</SectionEyebrow>
-            <h2 className="heading-accent font-[family-name:var(--font-display)] text-4xl font-semibold tracking-tight text-[var(--text)] md:text-5xl">
-              Let&apos;s talk
-            </h2>
-            <p className="mt-4 max-w-2xl text-lg text-[var(--text-muted)]">
-              Looking for a design engineer who can own the path from Figma to production? I&apos;m
-              open to new opportunities and quick to reply.
-            </p>
-          </Reveal>
+        {/* Slide 18: Contact */}
+        <section id="contact" className="slide-section border-t border-[var(--border)] min-h-screen pt-[4.5rem] flex flex-col justify-center">
+          <div
+            className="w-full py-12 md:py-20 group/slide transition-all duration-700 ease-out"
+            data-active={activeSection === 'contact' ? 'true' : 'false'}
+            style={getSlideStyles(progresses['contact']?.progress, progresses['contact']?.active)}
+          >
+            <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-0">
+              <SectionEyebrow index="05">Contact</SectionEyebrow>
+              <h2 className="heading-accent font-[family-name:var(--font-display)] text-4xl font-semibold tracking-tight text-[var(--text)] md:text-5xl">
+                Let&apos;s talk
+              </h2>
+              <p className="mt-4 max-w-2xl text-lg text-[var(--text-muted)]">
+                Looking for a design engineer who can own the path from Figma to production? I&apos;m
+                open to new opportunities and quick to reply.
+              </p>
+            </div>
 
-          <Reveal index={1}>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-[100ms] mt-8 flex flex-wrap items-center gap-3">
               <a
                 href={MAILTO}
                 className="inline-flex items-center justify-center rounded-full bg-[var(--text)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[color:var(--accent-color)] active:scale-[0.98]"
@@ -530,10 +656,8 @@ export default function Home() {
                 Download résumé
               </a>
             </div>
-          </Reveal>
 
-          <Reveal index={2}>
-            <div className="mt-12 grid gap-10 md:grid-cols-2">
+            <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-[200ms] mt-12 grid gap-10 md:grid-cols-2">
               <div>
                 <h3 className="text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)]">
                   Direct
@@ -564,11 +688,11 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </Reveal>
 
-          <div className="mt-16 flex flex-col items-center gap-1 border-t border-[var(--border)] pt-8 text-center text-xs text-[var(--text-subtle)]">
-            <p>© {new Date().getFullYear()} Logan Biesterfeldt</p>
-            <p>Designed &amp; engineered by Logan · Built with Next.js &amp; Tailwind CSS</p>
+            <div className="mt-16 flex flex-col items-center gap-1 border-t border-[var(--border)] pt-8 text-center text-xs text-[var(--text-subtle)]">
+              <p>© {new Date().getFullYear()} Logan Biesterfeldt</p>
+              <p>Designed &amp; engineered by Logan · Built with Next.js &amp; Tailwind CSS</p>
+            </div>
           </div>
         </section>
       </main>
