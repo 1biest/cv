@@ -368,7 +368,7 @@ export default function Home() {
                   Open to opportunities
                 </span>
                 <span className="text-xs font-medium text-[var(--text-muted)]">
-                  Calgary, Canada · Remote-friendly
+                  Open to relocation · Remote-friendly
                 </span>
               </div>
               <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-[500ms] mt-10 flex flex-wrap gap-3">
