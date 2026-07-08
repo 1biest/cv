@@ -43,7 +43,7 @@ export default function CraidlePage() {
           <p className="mt-4 leading-relaxed text-[var(--text-muted)]">
             To solve this, CrAIdle introduces a yield-budgeted treasury model. Users deposit capital
             into an incubation vault where principal remains locked and safe, while the accrued
-            yield (e.g. from Lido stETH) is dynamically routed to the agent's compute budget.
+            yield (e.g. from Lido stETH) is dynamically routed to the agent&apos;s compute budget.
           </p>
           <p className="mt-4 leading-relaxed text-[var(--text-muted)] font-medium">
             Notably, the development process was entirely automated: 100% of the Solidity smart

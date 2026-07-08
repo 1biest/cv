@@ -76,19 +76,6 @@
       "projectId": "open-source-contributions"
     },
     {
-      "name": "Satsuma Cross-Chain Yield Routing",
-      "domain": "Yield-to-Bitcoin conversion workflow",
-      "integrations": ["Injective contracts", "Astroport", "Axelar GMP", "ICP canister"],
-      "constraints": [
-        "Cross-chain state handoff",
-        "Yield accounting correctness",
-        "Execution sequencing"
-      ],
-      "outcome": "Designed and built the full frontend workflow for a cross-chain yield-to-Bitcoin conversion pipeline spanning Injective, Astroport, Axelar, and ICP. Shipped at a hackathon operating in a fully agentic engineering flow, directing implementation through chat while maintaining product and design ownership throughout.",
-      "projectId": "satsuma",
-      "badge": "Hackathon"
-    },
-    {
       "name": "Dyve NFT Lending & Shorting Platform",
       "domain": "Decentralized NFTFi lending, borrowing, and shorting marketplace",
       "integrations": ["ERC-721", "Covalent", "NFTPort", "IPFS", "Polygon", "Solidity"],
@@ -99,6 +86,19 @@
       ],
       "outcome": "Designed and built the full React/Next.js frontend interface for trustless NFT borrowing, shorting, and yield-generation workflows.",
       "projectId": "dyve",
+      "badge": "Hackathon"
+    },
+    {
+      "name": "Satsuma Cross-Chain Yield Routing",
+      "domain": "Yield-to-Bitcoin conversion workflow",
+      "integrations": ["Injective contracts", "Astroport", "Axelar GMP", "ICP canister"],
+      "constraints": [
+        "Cross-chain state handoff",
+        "Yield accounting correctness",
+        "Execution sequencing"
+      ],
+      "outcome": "Designed and built the full frontend workflow for a cross-chain yield-to-Bitcoin conversion pipeline spanning Injective, Astroport, Axelar, and ICP. Shipped at a hackathon operating in a fully agentic engineering flow, directing implementation through chat while maintaining product and design ownership throughout.",
+      "projectId": "satsuma",
       "badge": "Hackathon"
     },
     {
@@ -145,6 +145,17 @@
       "outcome": "Developed a high-fidelity interactive dashboard demo for ether.fi Cash.",
       "projectId": "etherfi-demo",
       "badge": "Demo"
+    },
+    {
+      "name": "Cryptech Platform & Web Systems",
+      "domain": "Developer platform dashboard and company landing pages",
+      "integrations": ["React", "Next.js", "Tailwind CSS", "TypeScript"],
+      "constraints": [
+        "Component uniformity between marketing pages and dynamic dashboard",
+        "Responsive alignment and design token consistency"
+      ],
+      "outcome": "Delivered corporate landing pages and developer platform dashboard with a unified CSS component system and design tokens.",
+      "projectId": "cryptech"
     }
   ],
   "projects": [

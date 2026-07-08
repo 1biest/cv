@@ -106,7 +106,7 @@ export default async function OpengraphImage() {
             color: 'rgba(255,255,255,0.7)',
           }}
         >
-          <span>Calgary, Canada · Remote-friendly</span>
+          <span>Open to relocation · Remote-friendly</span>
           <span>github.com/1biest</span>
         </div>
       </div>

@@ -20,6 +20,17 @@ const systemsBuilt = cvData.systemsBuilt;
 const competencies = cvData.coreCompetencies;
 const technicalSummary = cvData.technicalSummary;
 
+const systemBackgrounds: Record<string, string> = {
+  'neptune-finance': '/screenshots/neptune-balance-menu.png',
+  'open-source-contributions': '/screenshots/cw3-multisig-screenshot.png',
+  'dyve': '/screenshots/dyve-screenshot.png',
+  'satsuma': '/screenshots/satsuma-screenshot.png',
+  'craidle': '/screenshots/craidle-dashboard.png',
+  'monad-heartbeat': '/screenshots/monad-heartbeat-screenshot.png',
+  'etherfi-demo': '/screenshots/etherfi-demo-screenshot.png',
+  'cryptech': '/screenshots/cryptech-homepage.png',
+};
+
 const EMAIL = 'logan.biesterfeldt@gmail.com';
 const MAILTO = `mailto:${EMAIL}?subject=${encodeURIComponent('Opportunity for Logan — Design Engineer')}`;
 
@@ -251,11 +262,10 @@ export default function Home() {
               onClick={() => {
                 document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className={`group relative w-3 h-3 rounded-full transition-all duration-300 ${
-                isActive
-                  ? 'bg-[color:var(--accent-color)] scale-125'
-                  : 'bg-[var(--text-subtle)]/40 hover:bg-[color:var(--accent-color)]/60'
-              }`}
+              className={`group relative w-3 h-3 rounded-full transition-all duration-300 ${isActive
+                ? 'bg-[color:var(--accent-color)] scale-125'
+                : 'bg-[var(--text-subtle)]/40 hover:bg-[color:var(--accent-color)]/60'
+                }`}
               aria-label={`Scroll to ${label}`}
             >
               <span className="absolute right-7 top-1/2 -translate-y-1/2 bg-[var(--text)] text-white text-[10px] font-semibold tracking-wide uppercase px-2 py-1 rounded shadow-md opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap border border-neutral-700">
@@ -293,11 +303,10 @@ export default function Home() {
                 <a
                   key={item.href}
                   href={href}
-                  className={`link-underline transition-colors ${
-                    isActive
-                      ? 'text-[color:var(--accent-color)] font-semibold'
-                      : 'text-[var(--text-muted)] hover:text-[color:var(--accent-color)]'
-                  }`}
+                  className={`link-underline transition-colors ${isActive
+                    ? 'text-[color:var(--accent-color)] font-semibold'
+                    : 'text-[var(--text-muted)] hover:text-[color:var(--accent-color)]'
+                    }`}
                 >
                   {item.label}
                 </a>
@@ -323,11 +332,10 @@ export default function Home() {
                 <a
                   key={item.href}
                   href={href}
-                  className={`whitespace-nowrap shrink-0 transition-colors ${
-                    isActive
-                      ? 'text-[color:var(--accent-color)] font-semibold'
-                      : 'text-[var(--text-muted)] hover:text-[color:var(--accent-color)]'
-                  }`}
+                  className={`whitespace-nowrap shrink-0 transition-colors ${isActive
+                    ? 'text-[color:var(--accent-color)] font-semibold'
+                    : 'text-[var(--text-muted)] hover:text-[color:var(--accent-color)]'
+                    }`}
                 >
                   {item.label}
                 </a>
@@ -456,34 +464,55 @@ export default function Home() {
                   key={system.name}
                   type="button"
                   onClick={() => system.projectId && openProject(system.projectId)}
-                  className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 card-interactive group h-full w-full text-left rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-card)]"
+                  className={`opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 card-interactive group h-full w-full text-left rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-card)] overflow-hidden ${system.projectId === 'neptune-finance' ? 'sm:col-span-2 lg:col-span-2' : ''
+                    }`}
                   style={{ transitionDelay: `${(i + 1) * 75}ms` }}
                 >
-                  <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
-                    <h3 className="text-base font-semibold text-[var(--text)] transition-colors group-hover:text-[color:var(--accent-color)]">
-                      {system.name}
-                    </h3>
-                    {system.badge && (
-                      <span className="shrink-0 inline-flex items-center rounded-full bg-[color:var(--accent-color)]/10 px-2.5 py-0.5 text-[10px] font-semibold tracking-wider uppercase text-[color:var(--accent-color)] border border-[color:var(--accent-color)]/20">
-                        {system.badge}
+                  {systemBackgrounds[system.projectId] && (
+                    <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden rounded-2xl">
+                      {/* Image container spanning the full card to avoid internal seams */}
+                      <div
+                        className="absolute inset-0 bg-cover bg-no-repeat bg-right opacity-[0.14] transition-opacity duration-300 group-hover:opacity-[0.8] mix-blend-multiply"
+                        style={{
+                          backgroundImage: `url('${systemBackgrounds[system.projectId]}')`,
+                        }}
+                      />
+                      {/* Fade mask to merge seamlessly with the card surface */}
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          background: 'linear-gradient(105deg, var(--surface) 35%, transparent 75%)',
+                        }}
+                      />
+                    </div>
+                  )}
+                  <div className="relative z-10 flex flex-col h-full w-full">
+                    <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
+                      <h3 className="text-base font-semibold text-[var(--text)] transition-colors group-hover:text-[color:var(--accent-color)]">
+                        {system.name}
+                      </h3>
+                      {system.badge && (
+                        <span className="shrink-0 inline-flex items-center rounded-full bg-[color:var(--accent-color)]/10 px-2.5 py-0.5 text-[10px] font-semibold tracking-wider uppercase text-[color:var(--accent-color)] border border-[color:var(--accent-color)]/20">
+                          {system.badge}
+                        </span>
+                      )}
+                    </div>
+                    <p className="mt-2 text-sm text-[var(--text-muted)]">{system.domain}</p>
+                    <p className="mt-4 text-xs leading-relaxed text-[var(--text-muted)]">
+                      <span className="font-semibold text-[var(--text)]">Integrations · </span>
+                      {system.integrations.join(', ')}
+                    </p>
+                    <p className="mt-2 text-xs leading-relaxed text-[var(--text-muted)]">
+                      <span className="font-semibold text-[var(--text)]">Outcome · </span>
+                      {system.outcome}
+                    </p>
+                    <span className="mt-5 inline-flex items-center gap-1 text-xs font-semibold text-[color:var(--accent-color)]">
+                      View details
+                      <span className="transition-transform duration-200 group-hover:translate-x-1">
+                        →
                       </span>
-                    )}
-                  </div>
-                  <p className="mt-2 text-sm text-[var(--text-muted)]">{system.domain}</p>
-                  <p className="mt-4 text-xs leading-relaxed text-[var(--text-muted)]">
-                    <span className="font-semibold text-[var(--text)]">Integrations · </span>
-                    {system.integrations.join(', ')}
-                  </p>
-                  <p className="mt-2 text-xs leading-relaxed text-[var(--text-muted)]">
-                    <span className="font-semibold text-[var(--text)]">Outcome · </span>
-                    {system.outcome}
-                  </p>
-                  <span className="mt-5 inline-flex items-center gap-1 text-xs font-semibold text-[color:var(--accent-color)]">
-                    View details
-                    <span className="transition-transform duration-200 group-hover:translate-x-1">
-                      →
                     </span>
-                  </span>
+                  </div>
                 </button>
               ))}
             </div>

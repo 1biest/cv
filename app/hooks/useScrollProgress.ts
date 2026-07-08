@@ -11,6 +11,8 @@ export function useScrollProgress(sectionIds: string[]) {
   const [progresses, setProgresses] = useState<Record<string, SectionProgress>>({});
   const [activeSection, setActiveSection] = useState<string>('');
 
+  const sectionIdsKey = sectionIds.join(',');
+
   useEffect(() => {
     if (sectionIds.length === 0) return;
 
@@ -71,7 +73,8 @@ export function useScrollProgress(sectionIds: string[]) {
       window.removeEventListener('resize', handleScroll);
       clearTimeout(timer);
     };
-  }, [sectionIds]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sectionIdsKey]);
 
   return { progresses, activeSection };
 }
