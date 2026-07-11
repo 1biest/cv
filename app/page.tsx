@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import NeptuneFinanceCaseStudy from './Components/NeptuneFinanceCaseStudy';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import SocialLinks from './Components/SocialLinks';
 import Reveal from './Components/Reveal';
@@ -37,6 +38,7 @@ const MAILTO = `mailto:${EMAIL}?subject=${encodeURIComponent('Opportunity for Lo
 const NAV = [
   { href: '#intro', label: 'Intro' },
   { href: '#about', label: 'About' },
+  { href: '#neptune-case-study', label: 'Neptune' },
   { href: '#work', label: 'Work' },
   { href: '#experience', label: 'Experience' },
   { href: '#stack', label: 'Stack' },
@@ -112,6 +114,7 @@ export default function Home() {
   const allSlideIds = [
     'intro',
     'about',
+    'neptune-case-study',
     'work',
     'experience-header',
     ...experienceSlideIds,
@@ -245,6 +248,7 @@ export default function Home() {
           let label = '';
           if (id === 'intro') label = 'Intro';
           else if (id === 'about') label = 'About';
+          else if (id === 'neptune-case-study') label = 'Neptune';
           else if (id === 'work') label = 'Work';
           else if (id === 'experience-header') label = 'Experience';
           else if (id.startsWith('experience-')) {
@@ -440,7 +444,18 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Slide 3: Work */}
+        {/* Slide 3: Neptune Finance — Flagship Case Study */}
+        <section id="neptune-case-study" className="slide-section border-t border-[var(--border)] min-h-screen pt-[4.5rem] flex flex-col justify-center">
+          <div
+            className="w-full py-12 md:py-20 group/slide transition-all duration-700 ease-out"
+            data-active={activeSection === 'neptune-case-study' ? 'true' : 'false'}
+            style={getSlideStyles(progresses['neptune-case-study']?.progress, progresses['neptune-case-study']?.active)}
+          >
+            <NeptuneFinanceCaseStudy openProject={openProject} />
+          </div>
+        </section>
+
+        {/* Slide 4: Work */}
         <section id="work" className="slide-section border-t border-[var(--border)] min-h-screen pt-[4.5rem] flex flex-col justify-center">
           <div
             className="w-full py-12 md:py-20 group/slide transition-all duration-700 ease-out"
@@ -448,7 +463,7 @@ export default function Home() {
             style={getSlideStyles(progresses['work']?.progress, progresses['work']?.active)}
           >
             <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-0">
-              <SectionEyebrow index="02">Work</SectionEyebrow>
+              <SectionEyebrow index="03">Work</SectionEyebrow>
               <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                 <h2 className="heading-accent font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-[var(--text)] md:text-4xl">
                   Selected systems
@@ -527,7 +542,7 @@ export default function Home() {
             style={getSlideStyles(progresses['experience-header']?.progress, progresses['experience-header']?.active)}
           >
             <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-0">
-              <SectionEyebrow index="03">Experience</SectionEyebrow>
+              <SectionEyebrow index="04">Experience</SectionEyebrow>
               <h2 className="heading-accent font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-[var(--text)] md:text-4xl">
                 Experience
               </h2>
@@ -614,7 +629,7 @@ export default function Home() {
             style={getSlideStyles(progresses['stack']?.progress, progresses['stack']?.active)}
           >
             <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-0">
-              <SectionEyebrow index="04">Stack</SectionEyebrow>
+              <SectionEyebrow index="05">Stack</SectionEyebrow>
               <h2 className="heading-accent font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-[var(--text)] md:text-4xl">
                 Stack
               </h2>
@@ -652,7 +667,7 @@ export default function Home() {
             style={getSlideStyles(progresses['contact']?.progress, progresses['contact']?.active)}
           >
             <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-0">
-              <SectionEyebrow index="05">Contact</SectionEyebrow>
+              <SectionEyebrow index="06">Contact</SectionEyebrow>
               <h2 className="heading-accent font-[family-name:var(--font-display)] text-4xl font-semibold tracking-tight text-[var(--text)] md:text-5xl">
                 Let&apos;s talk
               </h2>
