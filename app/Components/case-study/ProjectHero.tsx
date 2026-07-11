@@ -1,4 +1,7 @@
+'use client';
+
 import React from 'react';
+import { trackEvent } from '../../lib/analytics';
 
 interface ProjectHeroProps {
   title: string;
@@ -47,6 +50,7 @@ export const ProjectHero: React.FC<ProjectHeroProps> = ({
                 href={link.url}
                 target={link.url.startsWith('http') ? '_blank' : undefined}
                 rel={link.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+                onClick={() => trackEvent('click_case_study_link', { project_title: title, link_label: link.label, link_url: link.url })}
                 className={`inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition ${
                   link.primary
                     ? 'bg-[var(--text)] text-white hover:bg-[color:var(--accent-color)] hover:text-white'

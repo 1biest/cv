@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faLink, faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { trackEvent } from '../lib/analytics';
 
 interface CaseStudyDrawerProps {
   isOpen: boolean;
@@ -70,6 +71,7 @@ export default function CaseStudyDrawer({
 
   const copyLink = async (e: React.MouseEvent) => {
     e.stopPropagation();
+    trackEvent('share_case_study', { project_title: projectTitle, project_url: projectUrl });
     try {
       await navigator.clipboard.writeText(projectUrl);
       setCopied(true);

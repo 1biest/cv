@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTelegram, faLinkedin, faGithub, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faFilePdf, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { trackEvent } from '../lib/analytics';
 
 const socialLinks = [
   {
@@ -30,6 +31,15 @@ const SocialLinks = () => {
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => {
+            if (link.url.startsWith('mailto:')) {
+              trackEvent('click_email', { location: 'socials' });
+            } else if (link.url.endsWith('.pdf')) {
+              trackEvent('click_resume', { location: 'socials' });
+            } else {
+              trackEvent('click_social_link', { platform: link.ariaLabel || 'unknown', url: link.url });
+            }
+          }}
           className={`inline-flex h-11 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] px-3 text-lg text-[var(--text)] shadow-sm transition hover:border-[color:var(--accent-color)] hover:text-[color:var(--accent-color)] ${link.label ? 'gap-2 px-4' : 'w-11 px-0'}`}
           aria-label={link.ariaLabel}
         >

@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import React from 'react';
+import { trackEvent } from '../lib/analytics';
 
 interface NeptuneFinanceCaseStudyProps {
   openProject: (projectId: string) => void;
@@ -116,6 +117,7 @@ export default function NeptuneFinanceCaseStudy({ openProject }: NeptuneFinanceC
                 href="https://app.nept.finance"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackEvent('click_case_study_link', { project_title: 'Neptune Finance', link_label: 'Live app', link_url: 'https://app.nept.finance' })}
                 className="inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] px-6 py-3 text-sm font-semibold text-[var(--text)] transition hover:border-[color:var(--accent-color)] active:scale-[0.98]"
               >
                 Live app ↗

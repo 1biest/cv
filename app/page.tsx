@@ -12,6 +12,7 @@ import projectsData from './data/projects.json';
 import CaseStudyDrawer from './Components/CaseStudyDrawer';
 import CaseStudyRenderer from './Components/CaseStudyRenderer';
 import { useScrollProgress } from './hooks/useScrollProgress';
+import { trackEvent } from './lib/analytics';
 
 export type Experience = Project;
 
@@ -125,6 +126,21 @@ export default function Home() {
   // Scroll tracking hook
   const { progresses, activeSection } = useScrollProgress(allSlideIds);
 
+  const lastTrackedSection = useRef<string>('');
+
+  useEffect(() => {
+    if (!activeSection) return;
+
+    const handler = setTimeout(() => {
+      if (activeSection !== lastTrackedSection.current) {
+        lastTrackedSection.current = activeSection;
+        trackEvent('view_section', { section_id: activeSection });
+      }
+    }, 1000);
+
+    return () => clearTimeout(handler);
+  }, [activeSection]);
+
   // Sync reduced motion preferences
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -156,20 +172,26 @@ export default function Home() {
     setActiveProjectId(projectId);
     const newUrl = `${window.location.pathname}?project=${projectId}`;
     window.history.pushState({ project: projectId }, '', newUrl);
+    trackEvent('open_case_study', { project_id: projectId });
   }, []);
 
   const closeProject = useCallback(() => {
+    if (activeProjectId) {
+      trackEvent('close_case_study', { project_id: activeProjectId });
+    }
     setActiveProjectId(null);
     const newUrl = window.location.pathname;
     window.history.pushState(null, '', newUrl);
-  }, []);
+  }, [activeProjectId]);
 
   const handleNextProject = useCallback(() => {
     if (!activeProjectId) return;
     const currentIndex = experience.findIndex((exp) => exp.id === activeProjectId);
     if (currentIndex >= 0) {
       const nextIndex = (currentIndex + 1) % experience.length;
-      openProject(experience[nextIndex].id);
+      const nextId = experience[nextIndex].id;
+      trackEvent('navigate_case_study', { direction: 'next', from_project: activeProjectId, to_project: nextId });
+      openProject(nextId);
     }
   }, [activeProjectId, openProject]);
 
@@ -178,11 +200,14 @@ export default function Home() {
     const currentIndex = experience.findIndex((exp) => exp.id === activeProjectId);
     if (currentIndex >= 0) {
       const prevIndex = (currentIndex - 1 + experience.length) % experience.length;
-      openProject(experience[prevIndex].id);
+      const prevId = experience[prevIndex].id;
+      trackEvent('navigate_case_study', { direction: 'prev', from_project: activeProjectId, to_project: prevId });
+      openProject(prevId);
     }
   }, [activeProjectId, openProject]);
 
   const handleCopyEmail = useCallback(async () => {
+    trackEvent('copy_email', { location: 'contact' });
     try {
       await navigator.clipboard.writeText(EMAIL);
       setCopied(true);
@@ -264,6 +289,7 @@ export default function Home() {
             <button
               key={id}
               onClick={() => {
+                trackEvent('click_pagination_dot', { label, target_id: id });
                 document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
               }}
               className={`group relative w-3 h-3 rounded-full transition-all duration-300 ${isActive
@@ -307,6 +333,7 @@ export default function Home() {
                 <a
                   key={item.href}
                   href={href}
+                  onClick={() => trackEvent('click_nav_link', { label: item.label, href_or_target: href })}
                   className={`link-underline transition-colors ${isActive
                     ? 'text-[color:var(--accent-color)] font-semibold'
                     : 'text-[var(--text-muted)] hover:text-[color:var(--accent-color)]'
@@ -320,6 +347,7 @@ export default function Home() {
               href="/Logan Biesterfeldt Resume 2026.pdf"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent('click_resume', { location: 'header' })}
               className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border-strong)] bg-[var(--surface)] px-3.5 py-1.5 text-xs font-semibold text-[var(--text)] shadow-sm transition hover:border-[color:var(--accent-color)] hover:text-[color:var(--accent-color)]"
             >
               Résumé
@@ -336,6 +364,7 @@ export default function Home() {
                 <a
                   key={item.href}
                   href={href}
+                  onClick={() => trackEvent('click_nav_link', { label: item.label, href_or_target: href })}
                   className={`whitespace-nowrap shrink-0 transition-colors ${isActive
                     ? 'text-[color:var(--accent-color)] font-semibold'
                     : 'text-[var(--text-muted)] hover:text-[color:var(--accent-color)]'
@@ -386,6 +415,7 @@ export default function Home() {
               <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-[500ms] mt-10 flex flex-wrap gap-3">
                 <a
                   href="#work"
+                  onClick={() => trackEvent('click_nav_link', { label: 'View work', href_or_target: '#work' })}
                   className="inline-flex items-center justify-center rounded-full bg-[var(--text)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[color:var(--accent-color)] hover:text-white active:scale-[0.98]"
                 >
                   View work
@@ -394,12 +424,14 @@ export default function Home() {
                   href="/Logan Biesterfeldt Resume 2026.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('click_resume', { location: 'intro' })}
                   className="inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] px-6 py-3 text-sm font-semibold text-[var(--text)] transition hover:border-[color:var(--accent-color)] active:scale-[0.98]"
                 >
                   Download résumé
                 </a>
                 <a
                   href={MAILTO}
+                  onClick={() => trackEvent('click_email', { location: 'intro' })}
                   className="inline-flex items-center justify-center rounded-full border border-transparent px-6 py-3 text-sm font-semibold text-[var(--text-muted)] underline-offset-4 hover:underline"
                 >
                   Email me
@@ -408,6 +440,7 @@ export default function Home() {
                   href="https://github.com/1biest"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('click_social_link', { platform: 'GitHub', url: 'https://github.com/1biest' })}
                   className="inline-flex items-center justify-center rounded-full border border-transparent px-6 py-3 text-sm font-semibold text-[var(--text-muted)] underline-offset-4 hover:underline"
                 >
                   GitHub
@@ -680,6 +713,7 @@ export default function Home() {
             <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-[100ms] mt-8 flex flex-wrap items-center gap-3">
               <a
                 href={MAILTO}
+                onClick={() => trackEvent('click_email', { location: 'contact' })}
                 className="inline-flex items-center justify-center rounded-full bg-[var(--text)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[color:var(--accent-color)] active:scale-[0.98]"
               >
                 Email me
@@ -695,6 +729,7 @@ export default function Home() {
                 href="/Logan Biesterfeldt Resume 2026.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackEvent('click_resume', { location: 'contact' })}
                 className="inline-flex items-center justify-center rounded-full border border-transparent px-6 py-3 text-sm font-semibold text-[var(--text-muted)] underline-offset-4 hover:underline"
               >
                 Download résumé
@@ -709,6 +744,7 @@ export default function Home() {
                 <div className="mt-4 flex flex-col gap-2 text-[var(--text-muted)]">
                   <a
                     href={MAILTO}
+                    onClick={() => trackEvent('click_email', { location: 'contact_footer' })}
                     className="link-underline w-fit text-[var(--text)] hover:text-[color:var(--accent-color)]"
                   >
                     {EMAIL}
@@ -717,6 +753,7 @@ export default function Home() {
                     href="https://github.com/1biest"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackEvent('click_social_link', { platform: 'GitHub_footer', url: 'https://github.com/1biest' })}
                     className="link-underline w-fit text-[var(--text)] hover:text-[color:var(--accent-color)]"
                   >
                     github.com/1biest
