@@ -11,6 +11,10 @@ type Mote = {
   phase: number;
   drift: number;
   band: number;
+  offsetX: number;
+  offsetY: number;
+  velocityX: number;
+  velocityY: number;
 };
 
 const NEAR_PLANE = 72;
@@ -21,8 +25,8 @@ const POINTER_REACH = 630;
 const CAMERA_SPEED = 1.45;
 const TAU = Math.PI * 2;
 const SPRITE_SIZE = 128;
-const SPRITE_RADIUS = 38;
-const BLUR_STEPS = [0, 2, 5, 9, 14] as const;
+const SPRITE_RADIUS = 34;
+const BLUR_STEPS = [1, 3, 6, 10, 14] as const;
 const DEPTH_BANDS = [
   [NEAR_PLANE, 1200],
   [1200, 12_000],
@@ -62,6 +66,10 @@ export default function Backdrop() {
         phase: random() * TAU,
         drift: 0.35 + random() * 0.8,
         band,
+        offsetX: 0,
+        offsetY: 0,
+        velocityX: 0,
+        velocityY: 0,
       };
     }).sort((a, b) => b.band - a.band);
     const colors = [
@@ -76,12 +84,12 @@ export default function Backdrop() {
       base.height = SPRITE_SIZE;
       const baseCtx = base.getContext('2d');
       if (!baseCtx) return [];
-      baseCtx.fillStyle = 'rgba(' + color[0] + ',' + color[1] + ',' + color[2] + ',0.68)';
+      baseCtx.fillStyle = 'rgba(' + color[0] + ',' + color[1] + ',' + color[2] + ',0.5)';
       baseCtx.beginPath();
       baseCtx.arc(SPRITE_SIZE / 2, SPRITE_SIZE / 2, SPRITE_RADIUS, 0, TAU);
       baseCtx.fill();
-      baseCtx.lineWidth = 2;
-      baseCtx.strokeStyle = 'rgba(255,255,255,0.42)';
+      baseCtx.lineWidth = 1.5;
+      baseCtx.strokeStyle = 'rgba(255,255,255,0.22)';
       baseCtx.stroke();
 
       return BLUR_STEPS.map((blur) => {
@@ -104,7 +112,16 @@ export default function Backdrop() {
     let cameraY = window.scrollY;
     let targetCameraY = cameraY;
     let active = true;
-    const pointer = { x: -1000, y: -1000, tx: -1000, ty: -1000, presence: 0, target: 0 };
+    const pointer = {
+      x: -1000,
+      y: -1000,
+      tx: -1000,
+      ty: -1000,
+      presence: 0,
+      target: 0,
+      windX: 0,
+      windY: 0,
+    };
 
     const resize = () => {
       width = window.innerWidth;
@@ -138,14 +155,22 @@ export default function Backdrop() {
       const ease = 1 - Math.pow(0.001, elapsed / 1000);
       camera += (targetCamera - camera) * Math.min(1, ease * 3.1);
       cameraY += (targetCameraY - cameraY) * Math.min(1, ease * 3.1);
-      pointer.x += (pointer.tx - pointer.x) * Math.min(1, ease * 5.5);
-      pointer.y += (pointer.ty - pointer.y) * Math.min(1, ease * 5.5);
+      const previousPointerX = pointer.x;
+      const previousPointerY = pointer.y;
+      pointer.x += (pointer.tx - pointer.x) * Math.min(1, ease * 2.2);
+      pointer.y += (pointer.ty - pointer.y) * Math.min(1, ease * 2.2);
       pointer.presence += (pointer.target - pointer.presence) * Math.min(1, ease * 4);
+      const instantWindX = Math.max(-24, Math.min(24, (pointer.x - previousPointerX) * 1.25));
+      const instantWindY = Math.max(-24, Math.min(24, (pointer.y - previousPointerY) * 1.25));
+      const windEase = Math.min(1, ease * 2);
+      pointer.windX += (instantWindX - pointer.windX) * windEase;
+      pointer.windY += (instantWindY - pointer.windY) * windEase;
       ctx.clearRect(0, 0, width, height);
 
       const worldWidth = Math.max(width, 760);
       const worldHeight = Math.max(height, 620);
       const time = reduceMotion ? 0 : now * 0.00012;
+      const windSpeed = Math.hypot(pointer.windX, pointer.windY);
 
       for (const mote of motes) {
         const [bandNear, bandFar] = DEPTH_BANDS[mote.band];
@@ -156,32 +181,82 @@ export default function Backdrop() {
         const opticalZ = NEAR_PLANE + logarithmicDepth * OPTICAL_DEPTH;
         const scale = FOCAL_LENGTH / opticalZ;
         const depth = 1 - logarithmicDepth;
-        const driftX = Math.sin(time * mote.drift + mote.phase) * 18;
-        const driftY = Math.cos(time * mote.drift * 0.72 + mote.phase) * 13;
-        let x = width / 2 + (mote.x * worldWidth * 0.72 + driftX) * scale;
+        const floatAmplitude = (6 + depth * 14) * (0.75 + mote.drift * 0.35);
+        const driftX =
+          (Math.sin(time * mote.drift + mote.phase) +
+            Math.cos(time * mote.drift * 0.43 + mote.phase * 1.7) * 0.32) *
+          floatAmplitude;
+        const driftY =
+          (Math.cos(time * mote.drift * 0.72 + mote.phase) +
+            Math.sin(time * mote.drift * 0.37 + mote.phase * 1.3) * 0.28) *
+          floatAmplitude;
+        let x = width / 2 + mote.x * worldWidth * 0.72 * scale + driftX + mote.offsetX;
         const verticalParallax = 0.015 + Math.pow(Math.min(1.2, scale), 1.35) * 0.58;
         const verticalRange = height + 220;
         let y =
-          height / 2 + (mote.y * worldHeight * 0.68 + driftY) * scale - cameraY * verticalParallax;
+          height / 2 +
+          mote.y * worldHeight * 0.68 * scale +
+          driftY +
+          mote.offsetY -
+          cameraY * verticalParallax;
         y = ((((y + 110) % verticalRange) + verticalRange) % verticalRange) - 110;
         const radius = mote.radius * scale * 1.35;
 
         const dx = x - pointer.x;
         const dy = y - pointer.y;
         const distance = Math.hypot(dx, dy) || 1;
+        const breeze = Math.max(0, 1 - distance / POINTER_REACH);
         const influence =
-          pointer.presence * Math.max(0, 1 - distance / POINTER_REACH) * Math.min(1, 0.25 + depth);
-        if (!reduceMotion && influence > 0) {
-          const displacement = influence * (18 + radius * 0.35);
-          x += (dx / distance) * displacement;
-          y += (dy / distance) * displacement;
+          pointer.presence * breeze * breeze * (3 - 2 * breeze) * Math.min(1, 0.25 + depth);
+        const windInfluence = influence * Math.min(1, windSpeed / 12);
+        const previousOffsetX = mote.offsetX;
+        const previousOffsetY = mote.offsetY;
+        if (!reduceMotion && windInfluence > 0.001) {
+          const flow = 1.1 + depth * 0.9;
+          const curl =
+            Math.sin(mote.phase + now * 0.0015) * windSpeed * windInfluence * (0.2 + depth * 0.35);
+          const deltaX = pointer.windX * windInfluence * flow - (pointer.windY / windSpeed) * curl;
+          const deltaY = pointer.windY * windInfluence * flow + (pointer.windX / windSpeed) * curl;
+          const acceleration = Math.min(0.1, elapsed / 170);
+          mote.velocityX += deltaX * acceleration;
+          mote.velocityY += deltaY * acceleration;
+        }
+
+        if (!reduceMotion) {
+          const frameScale = elapsed / (1000 / 60);
+          const maxVelocity = 1.8 + depth * 1.2;
+          const velocity = Math.hypot(mote.velocityX, mote.velocityY);
+          if (velocity > maxVelocity) {
+            mote.velocityX = (mote.velocityX / velocity) * maxVelocity;
+            mote.velocityY = (mote.velocityY / velocity) * maxVelocity;
+          }
+          mote.offsetX += mote.velocityX * frameScale;
+          mote.offsetY += mote.velocityY * frameScale;
+          const drag = Math.pow(0.992, frameScale);
+          mote.velocityX *= drag;
+          mote.velocityY *= drag;
+          if (Math.abs(mote.velocityX) < 0.002) mote.velocityX = 0;
+          if (Math.abs(mote.velocityY) < 0.002) mote.velocityY = 0;
+
+          const horizontalRange = width + 220;
+          mote.offsetX =
+            ((((mote.offsetX + horizontalRange / 2) % horizontalRange) + horizontalRange) %
+              horizontalRange) -
+            horizontalRange / 2;
+          mote.offsetY =
+            ((((mote.offsetY + verticalRange / 2) % verticalRange) + verticalRange) %
+              verticalRange) -
+            verticalRange / 2;
+          x += mote.offsetX - previousOffsetX;
+          y += mote.offsetY - previousOffsetY;
         }
 
         if (x < -radius * 2 || x > width + radius * 2 || y < -radius * 2 || y > height + radius * 2)
           continue;
         const distanceFade = Math.sin(Math.min(1, depth) * Math.PI);
         const nearBoost = Math.pow(depth, 1.7);
-        const opacity = (0.025 + distanceFade * 0.19 + nearBoost * 0.08) * (1 + influence * 1.7);
+        const opacity =
+          (0.025 + distanceFade * 0.19 + nearBoost * 0.08) * (1 + windInfluence * 0.45);
         const blurIndex = Math.min(
           BLUR_STEPS.length - 1,
           Math.round(logarithmicDepth * (BLUR_STEPS.length - 1))
@@ -198,6 +273,11 @@ export default function Backdrop() {
       targetCameraY = window.scrollY;
     };
     const onPointerMove = (event: PointerEvent) => {
+      const firstMove = pointer.tx < -900;
+      if (firstMove) {
+        pointer.x = event.clientX;
+        pointer.y = event.clientY;
+      }
       pointer.tx = event.clientX;
       pointer.ty = event.clientY;
       pointer.target = event.pointerType === 'touch' ? 0.35 : 1;
