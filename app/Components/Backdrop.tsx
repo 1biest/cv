@@ -17,6 +17,23 @@ type Mote = {
   velocityY: number;
 };
 
+type GlassRect = {
+  left: number;
+  top: number;
+  right: number;
+  bottom: number;
+  radius: number;
+};
+
+type MoteDraw = {
+  x: number;
+  y: number;
+  radius: number;
+  opacity: number;
+  normalSprite: HTMLCanvasElement;
+  glassSprite: HTMLCanvasElement;
+};
+
 const NEAR_PLANE = 72;
 const MAX_WORLD_DEPTH = 1_200_000;
 const OPTICAL_DEPTH = 3600;
@@ -26,7 +43,8 @@ const CAMERA_SPEED = 1.45;
 const TAU = Math.PI * 2;
 const SPRITE_SIZE = 128;
 const SPRITE_RADIUS = 34;
-const BLUR_STEPS = [1, 3, 6, 10, 14] as const;
+const BLUR_STEPS = [1, 3, 6, 10, 14, 24] as const;
+const GLASS_BLUR_INDEX = BLUR_STEPS.length - 1;
 const DEPTH_BANDS = [
   [NEAR_PLANE, 1200],
   [1200, 12_000],
@@ -122,6 +140,47 @@ export default function Backdrop() {
       windX: 0,
       windY: 0,
     };
+    let glassRects: GlassRect[] = [];
+    let glassRefreshRaf = 0;
+    let glassTrackingUntil = 0;
+
+    const refreshGlassRects = () => {
+      const surfaces = document.querySelectorAll<HTMLElement>(
+        '.bg-\\[var\\(--surface\\)\\], .bg-\\[var\\(--surface\\)\\]\\/80, .bg-\\[var\\(--surface\\)\\]\\/95'
+      );
+      glassRects = Array.from(surfaces)
+        .map((surface) => {
+          const rect = surface.getBoundingClientRect();
+          const radius = Number.parseFloat(getComputedStyle(surface).borderTopLeftRadius) || 0;
+          return {
+            left: rect.left,
+            top: rect.top,
+            right: rect.right,
+            bottom: rect.bottom,
+            radius,
+          };
+        })
+        .filter(
+          (rect) =>
+            rect.right > 0 &&
+            rect.bottom > 0 &&
+            rect.left < window.innerWidth &&
+            rect.top < window.innerHeight
+        );
+    };
+
+    const scheduleGlassRefresh = () => {
+      if (glassRefreshRaf) return;
+      glassRefreshRaf = requestAnimationFrame(() => {
+        glassRefreshRaf = 0;
+        refreshGlassRects();
+      });
+    };
+
+    const trackGlassMovement = () => {
+      glassTrackingUntil = performance.now() + 900;
+      scheduleGlassRefresh();
+    };
 
     const resize = () => {
       width = window.innerWidth;
@@ -132,6 +191,7 @@ export default function Backdrop() {
       canvas.style.width = width + 'px';
       canvas.style.height = height + 'px';
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      trackGlassMovement();
     };
 
     const drawMote = (
@@ -152,6 +212,7 @@ export default function Backdrop() {
     const render = (now: number) => {
       const elapsed = Math.min(32, now - lastTime);
       lastTime = now;
+      if (now < glassTrackingUntil) refreshGlassRects();
       const ease = 1 - Math.pow(0.001, elapsed / 1000);
       camera += (targetCamera - camera) * Math.min(1, ease * 3.1);
       cameraY += (targetCameraY - cameraY) * Math.min(1, ease * 3.1);
@@ -171,6 +232,7 @@ export default function Backdrop() {
       const worldHeight = Math.max(height, 620);
       const time = reduceMotion ? 0 : now * 0.00012;
       const windSpeed = Math.hypot(pointer.windX, pointer.windY);
+      const drawQueue: MoteDraw[] = [];
 
       for (const mote of motes) {
         const [bandNear, bandFar] = DEPTH_BANDS[mote.band];
@@ -257,12 +319,40 @@ export default function Backdrop() {
         const nearBoost = Math.pow(depth, 1.7);
         const opacity =
           (0.025 + distanceFade * 0.19 + nearBoost * 0.08) * (1 + windInfluence * 0.45);
-        const blurIndex = Math.min(
-          BLUR_STEPS.length - 1,
-          Math.round(logarithmicDepth * (BLUR_STEPS.length - 1))
+        const renderedRadius = Math.min(92, radius);
+        const depthBlurIndex = Math.min(
+          GLASS_BLUR_INDEX - 1,
+          Math.round(logarithmicDepth * (GLASS_BLUR_INDEX - 1))
         );
-        const sprite = sprites[mote.tint][blurIndex];
-        if (sprite) drawMote(x, y, Math.min(92, radius), opacity, sprite);
+        const normalSprite = sprites[mote.tint][depthBlurIndex];
+        const glassSprite = sprites[mote.tint][GLASS_BLUR_INDEX];
+        if (normalSprite && glassSprite) {
+          drawQueue.push({ x, y, radius: renderedRadius, opacity, normalSprite, glassSprite });
+        }
+      }
+
+      for (const moteDraw of drawQueue) {
+        drawMote(moteDraw.x, moteDraw.y, moteDraw.radius, moteDraw.opacity, moteDraw.normalSprite);
+      }
+
+      if (glassRects.length > 0) {
+        ctx.save();
+        ctx.beginPath();
+        for (const rect of glassRects) {
+          ctx.roundRect(
+            rect.left,
+            rect.top,
+            rect.right - rect.left,
+            rect.bottom - rect.top,
+            rect.radius
+          );
+        }
+        ctx.clip();
+        ctx.clearRect(0, 0, width, height);
+        for (const moteDraw of drawQueue) {
+          drawMote(moteDraw.x, moteDraw.y, moteDraw.radius, moteDraw.opacity, moteDraw.glassSprite);
+        }
+        ctx.restore();
       }
       if (active) raf = requestAnimationFrame(render);
     };
@@ -271,6 +361,7 @@ export default function Backdrop() {
       const next = window.scrollY * CAMERA_SPEED;
       targetCamera = next;
       targetCameraY = window.scrollY;
+      trackGlassMovement();
     };
     const onPointerMove = (event: PointerEvent) => {
       const firstMove = pointer.tx < -900;
@@ -296,6 +387,9 @@ export default function Backdrop() {
       }
     };
 
+    const glassObserver = new MutationObserver(trackGlassMovement);
+    glassObserver.observe(document.body, { childList: true, subtree: true });
+
     resize();
     if (reduceMotion) {
       render(performance.now());
@@ -313,6 +407,8 @@ export default function Backdrop() {
     return () => {
       active = false;
       cancelAnimationFrame(raf);
+      cancelAnimationFrame(glassRefreshRaf);
+      glassObserver.disconnect();
       window.removeEventListener('resize', resize);
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('pointermove', onPointerMove);
