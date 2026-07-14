@@ -17,8 +17,35 @@ import { trackEvent } from './lib/analytics';
 export type Experience = Project;
 
 const cvData = projectsData as ProjectsData;
-const experience: Experience[] = cvData.projects;
-const systemsBuilt = cvData.systemsBuilt;
+const allProjects = cvData.projects;
+
+const STUDY_IDS = [
+  'neptune-finance',
+  'open-source-contributions',
+  'dyve',
+  'cryptech',
+  'satsuma',
+  'craidle',
+  'monad-heartbeat',
+  'etherfi-demo',
+] as const;
+
+const EMPLOYMENT_IDS = [
+  'cryptech-developments',
+  'stakefish',
+  'artrageous-advertising',
+  'davis-automotive',
+] as const;
+
+const FIRST_EMPLOYMENT_SLIDE_ID = `experience-${EMPLOYMENT_IDS[0]}`;
+
+const projectById = new Map(allProjects.map((project) => [project.id, project]));
+const studies = STUDY_IDS.map((id) => projectById.get(id)).filter((project): project is Project => !!project);
+const employment = EMPLOYMENT_IDS.map((id) => projectById.get(id)).filter(
+  (project): project is Project => !!project
+);
+const caseStudies = [...studies, ...employment];
+const selectedStudies = cvData.systemsBuilt.filter((system) => system.projectId !== 'neptune-finance');
 const competencies = cvData.coreCompetencies;
 const technicalSummary = cvData.technicalSummary;
 
@@ -40,20 +67,20 @@ const NAV = [
   { href: '#intro', label: 'Intro' },
   { href: '#about', label: 'About' },
   { href: '#neptune-case-study', label: 'Neptune' },
-  { href: '#work', label: 'Work' },
+  { href: '#studies', label: 'Studies' },
   { href: '#experience', label: 'Experience' },
   { href: '#stack', label: 'Stack' },
   { href: '#contact', label: 'Contact' },
 ] as const;
 
-function groupEyebrow(group: Project['group']): string {
-  switch (group) {
-    case 'professional-experience':
-      return 'Professional Experience';
-    case 'protocol-ecosystem':
-      return 'Protocol / Ecosystem';
+function groupEyebrow(section: Project['section']): string {
+  switch (section) {
+    case 'employment':
+      return 'Employment';
+    case 'study':
+      return 'Case Study';
     default:
-      return 'Projects';
+      return 'Experience';
   }
 }
 
@@ -111,14 +138,13 @@ export default function Home() {
   const [prefersReduced, setPrefersReduced] = useState(false);
 
   // Set up slide elements and IDs
-  const experienceSlideIds = experience.map((exp) => `experience-${exp.id}`);
+  const employmentSlideIds = employment.map((role) => `experience-${role.id}`);
   const allSlideIds = [
     'intro',
     'about',
     'neptune-case-study',
-    'work',
-    'experience-header',
-    ...experienceSlideIds,
+    'studies',
+    ...employmentSlideIds,
     'stack',
     'contact',
   ];
@@ -156,7 +182,7 @@ export default function Home() {
     const syncProjectFromUrl = () => {
       const params = new URLSearchParams(window.location.search);
       const project = params.get('project');
-      if (project && experience.some((exp) => exp.id === project)) {
+      if (project && caseStudies.some((item) => item.id === project)) {
         setActiveProjectId(project);
       } else {
         setActiveProjectId(null);
@@ -186,10 +212,10 @@ export default function Home() {
 
   const handleNextProject = useCallback(() => {
     if (!activeProjectId) return;
-    const currentIndex = experience.findIndex((exp) => exp.id === activeProjectId);
+    const currentIndex = caseStudies.findIndex((item) => item.id === activeProjectId);
     if (currentIndex >= 0) {
-      const nextIndex = (currentIndex + 1) % experience.length;
-      const nextId = experience[nextIndex].id;
+      const nextIndex = (currentIndex + 1) % caseStudies.length;
+      const nextId = caseStudies[nextIndex].id;
       trackEvent('navigate_case_study', { direction: 'next', from_project: activeProjectId, to_project: nextId });
       openProject(nextId);
     }
@@ -197,10 +223,10 @@ export default function Home() {
 
   const handlePrevProject = useCallback(() => {
     if (!activeProjectId) return;
-    const currentIndex = experience.findIndex((exp) => exp.id === activeProjectId);
+    const currentIndex = caseStudies.findIndex((item) => item.id === activeProjectId);
     if (currentIndex >= 0) {
-      const prevIndex = (currentIndex - 1 + experience.length) % experience.length;
-      const prevId = experience[prevIndex].id;
+      const prevIndex = (currentIndex - 1 + caseStudies.length) % caseStudies.length;
+      const prevId = caseStudies[prevIndex].id;
       trackEvent('navigate_case_study', { direction: 'prev', from_project: activeProjectId, to_project: prevId });
       openProject(prevId);
     }
@@ -249,7 +275,7 @@ export default function Home() {
     [prefersReduced]
   );
 
-  const activeProject = experience.find((exp) => exp.id === activeProjectId);
+  const activeProject = caseStudies.find((item) => item.id === activeProjectId);
   const shareUrl =
     typeof window !== 'undefined' && activeProject
       ? `${window.location.origin}${window.location.pathname}?project=${activeProject.id}`
@@ -274,12 +300,11 @@ export default function Home() {
           if (id === 'intro') label = 'Intro';
           else if (id === 'about') label = 'About';
           else if (id === 'neptune-case-study') label = 'Neptune';
-          else if (id === 'work') label = 'Work';
-          else if (id === 'experience-header') label = 'Experience';
+          else if (id === 'studies') label = 'Studies';
           else if (id.startsWith('experience-')) {
-            const expId = id.replace('experience-', '');
-            const expItem = experience.find((e) => e.id === expId);
-            label = expItem ? `Role: ${expItem.title}` : 'Experience';
+            const roleId = id.replace('experience-', '');
+            const roleItem = employment.find((role) => role.id === roleId);
+            label = roleItem ? `Role: ${roleItem.title}` : 'Experience';
           } else if (id === 'stack') label = 'Stack';
           else if (id === 'contact') label = 'Contact';
 
@@ -324,10 +349,10 @@ export default function Home() {
           </a>
           <nav className="hidden flex-wrap items-center justify-end gap-x-6 gap-y-2 text-sm font-medium md:flex">
             {NAV.map((item) => {
-              const href = item.href === '#experience' ? '#experience-header' : item.href;
+              const href = item.href === '#experience' ? `#${FIRST_EMPLOYMENT_SLIDE_ID}` : item.href;
               const isActive =
                 item.href === '#experience'
-                  ? activeSection === 'experience-header' || activeSection.startsWith('experience-')
+                  ? activeSection.startsWith('experience-')
                   : activeSection === item.href.slice(1);
               return (
                 <a
@@ -355,10 +380,10 @@ export default function Home() {
           </nav>
           <nav className="flex max-w-[55vw] gap-3 overflow-x-auto pb-0.5 text-xs font-medium md:hidden">
             {NAV.map((item) => {
-              const href = item.href === '#experience' ? '#experience-header' : item.href;
+              const href = item.href === '#experience' ? `#${FIRST_EMPLOYMENT_SLIDE_ID}` : item.href;
               const isActive =
                 item.href === '#experience'
-                  ? activeSection === 'experience-header' || activeSection.startsWith('experience-')
+                  ? activeSection.startsWith('experience-')
                   : activeSection === item.href.slice(1);
               return (
                 <a
@@ -414,11 +439,11 @@ export default function Home() {
               </div>
               <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-[500ms] mt-10 flex flex-wrap gap-3">
                 <a
-                  href="#work"
-                  onClick={() => trackEvent('click_nav_link', { label: 'View work', href_or_target: '#work' })}
+                  href="#studies"
+                  onClick={() => trackEvent('click_nav_link', { label: 'View studies', href_or_target: '#studies' })}
                   className="inline-flex items-center justify-center rounded-full bg-[var(--text)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[color:var(--accent-color)] hover:text-white active:scale-[0.98]"
                 >
-                  View work
+                  View studies
                 </a>
                 <a
                   href="/Logan Biesterfeldt Resume 2026.pdf"
@@ -488,32 +513,31 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Slide 4: Work */}
-        <section id="work" className="slide-section border-t border-[var(--border)] min-h-screen pt-[4.5rem] flex flex-col justify-center">
+        {/* Slide 4: Studies */}
+        <section id="studies" className="slide-section border-t border-[var(--border)] min-h-screen pt-[4.5rem] flex flex-col justify-center">
           <div
             className="w-full py-12 md:py-20 group/slide transition-all duration-700 ease-out"
-            data-active={activeSection === 'work' ? 'true' : 'false'}
-            style={getSlideStyles(progresses['work']?.progress, progresses['work']?.active)}
+            data-active={activeSection === 'studies' ? 'true' : 'false'}
+            style={getSlideStyles(progresses['studies']?.progress, progresses['studies']?.active)}
           >
             <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-0">
-              <SectionEyebrow index="03">Work</SectionEyebrow>
+              <SectionEyebrow index="03">Studies</SectionEyebrow>
               <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                 <h2 className="heading-accent font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-[var(--text)] md:text-4xl">
-                  Selected systems
+                  Selected case studies
                 </h2>
                 <span className="text-sm font-medium text-[var(--text-muted)]">
-                  Case studies &amp; shipping scope
+                  CW3, Cryptech, Dyve, Monad, ether.fi, Satsuma, CrAIdle
                 </span>
               </div>
             </div>
             <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {systemsBuilt.map((system, i) => (
+              {selectedStudies.map((system, i) => (
                 <button
                   key={system.name}
                   type="button"
                   onClick={() => system.projectId && openProject(system.projectId)}
-                  className={`opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 card-interactive group h-full w-full text-left rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-card)] overflow-hidden ${system.projectId === 'neptune-finance' ? 'sm:col-span-2 lg:col-span-2' : ''
-                    }`}
+                  className={`opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 card-interactive group h-full w-full text-left rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-[var(--shadow-card)] overflow-hidden`}
                   style={{ transitionDelay: `${(i + 1) * 75}ms` }}
                 >
                   {systemBackgrounds[system.projectId] && (
@@ -567,52 +591,32 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Slide 4: Experience Header */}
-        <section id="experience-header" className="slide-section border-t border-[var(--border)] min-h-screen pt-[4.5rem] flex flex-col justify-center">
-          <div
-            className="w-full py-12 md:py-20 group/slide transition-all duration-700 ease-out"
-            data-active={activeSection === 'experience-header' ? 'true' : 'false'}
-            style={getSlideStyles(progresses['experience-header']?.progress, progresses['experience-header']?.active)}
-          >
-            <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-0">
-              <SectionEyebrow index="04">Experience</SectionEyebrow>
-              <h2 className="heading-accent font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-[var(--text)] md:text-4xl">
-                Experience
-              </h2>
-            </div>
-            <div className="max-w-2xl opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-[100ms]">
-              <p className="mt-8 text-lg leading-relaxed text-[var(--text-muted)]">
-                Representative roles, protocol work, and projects. Scroll down to browse individual case studies.
-              </p>
-              <div className="mt-8 flex items-center gap-2 text-sm text-[var(--text-subtle)] font-medium">
-                <span>Scroll to start browsing</span>
-                <span className="animate-bounce">↓</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Slides 5-16: Individual Experiences */}
-        {experience.map((exp) => (
+        {/* Employment slides */}
+        {employment.map((role, index) => (
           <section
-            key={exp.id}
-            id={`experience-${exp.id}`}
+            key={role.id}
+            id={`experience-${role.id}`}
             className="slide-section border-t border-[var(--border)] min-h-screen pt-[4.5rem] flex flex-col justify-center"
           >
             <div
               className="w-full py-12 md:py-20 group/slide transition-all duration-700 ease-out"
-              data-active={activeSection === `experience-${exp.id}` ? 'true' : 'false'}
-              style={getSlideStyles(progresses[`experience-${exp.id}`]?.progress, progresses[`experience-${exp.id}`]?.active)}
+              data-active={activeSection === `experience-${role.id}` ? 'true' : 'false'}
+              style={getSlideStyles(progresses[`experience-${role.id}`]?.progress, progresses[`experience-${role.id}`]?.active)}
             >
+              {index === 0 && (
+                <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-0 mb-8">
+                  <SectionEyebrow index="04">Experience</SectionEyebrow>
+                </div>
+              )}
               <article className="grid gap-8 md:grid-cols-[minmax(0,250px)_1fr]">
                 <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-0">
                   <p className="text-xs font-semibold uppercase tracking-wider text-[var(--text-subtle)] mb-2">
-                    {groupEyebrow(exp.group)}
+                    {groupEyebrow(role.section)}
                   </p>
-                  <h4 className="text-sm font-medium text-[var(--text-muted)]">{exp.role || 'Contributor'}</h4>
+                  <h4 className="text-sm font-medium text-[var(--text-muted)]">{role.role || 'Contributor'}</h4>
                   <button
                     type="button"
-                    onClick={() => openProject(exp.id)}
+                    onClick={() => openProject(role.id)}
                     className="group/btn mt-6 inline-flex items-center gap-1.5 text-left text-sm font-bold text-[color:var(--accent-color)] hover:underline"
                   >
                     View details
@@ -625,23 +629,23 @@ export default function Home() {
                   <div className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-[100ms]">
                     <div className="flex flex-wrap items-center gap-3">
                       <h3 className="text-2xl font-bold text-[var(--text)] md:text-3xl leading-tight">
-                        {exp.title}
+                        {role.title}
                       </h3>
-                      {exp.badge && (
+                      {role.badge && (
                         <span className="inline-flex items-center rounded-full bg-[color:var(--accent-color)]/10 px-2.5 py-0.5 text-[10px] font-semibold tracking-wider uppercase text-[color:var(--accent-color)] border border-[color:var(--accent-color)]/20">
-                          {exp.badge}
+                          {role.badge}
                         </span>
                       )}
                     </div>
-                    {exp.roleDescriptor && (
+                    {role.roleDescriptor && (
                       <p className="mt-3 text-base text-[var(--text-muted)] leading-relaxed">
-                        {exp.roleDescriptor}
+                        {role.roleDescriptor}
                       </p>
                     )}
                   </div>
-                  {exp.highlights?.length > 0 && (
+                  {role.highlights?.length > 0 && (
                     <ul className="opacity-0 translate-y-6 transition-all duration-700 ease-out group-data-[active=true]/slide:opacity-100 group-data-[active=true]/slide:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 delay-[200ms] mt-6 list-disc space-y-2.5 pl-5 text-[var(--text-muted)] marker:text-[var(--text-muted)]">
-                      {exp.highlights.map((h) => (
+                      {role.highlights.map((h) => (
                         <li key={h} className="leading-relaxed text-sm">
                           {h}
                         </li>

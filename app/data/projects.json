@@ -147,7 +147,7 @@
       "badge": "Demo"
     },
     {
-      "name": "Cryptech Platform & Web Systems",
+      "name": "Cryptech Website",
       "domain": "Developer platform dashboard and company landing pages",
       "integrations": ["React", "Next.js", "Tailwind CSS", "TypeScript"],
       "constraints": [
@@ -162,6 +162,7 @@
     {
       "id": "neptune-finance",
       "title": "Neptune Finance",
+      "section": "study",
       "roleDescriptor": "Design Engineer / Frontend Lead. Full product ownership from Figma to production",
       "group": "professional-experience",
       "content": "Frontend lead for <a href=\"https://app.nept.finance\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Neptune Finance</strong></a>, a lending and borrowing system on <a href=\"https://injective.com\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Injective</strong></a>. Built the application layer that keeps contract state, wallet state, and UI state synchronized during deposits, borrows, repayments, and reward flows.",
@@ -266,6 +267,7 @@
     {
       "id": "stakefish",
       "title": "stakefish / f2pool",
+      "section": "employment",
       "group": "protocol-ecosystem",
       "content": "Produced technical protocol education assets for <strong>stakefish</strong> and <strong>f2pool</strong>, translating validator and staking operations into repeatable user workflows across Ethereum, Cosmos, and Solana.",
       "content2": "Work prioritized procedural correctness and chain-specific detail so onboarding content matched real wallet and network steps used by operators and delegators.",
@@ -342,7 +344,8 @@
     },
     {
       "id": "open-source-contributions",
-      "title": "Open Source Contributions",
+      "title": "CW3 Multisig",
+      "section": "study",
       "group": "professional-experience",
       "content": "Led integration work to bring <a href=\"https://github.com/cryptechdev/cw3-injective-multisig-dapp\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>CW3 Fixed Multisig</strong></a> support to Injective by refactoring Cosmos ecosystem frontend code for Injective execution paths.",
       "content2": "Refactored transaction submission to align with <a href=\"https://www.npmjs.com/package/@injectivelabs/sdk-ts\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Injective SDK</strong></a>, improved execution diagnostics through Base64 message decoding, and added local caching for contract-heavy workflows.",
@@ -388,7 +391,8 @@
     },
     {
       "id": "cryptech",
-      "title": "Cryptech Developments Ltd.",
+      "title": "Cryptech Website",
+      "section": "study",
       "group": "professional-experience",
       "content": "Built and maintained the <a href=\"https://cryptech.dev\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cryptech</strong></a> web platform and frontend systems for associated product surfaces, including Macro DEX interface work.",
       "content2": "Focused on reusable frontend implementation in React/Next.js and component-level consistency across company and product properties.",
@@ -451,6 +455,136 @@
       "outcomes": [
         "Unified developer dashboard and platform sites with shared style guidelines",
         "Reduced component development time for new features by implementing design tokens"
+      ]
+    },
+    {
+      "id": "cryptech-developments",
+      "title": "Cryptech Developments Ltd.",
+      "section": "employment",
+      "group": "professional-experience",
+      "roleDescriptor": "Frontend Engineer · August 2022 – May 2026",
+      "content": "Frontend engineer at <a href=\"https://cryptech.dev\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cryptech Developments Ltd.</strong></a>, developing Web3 DeFi applications with React, Next.js, and Tailwind. Own UI/UX, design, branding, and TypeScript engineering across protocol and company product surfaces.",
+      "content2": "Primary frontend lead for Neptune Finance and related Injective ecosystem tooling, including multisig governance interfaces and company platform systems.",
+      "highlights": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "DeFi",
+        "UI/UX",
+        "Design systems"
+      ],
+      "ctas": ["https://cryptech.dev/"],
+      "images": [],
+      "githubStats": [],
+      "role": "Frontend Engineer",
+      "stack": "React, Next.js, TypeScript, Tailwind CSS",
+      "domain": "Web3 / DeFi Engineering",
+      "scope": [
+        "Frontend engineering for DeFi protocol and company product surfaces",
+        "UI/UX, branding, and component system ownership",
+        "Cross-functional delivery from design through production deployment"
+      ],
+      "context": [
+        "Cryptech Developments builds and maintains DeFi protocol frontends and supporting developer platform infrastructure on Injective and related ecosystems."
+      ],
+      "problemSpace": [
+        "Rapid protocol iteration requires frontend systems that stay aligned with contract and design changes",
+        "Financial product surfaces demand reliable transaction UX and consistent component patterns"
+      ],
+      "approach": [
+        "Own design-to-code workflows with shared Figma and production component libraries",
+        "Build reusable frontend primitives for wallet, contract, and dashboard integrations"
+      ],
+      "outcomes": [
+        "Shipped production DeFi interfaces used by live protocol users",
+        "Established reusable frontend patterns across Neptune and Cryptech platform properties"
+      ]
+    },
+    {
+      "id": "artrageous-advertising",
+      "title": "Artrageous Advertising",
+      "section": "employment",
+      "group": "professional-experience",
+      "roleDescriptor": "Web Design / Video Production · December 2019 – October 2020",
+      "content": "Designed and managed a library of WordPress commercial websites for local commerce and nonprofit clients at <strong>Artrageous Advertising</strong>.",
+      "content2": "Produced campaign analytics reports in Google Data Studio to evaluate social media performance and web traffic for client marketing programs.",
+      "highlights": [
+        "WordPress",
+        "Web design",
+        "Video production",
+        "Google Data Studio",
+        "Client delivery"
+      ],
+      "ctas": [],
+      "images": [],
+      "githubStats": [],
+      "role": "Web Design / Video Production",
+      "stack": "WordPress, Google Data Studio, Adobe Creative Suite",
+      "domain": "Commercial Web & Marketing",
+      "scope": [
+        "Designed and maintained WordPress websites and themes",
+        "Managed a library of 80+ client sites",
+        "Built analytics and reporting workflows for campaign performance"
+      ],
+      "context": [
+        "Artrageous Advertising delivered web and video production services for regional commercial and nonprofit organizations."
+      ],
+      "problemSpace": [
+        "High-volume client site management required consistent templates and efficient update workflows",
+        "Marketing teams needed clear analytics views to judge campaign effectiveness"
+      ],
+      "approach": [
+        "Standardize WordPress theme structures for repeatable client launches",
+        "Automate reporting pipelines with Google Data Studio dashboards"
+      ],
+      "outcomes": [
+        "Maintained and expanded a large multi-client website library",
+        "Delivered recurring analytics reports for social and web campaign optimization"
+      ]
+    },
+    {
+      "id": "davis-automotive",
+      "title": "Davis Automotive Group",
+      "section": "employment",
+      "group": "professional-experience",
+      "roleDescriptor": "Web Design / Motion Design · April 2013 – August 2017",
+      "content": "Produced web design, video production, and graphic design for automotive retail marketing campaigns at <strong>Davis Automotive Group</strong>.",
+      "content2": "Managed DealerTV digital signage across 30+ displays at 8 dealership locations and implemented operational tooling with AppSheet and Google Sheets.",
+      "content3": "Delivered branding and campaign creative for new and used vehicle sales and fixed-operations marketing.",
+      "highlights": [
+        "Web design",
+        "Motion design",
+        "Digital signage",
+        "Branding",
+        "AppSheet"
+      ],
+      "ctas": [],
+      "images": [],
+      "githubStats": [],
+      "role": "Web Design / Motion Design",
+      "stack": "WordPress, Adobe After Effects, AppSheet, Google Sheets",
+      "domain": "Automotive Retail Marketing",
+      "scope": [
+        "Produced and managed dealership web design and development",
+        "Created motion and video assets for retail campaigns",
+        "Operated multi-location digital signage network",
+        "Implemented dealer rewards program workflows"
+      ],
+      "context": [
+        "Davis Automotive Group required coordinated web, video, and in-dealership display systems to support multi-location vehicle sales operations."
+      ],
+      "problemSpace": [
+        "Retail campaigns needed synchronized creative across web, video, and in-store signage channels",
+        "Distributed dealership operations required remote content management at scale"
+      ],
+      "approach": [
+        "Standardize campaign templates across web and motion deliverables",
+        "Use lightweight operational tooling for rewards and signage update workflows"
+      ],
+      "outcomes": [
+        "Supported multi-location marketing with centralized creative production",
+        "Maintained reliable remote management for 30+ dealership displays"
       ]
     },
     {
@@ -559,6 +693,7 @@
     {
       "id": "satsuma",
       "title": "Satsuma",
+      "section": "study",
       "badge": "Hackathon",
       "roleDescriptor": "Design Engineer / Frontend Lead. Cross-chain yield-to-Bitcoin conversion routing built at Cosmoverse Hackathon",
       "group": "projects",
@@ -653,6 +788,7 @@
     {
       "id": "dyve",
       "title": "Dyve",
+      "section": "study",
       "badge": "Hackathon",
       "roleDescriptor": "Frontend Developer. Built the NFTFi lending, borrowing, and shorting interface",
       "group": "projects",
@@ -705,6 +841,7 @@
     {
       "id": "craidle",
       "title": "CrAIdle",
+      "section": "study",
       "badge": "Hackathon",
       "roleDescriptor": "Design Engineer / Agent Orchestrator. Directed autonomous agentic engineering flow",
       "group": "projects",
@@ -758,6 +895,7 @@
     {
       "id": "monad-heartbeat",
       "title": "Monad Heartbeat",
+      "section": "study",
       "badge": "Demo",
       "roleDescriptor": "Frontend Developer / Designer. Built a real-time 3D node and transaction visualizer",
       "group": "projects",
@@ -806,6 +944,7 @@
     {
       "id": "etherfi-demo",
       "title": "ether.fi Cash Demo",
+      "section": "study",
       "badge": "Demo",
       "roleDescriptor": "Frontend Developer. Developed a high-fidelity interactive DeFi credit card dashboard",
       "group": "projects",

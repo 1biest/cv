@@ -16,6 +16,8 @@ export interface Project {
   title: string;
   badge?: string;
   roleDescriptor?: string;
+  /** Primary content bucket: case studies vs employment history */
+  section?: 'study' | 'employment';
   group: 'professional-experience' | 'protocol-ecosystem' | 'projects';
   content: string;
   content2?: string;

@@ -12,7 +12,7 @@ type SectionContentProps = {
 const SectionContent: React.FC<SectionContentProps> = ({ experience, highlightIndex }) => {
   const currentExperience = experience[highlightIndex];
 
-  const { title, group, content, content2, content3, highlights, ctas, ctaPanelOverrides } =
+  const { title, content, content2, content3, highlights, ctas, ctaPanelOverrides } =
     currentExperience;
   const { data: previews, loading } = useLinkPreviews(ctas || []);
 
@@ -31,11 +31,15 @@ const SectionContent: React.FC<SectionContentProps> = ({ experience, highlightIn
   return (
     <div className="relative flex max-w-3xl flex-col gap-6">
       <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--text-muted)]">
-        {group === 'professional-experience'
-          ? 'Professional Experience'
-          : group === 'protocol-ecosystem'
-            ? 'Protocol / Ecosystem Work'
-            : 'Projects'}
+        {currentExperience.section === 'employment'
+          ? 'Employment'
+          : currentExperience.section === 'study'
+            ? 'Case Study'
+            : currentExperience.group === 'professional-experience'
+              ? 'Professional Experience'
+              : currentExperience.group === 'protocol-ecosystem'
+                ? 'Protocol / Ecosystem Work'
+                : 'Projects'}
       </span>
       <h4 className="font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-[var(--text)] md:text-4xl">
         {title || ''}
