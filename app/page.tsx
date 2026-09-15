@@ -21,6 +21,7 @@ const allProjects = cvData.projects;
 
 const STUDY_IDS = [
   'neptune-finance',
+  'agos',
   'open-source-contributions',
   'dyve',
   'cryptech',
@@ -527,7 +528,7 @@ export default function Home() {
                   Selected case studies
                 </h2>
                 <span className="text-sm font-medium text-[var(--text-muted)]">
-                  CW3, Cryptech, Dyve, Monad, ether.fi, Satsuma, CrAIdle
+                  AgOS, CW3, Cryptech, Dyve, Monad, ether.fi, Satsuma, CrAIdle
                 </span>
               </div>
             </div>

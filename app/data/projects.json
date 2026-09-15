@@ -52,6 +52,19 @@
   ],
   "systemsBuilt": [
     {
+      "name": "AgOS — Agricultural Operating System",
+      "domain": "Connected crop planning, inventory, logistics, and farm finances",
+      "integrations": ["React 19", "TypeScript", "Three.js", "Leaflet", "PostgreSQL"],
+      "constraints": [
+        "Connecting physical inventory to operational and financial records",
+        "Persistent organization and production-year context",
+        "Accessible spatial interfaces and reliable WebGL rendering"
+      ],
+      "outcome": "Currently developing a farm management platform with custom 3D grain storage, financial visualizations, and a shared design system connecting field activity to business decisions.",
+      "projectId": "agos",
+      "badge": "In development"
+    },
+    {
       "name": "Neptune Finance Web Application",
       "domain": "DeFi lending, staking, and liquidity on Injective",
       "integrations": ["CosmWasm", "Mito", "Astroport", "Wallet providers"],
@@ -159,6 +172,55 @@
     }
   ],
   "projects": [
+    {
+      "id": "agos",
+      "title": "AgOS — Agricultural Operating System",
+      "section": "study",
+      "badge": "In development",
+      "roleDescriptor": "Design Engineer / Frontend Developer. Currently developing a connected interface for farm operations",
+      "group": "projects",
+      "content": "I am currently developing AgOS, a web platform connecting crop planning, grain storage, shipping, contracts, equipment, and finances. The product brings physical inventory, operational records, and financial information into one coherent interface.",
+      "highlights": ["React 19", "TypeScript", "Next.js/vinext", "Tailwind CSS", "Three.js", "Leaflet", "Recharts", "Nivo", "Auth.js", "PostgreSQL", "Drizzle ORM"],
+      "ctas": ["https://ag-os.pro/"],
+      "ctaPanelOverrides": [
+        {
+          "title": "AgOS — Agricultural Operating System",
+          "description": "An agricultural operating platform currently in development, connecting farm operations, inventory, and finances."
+        }
+      ],
+      "images": [],
+      "githubStats": [],
+      "role": "Design Engineer / Frontend Developer",
+      "stack": "React 19, TypeScript, Next.js conventions via vinext, Tailwind CSS, Three.js, Leaflet, Recharts, Nivo, Auth.js, Neon PostgreSQL, Drizzle ORM",
+      "domain": "Agriculture / Farm Operations / Spatial Interfaces",
+      "scope": [
+        "Frontend architecture and connected agricultural workspaces",
+        "Custom 3D grain storage and spatial interaction design",
+        "Financial charts, Sankey diagrams, and shipping maps",
+        "Field Signal design system and accessible, responsive interfaces"
+      ],
+      "context": [
+        "AgOS is an ongoing product design and frontend engineering project. Its central challenge is making a complex physical business understandable: connecting what happens in the field to stored grain, contractual commitments, and financial outcomes.",
+        "Dedicated workspaces share interface primitives and persistent organization, production-year, and navigation context. A separate demo layer adapts navigation, session presentation, and data requests so visitors can explore without accessing operational records."
+      ],
+      "problemSpace": [
+        "Make the relationship between physical grain storage, inventory records, sales commitments, and finances understandable across workspaces.",
+        "Support dense operational records alongside spatial views, charts, and maps without losing organization or production-year context.",
+        "Keep custom WebGL scenes reliable while providing keyboard interactions and tabular alternatives to visual information."
+      ],
+      "approach": [
+        "Build typed, reusable workspaces with React 19 and TypeScript using Next.js conventions through vinext. Auth.js, Neon PostgreSQL, and Drizzle ORM support authentication, organization-owned records, and membership roles.",
+        "Model round bins, hopper bottoms, bulk storage, rings, and grain bags with custom Three.js geometry. Dimensions, fill levels, grain slopes, and commodity colors connect each rendered object to its underlying record.",
+        "Combine yard navigation, drag-and-drop and keyboard reordering, and contextual detail panels. Manage pixel density, resize observation, texture lifecycles, GPU resource cleanup, and WebGL context recovery.",
+        "Separate typed economic calculations from presentation so Recharts and Nivo charts, Sankey diagrams, and supporting tables describe the same production costs, stored grain value, and sales. Use Leaflet maps for shipping destinations and routes.",
+        "Develop the Field Signal identity into shared color, typography, spacing, control, and navigation rules: serif headings for orientation, compact sans-serif text for daily work, monospace metadata, and amber selection and focus states.",
+        "Preserve context in responsive layouts and support accessibility with descriptive labels, visible focus states, labeled scroll regions, keyboard-operable storage ordering, and tabular chart alternatives."
+      ],
+      "outcomes": [
+        "Work to date demonstrates how typed data models, reusable components, custom graphics, and connected interactions can make agricultural workflows understandable.",
+        "Currently continuing development of the platform, with frontend engineering and product design brought together across physical inventory, operational records, and financial views."
+      ]
+    },
     {
       "id": "neptune-finance",
       "title": "Neptune Finance",
