@@ -1,7 +1,7 @@
 import sharp from 'sharp';
 import fs from 'node:fs';
 
-const src = 'public/logan-biesterfeldt-headshot.png';
+const src = 'public/logan-biesterfeldt-headshot.jpg';
 
 function circleMask(size) {
   const r = size / 2;

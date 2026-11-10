@@ -12,6 +12,7 @@ import { Project } from '../types/projects';
 import NeptuneFinance from '../projects/neptune-finance/page';
 import Dyve from '../projects/dyve/page';
 import Craidle from '../projects/craidle/page';
+import AgOSPage from '../projects/agos/page';
 
 interface CaseStudyRendererProps {
   project: Project;
@@ -56,6 +57,9 @@ export default function CaseStudyRenderer({ project }: CaseStudyRendererProps) {
   // If it's Neptune Finance or Dyve, return the custom page component directly
   if (id === 'neptune-finance') {
     return <NeptuneFinance />;
+  }
+  if (id === 'agos') {
+    return <AgOSPage />;
   }
   if (id === 'dyve') {
     return <Dyve />;
