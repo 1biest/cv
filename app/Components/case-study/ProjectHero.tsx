@@ -30,7 +30,7 @@ export const ProjectHero: React.FC<ProjectHeroProps> = ({
             {title}
           </h1>
           {badge && (
-            <span className="inline-flex items-center rounded-full bg-[color:var(--accent-color)]/10 px-2.5 py-0.5 text-xs font-semibold tracking-wider uppercase text-[color:var(--accent-color)] border border-[color:var(--accent-color)]/20">
+            <span className="inline-flex items-center rounded-full bg-[#0a2540]/[0.07] px-2.5 py-0.5 text-xs font-mono font-semibold tracking-wider uppercase text-[#0a2540] border border-[#0a2540]/20">
               {badge}
             </span>
           )}
@@ -53,8 +53,8 @@ export const ProjectHero: React.FC<ProjectHeroProps> = ({
                 onClick={() => trackEvent('click_case_study_link', { project_title: title, link_label: link.label, link_url: link.url })}
                 className={`inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition ${
                   link.primary
-                    ? 'bg-[var(--text)] text-white hover:bg-[color:var(--accent-color)] hover:text-white'
-                    : 'border border-[var(--border)] bg-[var(--surface)] text-[var(--text)] hover:border-[color:var(--accent-color)]'
+                    ? 'bg-[#0a2540] text-white hover:bg-[var(--accent-hover)] shadow-xs'
+                    : 'border border-[var(--border-strong)] bg-[var(--surface)] glass-surface text-[var(--text)] hover:border-[#0a2540] hover:text-[#0a2540]'
                 }`}
               >
                 {link.label}

@@ -22,10 +22,10 @@ const cormorantDisplay = Cormorant_Garamond({
   display: 'swap',
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://logan-cv.vercel.app';
-const title = 'Logan Biesterfeldt | Design Engineer & Frontend Lead';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://biest.ca';
+const title = 'Logan Biesterfeldt | Frontend, Design & Forward Deployed AI Engineer';
 const description =
-  'Design Engineer and senior frontend engineer based in Calgary. I own product problems end to end, from Figma to production code, with deep technical experience in DeFi, blockchain infrastructure, and React/TypeScript systems. Open to opportunities.';
+  'Frontend Engineer, Product Design Engineer, and Forward Deployed AI Software Engineer based in Calgary. Building high-reliability TypeScript/React interfaces, Figma design systems, 3D/PostgreSQL platforms (AgOS), DeFi lending systems ($300M+ peak TVL at Neptune Finance), and spec-driven agentic AI software.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -35,17 +35,19 @@ export const metadata: Metadata = {
   authors: [{ name: 'Logan Biesterfeldt', url: siteUrl }],
   creator: 'Logan Biesterfeldt',
   keywords: [
-    'Design Engineer',
-    'Frontend Lead',
     'Frontend Engineer',
+    'Product Design Engineer',
+    'Forward Deployed Engineer',
+    'AI Software Engineering',
+    'Design Engineer',
     'React',
     'TypeScript',
     'Next.js',
+    'Three.js',
+    'PostgreSQL',
     'Tailwind CSS',
     'Design Systems',
     'DeFi',
-    'Blockchain',
-    'Web3',
     'Calgary',
     'Logan Biesterfeldt',
   ],
@@ -88,7 +90,7 @@ const personJsonLd = {
   mainEntity: {
     '@type': 'Person',
     name: 'Logan Biesterfeldt',
-    jobTitle: 'Design Engineer & Frontend Lead',
+    jobTitle: 'Frontend Engineer, Product Design Engineer & Forward Deployed AI Engineer',
     description,
     url: siteUrl,
     address: {
@@ -99,22 +101,24 @@ const personJsonLd = {
     },
     email: 'mailto:logan.biesterfeldt@gmail.com',
     sameAs: [
+      'https://biest.ca',
       'https://github.com/1biest',
       'https://www.linkedin.com/in/biest/',
       'https://x.com/1biesterfeldt',
       'https://t.me/Biesterfeldt',
     ],
     knowsAbout: [
-      'Design Engineering',
-      'Frontend Architecture',
-      'Design Systems',
-      'React',
+      'Frontend Engineering',
+      'Product Design & Design Systems',
+      'Forward Deployed Software Engineering',
+      'Agentic AI Systems',
+      'React 19',
       'TypeScript',
       'Next.js',
+      'Three.js',
+      'PostgreSQL',
       'Tailwind CSS',
-      'DeFi',
-      'Blockchain Infrastructure',
-      'Web3',
+      'DeFi & Blockchain Infrastructure',
     ],
   },
 };

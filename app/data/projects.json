@@ -1,92 +1,96 @@
 {
   "technicalSummary": [
-    "I work at the intersection of design and engineering, owning product problems from Figma to production code without handing off between the two.",
-    "My background is DeFi and blockchain infrastructure, which means I bring technical depth to domains most product designers approach from the outside. At Neptune Finance I built the design function from scratch: custom Figma component library, full design system, and every line of production TypeScript and Tailwind, while maintaining the engineering rigour required for live financial systems where on-chain state, wallet behaviour, and transaction reliability are non-negotiable.",
-    "I use AI tools (Cursor, Claude, and agentic workflows) as a core part of how I prototype and ship. I've directed fully agentic engineering flows, maintaining product and design ownership while accelerating implementation significantly."
+    "Product-minded Frontend & Design Engineer with 6+ years building TypeScript web applications, design systems, and customer-facing interfaces end to end—from embedded user discovery and Figma component libraries to production React code.",
+    "At Cryptech / Neptune Finance, built and scaled frontend systems for a DeFi lending protocol reaching $300M+ peak TVL alongside cross-chain governance tooling. Earlier field operations experience at Flat Land Farms directly informs AgOS, an agricultural operating system built with React 19, Three.js, Neon PostgreSQL, and Drizzle ORM.",
+    "Across AI-native builds like CrAIdle and Satsuma, pair spec-driven agentic engineering (Claude, Cursor, OpenClaw, MiniMax) with strict contract invariants, TypeScript/compiler gates, and human-in-the-loop verification to ship complex full-stack products quickly without sacrificing reliability."
   ],
   "coreCompetencies": [
     {
-      "category": "Frontend Systems",
-      "items": ["React", "TypeScript", "Next.js", "Tailwind CSS", "Component architecture"]
-    },
-    {
-      "category": "AI-Assisted Development",
+      "category": "Frontend Engineering",
       "items": [
-        "Cursor",
-        "Claude",
-        "Agentic engineering flows",
-        "Figma AI",
-        "Local model experimentation"
-      ],
-      "description": "AI tools are a core part of how I prototype and ship, from directing agentic implementation flows to integrating AI into design iteration and code review."
-    },
-    {
-      "category": "On-Chain Integration",
-      "items": [
-        "CosmWasm contracts",
-        "Injective SDK",
-        "Wallet interactions",
-        "Transaction flows",
-        "Contract interface alignment"
-      ]
-    },
-    {
-      "category": "Data and Performance",
-      "items": [
+        "React 19",
+        "TypeScript",
+        "Next.js",
+        "Tailwind CSS",
         "State synchronization",
-        "RPC/indexer aggregation",
-        "Caching",
-        "Render optimization",
-        "Reliability patterns"
-      ]
+        "Three.js / WebGL"
+      ],
+      "description": "High-reliability application architecture, accessible interaction design, deterministic transaction lifecycles, and performance optimization."
     },
     {
-      "category": "Delivery",
+      "category": "Product Design & Systems",
       "items": [
+        "Figma design systems",
+        "Design tokens & primitives",
+        "End-to-end prototyping",
+        "Field UX discovery",
+        "Figma-to-code parity"
+      ],
+      "description": "Zero-to-one product design anchored in operational reality—translating messy multi-step workflows into legible visual hierarchy and reusable component systems."
+    },
+    {
+      "category": "AI & Agentic Systems",
+      "items": [
+        "Claude & Cursor",
+        "OpenClaw orchestration",
+        "Spec-driven verification",
+        "Contract invariant gates",
+        "Structured tool workflows"
+      ],
+      "description": "Directing multi-agent implementation pipelines paired with strict schema boundaries, automated build/type checks, and human-in-the-loop UX review."
+    },
+    {
+      "category": "Forward Deployed & Full-Stack",
+      "items": [
+        "PostgreSQL & Drizzle ORM",
+        "Auth.js",
+        "CosmWasm & EVM / RPC",
         "Technical scoping",
-        "Cross-functional execution",
-        "Design system implementation",
-        "Production deployment"
-      ]
+        "Cross-functional delivery"
+      ],
+      "description": "Embedding with real operators to map constraints, shape schemas and APIs, and ship production tools directly against customer workflows."
     }
   ],
   "systemsBuilt": [
     {
       "name": "AgOS — Agricultural Operating System",
       "domain": "Connected crop planning, inventory, logistics, and farm finances",
-      "integrations": ["React 19", "TypeScript", "Three.js", "Leaflet", "PostgreSQL"],
+      "integrations": ["React 19", "TypeScript", "Three.js", "Leaflet", "PostgreSQL", "Drizzle ORM"],
       "constraints": [
-        "Connecting physical inventory to operational and financial records",
-        "Persistent organization and production-year context",
-        "Accessible spatial interfaces and reliable WebGL rendering"
+        "Translating on-the-ground farm constraints (Flat Land Farms) into unified data schemas",
+        "Persistent organization and production-year context across spatial and financial views",
+        "Accessible WebGL scenes paired with keyboard controls and tabular alternatives"
       ],
-      "outcome": "Currently developing a farm management platform with custom 3D grain storage, financial visualizations, and a shared design system connecting field activity to business decisions.",
+      "outcome": "Developing an end-to-end farm operating system connecting custom 3D grain storage, financial Sankey analytics, shipping routes, and Field Signal design system primitives.",
       "projectId": "agos",
-      "badge": "In development"
+      "badge": "In development",
+      "tracks": ["frontend", "design", "ai"]
     },
     {
       "name": "Neptune Finance Web Application",
-      "domain": "DeFi lending, staking, and liquidity on Injective",
+      "domain": "DeFi lending, staking, and liquidity on Injective ($300M+ Peak TVL)",
       "integrations": ["CosmWasm", "Mito", "Astroport", "Wallet providers"],
       "constraints": [
-        "On-chain to UI state synchronization",
-        "Transaction reliability",
-        "Latency-sensitive market data"
+        "On-chain to UI state synchronization during pending transactions",
+        "Deterministic error recovery and confirmation boundaries",
+        "Latency-sensitive market data and collateral health feedback"
       ],
-      "outcome": "Delivered a production frontend for lending, staking, airdrop, and liquidity workflows with contract-aware UX and reusable system primitives.",
-      "projectId": "neptune-finance"
+      "outcome": "Built the custom Figma design system and production Next.js/TypeScript frontend across lending, staking, airdrop, and liquidity workflows, including self-directed features such as the multi-page Balance Menu.",
+      "projectId": "neptune-finance",
+      "tracks": ["frontend", "design", "defi"]
     },
     {
       "name": "CW3 Multisig Frontend Port",
       "domain": "Governance tooling for Injective ecosystem",
       "integrations": ["CW3 multisig contracts", "Injective SDK", "Cosmos ecosystem OSS"],
       "constraints": [
-        "Chain-specific transaction compatibility",
-        "Message decode/debug requirements",
-        "Operational reliability"
+        "Chain-specific Keplr / Ledger signature compatibility",
+        "Message decode and proposal execution diagnostics",
+        "Operational reliability for multi-sig treasuries"
       ],
-      "outcome": "Ported and refactored multisig frontend infrastructure to support Injective transaction paths and improved execution diagnostics.",
-      "projectId": "open-source-contributions"
+      "outcome": "Ported and refactored multisig frontend infrastructure to support Injective transaction paths and clearer execution diagnostics.",
+      "projectId": "open-source-contributions",
+      "tracks": ["frontend", "infra"]
     },
     {
       "name": "Dyve NFT Lending & Shorting Platform",
@@ -94,25 +98,27 @@
       "integrations": ["ERC-721", "Covalent", "NFTPort", "IPFS", "Polygon", "Solidity"],
       "constraints": [
         "Collateral custody and liquidation boundaries",
-        "Trait-specific metadata matching using IPFS hash analysis",
-        "Trustless peer-to-peer contract execution"
+        "Trait-specific metadata matching via IPFS hash analysis",
+        "Trustless peer-to-peer escrow UX"
       ],
-      "outcome": "Designed and built the full React/Next.js frontend interface for trustless NFT borrowing, shorting, and yield-generation workflows.",
+      "outcome": "Designed and built the React/Next.js frontend for trustless NFT borrowing, shorting, and yield workflows—winning Polygon Top 5, Covalent Best Use, and NFTPort Pool Prize at ETHGlobal HackFS.",
       "projectId": "dyve",
-      "badge": "Hackathon"
+      "badge": "Hackathon",
+      "tracks": ["frontend", "design", "defi"]
     },
     {
       "name": "Satsuma Cross-Chain Yield Routing",
       "domain": "Yield-to-Bitcoin conversion workflow",
       "integrations": ["Injective contracts", "Astroport", "Axelar GMP", "ICP canister"],
       "constraints": [
-        "Cross-chain state handoff",
-        "Yield accounting correctness",
-        "Execution sequencing"
+        "Cross-chain state handoff visualization",
+        "Yield accounting verification across 4 networks",
+        "Spec-driven agentic UI iteration under 48h constraints"
       ],
-      "outcome": "Designed and built the full frontend workflow for a cross-chain yield-to-Bitcoin conversion pipeline spanning Injective, Astroport, Axelar, and ICP. Shipped at a hackathon operating in a fully agentic engineering flow, directing implementation through chat while maintaining product and design ownership throughout.",
+      "outcome": "Designed and shipped a multi-chain yield-to-Bitcoin conversion interface spanning Injective, Astroport, Axelar, and ICP using spec-driven agentic coding with human-in-the-loop architecture and wallet testing.",
       "projectId": "satsuma",
-      "badge": "Hackathon"
+      "badge": "Hackathon",
+      "tracks": ["frontend", "ai", "defi"]
     },
     {
       "name": "CrAIdle Yield-Budgeted Treasury & Launchpad",
@@ -126,13 +132,14 @@
         "Lido stETH"
       ],
       "constraints": [
-        "Principal locked during incubation",
-        "Yield compute budget routing",
-        "Orchestrated entirely via AI agents (OpenClaw + MiniMax)"
+        "Principal-locked incubator vault invariant protecting investor capital",
+        "Yield-only compute budget routing via stETH",
+        "Spec-driven OpenClaw/MiniMax orchestration with on-chain deployment verification"
       ],
-      "outcome": "Designed and deployed a yield-budgeted agent incubator treasury and launchpad on Base Sepolia. Shipped entirely via orchestrated AI agents.",
+      "outcome": "Architected and deployed 4 Solidity contracts plus a live Base Sepolia Next.js dashboard via orchestrated OpenClaw/MiniMax agents constrained by strict financial specs and manual integration testing.",
       "projectId": "craidle",
-      "badge": "Hackathon"
+      "badge": "Hackathon",
+      "tracks": ["ai", "frontend", "defi"]
     },
     {
       "name": "Monad Blockchain Heartbeat",
@@ -141,34 +148,37 @@
       "constraints": [
         "Real-time state transitions (Mempool to Finality)",
         "Mouse-responsive 3D perspective animations",
-        "High-frequency WebSocket data throughput"
+        "High-frequency WebSocket throughput with HTTP polling fallback"
       ],
       "outcome": "Designed and built an interactive 3D node and transaction visualizer showing block progression through speculative, execution, consensus, and finalization stages.",
       "projectId": "monad-heartbeat",
-      "badge": "Demo"
+      "badge": "Demo",
+      "tracks": ["frontend", "design", "infra"]
     },
     {
       "name": "ether.fi Cash Demo Interface",
       "domain": "DeFi-native credit card dashboard and collateral manager",
-      "integrations": ["ether.fi Liquid Vaults", "Tailwind CSS"],
+      "integrations": ["ether.fi Liquid Vaults", "Radix UI", "TanStack Query", "Tailwind CSS"],
       "constraints": [
-        "Interactive Neobank UI simulations",
-        "Premium dark-themed visual consistency"
+        "Collateralized spending power simulation without UI jank",
+        "High-contrast dark-mode financial hierarchy"
       ],
-      "outcome": "Developed a high-fidelity interactive dashboard demo for ether.fi Cash.",
+      "outcome": "Developed an interactive neobank card dashboard demo modeling weETH collateral calculators, spending controls, and simulated card feeds.",
       "projectId": "etherfi-demo",
-      "badge": "Demo"
+      "badge": "Demo",
+      "tracks": ["frontend", "design", "defi"]
     },
     {
-      "name": "Cryptech Website",
-      "domain": "Developer platform dashboard and company landing pages",
+      "name": "Cryptech Platform & Component System",
+      "domain": "Developer tooling, airdrop calculators, and DEX product UI",
       "integrations": ["React", "Next.js", "Tailwind CSS", "TypeScript"],
       "constraints": [
-        "Component uniformity between marketing pages and dynamic dashboard",
-        "Responsive alignment and design token consistency"
+        "Component parity across corporate platform, airdrop tools, and Macro DEX",
+        "Design token standardization and responsive states"
       ],
-      "outcome": "Delivered corporate landing pages and developer platform dashboard with a unified CSS component system and design tokens.",
-      "projectId": "cryptech"
+      "outcome": "Delivered Cryptech web properties, interactive Cosmos airdrop calculators, style guides, and Macro DEX concepts backed by a unified component system.",
+      "projectId": "cryptech",
+      "tracks": ["frontend", "design", "infra"]
     }
   ],
   "projects": [
@@ -188,7 +198,13 @@
           "description": "An agricultural operating platform currently in development, connecting farm operations, inventory, and finances."
         }
       ],
-      "images": [],
+      "images": [
+        {
+          "src": "/diagrams/agos-architecture.svg",
+          "alt": "AgOS Domain & Architecture Diagram",
+          "type": "image"
+        }
+      ],
       "githubStats": [],
       "role": "Design Engineer / Frontend Developer",
       "stack": "React 19, TypeScript, Next.js conventions via vinext, Tailwind CSS, Three.js, Leaflet, Recharts, Nivo, Auth.js, Neon PostgreSQL, Drizzle ORM",
@@ -200,9 +216,10 @@
         "Field Signal design system and accessible, responsive interfaces"
       ],
       "context": [
-        "AgOS is an ongoing product design and frontend engineering project. Its central challenge is making a complex physical business understandable: connecting what happens in the field to stored grain, contractual commitments, and financial outcomes.",
+        "AgOS grew directly out of two years of hands-on commercial farm operations at Flat Land Farms (John Deere Operations Center, Climate FieldView, Greenstar hardware), translating real grower bottlenecks into connected software.",
         "Dedicated workspaces share interface primitives and persistent organization, production-year, and navigation context. A separate demo layer adapts navigation, session presentation, and data requests so visitors can explore without accessing operational records."
       ],
+      "tracks": ["frontend", "design", "ai"],
       "problemSpace": [
         "Make the relationship between physical grain storage, inventory records, sales commitments, and finances understandable across workspaces.",
         "Support dense operational records alongside spatial views, charts, and maps without losing organization or production-year context.",
@@ -245,51 +262,67 @@
       "ctas": ["https://nept.finance"],
       "images": [
         {
-          "src": "/screenshots/neptune-landing-home.png",
+          "src": "/screenshots/neptune-balance-menu.webp",
+          "alt": "Neptune Finance Multi-Page Balance Menu",
+          "type": "image"
+        },
+        {
+          "src": "/screenshots/neptune-lending-screenshot.webp",
+          "alt": "Neptune Lending Markets",
+          "type": "image"
+        },
+        {
+          "src": "/screenshots/neptune-borrow-screenshot.webp",
+          "alt": "Neptune Borrow & Collateral Controls",
+          "type": "image"
+        },
+        {
+          "src": "/screenshots/neptune-landing-home.webp",
           "alt": "Neptune Landing Home",
           "type": "image"
         },
         {
-          "src": "/screenshots/neptune-landing-rates.png",
+          "src": "/screenshots/neptune-landing-rates.webp",
           "alt": "Neptune Landing Rates",
           "type": "image"
         },
         {
-          "src": "/screenshots/neptune-investment-doc.png",
+          "src": "/screenshots/neptune-investment-doc.webp",
           "alt": "Neptune Investment Document",
           "type": "image"
         },
         {
-          "src": "/screenshots/neptune-overview-page.png",
+          "src": "/screenshots/neptune-overview-page.webp",
           "alt": "Neptune Overview Page",
           "type": "image"
         },
         {
-          "src": "/screenshots/neptune-asset-detail-page.png",
+          "src": "/screenshots/neptune-asset-detail-page.webp",
           "alt": "Neptune Asset Detail Page",
           "type": "image"
         },
         {
-          "src": "/screenshots/neptune-lending-figma.png",
+          "src": "/screenshots/neptune-lending-figma.webp",
           "alt": "Neptune Lending Figma Mockup",
           "type": "image"
         },
         {
-          "src": "/screenshots/neptune-pool-page.png",
+          "src": "/screenshots/neptune-pool-page.webp",
           "alt": "Neptune Pool Page",
           "type": "image"
         },
         {
-          "src": "/screenshots/neptune-token-social-posts.png",
+          "src": "/screenshots/neptune-token-social-posts.webp",
           "alt": "Neptune Token Social Posts",
           "type": "image"
         },
         {
-          "src": "/screenshots/neptune-component-promo.png",
+          "src": "/screenshots/neptune-component-promo.webp",
           "alt": "Neptune Component Promo",
           "type": "image"
         }
       ],
+      "tracks": ["frontend", "design", "defi"],
       "githubStats": ["/neptune-webapp-commit-log.csv", "/neptune-landing-commit-log.csv"],
       "role": "Design Engineer / Frontend Lead",
       "stack": "Next.js, TypeScript, Tailwind, CosmWasm",
@@ -331,14 +364,20 @@
       "title": "stakefish / f2pool",
       "section": "employment",
       "group": "protocol-ecosystem",
+      "roleDescriptor": "Technical Content Creator · October 2020 – August 2022",
       "content": "Produced technical protocol education assets for <strong>stakefish</strong> and <strong>f2pool</strong>, translating validator and staking operations into repeatable user workflows across Ethereum, Cosmos, and Solana.",
       "content2": "Work prioritized procedural correctness and chain-specific detail so onboarding content matched real wallet and network steps used by operators and delegators.",
-      "content3": "Contributed protocol communication support during infrastructure and consensus transitions, including Ethereum&apos;s move to Proof-of-Stake.",
+      "content3": "Contributed protocol communication support during infrastructure and consensus transitions, including Ethereum's move to Proof-of-Stake.",
       "highlights": [
         "Protocol education",
         "Validator workflows",
         "Staking operations",
         "Cross-chain documentation"
+      ],
+      "achievements": [
+        "Translated complex PoS validator setups and wallet signing steps (Keplr, Ledger Nano X) into verified step-by-step media across Ethereum, Cosmos, Osmosis, Evmos, and Solana.",
+        "Produced official explainer series and bi-weekly ecosystem briefings covering Ethereum's Beacon Chain launch and Proof-of-Stake transition.",
+        "Audited tutorial workflows directly against testnets and mainnet RPC state so delegator instructions remained free of wallet-UX regressions."
       ],
       "ctas": ["https://www.stake.fish", "https://www.f2pool.com"],
       "images": [
@@ -421,7 +460,14 @@
         "Transaction pipeline"
       ],
       "ctas": ["https://multisig.nept.finance/"],
-      "images": [],
+      "images": [
+        {
+          "src": "/screenshots/cw3-multisig-screenshot.webp",
+          "alt": "CW3 Multisig on Injective Governance Interface",
+          "type": "image"
+        }
+      ],
+      "tracks": ["frontend", "infra"],
       "githubStats": ["/cw3-multisig-commit-log.csv", "/neptune-foundation-commit-log.csv"],
       "role": "Contributor / Design Engineer",
       "stack": "TypeScript, React, Keplr, Injective SDK, Caching",
@@ -469,31 +515,27 @@
       "ctas": ["https://cryptech.dev/"],
       "images": [
         {
-          "src": "/screenshots/cryptech-dashboard.png",
-          "alt": "Cryptech Dashboard",
+          "src": "/screenshots/cryptech-airdrop-calculator.webp",
+          "alt": "Cryptech Cosmos Airdrop Calculator",
           "type": "image"
         },
         {
-          "src": "/screenshots/cryptech-homepage.png",
-          "alt": "Cryptech Homepage",
+          "src": "/screenshots/cryptech-style-guides.webp",
+          "alt": "Cryptech Style Guides & Design Tokens",
           "type": "image"
         },
         {
-          "src": "/screenshots/cryptech-style-guides.png",
-          "alt": "Cryptech Style Guides",
+          "src": "/screenshots/macro-dex-screenshot.webp",
+          "alt": "Macro DEX Exchange Interface",
           "type": "image"
         },
         {
-          "src": "/screenshots/macro-dex-screenshot.png",
-          "alt": "Macro DEX",
-          "type": "image"
-        },
-        {
-          "src": "/screenshots/macro-dex-branding-concepts.png",
-          "alt": "Macro DEX Concepts",
+          "src": "/screenshots/macro-dex-branding-concepts.webp",
+          "alt": "Macro DEX Branding Concepts",
           "type": "image"
         }
       ],
+      "tracks": ["frontend", "design", "infra"],
       "githubStats": ["/macro-web-commit-log.csv", "/cryptech-website-commit-log.csv"],
       "role": "Frontend / Component Lead",
       "stack": "React, Next.js, Tailwind CSS, TypeScript",
@@ -524,23 +566,27 @@
       "title": "Cryptech Developments Ltd.",
       "section": "employment",
       "group": "professional-experience",
-      "roleDescriptor": "Frontend Engineer · August 2022 – May 2026",
-      "content": "Frontend engineer at <a href=\"https://cryptech.dev\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cryptech Developments Ltd.</strong></a>, developing Web3 DeFi applications with React, Next.js, and Tailwind. Own UI/UX, design, branding, and TypeScript engineering across protocol and company product surfaces.",
-      "content2": "Primary frontend lead for Neptune Finance and related Injective ecosystem tooling, including multisig governance interfaces and company platform systems.",
+      "roleDescriptor": "Frontend Lead / Design Engineer · August 2022 – May 2026",
+      "content": "Frontend Lead and Design Engineer at <a href=\"https://cryptech.dev\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cryptech Developments Ltd.</strong></a>, building production Web3 DeFi applications with React, Next.js, TypeScript, and Tailwind CSS. Owned UI/UX design systems, branding, and contract-facing frontend engineering across Neptune Finance and Cryptech properties.",
+      "content2": "Primary frontend owner for Neptune Finance ($300M+ peak TVL on Injective) alongside Injective governance tooling (CW3 multisig), interactive Cosmos airdrop calculators, and Macro DEX concepts.",
       "highlights": [
         "React",
         "Next.js",
         "TypeScript",
         "Tailwind CSS",
-        "DeFi",
-        "UI/UX",
-        "Design systems"
+        "Figma Design Systems",
+        "CosmWasm / Injective"
+      ],
+      "achievements": [
+        "Architected and shipped the production React/Next.js frontend and Figma design system for Neptune Finance, supporting lending, borrowing, staking, Mito vaults, and Astroport LP workflows at $300M+ peak TVL.",
+        "Engineered deterministic wallet signing, optimistic/pending transaction states, and RPC/indexer state synchronization across Keplr, Leap, MetaMask, and Ledger hardware flows.",
+        "Conceived and shipped unbriefed high-impact features from discovery to production—including the persistent multi-page Balance Menu—while porting CW3 multisig governance UI to Injective."
       ],
       "ctas": ["https://cryptech.dev/"],
       "images": [],
       "githubStats": [],
-      "role": "Frontend Engineer",
-      "stack": "React, Next.js, TypeScript, Tailwind CSS",
+      "role": "Frontend Lead / Design Engineer",
+      "stack": "React, Next.js, TypeScript, Tailwind CSS, CosmWasm, Injective SDK",
       "domain": "Web3 / DeFi Engineering",
       "scope": [
         "Frontend engineering for DeFi protocol and company product surfaces",
@@ -559,7 +605,7 @@
         "Build reusable frontend primitives for wallet, contract, and dashboard integrations"
       ],
       "outcomes": [
-        "Shipped production DeFi interfaces used by live protocol users",
+        "Shipped production DeFi interfaces used by live protocol users at $300M+ peak TVL",
         "Established reusable frontend patterns across Neptune and Cryptech platform properties"
       ]
     },
@@ -568,9 +614,9 @@
       "title": "Artrageous Advertising",
       "section": "employment",
       "group": "professional-experience",
-      "roleDescriptor": "Web Design / Video Production · December 2019 – October 2020",
-      "content": "Designed and managed a library of WordPress commercial websites for local commerce and nonprofit clients at <strong>Artrageous Advertising</strong>.",
-      "content2": "Produced campaign analytics reports in Google Data Studio to evaluate social media performance and web traffic for client marketing programs.",
+      "roleDescriptor": "Web Design & Development · December 2019 – October 2020",
+      "content": "Designed, built, and managed a library of 80+ WordPress commercial websites for regional commerce and nonprofit clients at <strong>Artrageous Advertising</strong>.",
+      "content2": "Built automated campaign analytics reports in Google Data Studio evaluating social media attribution and web traffic for client marketing programs.",
       "highlights": [
         "WordPress",
         "Web design",
@@ -578,10 +624,14 @@
         "Google Data Studio",
         "Client delivery"
       ],
+      "achievements": [
+        "Managed, customized, and shipped updates across a multi-client portfolio of 80+ commercial and nonprofit WordPress websites.",
+        "Built recurring Google Data Studio attribution and traffic reporting dashboards for client retention and campaign optimization."
+      ],
       "ctas": [],
       "images": [],
       "githubStats": [],
-      "role": "Web Design / Video Production",
+      "role": "Web Design & Development",
       "stack": "WordPress, Google Data Studio, Adobe Creative Suite",
       "domain": "Commercial Web & Marketing",
       "scope": [
@@ -601,8 +651,49 @@
         "Automate reporting pipelines with Google Data Studio dashboards"
       ],
       "outcomes": [
-        "Maintained and expanded a large multi-client website library",
+        "Maintained and expanded a large multi-client website library (80+ sites)",
         "Delivered recurring analytics reports for social and web campaign optimization"
+      ]
+    },
+    {
+      "id": "flat-land-farms",
+      "title": "Flat Land Farms Inc.",
+      "section": "employment",
+      "group": "professional-experience",
+      "roleDescriptor": "Precision Ag & Heavy Equipment Operator · September 2017 – October 2019",
+      "content": "Operated high-capital precision agriculture equipment and telematics workflows at <strong>Flat Land Farms Inc.</strong> using <strong>John Deere Operations Center</strong>, <strong>Climate FieldView</strong>, and <strong>Greenstar Command Console</strong> systems.",
+      "content2": "Direct exposure to fragmented grain inventory tracking, field-to-bin reconciliation, contract commitments, and yield software bottlenecks became the field discovery foundation for <strong>AgOS</strong>.",
+      "highlights": [
+        "Precision Ag Telemetry",
+        "John Deere Ops Center",
+        "Climate FieldView",
+        "Domain Field Discovery"
+      ],
+      "achievements": [
+        "Operated GPS-guided seeding, spraying, and harvest telemetry pipelines across commercial acreage using John Deere Operations Center and Climate FieldView.",
+        "Mapped daily operational pain points between field telemetry, physical grain storage, contract delivery schedules, and farm accounting—directly motivating AgOS."
+      ],
+      "ctas": ["https://ag-os.pro/"],
+      "images": [],
+      "githubStats": [],
+      "role": "Precision Ag & Heavy Equipment Operator",
+      "stack": "John Deere Operations Center, Climate FieldView, Greenstar Command Console",
+      "domain": "Precision Agriculture / Embedded Domain Discovery",
+      "scope": [
+        "Operated precision telemetry and autonomous guidance systems across planting and harvest",
+        "Audited real-world farm inventory, storage, and contracting workflows"
+      ],
+      "context": [
+        "Before designing AgOS, spent two years inside day-to-day commercial farm operations seeing firsthand where disconnected spreadsheets and OEM consoles broke down."
+      ],
+      "problemSpace": [
+        "Field telemetry lived in OEM portals while grain bin inventory, logistics, and accounting lived in disconnected notebooks and spreadsheets"
+      ],
+      "approach": [
+        "Documented physical storage geometry, blend workflows, and year-over-year crop planning constraints directly from operator reality"
+      ],
+      "outcomes": [
+        "Translated two years of embedded domain knowledge directly into AgOS's relational PostgreSQL schema, 3D storage visualizer, and financial workflows"
       ]
     },
     {
@@ -610,16 +701,20 @@
       "title": "Davis Automotive Group",
       "section": "employment",
       "group": "professional-experience",
-      "roleDescriptor": "Web Design / Motion Design · April 2013 – August 2017",
-      "content": "Produced web design, video production, and graphic design for automotive retail marketing campaigns at <strong>Davis Automotive Group</strong>.",
-      "content2": "Managed DealerTV digital signage across 30+ displays at 8 dealership locations and implemented operational tooling with AppSheet and Google Sheets.",
+      "roleDescriptor": "Web, Motion & Digital Systems · April 2013 – August 2017",
+      "content": "Produced web design, video production, and internal operational tools for automotive retail across 8 dealership locations at <strong>Davis Automotive Group</strong>.",
+      "content2": "Managed DealerTV digital signage across 30+ displays across 8 locations and built internal operational workflows with AppSheet and Google Sheets.",
       "content3": "Delivered branding and campaign creative for new and used vehicle sales and fixed-operations marketing.",
       "highlights": [
         "Web design",
-        "Motion design",
+        "AppSheet",
+        "Google Sheets",
         "Digital signage",
-        "Branding",
-        "AppSheet"
+        "Motion design"
+      ],
+      "achievements": [
+        "Built and operated remote DealerTV digital signage infrastructure spanning 30+ displays across 8 dealership locations.",
+        "Implemented custom internal dealer rewards and campaign tracking tooling using AppSheet and Google Sheets alongside dealership websites and motion assets."
       ],
       "ctas": [],
       "images": [],
@@ -757,11 +852,11 @@
       "title": "Satsuma",
       "section": "study",
       "badge": "Hackathon",
-      "roleDescriptor": "Design Engineer / Frontend Lead. Cross-chain yield-to-Bitcoin conversion routing built at Cosmoverse Hackathon",
+      "roleDescriptor": "Design Engineer / Frontend Lead · Cross-chain yield-to-Bitcoin routing (Cosmoverse Hackathon)",
       "group": "projects",
       "content": "Design engineer and frontend lead for <a href=\"https://github.com/All-About-Blockchain/satsuma\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Satsuma</strong></a>, a cross-chain yield routing and yield-to-Bitcoin conversion platform built during the <strong>Cosmoverse Hackathon</strong>.",
-      "content2": "Satsuma orchestrates a multi-network yield optimization pipeline: routing USDC deposits on Injective, executing yield skimming and automated token swaps via Astroport pools, coordinating cross-chain messaging using Axelar GMP, and executing Bitcoin purchases via canisters on the Internet Computer Protocol (ICP).",
-      "content3": "Designed and implemented a real-time cross-chain transition tracker visualizing exact deposit, bridge, and swap states, and integrated multiple wallet protocols (Keplr, OIS, Metamask, ICP Internet Identity) into a single client interface. Shipped operating in a fully agentic engineering flow, directing implementation through chat while maintaining complete product and design ownership.",
+      "content2": "Satsuma orchestrates a multi-network yield pipeline: routing USDC deposits on Injective, executing yield skimming and automated swaps via Astroport pools, coordinating cross-chain messaging using Axelar GMP, and executing Bitcoin purchases via canisters on the Internet Computer Protocol (ICP).",
+      "content3": "Designed and implemented a real-time cross-chain transition tracker visualizing exact deposit, bridge, and swap states, and unified multiple wallet adapters (Keplr, Metamask, ICP Internet Identity) into a single client interface. Delivered in 48 hours via spec-driven agentic workflows with human-in-the-loop architecture, UX review, and wallet integration testing.",
       "highlights": [
         "React",
         "TypeScript",
@@ -771,37 +866,44 @@
         "ICP Canisters",
         "Cross-chain flows",
         "Multi-wallet connection",
-        "Agentic workflows"
+        "Spec-driven AI"
       ],
       "ctas": ["https://github.com/All-About-Blockchain/satsuma"],
-      "images": [],
+      "images": [
+        {
+          "src": "/diagrams/satsuma-architecture.svg",
+          "alt": "Satsuma Cross-Chain Yield Routing Architecture Diagram",
+          "type": "image"
+        }
+      ],
+      "tracks": ["frontend", "ai", "defi"],
       "githubStats": ["/satsuma-commit-log.csv"],
       "role": "Design Engineer / Frontend Lead",
       "stack": "React, TypeScript, Astroport, Axelar GMP, Injective, ICP",
       "domain": "Cross-chain DeFi / Yield Routing / Interoperability",
       "scope": [
-        "Designed the multi-chain dashboard and transaction tracker in Figma",
-        "Implemented the Injective contract interactions and wallet state sync (Keplr)",
-        "Developed Axelar General Message Passing (GMP) transaction monitoring",
-        "Integrated ICP canister queries for yield-to-Bitcoin routing calculations",
-        "Coordinated 100% of frontend development using agentic AI chat workflows"
+        "Designed the multi-chain dashboard and state transition tracker in Figma",
+        "Architected Injective contract interactions and wallet state sync (Keplr)",
+        "Engineered Axelar General Message Passing (GMP) transaction state monitoring",
+        "Integrated ICP canister queries for yield-to-Bitcoin routing estimates",
+        "Paired spec-driven agentic implementation with manual multi-wallet integration verification"
       ],
       "context": [
         "Satsuma was created at the Cosmoverse Hackathon to address the complexity of routing yield across disparate ecosystems (Cosmos/Injective, Axelar, and ICP).",
-        "The frontend coordinates multiple asynchronous state transitions across chains to ensure transactions don't get stuck without visual feedback."
+        "The frontend coordinates multiple asynchronous state transitions across chains so transactions never stall without clear recovery feedback."
       ],
       "problemSpace": [
-        "High friction and lack of visibility in multi-chain transactions, leading to user anxiety during cross-chain asset routing",
-        "Complexity of aggregating data from Injective indexers, Astroport pools, and ICP canisters concurrently",
-        "Managing state and transaction signatures across Cosmos (Keplr) and ICP (Internet Identity) wallets simultaneously"
+        "High friction and lack of visibility in multi-chain transactions during cross-chain asset routing",
+        "Complexity of aggregating asynchronous state from Injective indexers, Astroport pools, Axelar relays, and ICP canisters concurrently",
+        "Managing wallet signing and network context across Cosmos (Keplr) and ICP (Internet Identity) simultaneously"
       ],
       "approach": [
-        "Model cross-chain transition stages as an animated, step-by-step progress tracker that updates reactively as contract messages are broadcast",
-        "Abstract multi-chain wallet status into a unified provider that updates the interface based on active chain context"
+        "Define cross-chain transition stages upfront as an explicit state machine before generating UI views",
+        "Abstract multi-chain wallet status into a unified context provider that adapts actions based on active chain state"
       ],
       "outcomes": [
-        "Successfully delivered the working cross-chain yield routing prototype during the 48-hour Cosmoverse Hackathon",
-        "Proven feasibility of directing complex cross-chain frontend integrations through agentic engineering flows while maintaining product quality"
+        "Delivered a working 4-network cross-chain yield routing prototype within the 48-hour Cosmoverse Hackathon window",
+        "Demonstrated how strict state specs and human-in-the-loop verification keep rapid agentic delivery reliable under live wallet constraints"
       ]
     },
     {
@@ -869,7 +971,14 @@
         "IPFS"
       ],
       "ctas": ["https://github.com/danielssonn/dyve", "https://ethglobal.com/showcase/dyve-pxsz9"],
-      "images": [],
+      "images": [
+        {
+          "src": "/screenshots/dyve-screenshot.webp",
+          "alt": "Dyve NFT Lending & Shorting Marketplace UI",
+          "type": "image"
+        }
+      ],
+      "tracks": ["frontend", "design", "defi"],
       "githubStats": ["/dyve-commit-log.csv"],
       "role": "Frontend Developer",
       "stack": "Next.js, TypeScript, Tailwind CSS, Ethers.js, Solidity",
@@ -905,11 +1014,11 @@
       "title": "CrAIdle",
       "section": "study",
       "badge": "Hackathon",
-      "roleDescriptor": "Design Engineer / Agent Orchestrator. Directed autonomous agentic engineering flow",
+      "roleDescriptor": "AI Systems & Design Engineer · Agentic pipeline orchestration & yield treasury",
       "group": "projects",
-      "content": "Lead engineer and agent orchestrator for <a href=\"https://github.com/1biest/craidle\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>CrAIdle</strong></a>, a self-sustaining AI agent token launchpad and incubation treasury primitive developed for the <strong>Synthesis Hackathon</strong>. Enabled hatched AI agents to launch their own ERC-20 tokens on Base, with automated revenue streams flowing from trading fees directly back to their budgets.",
-      "content2": "Designed and deployed a yield-budgeted treasury model: user principal is deposited into a locked incubator vault, remaining protected and non-spendable, while generated yield (via Lido stETH) is dynamically routed to agent compute wallets. This separation of capital protects investor principal while sustaining long agent incubation cycles.",
-      "content3": "Directed a novel development pipeline, producing the entire Solidity contract suite and reactive Next.js/Tailwind gameboard-style interface entirely through autonomous orchestrated AI agents using the <strong>OpenClaw</strong> agent framework and <strong>MiniMax</strong> model platform. Deployed live on Base Sepolia with active wallet integrations.",
+      "content": "Lead architect and agent orchestrator for <a href=\"https://github.com/1biest/craidle\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>CrAIdle</strong></a>, a self-sustaining AI agent token launchpad and incubation treasury primitive built for the <strong>Synthesis Hackathon</strong>. Enables graduating AI agents to launch ERC-20 tokens on Base with automated fee routing back into operating budgets.",
+      "content2": "Engineered a principal-protected yield treasury invariant: user deposits remain locked inside the Incubator Vault while Lido stETH yield dynamically funds agent compute wallets—isolating principal risk from variable inference spend.",
+      "content3": "Built via a spec-driven agentic engineering pipeline powered by <strong>OpenClaw</strong> and <strong>MiniMax</strong>: authored contract specs, state invariants, and UI constraints upfront, then orchestrated agent codegen paired with Solidity compiler checks, test runs, and Base Sepolia testnet verification.",
       "highlights": [
         "Next.js",
         "TypeScript",
@@ -920,38 +1029,45 @@
         "Base Sepolia",
         "Ethers.js",
         "Lido stETH",
-        "Agentic workflows"
+        "Spec-driven agents"
       ],
       "ctas": ["https://github.com/1biest/craidle"],
-      "images": [],
+      "images": [
+        {
+          "src": "/diagrams/craidle-architecture.svg",
+          "alt": "CrAIdle Yield-Budgeted Treasury & OpenClaw Architecture",
+          "type": "image"
+        }
+      ],
+      "tracks": ["ai", "frontend", "defi"],
       "githubStats": ["/craidle-commit-log.csv"],
-      "role": "Design Engineer / Agent Orchestrator",
+      "role": "AI Systems & Design Engineer",
       "stack": "Next.js, TypeScript, Tailwind CSS, OpenClaw, MiniMax, Solidity",
       "domain": "AI Agents / Token Launchpad / Yield Treasuries",
       "scope": [
-        "Designed and built the yield-budgeted treasury and token factory smart contracts",
-        "Orchestrated autonomous coding agent pipelines (OpenClaw + MiniMax) for code implementation",
-        "Designed a premium dark-mode gameboard dashboard interface for agent monitoring",
-        "Implemented Base Sepolia smart contract wallet connectivity and live data feeds"
+        "Specified yield-budgeted treasury invariants and 4-contract Solidity architecture",
+        "Orchestrated OpenClaw + MiniMax coding agents against typed interfaces and test harnesses",
+        "Designed an interactive dark-mode monitoring interface for incubation phases and graduation",
+        "Verified Base Sepolia deployments (`AgentToken`, `AgentTokenFactory`, `IncubatorVault`, `GraduationManager`) and wallet connectivity"
       ],
       "context": [
-        "CrAIdle was created to solve runway fragility in autonomous AI agent systems where compute spend depletes investor principal.",
-        "The project demonstrates a fully self-building agent workflow, where all code was successfully generated, tested, and optimized by autonomous agents."
+        "CrAIdle addresses compute-runway fragility in autonomous AI agent systems where inference spend quickly drains unpartitioned capital.",
+        "Demonstrates pragmatic multi-agent delivery: strict specification boundaries and compiler/testnet verification gates keep AI-generated Solidity and frontend code deployable."
       ],
       "problemSpace": [
-        "Compute costs drain agent capital runway rapidly, leading to premature termination of agent systems",
-        "No native mechanism exists to partition protected investment principal from operational compute spend",
-        "Visualizing multi-step incubation states, graduation thresholds, and yield budgeting is highly complex"
+        "Variable AI inference costs drain agent runway unpredictably and expose supporter principal",
+        "Untyped prompt-only codegen drifts quickly across cross-contract ABIs and React frontend state",
+        "Operators need clear live observability over incubation yields, spend caps, and graduation readiness"
       ],
       "approach": [
-        "Design an Incubator Vault that locks principal and splits yield to a compute budget contract",
-        "Utilize OpenClaw autonomous agents and MiniMax models to generate, refine, and deploy frontend and Solidity code",
-        "Model agent incubation phases (Incubating, Graduated) as explicit, real-time visual trackers on a dark-themed cyberpunk dashboard"
+        "Enforce a non-spendable IncubatorVault invariant where only generated stETH yield funds the agent compute wallet",
+        "Drive OpenClaw + MiniMax agents from explicit interface specs and validate every iteration via Foundry/Solidity builds, TypeScript checks, and live wallet signing",
+        "Model agent lifecycle states (Incubating, Yield Accruing, Graduated) as structured visual state indicators"
       ],
       "outcomes": [
-        "Successfully deployed fully functional AgentToken, AgentTokenFactory, IncubatorVault, and GraduationManager contracts on Base Sepolia",
-        "Shipped a highly responsive, custom-designed Next.js/Tailwind gameboard-style interface for agent creation and monitoring",
-        "Proven zero-shot/few-shot agent code orchestration: 100% of codebase produced and optimized by AI agents"
+        "Deployed verified `AgentToken`, `AgentTokenFactory`, `IncubatorVault`, and `GraduationManager` contracts on Base Sepolia",
+        "Shipped a Next.js/Tailwind dashboard monitoring live incubation state, compute budget runway, and graduation triggers",
+        "Established repeatable human-in-the-loop verification gates for spec-driven multi-agent software delivery"
       ]
     },
     {
@@ -975,7 +1091,14 @@
         "RPC Nodes"
       ],
       "ctas": ["https://monad-heartbeat.vercel.app/", "https://github.com/1biest/monad-heartbeat"],
-      "images": [],
+      "images": [
+        {
+          "src": "/screenshots/monad-heartbeat-screenshot.webp",
+          "alt": "Monad Heartbeat 3D Block Explorer Visualizer",
+          "type": "image"
+        }
+      ],
+      "tracks": ["frontend", "design", "infra"],
       "githubStats": ["/monad-heartbeat-commit-log.csv"],
       "role": "Frontend Developer / Designer",
       "stack": "Next.js, React, TypeScript, Tailwind CSS, WebSockets, Ethers.js",
@@ -1023,7 +1146,14 @@
         "3D CSS/Animations"
       ],
       "ctas": ["https://etherfi-demo.vercel.app/cash", "https://github.com/1biest/etherfi-demo"],
-      "images": [],
+      "images": [
+        {
+          "src": "/screenshots/etherfi-demo-screenshot.webp",
+          "alt": "ether.fi Cash DeFi Credit Card Dashboard Demo",
+          "type": "image"
+        }
+      ],
+      "tracks": ["frontend", "design", "defi"],
       "githubStats": ["/etherfi-demo-commit-log.csv"],
       "role": "Frontend Developer",
       "stack": "Next.js, React, Radix UI, Tailwind CSS, TanStack Query",

@@ -46,16 +46,17 @@ export default function CraidlePage() {
             yield (e.g. from Lido stETH) is dynamically routed to the agent&apos;s compute budget.
           </p>
           <p className="mt-4 leading-relaxed text-[var(--text-muted)] font-medium">
-            Notably, the development process was entirely automated: 100% of the Solidity smart
-            contracts and Next.js frontend code was produced and refined by autonomous coding agent
-            loops utilizing the OpenClaw gateway framework and MiniMax LLM platforms.
+            Built through a spec-driven agentic engineering workflow: authored contract
+            architecture, state invariants, and UI bounds upfront, then directed OpenClaw
+            gateway orchestration and MiniMax agents paired with Solidity compiler checks and live
+            Base Sepolia wallet testing.
           </p>
           <div className="mt-8">
             <ImageGallery
               images={[
                 {
-                  src: '/screenshots/craidle-dashboard.png',
-                  alt: 'CrAIdle Incubation Dashboard Mockup',
+                  src: '/diagrams/craidle-architecture.svg',
+                  alt: 'CrAIdle Yield-Budgeted Treasury & OpenClaw Pipeline Architecture',
                   type: 'image',
                 },
               ]}
@@ -90,8 +91,8 @@ export default function CraidlePage() {
         {/* 6. Architecture & Implementation */}
         <SectionWrapper title="Architecture & Implementation">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="rounded-xl border border-[var(--border)] bg-neutral-50/90 p-6">
-              <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">Agent Orchestration</h3>
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-sm)]">
+              <h3 className="mb-4 text-lg font-semibold tracking-tight text-[#0a2540]">Agent Orchestration</h3>
               <BulletList
                 items={[
                   {
@@ -108,8 +109,8 @@ export default function CraidlePage() {
               />
             </div>
 
-            <div className="rounded-xl border border-[var(--border)] bg-neutral-50/90 p-6">
-              <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">Smart Contracts</h3>
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-sm)]">
+              <h3 className="mb-4 text-lg font-semibold tracking-tight text-[#0a2540]">Smart Contracts</h3>
               <BulletList
                 items={[
                   {
@@ -126,8 +127,8 @@ export default function CraidlePage() {
               />
             </div>
 
-            <div className="rounded-xl border border-[var(--border)] bg-neutral-50/90 p-6">
-              <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">Launchpad Factory</h3>
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-sm)]">
+              <h3 className="mb-4 text-lg font-semibold tracking-tight text-[#0a2540]">Launchpad Factory</h3>
               <BulletList
                 items={[
                   {
@@ -144,8 +145,8 @@ export default function CraidlePage() {
               />
             </div>
 
-            <div className="rounded-xl border border-[var(--border)] bg-neutral-50/90 p-6">
-              <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">UX & Frontend</h3>
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-sm)]">
+              <h3 className="mb-4 text-lg font-semibold tracking-tight text-[#0a2540]">UX & Frontend</h3>
               <BulletList
                 items={[
                   {
@@ -185,7 +186,7 @@ export default function CraidlePage() {
           </p>
           <BulletList
             items={[
-              '100% Agent-Produced Codebase: Proven capability of directed AI agents to design and ship full-stack web applications',
+              'Spec-Driven Agentic Delivery: Authored contract & UI invariants upfront for OpenClaw + MiniMax codegen verified via compiler builds and Base Sepolia tests',
               'Lido Yield-Budget Treasury: Deployed functional vault and treasury primitives on Base Sepolia',
               'Self-Sustaining Economy: Agent-controlled ERC-20 tokens with fee collector routes built directly into the transfer pipeline',
             ]}

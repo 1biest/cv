@@ -17,166 +17,162 @@ interface GalleryItem {
 const PROJECT_GALLERIES: Record<string, GalleryItem[]> = {
   'neptune-finance': [
     {
-      src: '/screenshots/neptune-balance-menu.png',
+      src: '/screenshots/neptune-balance-menu.webp',
       alt: 'Neptune Balance Menu',
-      title: 'Balance Menu & Quick Swap Hub',
-      caption: 'Self-directed production feature designed in Figma and implemented in production without a brief.',
+      title: 'Balance Menu & Quick-Action Hub',
+      caption: 'Self-initiated production feature designed in Figma and shipped straight into production.',
     },
     {
-      src: '/screenshots/neptune-landing-home.png',
+      src: '/screenshots/neptune-landing-home.webp',
       alt: 'Neptune Landing Home',
       title: 'Marketing & Protocol Landing Page',
-      caption: 'High-conversion design system and marketing interface for the lending protocol.',
+      caption: 'Unified design system and product marketing interface for the lending protocol.',
     },
     {
-      src: '/screenshots/neptune-overview-page.png',
+      src: '/screenshots/neptune-overview-page.webp',
       alt: 'Neptune Overview Page',
       title: 'Portfolio Overview Dashboard',
-      caption: 'Real-time collateral health ratios, borrow positions, and interest rate updates.',
+      caption: 'Real-time collateral health ratios, borrow positions, and live interest rate state.',
     },
     {
-      src: '/screenshots/neptune-asset-detail-page.png',
+      src: '/screenshots/neptune-asset-detail-page.webp',
       alt: 'Neptune Asset Detail Page',
       title: 'Asset Detail & Risk Parameters',
-      caption: 'Deep liquidity metrics, borrow factor limits, and multi-asset deposit configurations.',
+      caption: 'Deep liquidity metrics, borrow factor limits, and collateral configurations.',
     },
     {
-      src: '/screenshots/neptune-lending-screenshot.png',
+      src: '/screenshots/neptune-lending-screenshot.webp',
       alt: 'Neptune Lending Interface',
       title: 'Lending Market Table',
       caption: 'Low-latency interest rate markets and real-time CosmWasm state synchronization.',
     },
     {
-      src: '/screenshots/neptune-borrow-screenshot.png',
+      src: '/screenshots/neptune-borrow-screenshot.webp',
       alt: 'Neptune Borrow Interface',
       title: 'Borrow & Repayment Workflows',
       caption: 'Deterministic transaction lifecycles and wallet error recovery boundaries.',
     },
     {
-      src: '/screenshots/neptune-pool-page.png',
+      src: '/screenshots/neptune-pool-page.webp',
       alt: 'Neptune Liquidity Pools',
       title: 'Liquidity Pools & Staking',
-      caption: 'Automated yield routing with Astroport pools and Mito vaults.',
+      caption: 'Yield and vault routing with Astroport pools and Mito vaults.',
     },
     {
-      src: '/screenshots/neptune-lending-figma.png',
+      src: '/screenshots/neptune-lending-figma.webp',
       alt: 'Neptune Figma Mockup',
       title: 'Figma Design System Architecture',
-      caption: 'Custom component library and token scales synchronized directly to Tailwind CSS.',
+      caption: 'Custom Figma component library and token scales aligned directly to Tailwind CSS.',
     },
   ],
   'agos': [
     {
-      src: '/screenshots/neptune-balance-menu.png',
-      alt: 'AgOS Spatial System Preview',
-      title: 'Spatial Interface & Yard Model',
-      caption: 'Parametric 3D grain storage digital twin with 100% accessible tabular mirrors.',
+      src: '/diagrams/agos-architecture.svg',
+      alt: 'AgOS Full-Stack Architecture Diagram',
+      title: 'Field Discovery → 3D Spatial Twin & Postgres Schema',
+      caption: 'Originating from 2 years of Flat Land Farms operations: React 19, parametric Three.js bins, Recharts/Nivo financials, Drizzle ORM, and Neon PostgreSQL.',
+    },
+  ],
+  'flat-land-farms': [
+    {
+      src: '/diagrams/agos-architecture.svg',
+      alt: 'AgOS Field-to-Software Architecture Diagram',
+      title: 'From Precision Field Telemetry to AgOS Software',
+      caption: 'Direct grower experience with John Deere Ops Center & Climate FieldView informed AgOS crop, storage, and contracting workflows.',
     },
   ],
   'dyve': [
     {
-      src: '/screenshots/dyve-screenshot.png',
+      src: '/screenshots/dyve-screenshot.webp',
       alt: 'Dyve Interface',
-      title: 'Dyve NFTFi Trading Interface',
-      caption: 'Decentralized peer-to-peer lending and shorting platform developed for HackFS 2022.',
+      title: 'Dyve NFTFi Trading & Lending UI',
+      caption: 'Decentralized peer-to-peer NFT lending and shorting platform built for ETHGlobal HackFS 2022.',
     },
   ],
   'craidle': [
     {
-      src: '/screenshots/craidle-dashboard.png',
-      alt: 'CrAIdle Dashboard',
-      title: 'CrAIdle AI Analytics Platform',
-      caption: 'Interactive workflow monitor and machine learning model telemetry dashboard.',
+      src: '/diagrams/craidle-architecture.svg',
+      alt: 'CrAIdle Architecture Diagram',
+      title: 'CrAIdle Yield-Budgeted Treasury & OpenClaw Pipeline',
+      caption: 'Spec-driven agentic engineering (OpenClaw + MiniMax) shipping 4 Base Sepolia contracts separating locked principal from stETH compute yield.',
     },
   ],
   'satsuma': [
     {
-      src: '/screenshots/satsuma-screenshot.png',
-      alt: 'Satsuma Interface',
-      title: 'Satsuma DEX Interface',
-      caption: 'High-frequency decentralized exchange interface with low-latency charts.',
+      src: '/diagrams/satsuma-architecture.svg',
+      alt: 'Satsuma Cross-Chain Routing Diagram',
+      title: 'Satsuma Cross-Chain Yield-to-Bitcoin Architecture',
+      caption: '4-network yield routing workflow coordinating Injective deposits, Astroport swaps, Axelar GMP relays, and ICP canisters.',
     },
   ],
   'monad-heartbeat': [
     {
-      src: '/screenshots/monad-heartbeat-screenshot.png',
-      alt: 'Monad Heartbeat',
-      title: 'Monad Heartbeat Monitor',
-      caption: 'High-throughput EVM validator telemetry and real-time block pulse tracker.',
+      src: '/screenshots/monad-heartbeat-screenshot.webp',
+      alt: 'Monad Heartbeat Visualizer',
+      title: 'Monad Heartbeat 3D Block Explorer',
+      caption: 'Real-time WebSocket visualizer tracking speculative, execution, consensus, and finalized block states.',
     },
   ],
   'etherfi-demo': [
     {
-      src: '/screenshots/etherfi-demo-screenshot.png',
-      alt: 'ether.fi Liquid Restaking Demo',
-      title: 'Liquid Restaking Deposit Flow',
-      caption: 'EVM liquid restaking protocol interface demo and vault deposit workflows.',
+      src: '/screenshots/etherfi-demo-screenshot.webp',
+      alt: 'ether.fi Cash Dashboard Demo',
+      title: 'ether.fi Cash Interactive Dashboard Demo',
+      caption: 'Interactive dark-mode DeFi credit card UI modeling weETH collateral borrowing power and card spend limits.',
     },
   ],
   'cryptech': [
     {
-      src: '/screenshots/cryptech-homepage.png',
-      alt: 'Cryptech Homepage',
-      title: 'Cryptech Web3 Studio',
-      caption: 'Engineering studio web identity and project portal.',
+      src: '/screenshots/cryptech-airdrop-calculator.webp',
+      alt: 'Airdrop Calculator UI',
+      title: 'Cryptech Cosmos Airdrop Calculator',
+      caption: 'Interactive staking tier eligibility and multiplier calculation tool.',
     },
     {
-      src: '/screenshots/cryptech-dashboard.png',
-      alt: 'Cryptech Dashboard',
-      title: 'DeFi Portfolio Dashboard',
-      caption: 'Asset portfolio tracker and multi-chain wallet connector.',
+      src: '/screenshots/cryptech-style-guides.webp',
+      alt: 'Cryptech Style Guides',
+      title: 'Design System & Token Guides',
+      caption: 'Typography hierarchies, color scales, and reusable CSS/Tailwind component guides.',
     },
     {
-      src: '/screenshots/cryptech-airdrop-calculator.png',
-      alt: 'Airdrop Calculator',
-      title: 'Airdrop Calculator UI',
-      caption: 'Complex staking tiered eligibility and multiplier calculation engine.',
+      src: '/screenshots/macro-dex-screenshot.webp',
+      alt: 'Macro DEX Interface',
+      title: 'Macro DEX Exchange UI',
+      caption: 'Cross-chain swap and orderflow explorer interface built with React and Next.js.',
     },
     {
-      src: '/screenshots/cryptech-style-guides.png',
-      alt: 'Style Guides',
-      title: 'Design System & Typography',
-      caption: 'Tokens, color scales, and typography hierarchies.',
-    },
-    {
-      src: '/screenshots/macro-dex-screenshot.png',
-      alt: 'Macro DEX',
-      title: 'Macro DEX Interface',
-      caption: 'Automated market maker and cross-chain swap interface.',
-    },
-    {
-      src: '/screenshots/macro-dex-branding-concepts.png',
-      alt: 'Macro DEX Branding',
+      src: '/screenshots/macro-dex-branding-concepts.webp',
+      alt: 'Macro DEX Branding Concepts',
       title: 'Macro DEX Visual System',
-      caption: 'Brand identity, iconography, and tokenomics graphics.',
+      caption: 'Brand identity explorations, color modes, and product UI concepts.',
     },
   ],
   'cryptech-developments': [
     {
-      src: '/screenshots/cryptech-homepage.png',
-      alt: 'Cryptech Developments',
-      title: 'Cryptech Developments',
-      caption: 'Web3 product studio and protocol development lead.',
-    },
-    {
-      src: '/screenshots/neptune-balance-menu.png',
+      src: '/screenshots/neptune-balance-menu.webp',
       alt: 'Neptune Finance Balance Menu',
-      title: 'Neptune Finance Protocol',
-      caption: 'Lead frontend engineering and design systems.',
+      title: 'Neptune Finance Product Engineering',
+      caption: 'Lead frontend engineering and Figma design systems ($300M+ peak protocol TVL).',
     },
     {
-      src: '/screenshots/cryptech-dashboard.png',
-      alt: 'Cryptech Dashboard',
-      title: 'Web3 Dashboard Architecture',
-      caption: 'Reusable TypeScript and React component libraries.',
+      src: '/screenshots/cryptech-airdrop-calculator.webp',
+      alt: 'Cryptech Airdrop Calculator',
+      title: 'Cryptech Tooling & Calculators',
+      caption: 'Interactive ecosystem calculators and reusable React component primitives.',
+    },
+    {
+      src: '/screenshots/macro-dex-screenshot.webp',
+      alt: 'Macro DEX Interface',
+      title: 'Macro DEX Interface',
+      caption: 'Product interfaces and unified styling tokens across Cryptech properties.',
     },
   ],
   'open-source-contributions': [
     {
-      src: '/screenshots/cw3-multisig-screenshot.png',
+      src: '/screenshots/cw3-multisig-screenshot.webp',
       alt: 'CW3 Multisig UI',
-      title: 'CosmWasm CW3 Multisig',
-      caption: 'Open-source multisig transaction proposal and threshold voting interface.',
+      title: 'CosmWasm CW3 Multisig on Injective',
+      caption: 'Ported multisig transaction proposal, threshold voting, and Base64 payload diagnostics.',
     },
   ],
 };
@@ -289,9 +285,9 @@ export default function CaseStudyDrawer({
       role="dialog"
       aria-modal="true"
     >
-      {/* Dark frosted backdrop overlay */}
+      {/* Deep Navy frosted backdrop overlay */}
       <div
-        className={`absolute inset-0 bg-neutral-950/75 backdrop-blur-md transition-opacity duration-300 ${
+        className={`absolute inset-0 bg-[#061321]/78 backdrop-blur-md transition-opacity duration-300 ${
           animateShow ? 'opacity-100' : 'opacity-0'
         }`}
         onClick={onClose}
@@ -305,14 +301,14 @@ export default function CaseStudyDrawer({
         }`}
       >
         {/* Gallery Header */}
-        <div className="flex items-center justify-between text-neutral-300 pointer-events-auto">
+        <div className="flex items-center justify-between text-slate-200 pointer-events-auto">
           <div className="flex items-center gap-3">
-            <span className="inline-block w-2 h-2 rounded-full bg-amber-400" />
-            <span className="font-mono text-xs uppercase tracking-widest text-neutral-300 font-bold">
+            <span className="inline-block w-2 h-2 rounded-full bg-[#e5c488]" />
+            <span className="font-mono text-xs uppercase tracking-widest text-slate-200 font-bold">
               VISUAL ARTIFACTS // {projectTitle.toUpperCase()}
             </span>
             {galleryItems.length > 0 && (
-              <span className="font-mono text-[11px] text-neutral-400 bg-neutral-900/80 px-2 py-0.5 rounded border border-neutral-800">
+              <span className="font-mono text-[11px] text-slate-300 bg-[#0a2540]/80 px-2.5 py-0.5 rounded-full border border-white/15">
                 {selectedImageIndex + 1} OF {galleryItems.length}
               </span>
             )}
@@ -320,7 +316,7 @@ export default function CaseStudyDrawer({
 
           <button
             onClick={onClose}
-            className="text-xs font-mono text-neutral-400 hover:text-white px-2.5 py-1 rounded border border-neutral-800 hover:border-neutral-600 transition"
+            className="text-xs font-mono text-slate-300 hover:text-white px-3 py-1 rounded-full border border-white/20 hover:border-white/40 transition"
           >
             DISMISS [ESC]
           </button>
@@ -329,8 +325,8 @@ export default function CaseStudyDrawer({
         {/* Featured Main Preview in Negative Space */}
         {activeImage ? (
           <div className="my-auto max-w-2xl w-full mx-auto pointer-events-auto">
-            <div className="group relative rounded-2xl border border-neutral-800 bg-neutral-950/90 p-2 shadow-2xl overflow-hidden transition-all duration-300 hover:border-neutral-600">
-              <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-neutral-900">
+            <div className="group relative rounded-2xl border border-white/15 bg-[#0a1929]/95 p-2 shadow-2xl overflow-hidden transition-all duration-300 hover:border-white/30">
+              <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-[#07121f]">
                 <Image
                   src={activeImage.src}
                   alt={activeImage.alt}
@@ -342,13 +338,13 @@ export default function CaseStudyDrawer({
               </div>
 
               {/* Caption and expand link */}
-              <div className="p-3.5 flex items-start justify-between gap-3 text-neutral-200">
+              <div className="p-3.5 flex items-start justify-between gap-3 text-slate-200">
                 <div>
-                  <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400">
+                  <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#e5c488]">
                     {activeImage.title}
                   </h4>
                   {activeImage.caption && (
-                    <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
+                    <p className="text-xs text-slate-300 mt-1 leading-relaxed">
                       {activeImage.caption}
                     </p>
                   )}
@@ -358,7 +354,7 @@ export default function CaseStudyDrawer({
                   href={activeImage.src}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="shrink-0 p-2 text-neutral-400 hover:text-white transition"
+                  className="shrink-0 p-2 text-slate-300 hover:text-white transition"
                   title="Open full resolution"
                 >
                   <FontAwesomeIcon icon={faExpand} className="text-xs" />
@@ -367,15 +363,15 @@ export default function CaseStudyDrawer({
             </div>
           </div>
         ) : (
-          <div className="my-auto max-w-md mx-auto text-center text-neutral-400 pointer-events-auto">
-            <div className="rounded-2xl border border-neutral-800 bg-neutral-950/60 p-8">
-              <span className="font-mono text-xs uppercase text-amber-400 tracking-wider">
+          <div className="my-auto max-w-md mx-auto text-center text-slate-300 pointer-events-auto">
+            <div className="rounded-2xl border border-white/15 bg-[#0a1929]/85 p-8">
+              <span className="font-mono text-xs uppercase text-[#e5c488] tracking-wider">
                 DESIGN ARTIFACTS
               </span>
               <h4 className="text-base font-bold text-white mt-1">
                 {projectTitle}
               </h4>
-              <p className="text-xs text-neutral-400 mt-2 leading-relaxed">
+              <p className="text-xs text-slate-300 mt-2 leading-relaxed">
                 Detailed architecture specifications, contract state diagrams, and interaction flows are loaded in the panel.
               </p>
             </div>
@@ -384,7 +380,7 @@ export default function CaseStudyDrawer({
 
         {/* Thumbnail Reel at the Bottom of Negative Space */}
         {galleryItems.length > 1 && (
-          <div className="pointer-events-auto pt-4 border-t border-neutral-800/80">
+          <div className="pointer-events-auto pt-4 border-t border-white/15">
             <div className="flex items-center gap-2.5 overflow-x-auto pb-1 scrollbar-none">
               {galleryItems.map((item, idx) => {
                 const isSelected = idx === selectedImageIndex;
@@ -395,8 +391,8 @@ export default function CaseStudyDrawer({
                     onClick={() => setSelectedImageIndex(idx)}
                     className={`group relative shrink-0 w-20 h-14 rounded-lg overflow-hidden border transition-all ${
                       isSelected
-                        ? 'border-amber-400 ring-2 ring-amber-400/40 scale-105 shadow-md'
-                        : 'border-neutral-800 opacity-60 hover:opacity-100 hover:border-neutral-600'
+                        ? 'border-[#e5c488] ring-2 ring-[#e5c488]/40 scale-105 shadow-md'
+                        : 'border-white/20 opacity-65 hover:opacity-100 hover:border-white/40'
                     }`}
                     title={item.title}
                   >
@@ -418,34 +414,34 @@ export default function CaseStudyDrawer({
         )}
       </div>
 
-      {/* Slide-over panel — Brighter frosted glass for 100% legibility over any background */}
+      {/* Slide-over panel — Warm Limestone Frosted Glass */}
       <div
-        className={`relative z-20 flex h-full w-full flex-col border-l border-neutral-200/90 bg-white/96 dark:bg-[#fcfcfb]/96 backdrop-blur-3xl shadow-[0_0_80px_rgba(0,0,0,0.35)] transition-transform duration-300 ease-out sm:max-w-2xl md:max-w-3xl xl:max-w-4xl text-[var(--text)] ${
+        className={`relative z-20 flex h-full w-full flex-col border-l border-[var(--border-strong)] bg-[var(--bg-elevated)]/96 backdrop-blur-3xl shadow-[0_0_80px_rgba(10,37,64,0.35)] transition-transform duration-300 ease-out sm:max-w-2xl md:max-w-3xl xl:max-w-4xl text-[var(--text)] ${
           animateShow ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         {/* Sticky Header */}
-        <header className="sticky top-0 z-20 flex items-center justify-between border-b border-neutral-200/90 bg-white/95 px-6 py-4 backdrop-blur-md">
+        <header className="sticky top-0 z-20 flex items-center justify-between border-b border-[var(--border)] bg-[var(--bg-elevated)]/95 px-6 py-4 backdrop-blur-md">
           <div className="flex items-center gap-3 overflow-hidden">
             <button
               onClick={onClose}
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-neutral-300 text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 transition shadow-xs"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--border-strong)] bg-white/80 text-[var(--text-muted)] hover:border-[#0a2540] hover:text-[#0a2540] transition shadow-xs"
               aria-label="Close case study"
             >
               <FontAwesomeIcon icon={faXmark} className="text-sm" />
             </button>
-            <span className="hidden text-xs font-mono font-bold uppercase tracking-wider text-amber-600 sm:inline">
+            <span className="hidden text-xs font-mono font-bold uppercase tracking-wider text-[var(--accent-warm)] sm:inline">
               CASE STUDY
             </span>
-            <span className="hidden text-xs text-neutral-400 sm:inline">/</span>
-            <h2 className="truncate text-base font-bold text-neutral-900">{projectTitle}</h2>
+            <span className="hidden text-xs text-[var(--text-subtle)] sm:inline">/</span>
+            <h2 className="truncate text-base font-bold text-[var(--text)]">{projectTitle}</h2>
           </div>
 
           <div className="flex items-center gap-2">
             {/* Share link button */}
             <button
               onClick={copyLink}
-              className="relative flex h-9 px-3.5 items-center justify-center gap-1.5 rounded-full border border-neutral-300 text-xs font-semibold text-neutral-800 hover:border-neutral-500 hover:bg-neutral-50 transition shadow-xs"
+              className="relative flex h-9 px-3.5 items-center justify-center gap-1.5 rounded-full border border-[var(--border-strong)] bg-white/80 text-xs font-semibold text-[var(--text)] hover:border-[#0a2540] hover:text-[#0a2540] transition shadow-xs"
             >
               <FontAwesomeIcon icon={faLink} className="text-[11px]" />
               <span>{copied ? 'Copied!' : 'Copy Link'}</span>
@@ -454,23 +450,83 @@ export default function CaseStudyDrawer({
         </header>
 
         {/* Scrollable Case Study Content */}
-        <div className="flex-1 overflow-y-auto px-6 py-8 md:px-12 md:py-12 bg-white/60">
-          <div className="mx-auto max-w-3xl">{children}</div>
+        <div className="flex-1 overflow-y-auto px-6 py-8 md:px-12 md:py-12">
+          <div className="mx-auto max-w-3xl">
+            {/* Mobile Visual Artifacts Strip (since negative-space panel sits on lg+) */}
+            {activeImage ? (
+              <div className="lg:hidden mb-8 rounded-2xl border border-[var(--border-strong)] bg-[#0a1929] overflow-hidden shadow-md">
+                <div className="relative aspect-video w-full bg-[#07121f]">
+                  <Image
+                    src={activeImage.src}
+                    alt={activeImage.alt}
+                    fill
+                    sizes="100vw"
+                    className="object-contain"
+                  />
+                </div>
+                <div className="p-3.5 text-slate-100">
+                  <div className="flex items-center justify-between gap-2">
+                    <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#e5c488]">
+                      {activeImage.title}
+                    </h4>
+                    <a
+                      href={activeImage.src}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-mono text-slate-300 underline"
+                    >
+                      Open ↗
+                    </a>
+                  </div>
+                  {activeImage.caption ? (
+                    <p className="mt-1 text-xs text-slate-300 leading-relaxed">
+                      {activeImage.caption}
+                    </p>
+                  ) : null}
+                </div>
+                {galleryItems.length > 1 ? (
+                  <div className="flex items-center gap-2 overflow-x-auto border-t border-white/15 bg-[#081523] px-3 py-2.5">
+                    {galleryItems.map((item, idx) => (
+                      <button
+                        key={item.src + idx}
+                        type="button"
+                        onClick={() => setSelectedImageIndex(idx)}
+                        className={`relative h-11 w-16 shrink-0 overflow-hidden rounded border transition ${
+                          idx === selectedImageIndex
+                            ? 'border-[#e5c488] ring-1 ring-[#e5c488]'
+                            : 'border-white/20 opacity-65 hover:opacity-100'
+                        }`}
+                      >
+                        <Image
+                          src={item.src}
+                          alt={item.alt}
+                          fill
+                          sizes="64px"
+                          className="object-cover"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+            ) : null}
+            {children}
+          </div>
         </div>
 
         {/* Footer Navigation */}
-        <footer className="border-t border-neutral-200/90 bg-neutral-50/95 px-6 py-4 backdrop-blur-md">
+        <footer className="border-t border-[var(--border)] bg-[var(--bg-page)]/95 px-6 py-4 backdrop-blur-md">
           <div className="mx-auto flex max-w-3xl items-center justify-between gap-4">
             <button
               onClick={onPrev}
-              className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-neutral-600 hover:text-neutral-950 transition"
+              className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] hover:text-[#0a2540] transition"
             >
               <FontAwesomeIcon icon={faArrowLeft} />
               <span>Previous Project</span>
             </button>
             <button
               onClick={onNext}
-              className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-neutral-600 hover:text-neutral-950 transition"
+              className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] hover:text-[#0a2540] transition"
             >
               <span>Next Project</span>
               <FontAwesomeIcon icon={faArrowRight} />

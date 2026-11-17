@@ -5,6 +5,7 @@ import { ProjectHero } from '../../Components/case-study/ProjectHero';
 import { SnapshotGrid } from '../../Components/case-study/SnapshotGrid';
 import { SectionWrapper } from '../../Components/case-study/SectionWrapper';
 import { BulletList } from '../../Components/case-study/BulletList';
+import ImageGallery from '../../Components/ImageGallery';
 
 export default function AgOSPage() {
   return (
@@ -49,6 +50,17 @@ export default function AgOSPage() {
             A purpose-built demo layer adapts navigation, session presentation, and data requests so visitors, partners, and recruiters can
             explore the platform live without compromising operational records.
           </p>
+          <div className="mt-8">
+            <ImageGallery
+              images={[
+                {
+                  src: '/diagrams/agos-architecture.svg',
+                  alt: 'AgOS Full-Stack Architecture: Field Discovery to 3D Spatial Engine & PostgreSQL',
+                  type: 'image',
+                },
+              ]}
+            />
+          </div>
         </SectionWrapper>
 
         {/* 4. Problem Space */}
@@ -79,8 +91,8 @@ export default function AgOSPage() {
         {/* 6. Architecture & Implementation */}
         <SectionWrapper title="Architecture & Implementation">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="rounded-xl border border-[var(--border)] bg-neutral-50/90 p-6">
-              <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-sm)]">
+              <h3 className="mb-4 text-lg font-semibold tracking-tight text-[#0a2540]">
                 3D Spatial &amp; Yard Engine
               </h3>
               <BulletList
@@ -104,8 +116,8 @@ export default function AgOSPage() {
               />
             </div>
 
-            <div className="rounded-xl border border-[var(--border)] bg-neutral-50/90 p-6">
-              <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-sm)]">
+              <h3 className="mb-4 text-lg font-semibold tracking-tight text-[#0a2540]">
                 Data Architecture &amp; Design System
               </h3>
               <BulletList
@@ -133,14 +145,14 @@ export default function AgOSPage() {
 
         {/* 7. Outcomes */}
         <SectionWrapper title="Current Outcomes & Trajectory">
-          <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-xs">
-            <p className="text-sm font-semibold text-[var(--text)]">
+          <div className="rounded-xl border border-[var(--border)] border-l-3 border-l-[#0a2540] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-sm)]">
+            <p className="text-sm font-semibold text-[#0a2540]">
               Transforming Physical Operations into Digital Clarity
             </p>
             <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">
               AgOS demonstrates how modern frontend architecture—combining React 19, TypeScript, parametric 3D graphics,
               and design system rigor—can turn cumbersome physical enterprise workflows into an intuitive, elegant software product.
-              The platform continues active development, with live interactive previews available at <a href="https://ag-os.pro/" target="_blank" rel="noopener noreferrer" className="font-semibold text-[color:var(--accent-color)] hover:underline">ag-os.pro</a>.
+              The platform continues active development, with live interactive previews available at <a href="https://ag-os.pro/" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#0a2540] underline decoration-[#0a2540]/30 underline-offset-4 hover:decoration-[#0a2540]">ag-os.pro</a>.
             </p>
           </div>
         </SectionWrapper>

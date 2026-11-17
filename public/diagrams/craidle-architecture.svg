@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" fill="none">
+  <defs>
+    <linearGradient id="bgC" x1="0" y1="0" x2="1200" y2="720" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0d1321" />
+      <stop offset="100%" stop-color="#070a12" />
+    </linearGradient>
+    <pattern id="gridC" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="720" rx="24" fill="url(#bgC)" />
+  <rect width="1200" height="720" rx="24" fill="url(#gridC)" />
+
+  <text x="56" y="64" fill="#38bdf8" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" font-weight="700" letter-spacing="2.5">
+    CRAIDLE // SYNTHESIS HACKATHON ARCHITECTURE
+  </text>
+  <text x="56" y="104" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="30" font-weight="700">
+    Yield-Budgeted Agent Treasury &amp; Spec-Driven Agentic Loop
+  </text>
+  <rect x="920" y="46" width="224" height="34" rx="17" fill="#38bdf8" fill-opacity="0.12" stroke="#38bdf8" stroke-opacity="0.4" />
+  <text x="1032" y="68" text-anchor="middle" fill="#7dd3fc" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="700">
+    BASE SEPOLIA · SOLIDITY
+  </text>
+  <line x1="56" y1="130" x2="1144" y2="130" stroke="#ffffff" stroke-opacity="0.1" />
+
+  <!-- Top Row: On-Chain Principal Isolation Architecture -->
+  <text x="56" y="172" fill="#94a3b8" font-family="ui-monospace, monospace" font-size="12" font-weight="700">
+    ON-CHAIN INVARIANT // SEPARATING PROTECTED PRINCIPAL FROM AGENT COMPUTE RUNWAY
+  </text>
+
+  <rect x="56" y="194" width="230" height="168" rx="14" fill="#131c30" stroke="#2a3a58" stroke-width="1.5" />
+  <text x="78" y="226" fill="#7dd3fc" font-family="ui-monospace, monospace" font-size="11" font-weight="700">01 // DEPOSIT</text>
+  <text x="78" y="254" fill="#ffffff" font-family="system-ui, sans-serif" font-size="18" font-weight="700">IncubatorVault.sol</text>
+  <text x="78" y="284" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13">Locks user principal capital</text>
+  <text x="78" y="304" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13">during incubation window;</text>
+  <text x="78" y="324" fill="#4ade80" font-family="ui-monospace, monospace" font-size="12">Principal = Non-Spendable</text>
+
+  <path d="M 286 278 L 328 278" stroke="#38bdf8" stroke-width="2" />
+  <polygon points="328,273 338,278 328,283" fill="#38bdf8" />
+
+  <rect x="340" y="194" width="230" height="168" rx="14" fill="#131c30" stroke="#2a3a58" stroke-width="1.5" />
+  <text x="362" y="226" fill="#7dd3fc" font-family="ui-monospace, monospace" font-size="11" font-weight="700">02 // YIELD SOURCE</text>
+  <text x="362" y="254" fill="#ffffff" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Lido stETH Yield</text>
+  <text x="362" y="284" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13">Accrued staking yield is</text>
+  <text x="362" y="304" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13">harvested independently</text>
+  <text x="362" y="324" fill="#7dd3fc" font-family="ui-monospace, monospace" font-size="12">Yield -&gt; Budget Only</text>
+
+  <path d="M 570 278 L 612 278" stroke="#38bdf8" stroke-width="2" />
+  <polygon points="612,273 622,278 612,283" fill="#38bdf8" />
+
+  <rect x="624" y="194" width="240" height="168" rx="14" fill="#131c30" stroke="#38bdf8" stroke-opacity="0.55" stroke-width="1.5" />
+  <text x="646" y="226" fill="#7dd3fc" font-family="ui-monospace, monospace" font-size="11" font-weight="700">03 // BUDGET ROUTER</text>
+  <text x="646" y="254" fill="#ffffff" font-family="system-ui, sans-serif" font-size="18" font-weight="700">AgentBudgetManager</text>
+  <text x="646" y="284" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13">Enforces spending caps and</text>
+  <text x="646" y="304" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13">routes compute credits to</text>
+  <text x="646" y="324" fill="#fbbf24" font-family="ui-monospace, monospace" font-size="12">Incubating -&gt; Graduated</text>
+
+  <path d="M 864 278 L 906 278" stroke="#38bdf8" stroke-width="2" />
+  <polygon points="906,273 916,278 906,283" fill="#38bdf8" />
+
+  <rect x="918" y="194" width="226" height="168" rx="14" fill="#131c30" stroke="#2a3a58" stroke-width="1.5" />
+  <text x="940" y="226" fill="#7dd3fc" font-family="ui-monospace, monospace" font-size="11" font-weight="700">04 // LAUNCHPAD</text>
+  <text x="940" y="254" fill="#ffffff" font-family="system-ui, sans-serif" font-size="18" font-weight="700">AgentTokenFactory</text>
+  <text x="940" y="284" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13">Deploys agent ERC-20;</text>
+  <text x="940" y="304" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="13">0.25% fee replenishes</text>
+  <text x="940" y="324" fill="#4ade80" font-family="ui-monospace, monospace" font-size="12">Autonomous Runway</text>
+
+  <!-- Bottom Row: Spec-Driven Agent Orchestration -->
+  <rect x="56" y="408" width="1088" height="256" rx="16" fill="#0b111e" stroke="#2a3a58" stroke-width="1.5" />
+  <text x="84" y="444" fill="#fbbf24" font-family="ui-monospace, monospace" font-size="12" font-weight="700">
+    AGENTIC ENGINEERING WORKFLOW // OPENCLAW + MINIMAX WITH VERIFICATION GATES
+  </text>
+
+  <rect x="84" y="468" width="234" height="128" rx="12" fill="#131c30" stroke="#263652" />
+  <text x="104" y="496" fill="#ffffff" font-family="system-ui, sans-serif" font-size="15" font-weight="700">1. Architectural Spec</text>
+  <text x="104" y="522" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">Define contract boundaries,</text>
+  <text x="104" y="540" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">Next.js dashboard states,</text>
+  <text x="104" y="558" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">&amp; Ethers.js error paths.</text>
+
+  <path d="M 318 532 L 350 532" stroke="#fbbf24" stroke-width="2" />
+  <polygon points="350,527 360,532 350,537" fill="#fbbf24" />
+
+  <rect x="362" y="468" width="234" height="128" rx="12" fill="#131c30" stroke="#263652" />
+  <text x="382" y="496" fill="#ffffff" font-family="system-ui, sans-serif" font-size="15" font-weight="700">2. OpenClaw Loop</text>
+  <text x="382" y="522" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">Gateway orchestrates</text>
+  <text x="382" y="540" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">multi-file edits across</text>
+  <text x="382" y="558" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">Solidity + React TSX.</text>
+
+  <path d="M 596 532 L 628 532" stroke="#fbbf24" stroke-width="2" />
+  <polygon points="628,527 638,532 628,537" fill="#fbbf24" />
+
+  <rect x="640" y="468" width="234" height="128" rx="12" fill="#131c30" stroke="#263652" />
+  <text x="660" y="496" fill="#ffffff" font-family="system-ui, sans-serif" font-size="15" font-weight="700">3. Verification Scripts</text>
+  <text x="660" y="522" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">Automated build checks,</text>
+  <text x="660" y="540" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">type safety, and testnet</text>
+  <text x="660" y="558" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">deployment validation.</text>
+
+  <path d="M 874 532 L 906 532" stroke="#fbbf24" stroke-width="2" />
+  <polygon points="906,527 916,532 906,537" fill="#fbbf24" />
+
+  <rect x="918" y="468" width="198" height="128" rx="12" fill="#131c30" stroke="#4ade80" stroke-opacity="0.45" />
+  <text x="938" y="496" fill="#ffffff" font-family="system-ui, sans-serif" font-size="15" font-weight="700">4. Live Testnet</text>
+  <text x="938" y="522" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">4 Solidity contracts +</text>
+  <text x="938" y="540" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">Next.js dashboard live</text>
+  <text x="938" y="558" fill="#4ade80" font-family="ui-monospace, monospace" font-size="12">on Base Sepolia.</text>
+
+  <text x="84" y="634" fill="#94a3b8" font-family="ui-monospace, monospace" font-size="12">
+    SOURCE REPOSITORY: github.com/1biest/craidle · STACK: Next.js · TypeScript · Tailwind CSS · Solidity · Ethers.js · OpenClaw · MiniMax
+  </text>
+</svg>
