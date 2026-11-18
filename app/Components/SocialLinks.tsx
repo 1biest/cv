@@ -40,7 +40,7 @@ const SocialLinks = () => {
               trackEvent('click_social_link', { platform: link.ariaLabel || 'unknown', url: link.url });
             }
           }}
-          className={`inline-flex h-11 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)] px-3 text-lg text-[var(--text)] shadow-sm transition hover:border-[color:var(--accent-color)] hover:text-[color:var(--accent-color)] ${link.label ? 'gap-2 px-4' : 'w-11 px-0'}`}
+          className={`inline-flex h-11 items-center justify-center rounded-full border border-[var(--border-strong)] bg-[var(--surface)] glass-surface px-3 text-lg text-[var(--text)] shadow-xs transition hover:border-[#0a2540] hover:text-[#0a2540] ${link.label ? 'gap-2 px-4' : 'w-11 px-0'}`}
           aria-label={link.ariaLabel}
         >
           <FontAwesomeIcon icon={link.icon} className="text-[1.1rem]" />

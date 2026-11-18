@@ -16,7 +16,7 @@ export const SYSTEM_FRAMES: SystemFrame[] = [
   { id: 'craft', category: 'CRAFT', number: '02', label: 'Craft', title: 'Convergence of Design, Engineering & Product' },
   { id: 'neptune', category: 'FLAGSHIP', number: '03', label: 'Neptune', title: 'DeFi Lending Architecture' },
   { id: 'agos', category: 'SPATIAL', number: '04', label: 'AgOS', title: '3D Spatial Operating System' },
-  { id: 'systems', category: 'SYSTEMS', number: '05', label: 'Systems', title: 'Production Work' },
+  { id: 'systems', category: 'PROJECTS', number: '05', label: 'Projects', title: 'Selected Projects' },
   { id: 'experience', category: 'HISTORY', number: '06', label: 'Experience', title: 'Leadership & Track Record' },
   { id: 'stack', category: 'TOOLKIT', number: '07', label: 'Stack', title: 'Engineering Primitives' },
   { id: 'contact', category: 'CONNECT', number: '08', label: 'Contact', title: 'Direct Engineering Hire' },
@@ -64,9 +64,9 @@ export default function FilmStripNav({
   return (
     <div
       ref={containerRef}
-      className={`relative flex items-center gap-1.5 overflow-x-auto py-1 px-1 scrollbar-none select-none scroll-smooth ${className}`}
+      className={`relative flex items-center gap-1 overflow-x-auto p-1 scrollbar-none select-none scroll-smooth ${className}`}
       role="tablist"
-      aria-label="Systems navigation strip"
+      aria-label="Sections navigation"
     >
       {SYSTEM_FRAMES.map((frame) => {
         const isActive = currentFrame.id === frame.id;
@@ -78,33 +78,26 @@ export default function FilmStripNav({
             role="tab"
             aria-selected={isActive}
             onClick={() => handleFrameClick(frame)}
-            className={`group relative shrink-0 flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium transition-all duration-150 ${
+            className={`group relative shrink-0 flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-150 ${
               isActive
-                ? 'bg-[var(--text)] text-white shadow-xs'
-                : 'text-[var(--text-muted)] hover:text-[var(--text)] hover:bg-black/5'
+                ? 'bg-[#0a2540] text-white shadow-xs'
+                : 'text-[var(--text-muted)] hover:text-[#0a2540] hover:bg-[#0a2540]/[0.06]'
             }`}
             title={`${frame.number} · ${frame.title}`}
           >
-            {/* Filmstrip Frame Perforation / Monospace Index */}
             <span
-              className={`font-mono text-[9px] px-1 py-0.2 rounded font-semibold tracking-tight transition-colors ${
+              className={`font-mono text-[10px] font-semibold tracking-tight transition-colors ${
                 isActive
-                  ? 'bg-amber-400 text-neutral-950 font-bold'
-                  : 'bg-black/5 text-[var(--text-subtle)] group-hover:text-[var(--text)]'
+                  ? 'text-[#e5c488]'
+                  : 'text-[var(--text-subtle)] group-hover:text-[#0a2540]'
               }`}
             >
               {frame.number}
             </span>
 
-            {/* Frame Label */}
             <span className="tracking-tight whitespace-nowrap">
               {frame.label}
             </span>
-
-            {/* Sprocket-style active pip */}
-            {isActive && (
-              <span className="w-1 h-1 rounded-full bg-amber-400" />
-            )}
           </button>
         );
       })}

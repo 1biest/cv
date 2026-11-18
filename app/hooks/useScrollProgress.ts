@@ -1,80 +1,61 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-
-export type SectionProgress = {
-  progress: number; // 0.0 (entering at bottom) to 1.0 (fully exited at top)
-  active: boolean;  // is this the current section closest to being snapped
-};
+import { useEffect, useRef, useState } from 'react';
 
 export function useScrollProgress(sectionIds: string[]) {
-  const [progresses, setProgresses] = useState<Record<string, SectionProgress>>({});
-  const [activeSection, setActiveSection] = useState<string>('');
-
-  const sectionIdsKey = sectionIds.join(',');
+  const [activeSection, setActiveSection] = useState<string>(sectionIds[0] || '');
+  const activeRef = useRef<string>(sectionIds[0] || '');
 
   useEffect(() => {
-    if (sectionIds.length === 0) return;
+    const ids = sectionIds;
+    if (ids.length === 0) return;
 
-    const handleScroll = () => {
-      const newProgresses: Record<string, SectionProgress> = {};
-      let closestSectionId = '';
-      let minDiff = Infinity;
-      const vh = window.innerHeight;
+    let rafId: number | null = null;
 
-      sectionIds.forEach((id) => {
+    const computeActiveSection = () => {
+      rafId = null;
+      const viewportAnchor = window.innerHeight * 0.35;
+      let closestId = activeRef.current || ids[0];
+      let minDistance = Infinity;
+
+      for (const id of ids) {
         const el = document.getElementById(id);
-        if (!el) return;
-
+        if (!el) continue;
         const rect = el.getBoundingClientRect();
-        
-        // Calculate progress from 0.0 (entering bottom) to 1.0 (exiting top)
-        // when rect.top = vh => progress = 0.0
-        // when rect.top = 0 => progress = vh / (vh + height) ~ 0.5 (for height = vh)
-        // when rect.top = -height => progress = 1.0
-        const totalDist = vh + rect.height;
-        const currentDist = vh - rect.top;
-        const progress = totalDist > 0 ? Math.max(0, Math.min(1, currentDist / totalDist)) : 0.5;
-
-        // Determine which section is currently centered or closest to the top of the viewport
-        const diff = Math.abs(rect.top);
-        if (diff < minDiff) {
-          minDiff = diff;
-          closestSectionId = id;
-        }
-
-        newProgresses[id] = {
-          progress,
-          active: false,
-        };
-      });
-
-      if (closestSectionId) {
-        setActiveSection(closestSectionId);
-        if (newProgresses[closestSectionId]) {
-          newProgresses[closestSectionId].active = true;
+        const distance =
+          rect.top <= viewportAnchor && rect.bottom >= viewportAnchor
+            ? 0
+            : Math.min(
+                Math.abs(rect.top - viewportAnchor),
+                Math.abs(rect.bottom - viewportAnchor),
+              );
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestId = id;
         }
       }
 
-      setProgresses(newProgresses);
+      if (closestId !== activeRef.current) {
+        activeRef.current = closestId;
+        setActiveSection(closestId);
+      }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleScroll);
-    
-    // Initial run
-    handleScroll();
+    const handleScroll = () => {
+      if (rafId !== null) return;
+      rafId = window.requestAnimationFrame(computeActiveSection);
+    };
 
-    // Extra trigger to ensure correct positioning after layout shifts
-    const timer = setTimeout(handleScroll, 150);
+    computeActiveSection();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
-      clearTimeout(timer);
+      if (rafId !== null) {
+        window.cancelAnimationFrame(rafId);
+      }
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sectionIdsKey]);
+  }, [sectionIds]);
 
-  return { progresses, activeSection };
+  return { activeSection };
 }

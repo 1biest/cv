@@ -80,8 +80,8 @@ export default function DyvePage() {
         {/* 6. Architecture & Implementation */}
         <SectionWrapper title="Architecture & Implementation">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="rounded-xl border border-[var(--border)] bg-neutral-50/90 p-6">
-              <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-sm)]">
+              <h3 className="mb-4 text-lg font-semibold tracking-tight text-[#0a2540]">
                 Frontend Architecture
               </h3>
               <BulletList
@@ -100,8 +100,8 @@ export default function DyvePage() {
               />
             </div>
 
-            <div className="rounded-xl border border-[var(--border)] bg-neutral-50/90 p-6">
-              <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-sm)]">
+              <h3 className="mb-4 text-lg font-semibold tracking-tight text-[#0a2540]">
                 Web3 Data & Protocols
               </h3>
               <BulletList
@@ -120,8 +120,8 @@ export default function DyvePage() {
               />
             </div>
 
-            <div className="rounded-xl border border-[var(--border)] bg-neutral-50/90 p-6">
-              <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">Smart Contracts</h3>
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-sm)]">
+              <h3 className="mb-4 text-lg font-semibold tracking-tight text-[#0a2540]">Smart Contracts</h3>
               <BulletList
                 items={[
                   {
@@ -138,8 +138,8 @@ export default function DyvePage() {
               />
             </div>
 
-            <div className="rounded-xl border border-[var(--border)] bg-neutral-50/90 p-6">
-              <h3 className="mb-4 text-xl font-semibold text-[var(--text)]">UX & Interaction</h3>
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-sm)]">
+              <h3 className="mb-4 text-lg font-semibold tracking-tight text-[#0a2540]">UX & Interaction</h3>
               <BulletList
                 items={[
                   {

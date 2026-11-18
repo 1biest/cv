@@ -8,6 +8,8 @@ export interface ProjectImage {
   youtubeId?: string; // Required when type is 'youtube'
 }
 
+export type SystemTrack = 'frontend' | 'design' | 'ai' | 'defi' | 'infra';
+
 /**
  * Represents a project with all its associated data
  */
@@ -23,6 +25,8 @@ export interface Project {
   content2?: string;
   content3?: string;
   highlights: string[];
+  /** Concrete narrative accomplishments (distinct from compact tech-stack highlights) */
+  achievements?: string[];
   ctas: string[];
   /** Optional per-CTA overrides (same index as `ctas`) for link preview title/description. */
   ctaPanelOverrides?: ({ title?: string; description?: string } | null)[];
@@ -36,6 +40,18 @@ export interface Project {
   problemSpace?: string[];
   approach?: string[];
   outcomes?: string[];
+  tracks?: SystemTrack[];
+}
+
+export interface SystemsBuiltItem {
+  name: string;
+  domain: string;
+  integrations: string[];
+  constraints: string[];
+  outcome: string;
+  projectId: string;
+  badge?: string;
+  tracks?: SystemTrack[];
 }
 
 /**
@@ -48,14 +64,6 @@ export interface ProjectsData {
     items: string[];
     description?: string;
   }[];
-  systemsBuilt: {
-    name: string;
-    domain: string;
-    integrations: string[];
-    constraints: string[];
-    outcome: string;
-    projectId: string;
-    badge?: string;
-  }[];
+  systemsBuilt: SystemsBuiltItem[];
   projects: Project[];
 }

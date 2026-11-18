@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-export const alt = 'Logan Biesterfeldt — Design Engineer & Frontend Lead';
+export const alt = 'Logan Biesterfeldt — Frontend, Product Design & Forward Deployed AI Engineer';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -77,23 +77,23 @@ export default async function OpengraphImage() {
           <div
             style={{
               marginTop: 24,
-              fontSize: 44,
+              fontSize: 40,
               fontWeight: 500,
               color: 'rgba(255,255,255,0.92)',
               display: 'flex',
             }}
           >
-            Design Engineer · Frontend Lead
+            Frontend Engineer · Product Design · Forward Deployed AI
           </div>
           <div
             style={{
               marginTop: 18,
               fontSize: 28,
-              color: 'rgba(255,255,255,0.62)',
+              color: 'rgba(255,255,255,0.68)',
               display: 'flex',
             }}
           >
-            Figma to production · React · TypeScript · DeFi
+            React 19 · TypeScript · Figma Systems · Three.js · PostgreSQL · Agentic AI
           </div>
         </div>
 
@@ -107,7 +107,7 @@ export default async function OpengraphImage() {
           }}
         >
           <span>Open to relocation · Remote-friendly</span>
-          <span>github.com/1biest</span>
+          <span>biest.ca · github.com/1biest</span>
         </div>
       </div>
     ),
