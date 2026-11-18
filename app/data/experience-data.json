@@ -105,13 +105,6 @@
       "link": "https://ethglobal.com/showcase/dyve-pxsz9"
     },
     {
-      "title": "CrAIdle",
-      "desc": "A self-sustaining AI agent token launchpad and treasury incubation primitive built for the Synthesis Hackathon. Produced entirely through autonomous orchestrated AI agents utilizing OpenClaw and MiniMax. Deployed on Base Sepolia.",
-      "company": "Synthesis Hackathon 2026",
-      "thumbUrl": "diagrams/craidle-architecture.svg",
-      "link": "https://github.com/1biest/craidle"
-    },
-    {
       "title": "Monad Heartbeat",
       "desc": "A real-time node explorer and block visualizer for the Monad blockchain, showcasing stages of consensus and speculative execution using interactive 3D elements and WebSockets.",
       "company": "Personal Project",

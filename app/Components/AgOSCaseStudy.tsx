@@ -1,12 +1,43 @@
 'use client';
 
-import Image from 'next/image';
 import React from 'react';
+import CaseStudyPreviewDeck, { type PreviewFrame } from './CaseStudyPreviewDeck';
 import { trackCaseStudyEvent } from '../lib/analytics';
 
 interface AgOSCaseStudyProps {
   openProject: (projectId: string) => void;
 }
+
+const AGOS_PREVIEW_FRAMES: readonly PreviewFrame[] = [
+  {
+    src: '/screenshots/AgOS-screenshot (2).png',
+    alt: 'AgOS 3D Storage Yard (Home Yard — Main Setup) and Selected Bin D-02 Inspector',
+    label: '3D Yard',
+    tag: 'AGOS // 3D GRAIN STORAGE',
+    caption: '3D Parametric Bin Yard & Selected Bin Inspector',
+  },
+  {
+    src: '/screenshots/AgOS-screenshot (3).png',
+    alt: 'AgOS Fields & Crops interactive Leaflet satellite map and 4,800-acre crop plan',
+    label: 'Fields Map',
+    tag: 'AGOS // FIELDS & CROPS',
+    caption: 'Satellite Field Boundaries (17 Fields · 4,800 ac)',
+  },
+  {
+    src: '/screenshots/AgOS-screenshot (5).png',
+    alt: 'AgOS Cash Flow expense ledger and Production Economics Nivo Sankey diagram',
+    label: 'Cash Sankey',
+    tag: 'AGOS // CASH FLOW SANKEY',
+    caption: 'Input Ledger & Production Economics Sankey Flow',
+  },
+  {
+    src: '/screenshots/AgOS-screenshot (7).png',
+    alt: 'AgOS Field-to-Bin shipping ticket modal with manual entry and upload extract modes',
+    label: 'Tickets',
+    tag: 'AGOS // SHIPPING TICKETS',
+    caption: 'Field-to-Bin Load Ticket Intake & Tonnage Sync',
+  },
+];
 
 export default function AgOSCaseStudy({ openProject }: AgOSCaseStudyProps) {
   const handleOpen = () => {
@@ -138,33 +169,16 @@ export default function AgOSCaseStudy({ openProject }: AgOSCaseStudyProps) {
           </div>
         </div>
 
-        {/* Right column — bespoke SVG architecture diagram */}
-        <div>
-          <button
-            type="button"
-            onClick={handleOpen}
-            className="w-full text-left relative rounded-2xl border border-[var(--border-strong)] bg-[var(--surface)] glass-surface p-2 shadow-[var(--shadow-card)] overflow-hidden group cursor-pointer transition hover:border-[#0a2540]/45"
-          >
-            <div className="relative overflow-hidden rounded-xl border border-[var(--border)] bg-[#0d1722]">
-              <Image
-                src="/diagrams/agos-architecture.svg"
-                alt="AgOS Domain & Full-Stack Architecture: Field Discovery to 3D Storage, Financial Views, and Neon Postgres"
-                width={800}
-                height={520}
-                sizes="(max-width: 1024px) 100vw, 390px"
-                className="w-full h-auto block transition-transform duration-500 group-hover:scale-[1.01]"
-                priority={false}
-              />
-            </div>
-            <div className="mt-2 rounded-xl bg-[#0a2540] px-4 py-2.5 text-white flex items-center justify-between text-[11px] font-mono">
-              <span>{'AGOS // SYSTEM ARCHITECTURE'}</span>
-              <span className="text-[#e5c488] font-semibold">INSPECT SPEC ↗</span>
-            </div>
-          </button>
-          <p className="mt-3 text-center text-xs text-[var(--text-subtle)] font-mono">
-            AgOS Data &amp; Spatial Engine Blueprint
-          </p>
-        </div>
+        {/* Right column — interactive AgOS UI showcase */}
+        <CaseStudyPreviewDeck
+          frames={AGOS_PREVIEW_FRAMES}
+          onInspect={handleOpen}
+          totalArtifactsCount={8}
+          footerSummarySuffix="7 Screens + Architecture"
+          stageBgClassName="bg-[#1c2822]"
+          groupAriaLabel="AgOS preview screens"
+          openAriaPrefix="Open AgOS case study gallery"
+        />
       </div>
     </div>
   );

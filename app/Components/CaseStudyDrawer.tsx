@@ -67,6 +67,48 @@ const PROJECT_GALLERIES: Record<string, GalleryItem[]> = {
   ],
   'agos': [
     {
+      src: '/screenshots/AgOS-screenshot (2).png',
+      alt: 'AgOS 3D Grain Storage Yard and Selected Bin D-02 Inspector',
+      title: '3D Parametric Storage Yard & Bin Inspector',
+      caption: 'Custom Three.js grain bins (Westeel, Behlen, Meridian) tied live to PostgreSQL fill weights, grade, protein, and commodity balances.',
+    },
+    {
+      src: '/screenshots/AgOS-screenshot (3).png',
+      alt: 'AgOS Fields & Crops Satellite Map and Crop Allocation Overview',
+      title: 'Fields & Crops — Satellite Map & Crop Plan',
+      caption: 'Interactive Leaflet + Esri field map across 17 fields (4,800 ac) with crop breakdown charts and John Deere Ops Center (JDOC) import.',
+    },
+    {
+      src: '/screenshots/AgOS-screenshot (5).png',
+      alt: 'AgOS Cash Flow Ledger and Production Economics Sankey Diagram',
+      title: 'Cash Flow & Production Economics Sankey',
+      caption: 'Input cost ledger ($1.23M outflow) traced through a Nivo Sankey diagram into crop production, stored grain value, and sales receipts.',
+    },
+    {
+      src: '/screenshots/AgOS-screenshot (4).png',
+      alt: 'AgOS Storage Overview with Inventory Mix Donuts and Stacked Time-Series Chart',
+      title: 'Storage Overview — Inventory Mix & Time-Series',
+      caption: '$2.1M market valuation and 5,240 t / 208,337 bu on-hand history featuring drag-reorderable and keyboard-accessible layer handles.',
+    },
+    {
+      src: '/screenshots/AgOS-screenshot (1).png',
+      alt: 'AgOS Markets Page with Durum Price History Chart and Current Price Board',
+      title: 'Markets & Grain Price Benchmarking',
+      caption: 'Durum Wheat spot curve against Statistics Canada benchmarks paired with on-hand exposure, open commitments, and active price boards.',
+    },
+    {
+      src: '/screenshots/AgOS-screenshot (7).png',
+      alt: 'AgOS Field-to-Bin Shipping Ticket Modal with Manual Entry and Upload & Extract Tabs',
+      title: 'Shipping Ticket Intake & Tonnage Sync',
+      caption: 'Load ticket builder supporting manual entry and upload/extract intake with live source-to-bin tonnage matching and visual bin selection.',
+    },
+    {
+      src: '/screenshots/AgOS-screenshot (6).png',
+      alt: 'AgOS Multi-Tenant Organization and Land Location Settings Modal',
+      title: 'Multi-Tenant Organizations & Legal Land Datum',
+      caption: 'Isolated organization workspaces with DLS legal land lookup (NW-12-24-02-W3), local coordinate derivation, and role access controls.',
+    },
+    {
       src: '/diagrams/agos-architecture.svg',
       alt: 'AgOS Full-Stack Architecture Diagram',
       title: 'Field Discovery → 3D Spatial Twin & Postgres Schema',
@@ -75,10 +117,16 @@ const PROJECT_GALLERIES: Record<string, GalleryItem[]> = {
   ],
   'flat-land-farms': [
     {
-      src: '/diagrams/agos-architecture.svg',
-      alt: 'AgOS Field-to-Software Architecture Diagram',
-      title: 'From Precision Field Telemetry to AgOS Software',
-      caption: 'Direct grower experience with John Deere Ops Center & Climate FieldView informed AgOS crop, storage, and contracting workflows.',
+      src: '/screenshots/AgOS-screenshot (3).png',
+      alt: 'AgOS Fields & Crops Map showing Import from JDOC Action',
+      title: 'Translating JDOC Field Workflows into AgOS',
+      caption: 'Built direct JDOC field import and 4,800-acre spatial crop planning workflows based on day-to-day precision agriculture bottlenecks.',
+    },
+    {
+      src: '/screenshots/AgOS-screenshot (2).png',
+      alt: 'AgOS 3D Storage Yard replacing Manual Whiteboard Grain Tracking',
+      title: 'Replacing Whiteboard Bin Logs with 3D Yard State',
+      caption: 'Unified bin fill levels, protein/grade attributes, and commodity balances into one live spatial inventory tool.',
     },
   ],
   'dyve': [
@@ -87,22 +135,6 @@ const PROJECT_GALLERIES: Record<string, GalleryItem[]> = {
       alt: 'Dyve Interface',
       title: 'Dyve NFTFi Trading & Lending UI',
       caption: 'Decentralized peer-to-peer NFT lending and shorting platform built for ETHGlobal HackFS 2022.',
-    },
-  ],
-  'craidle': [
-    {
-      src: '/diagrams/craidle-architecture.svg',
-      alt: 'CrAIdle Architecture Diagram',
-      title: 'CrAIdle Yield-Budgeted Treasury & OpenClaw Pipeline',
-      caption: 'Spec-driven agentic engineering (OpenClaw + MiniMax) shipping 4 Base Sepolia contracts separating locked principal from stETH compute yield.',
-    },
-  ],
-  'satsuma': [
-    {
-      src: '/diagrams/satsuma-architecture.svg',
-      alt: 'Satsuma Cross-Chain Routing Diagram',
-      title: 'Satsuma Cross-Chain Yield-to-Bitcoin Architecture',
-      caption: '4-network yield routing workflow coordinating Injective deposits, Astroport swaps, Axelar GMP relays, and ICP canisters.',
     },
   ],
   'monad-heartbeat': [
@@ -152,7 +184,7 @@ const PROJECT_GALLERIES: Record<string, GalleryItem[]> = {
       src: '/screenshots/neptune-balance-menu.webp',
       alt: 'Neptune Finance Balance Menu',
       title: 'Neptune Finance Product Engineering',
-      caption: 'Lead frontend engineering and Figma design systems ($300M+ peak protocol TVL).',
+      caption: 'Injective money market ($159.66M+ cumulative loans · $27.76M peak gross TVL · 882,800+ contract txs).',
     },
     {
       src: '/screenshots/cryptech-airdrop-calculator.webp',
@@ -251,17 +283,25 @@ export default function CaseStudyDrawer({
     }
   }, [isOpen]);
 
-  // Keyboard handler for Esc
+  // Keyboard handler for Esc and gallery arrow navigation
   useEffect(() => {
     if (!isOpen) return;
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         onClose();
+        return;
+      }
+      if (galleryItems.length > 1) {
+        if (e.key === 'ArrowRight') {
+          setSelectedImageIndex((prev) => (prev + 1) % galleryItems.length);
+        } else if (e.key === 'ArrowLeft') {
+          setSelectedImageIndex((prev) => (prev - 1 + galleryItems.length) % galleryItems.length);
+        }
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, onClose]);
+  }, [isOpen, onClose, galleryItems.length]);
 
   const copyLink = async (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -294,121 +334,153 @@ export default function CaseStudyDrawer({
         aria-hidden="true"
       />
 
-      {/* Negative Space Visual Gallery (Desktop Viewports: visible on lg/xl screens) */}
+      {/* Full-Bleed Visual Stage (Desktop Viewports: visible on lg/xl screens) */}
       <div
-        className={`relative hidden lg:flex flex-1 flex-col justify-between p-6 xl:p-10 z-10 transition-all duration-300 overflow-hidden pointer-events-none ${
+        className={`relative hidden lg:flex flex-1 flex-col h-full z-10 transition-all duration-300 overflow-hidden pointer-events-none ${
           animateShow ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-6'
         }`}
       >
-        {/* Gallery Header */}
-        <div className="flex items-center justify-between text-slate-200 pointer-events-auto">
-          <div className="flex items-center gap-3">
+        {/* Minimal Floating Header Controls */}
+        <div className="pointer-events-none absolute top-0 inset-x-0 z-20 flex items-center justify-between px-5 py-4 bg-gradient-to-b from-[#061321]/70 via-[#061321]/25 to-transparent">
+          <div className="pointer-events-auto flex items-center gap-2.5">
             <span className="inline-block w-2 h-2 rounded-full bg-[#e5c488]" />
-            <span className="font-mono text-xs uppercase tracking-widest text-slate-200 font-bold">
-              VISUAL ARTIFACTS // {projectTitle.toUpperCase()}
+            <span className="font-mono text-[11px] uppercase tracking-widest text-slate-100 font-semibold">
+              {projectTitle}
             </span>
             {galleryItems.length > 0 && (
-              <span className="font-mono text-[11px] text-slate-300 bg-[#0a2540]/80 px-2.5 py-0.5 rounded-full border border-white/15">
-                {selectedImageIndex + 1} OF {galleryItems.length}
+              <span className="font-mono text-[11px] text-[#e5c488] bg-[#0a2540]/85 px-2.5 py-0.5 rounded-full border border-white/15 backdrop-blur-xs">
+                {selectedImageIndex + 1} / {galleryItems.length}
               </span>
             )}
           </div>
 
-          <button
-            onClick={onClose}
-            className="text-xs font-mono text-slate-300 hover:text-white px-3 py-1 rounded-full border border-white/20 hover:border-white/40 transition"
-          >
-            DISMISS [ESC]
-          </button>
+          <div className="pointer-events-auto flex items-center gap-2">
+            {activeImage && (
+              <a
+                href={activeImage.src}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-[#0a2540]/85 text-slate-200 border border-white/15 hover:text-white hover:border-white/40 transition backdrop-blur-xs"
+                title="Open full resolution"
+                aria-label="Open full resolution image"
+              >
+                <FontAwesomeIcon icon={faExpand} className="text-xs" />
+              </a>
+            )}
+            <button
+              type="button"
+              onClick={onClose}
+              className="h-8 px-3 rounded-full bg-[#0a2540]/85 text-[11px] font-mono text-slate-200 hover:text-white border border-white/15 hover:border-white/40 transition backdrop-blur-xs cursor-pointer"
+            >
+              DISMISS [ESC]
+            </button>
+          </div>
         </div>
 
-        {/* Featured Main Preview in Negative Space */}
-        {activeImage ? (
-          <div className="my-auto max-w-2xl w-full mx-auto pointer-events-auto">
-            <div className="group relative rounded-2xl border border-white/15 bg-[#0a1929]/95 p-2 shadow-2xl overflow-hidden transition-all duration-300 hover:border-white/30">
-              <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-[#07121f]">
-                <Image
-                  src={activeImage.src}
-                  alt={activeImage.alt}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, (max-width: 1536px) 50vw, 680px"
-                  className="object-contain transition-transform duration-500 group-hover:scale-[1.02]"
-                  priority
-                />
+        {/* Full-Height, Full-Width Unframed Imagery Canvas */}
+        <div className="relative flex-1 min-h-0 w-full">
+          {activeImage ? (
+            <>
+              <Image
+                src={activeImage.src}
+                alt={activeImage.alt}
+                fill
+                sizes="(max-width: 1024px) 100vw, (max-width: 1536px) 55vw, 1100px"
+                className="object-contain"
+                priority
+              />
+              {galleryItems.length > 1 && (
+                <>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setSelectedImageIndex(
+                        (prev) => (prev - 1 + galleryItems.length) % galleryItems.length
+                      )
+                    }
+                    aria-label="Previous artifact"
+                    className="pointer-events-auto absolute left-3 top-1/2 -translate-y-1/2 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-[#061321]/70 text-slate-200 border border-white/15 hover:bg-[#0a2540] hover:text-white transition backdrop-blur-xs cursor-pointer"
+                  >
+                    <FontAwesomeIcon icon={faArrowLeft} className="text-xs" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setSelectedImageIndex((prev) => (prev + 1) % galleryItems.length)
+                    }
+                    aria-label="Next artifact"
+                    className="pointer-events-auto absolute right-3 top-1/2 -translate-y-1/2 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-[#061321]/70 text-slate-200 border border-white/15 hover:bg-[#0a2540] hover:text-white transition backdrop-blur-xs cursor-pointer"
+                  >
+                    <FontAwesomeIcon icon={faArrowRight} className="text-xs" />
+                  </button>
+                </>
+              )}
+            </>
+          ) : (
+            <div className="pointer-events-auto flex h-full w-full items-center justify-center px-8 text-center">
+              <div className="max-w-md">
+                <span className="font-mono text-xs uppercase text-[#e5c488] tracking-wider">
+                  DESIGN ARTIFACTS
+                </span>
+                <h4 className="text-base font-bold text-white mt-1">
+                  {projectTitle}
+                </h4>
+                <p className="text-xs text-slate-300 mt-2 leading-relaxed">
+                  Detailed architecture specifications, contract state diagrams, and interaction flows are loaded in the panel.
+                </p>
               </div>
+            </div>
+          )}
+        </div>
 
-              {/* Caption and expand link */}
-              <div className="p-3.5 flex items-start justify-between gap-3 text-slate-200">
-                <div>
-                  <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#e5c488]">
+        {/* Bottom Bar: Title & Description right by the Gallery Strip */}
+        {(activeImage || galleryItems.length > 1) && (
+          <div className="pointer-events-auto relative z-20 shrink-0 border-t border-white/10 bg-[#061321]/82 px-5 py-3.5 backdrop-blur-md">
+            <div className="flex flex-col gap-2.5">
+              {activeImage && (
+                <div className="min-w-0">
+                  <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#e5c488] leading-snug">
                     {activeImage.title}
                   </h4>
                   {activeImage.caption && (
-                    <p className="text-xs text-slate-300 mt-1 leading-relaxed">
+                    <p className="mt-1 text-xs text-slate-300 leading-relaxed">
                       {activeImage.caption}
                     </p>
                   )}
                 </div>
+              )}
 
-                <a
-                  href={activeImage.src}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="shrink-0 p-2 text-slate-300 hover:text-white transition"
-                  title="Open full resolution"
-                >
-                  <FontAwesomeIcon icon={faExpand} className="text-xs" />
-                </a>
-              </div>
-            </div>
-          </div>
-        ) : (
-          <div className="my-auto max-w-md mx-auto text-center text-slate-300 pointer-events-auto">
-            <div className="rounded-2xl border border-white/15 bg-[#0a1929]/85 p-8">
-              <span className="font-mono text-xs uppercase text-[#e5c488] tracking-wider">
-                DESIGN ARTIFACTS
-              </span>
-              <h4 className="text-base font-bold text-white mt-1">
-                {projectTitle}
-              </h4>
-              <p className="text-xs text-slate-300 mt-2 leading-relaxed">
-                Detailed architecture specifications, contract state diagrams, and interaction flows are loaded in the panel.
-              </p>
-            </div>
-          </div>
-        )}
-
-        {/* Thumbnail Reel at the Bottom of Negative Space */}
-        {galleryItems.length > 1 && (
-          <div className="pointer-events-auto pt-4 border-t border-white/15">
-            <div className="flex items-center gap-2.5 overflow-x-auto pb-1 scrollbar-none">
-              {galleryItems.map((item, idx) => {
-                const isSelected = idx === selectedImageIndex;
-                return (
-                  <button
-                    key={item.src + idx}
-                    type="button"
-                    onClick={() => setSelectedImageIndex(idx)}
-                    className={`group relative shrink-0 w-20 h-14 rounded-lg overflow-hidden border transition-all ${
-                      isSelected
-                        ? 'border-[#e5c488] ring-2 ring-[#e5c488]/40 scale-105 shadow-md'
-                        : 'border-white/20 opacity-65 hover:opacity-100 hover:border-white/40'
-                    }`}
-                    title={item.title}
-                  >
-                    <Image
-                      src={item.src}
-                      alt={item.alt}
-                      fill
-                      sizes="80px"
-                      className="object-cover"
-                    />
-                    <span className="absolute bottom-0.5 right-0.5 font-mono text-[8px] bg-black/80 px-1 rounded text-white">
-                      0{idx + 1}
-                    </span>
-                  </button>
-                );
-              })}
+              {galleryItems.length > 1 && (
+                <div className="flex items-center gap-2 overflow-x-auto pb-0.5 scrollbar-none">
+                  {galleryItems.map((item, idx) => {
+                    const isSelected = idx === selectedImageIndex;
+                    return (
+                      <button
+                        key={item.src + idx}
+                        type="button"
+                        onClick={() => setSelectedImageIndex(idx)}
+                        className={`group relative shrink-0 w-18 h-12 rounded-md overflow-hidden border transition-all cursor-pointer ${
+                          isSelected
+                            ? 'border-[#e5c488] ring-1 ring-[#e5c488] opacity-100'
+                            : 'border-white/20 opacity-60 hover:opacity-100 hover:border-white/45'
+                        }`}
+                        title={item.title}
+                      >
+                        <Image
+                          src={item.src}
+                          alt={item.alt}
+                          fill
+                          sizes="72px"
+                          className="object-cover"
+                        />
+                        <span className="absolute bottom-0.5 right-0.5 font-mono text-[8px] bg-black/75 px-1 rounded text-white">
+                          {String(idx + 1).padStart(2, '0')}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -452,10 +524,10 @@ export default function CaseStudyDrawer({
         {/* Scrollable Case Study Content */}
         <div className="flex-1 overflow-y-auto px-6 py-8 md:px-12 md:py-12">
           <div className="mx-auto max-w-3xl">
-            {/* Mobile Visual Artifacts Strip (since negative-space panel sits on lg+) */}
+            {/* Mobile Visual Artifacts Strip (since full-bleed desktop gallery sits on lg+) */}
             {activeImage ? (
-              <div className="lg:hidden mb-8 rounded-2xl border border-[var(--border-strong)] bg-[#0a1929] overflow-hidden shadow-md">
-                <div className="relative aspect-video w-full bg-[#07121f]">
+              <div className="lg:hidden -mx-6 sm:mx-0 mb-8 sm:rounded-xl bg-[#061321] overflow-hidden">
+                <div className="relative aspect-[16/10] w-full">
                   <Image
                     src={activeImage.src}
                     alt={activeImage.alt}
@@ -464,50 +536,52 @@ export default function CaseStudyDrawer({
                     className="object-contain"
                   />
                 </div>
-                <div className="p-3.5 text-slate-100">
-                  <div className="flex items-center justify-between gap-2">
-                    <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#e5c488]">
-                      {activeImage.title}
-                    </h4>
-                    <a
-                      href={activeImage.src}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-mono text-slate-300 underline"
-                    >
-                      Open ↗
-                    </a>
+                <div className="border-t border-white/10 px-4 py-3 text-slate-100 space-y-2.5">
+                  <div>
+                    <div className="flex items-center justify-between gap-2">
+                      <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#e5c488]">
+                        {activeImage.title}
+                      </h4>
+                      <a
+                        href={activeImage.src}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="shrink-0 text-xs font-mono text-slate-300 underline"
+                      >
+                        Open ↗
+                      </a>
+                    </div>
+                    {activeImage.caption ? (
+                      <p className="mt-1 text-xs text-slate-300 leading-relaxed">
+                        {activeImage.caption}
+                      </p>
+                    ) : null}
                   </div>
-                  {activeImage.caption ? (
-                    <p className="mt-1 text-xs text-slate-300 leading-relaxed">
-                      {activeImage.caption}
-                    </p>
+                  {galleryItems.length > 1 ? (
+                    <div className="flex items-center gap-2 overflow-x-auto pt-2 border-t border-white/10">
+                      {galleryItems.map((item, idx) => (
+                        <button
+                          key={item.src + idx}
+                          type="button"
+                          onClick={() => setSelectedImageIndex(idx)}
+                          className={`relative h-11 w-16 shrink-0 overflow-hidden rounded border transition cursor-pointer ${
+                            idx === selectedImageIndex
+                              ? 'border-[#e5c488] ring-1 ring-[#e5c488]'
+                              : 'border-white/20 opacity-65 hover:opacity-100'
+                          }`}
+                        >
+                          <Image
+                            src={item.src}
+                            alt={item.alt}
+                            fill
+                            sizes="64px"
+                            className="object-cover"
+                          />
+                        </button>
+                      ))}
+                    </div>
                   ) : null}
                 </div>
-                {galleryItems.length > 1 ? (
-                  <div className="flex items-center gap-2 overflow-x-auto border-t border-white/15 bg-[#081523] px-3 py-2.5">
-                    {galleryItems.map((item, idx) => (
-                      <button
-                        key={item.src + idx}
-                        type="button"
-                        onClick={() => setSelectedImageIndex(idx)}
-                        className={`relative h-11 w-16 shrink-0 overflow-hidden rounded border transition ${
-                          idx === selectedImageIndex
-                            ? 'border-[#e5c488] ring-1 ring-[#e5c488]'
-                            : 'border-white/20 opacity-65 hover:opacity-100'
-                        }`}
-                      >
-                        <Image
-                          src={item.src}
-                          alt={item.alt}
-                          fill
-                          sizes="64px"
-                          className="object-cover"
-                        />
-                      </button>
-                    ))}
-                  </div>
-                ) : null}
               </div>
             ) : null}
             {children}

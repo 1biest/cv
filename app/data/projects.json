@@ -1,8 +1,8 @@
 {
   "technicalSummary": [
     "Product-minded Frontend & Design Engineer with 6+ years building TypeScript web applications, design systems, and customer-facing interfaces end to end—from embedded user discovery and Figma component libraries to production React code.",
-    "At Cryptech / Neptune Finance, built and scaled frontend systems for a DeFi lending protocol reaching $300M+ peak TVL alongside cross-chain governance tooling. Earlier field operations experience at Flat Land Farms directly informs AgOS, an agricultural operating system built with React 19, Three.js, Neon PostgreSQL, and Drizzle ORM.",
-    "Across AI-native builds like CrAIdle and Satsuma, pair spec-driven agentic engineering (Claude, Cursor, OpenClaw, MiniMax) with strict contract invariants, TypeScript/compiler gates, and human-in-the-loop verification to ship complex full-stack products quickly without sacrificing reliability."
+    "At Cryptech / Neptune Finance, engineered the web platform and smart-contract integration layer for Injective's leading money market—scaling across 9 lending and 21 collateral markets to $159.66M+ cumulative loans originated, $27.76M peak gross TVL, and 882,800+ on-chain executions over 1,042+ days uptime ($0 bad debt). Earlier field operations experience at Flat Land Farms directly informs AgOS, an agricultural operating system built with React 19, Three.js, Neon PostgreSQL, and Drizzle ORM.",
+    "Across AI-accelerated workflows at Neptune Finance and AgOS, pair spec-driven AI agent rulesets and verification playbooks (Claude, Cursor) with strict contract/database invariants, TypeScript/compiler gates, automated telemetry analysis, and human-in-the-loop verification to ship complex full-stack products quickly without sacrificing reliability."
   ],
   "coreCompetencies": [
     {
@@ -68,14 +68,14 @@
     },
     {
       "name": "Neptune Finance Web Application",
-      "domain": "DeFi lending, staking, and liquidity on Injective ($300M+ Peak TVL)",
-      "integrations": ["CosmWasm", "Mito", "Astroport", "Wallet providers"],
+      "domain": "DeFi money market on Injective ($159.66M+ Loans · $27.76M Peak TVL · 882,800+ Executions)",
+      "integrations": ["CosmWasm", "@neptunefinance/api-v2", "React Query", "@base-ui", "Hydro (hINJ)", "Stride (stATOM)", "Mito", "Astroport", "Skip Go"],
       "constraints": [
-        "On-chain to UI state synchronization during pending transactions",
-        "Deterministic error recovery and confirmation boundaries",
-        "Latency-sensitive market data and collateral health feedback"
+        "Resolving 30-second blockchain indexer lag & legacy InfluxDB reconstruction waterfalls",
+        "Deterministic gas bounds across 10 tx profiles and multi-decimal / EVM WalletConnect SDK edge cases",
+        "1-click abstraction over 5-step atomic flash-loan, DEX routing, and nToken flows"
       ],
-      "outcome": "Built the custom Figma design system and production Next.js/TypeScript frontend across lending, staking, airdrop, and liquidity workflows, including self-directed features such as the multi-page Balance Menu.",
+      "outcome": "Scaled across 9 lending and 21 collateral markets (1,042+ days uptime, $0 bad debt); migrated to @neptunefinance/api-v2 with spec-driven AI playbooks; saved 7.55M gas (15% limit cut); and shipped 1-click Collateral/Debt Swaps, 4-layer @base-ui Health Bar, live Bech32 diagnostic console, and self-initiated Balance Menu.",
       "projectId": "neptune-finance",
       "tracks": ["frontend", "design", "defi"]
     },
@@ -105,41 +105,6 @@
       "projectId": "dyve",
       "badge": "Hackathon",
       "tracks": ["frontend", "design", "defi"]
-    },
-    {
-      "name": "Satsuma Cross-Chain Yield Routing",
-      "domain": "Yield-to-Bitcoin conversion workflow",
-      "integrations": ["Injective contracts", "Astroport", "Axelar GMP", "ICP canister"],
-      "constraints": [
-        "Cross-chain state handoff visualization",
-        "Yield accounting verification across 4 networks",
-        "Spec-driven agentic UI iteration under 48h constraints"
-      ],
-      "outcome": "Designed and shipped a multi-chain yield-to-Bitcoin conversion interface spanning Injective, Astroport, Axelar, and ICP using spec-driven agentic coding with human-in-the-loop architecture and wallet testing.",
-      "projectId": "satsuma",
-      "badge": "Hackathon",
-      "tracks": ["frontend", "ai", "defi"]
-    },
-    {
-      "name": "CrAIdle Yield-Budgeted Treasury & Launchpad",
-      "domain": "Self-sustaining AI agent token launchpad and incubation treasury",
-      "integrations": [
-        "OpenClaw",
-        "MiniMax",
-        "Base Sepolia",
-        "Solidity",
-        "Ethers.js",
-        "Lido stETH"
-      ],
-      "constraints": [
-        "Principal-locked incubator vault invariant protecting investor capital",
-        "Yield-only compute budget routing via stETH",
-        "Spec-driven OpenClaw/MiniMax orchestration with on-chain deployment verification"
-      ],
-      "outcome": "Architected and deployed 4 Solidity contracts plus a live Base Sepolia Next.js dashboard via orchestrated OpenClaw/MiniMax agents constrained by strict financial specs and manual integration testing.",
-      "projectId": "craidle",
-      "badge": "Hackathon",
-      "tracks": ["ai", "frontend", "defi"]
     },
     {
       "name": "Monad Blockchain Heartbeat",
@@ -200,6 +165,41 @@
       ],
       "images": [
         {
+          "src": "/screenshots/AgOS-screenshot (2).png",
+          "alt": "AgOS 3D Storage Yard (Home Yard — Main Setup) and Selected Bin D-02 Inspector",
+          "type": "image"
+        },
+        {
+          "src": "/screenshots/AgOS-screenshot (3).png",
+          "alt": "AgOS Fields & Crops Satellite Map and 4,800-Acre Crop Plan",
+          "type": "image"
+        },
+        {
+          "src": "/screenshots/AgOS-screenshot (5).png",
+          "alt": "AgOS Cash Flow Ledger and Production Economics Nivo Sankey Diagram",
+          "type": "image"
+        },
+        {
+          "src": "/screenshots/AgOS-screenshot (4).png",
+          "alt": "AgOS Storage Overview — Inventory Mix and Time-Series Chart",
+          "type": "image"
+        },
+        {
+          "src": "/screenshots/AgOS-screenshot (1).png",
+          "alt": "AgOS Markets Page — Durum Wheat Price History and Current Price Board",
+          "type": "image"
+        },
+        {
+          "src": "/screenshots/AgOS-screenshot (7).png",
+          "alt": "AgOS Field-to-Bin Shipping Ticket Intake Modal",
+          "type": "image"
+        },
+        {
+          "src": "/screenshots/AgOS-screenshot (6).png",
+          "alt": "AgOS Multi-Tenant Organization and Land Location Settings",
+          "type": "image"
+        },
+        {
           "src": "/diagrams/agos-architecture.svg",
           "alt": "AgOS Domain & Architecture Diagram",
           "type": "image"
@@ -242,22 +242,23 @@
       "id": "neptune-finance",
       "title": "Neptune Finance",
       "section": "study",
-      "roleDescriptor": "Design Engineer / Frontend Lead. Full product ownership from Figma to production",
+      "badge": "$159.66M+ Loans",
+      "roleDescriptor": "Senior Product, Forward-Deployed, Frontend & AI Engineer · Injective Mainnet",
       "group": "professional-experience",
-      "content": "Frontend lead for <a href=\"https://app.nept.finance\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Neptune Finance</strong></a>, a lending and borrowing system on <a href=\"https://injective.com\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Injective</strong></a>. Built the application layer that keeps contract state, wallet state, and UI state synchronized during deposits, borrows, repayments, and reward flows.",
-      "content2": "Implemented contract-facing features across staking, airdrop, and liquidity routing. Production flows include <a href=\"https://docs.mito.fi/integration/permissionless-vaults\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Mito</strong></a> vault integrations and <a href=\"https://docs.astroport.fi/docs/develop/tutorials/farming/providing-withdrawing-liquidity\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Astroport</strong></a> pool interactions with explicit handling for transaction states, retries, and confirmation boundaries.",
-      "content3": "Owned the frontend system architecture in Next.js and TypeScript, including reusable UI primitives, data aggregation from chain and indexing services, and feature gating linked to on-chain staking eligibility.",
+      "content": "Engineered the web platform and smart-contract integration layer for <a href=\"https://app.nept.finance\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Neptune Finance</strong></a> on <a href=\"https://injective.com\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Injective Mainnet</strong></a>, scaling across 9 lending and 21 collateral markets to $159.66M+ in cumulative loans originated (peaking at $40.47M/month), $27.76M peak gross TVL ($18.36M DeFiLlama Net TVL + $9.41M peak active borrows), and 882,800+ on-chain CosmWasm executions (452,086 direct Market contract txs) across 5,580+ active lenders and 2,955 borrower subaccounts over 1,042+ days uptime ($0 bad-debt exploits).",
+      "content2": "Designed spec-driven AI agent rulesets and verification playbooks for a zero-downtime full-stack read-model migration (<code>@neptunefinance/api-v2</code>), and built an automated gas estimation analyzer across 10 transaction profiles that reduced high-complexity gas limits by 15% (7.55M gas saved) without out-of-gas reverts. Replaced legacy client-side CosmWasm/InfluxDB state reconstruction with centralized React Query architecture and a state-fingerprinted post-tx polling engine (600ms–3.5s adaptive backoff) eliminating 30-second stale UI states from indexer lag.",
+      "content3": "Abstracted a 5-step atomic flash-loan, DEX routing, and nToken receipt flow into a 1-click Collateral & Debt Swap UX, designed a 4-layer <code>@base-ui</code> Account Health bar with live liquidation simulation, and shipped 1-click batch Dust Cleanup, Tokenomics/Revenue Flywheel analytics, and the unbriefed Balance Menu—alongside a live Bech32 wallet diagnostic console, upstream APY/WalletConnect patches, and integrations with <a href=\"https://hydroprotocol.finance\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Hydro (hINJ)</strong></a>, <strong>Stride (stATOM ICA oracle)</strong>, <a href=\"https://docs.mito.fi/integration/permissionless-vaults\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Mito</strong></a>, <a href=\"https://docs.astroport.fi/docs/develop/tutorials/farming/providing-withdrawing-liquidity\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Astroport</strong></a>, and <strong>Skip Go</strong>.",
       "highlights": [
-        "React",
-        "TypeScript",
-        "Next.js",
-        "CosmWasm",
-        "Injective",
-        "Wallet interactions",
-        "Transaction reliability",
-        "Astroport integration",
-        "Mito integration",
-        "State synchronization"
+        "$159.66M+ Loans",
+        "$27.76M Peak TVL",
+        "882,800+ Txs",
+        "Next.js & TypeScript",
+        "React Query / api-v2",
+        "600ms–3.5s Polling",
+        "7.55M Gas Saved (15%)",
+        "@base-ui & Figma",
+        "1-Click Debt Swaps",
+        "Hydro · Stride · Skip Go"
       ],
       "ctas": ["https://nept.finance"],
       "images": [
@@ -324,39 +325,38 @@
       ],
       "tracks": ["frontend", "design", "defi"],
       "githubStats": ["/neptune-webapp-commit-log.csv", "/neptune-landing-commit-log.csv"],
-      "role": "Design Engineer / Frontend Lead",
-      "stack": "Next.js, TypeScript, Tailwind, CosmWasm",
-      "domain": "DeFi / Lending / Liquidity",
+      "role": "Senior Product / Forward-Deployed / Frontend & AI Engineer",
+      "stack": "Next.js, TypeScript, React Query (@neptunefinance/api-v2), @base-ui, Tailwind CSS, CosmWasm, Injective SDK, Figma",
+      "domain": "DeFi Money Market / Distributed UI State / AI-Accelerated Engineering",
       "scope": [
-        "Full product ownership: Figma design system through production TypeScript",
-        "Custom Figma component library and visual design language",
-        "UX architecture for lending, staking, and liquidity flows",
-        "Full frontend architecture and engineering systems",
-        "Contract and wallet integration surfaces",
-        "Smart contract integrations (Mito, Astroport)",
-        "Staking, airdrop, and liquidity systems"
+        "Core web platform & CosmWasm integration across 9 lending and 21 collateral markets ($159.66M+ cumulative loans)",
+        "Zero-downtime @neptunefinance/api-v2 migration via spec-driven AI agent rulesets & verification playbooks",
+        "Automated on-chain gas telemetry analyzer across 10 tx profiles (15% gas limit cut / 7.55M gas saved)",
+        "Centralized React Query read model & 600ms–3.5s state-fingerprinted post-tx polling engine",
+        "1-click Collateral & Debt Swap UX, 4-layer @base-ui Account Health Bar, batch Dust Cleanup & Revenue Flywheel analytics",
+        "Live Bech32 wallet-inspection & RPC failover console, upstream SDK patches, and Hydro / Stride / Mito / Astroport / Skip Go integrations"
       ],
       "context": [
-        "Neptune Finance is a DeFi lending protocol on Injective with CosmWasm contracts.",
-        "The frontend coordinates wallet actions, contract state, and market data to keep lending and liquidity flows correct during live transaction execution."
+        "Neptune Finance is Injective's leading CosmWasm money market, serving 5,580+ lenders and 2,955 borrower subaccounts across 9 lending and 21 collateral markets (1,042+ days mainnet uptime, $0 bad-debt exploits).",
+        "Shipping safely at production scale meant solving blockchain indexer lag, gas estimation safety, cross-SDK signing bugs, and multi-step collateral swaps inside a cohesive Figma-to-TypeScript architecture."
       ],
       "problemSpace": [
-        "On-chain and UI state can drift during pending transactions; users making financial decisions need accurate state at all times",
-        "Market-sensitive screens require low-latency updates and interfaces designed for fast decision-making",
-        "Multi-step flows across lending, staking, and liquidity must feel simple despite significant underlying contract complexity",
-        "Wallet signing and broadcast failures need explicit recovery paths; confusion at this moment breaks user trust and risks funds"
+        "Eliminate 30-second stale UI states caused by blockchain indexer lag and legacy client-side CosmWasm/InfluxDB reconstruction",
+        "Right-size complex transaction gas bounds to cut unnecessary gas allocation while preventing out-of-gas reverts",
+        "Compress multi-step atomic flash-loan, DEX routing, and nToken flows into intuitive 1-click UX backed by live liquidation modeling",
+        "Support live customer debugging and rapid cross-protocol onboarding across Cosmos and EVM wallet ecosystems"
       ],
       "approach": [
-        "Model transaction lifecycle states as first-class UI states",
-        "Use reusable query and component primitives for protocol modules",
-        "Align user actions to contract message boundaries",
-        "Provide deterministic error and retry handling around wallet operations"
+        "Executed a zero-downtime read-model migration (@neptunefinance/api-v2) governed by spec-driven AI agent playbooks and built an automated 10-profile gas telemetry analyzer",
+        "Replaced client state waterfalls with a centralized React Query architecture and a 600ms–3.5s state-fingerprinted adaptive backoff polling engine",
+        "Designed a 4-layer @base-ui Account Health visualization, 1-click Collateral/Debt Swaps, batch Dust Cleanup, Tokenomics analytics, and the self-initiated Balance Menu",
+        "Built an in-production hot-swappable Bech32 diagnostic console with RPC failover, patched upstream APY weighting and EVM/WalletConnect SDK signing bugs, and integrated Hydro, Stride, Mito, Astroport, and Skip Go"
       ],
       "outcomes": [
-        "Shipped lending, staking, airdrop, and liquidity workflows to production users with real funds at stake",
-        "Improved transaction reliability and reduced user confusion through explicit state handling and recovery UX",
-        "Built a design system that kept Figma components and production code in sync across a fast-moving codebase",
-        "Identified and shipped the balance menu independently: no brief, designed in Figma, implemented in production"
+        "$159.66M+ cumulative loans originated ($40.47M/month peak), $27.76M peak gross TVL ($18.36M Net TVL + $9.41M borrows), and 882,800+ on-chain CosmWasm executions (452,086 core Market txs)",
+        "1,042+ days mainnet uptime with $0 bad-debt exploits across 5,580+ active lenders and 2,955 borrower subaccounts",
+        "15% high-complexity gas limit reduction (7.55M gas saved) and elimination of 30s indexer-lag stale UI states",
+        "Shipped 1-click DeFi flows, Hydro/Stride/Mito/Astroport/Skip Go integrations, and self-directed features including the persistent Balance Menu"
       ]
     },
     {
@@ -568,19 +568,19 @@
       "group": "professional-experience",
       "roleDescriptor": "Frontend Lead / Design Engineer · August 2022 – May 2026",
       "content": "Frontend Lead and Design Engineer at <a href=\"https://cryptech.dev\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cryptech Developments Ltd.</strong></a>, building production Web3 DeFi applications with React, Next.js, TypeScript, and Tailwind CSS. Owned UI/UX design systems, branding, and contract-facing frontend engineering across Neptune Finance and Cryptech properties.",
-      "content2": "Primary frontend owner for Neptune Finance ($300M+ peak TVL on Injective) alongside Injective governance tooling (CW3 multisig), interactive Cosmos airdrop calculators, and Macro DEX concepts.",
+      "content2": "Primary frontend, product, and forward-deployed owner for Neptune Finance ($159.66M+ cumulative loans · $27.76M peak gross TVL · 882,800+ on-chain executions) alongside Injective governance tooling (CW3 multisig), interactive Cosmos airdrop calculators, and Macro DEX concepts.",
       "highlights": [
-        "React",
-        "Next.js",
+        "React / Next.js",
         "TypeScript",
+        "React Query / @base-ui",
         "Tailwind CSS",
         "Figma Design Systems",
         "CosmWasm / Injective"
       ],
       "achievements": [
-        "Architected and shipped the production React/Next.js frontend and Figma design system for Neptune Finance, supporting lending, borrowing, staking, Mito vaults, and Astroport LP workflows at $300M+ peak TVL.",
-        "Engineered deterministic wallet signing, optimistic/pending transaction states, and RPC/indexer state synchronization across Keplr, Leap, MetaMask, and Ledger hardware flows.",
-        "Conceived and shipped unbriefed high-impact features from discovery to production—including the persistent multi-page Balance Menu—while porting CW3 multisig governance UI to Injective."
+        "Scaled the production Next.js/TypeScript web platform and CosmWasm integration layer for Neptune Finance across 9 lending and 21 collateral markets ($159.66M+ loans, $27.76M peak TVL, 1,042+ days uptime, $0 bad-debt exploits).",
+        "Executed a zero-downtime read-model migration (@neptunefinance/api-v2) with spec-driven AI agent playbooks, saved 7.55M gas (15% limit cut) via an automated 10-profile telemetry analyzer, and eliminated 30s indexer lag with a 600ms–3.5s state-fingerprinted polling engine.",
+        "Turned 5-step atomic flash-loan/DEX workflows into 1-click Collateral & Debt Swaps, shipped a 4-layer @base-ui Account Health Bar, live Bech32 diagnostic triage console, upstream SDK patches, and Hydro/Stride/Mito/Astroport/Skip Go integrations."
       ],
       "ctas": ["https://cryptech.dev/"],
       "images": [],
@@ -605,8 +605,8 @@
         "Build reusable frontend primitives for wallet, contract, and dashboard integrations"
       ],
       "outcomes": [
-        "Shipped production DeFi interfaces used by live protocol users at $300M+ peak TVL",
-        "Established reusable frontend patterns across Neptune and Cryptech platform properties"
+        "Scaled production DeFi interfaces to $159.66M+ cumulative loans originated, $27.76M peak gross TVL, and 882,800+ CosmWasm executions with $0 bad debt",
+        "Established reusable @neptunefinance/api-v2 read-model, Figma token, and triage console patterns across Neptune and Cryptech properties"
       ]
     },
     {
@@ -794,116 +794,47 @@
       "group": "protocol-ecosystem",
       "content": "Built a dynamic event scheduling interface for <a href=\"https://github.com/1biest/cosmoverse-schedule\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Cosmoverse 2023</strong></a> with externalized schedule data for fast operational updates.",
       "content2": "Contributed to hackathon systems including <a href=\"https://ethglobal.com/showcase/dyve-pxsz9\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Dyve</strong></a> (NFT lending/renting/shorting primitive) and <a href=\"https://www.figma.com/design/zqDRj40RQEJDNxCKbYrJBr/Turing.bet?node-id=1-2&t=LGO7IYPWtFLn5SsU-1\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Turing.Bet</strong></a> (wallet-connected prediction workflow).",
-      "content3": "<a href=\"https://github.com/All-About-Blockchain/satsuma\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Satsuma</strong></a> implemented a cross-chain yield routing system: USDC flow on Injective, yield skimming and swap through Astroport, bridge handoff via Axelar GMP, and Bitcoin conversion orchestration on ICP.",
       "highlights": [
         "React",
         "TypeScript",
-        "Cross-chain flows",
+        "Scheduling UI",
         "Wallet interactions",
         "Protocol integrations"
       ],
       "ctas": [
         "https://cosmoverse.org/",
-        "https://ethglobal.com/showcase/dyve-pxsz9",
-        "https://github.com/All-About-Blockchain/satsuma"
+        "https://ethglobal.com/showcase/dyve-pxsz9"
       ],
       "ctaPanelOverrides": [
         null,
-        null,
-        {
-          "description": "Case studies & shipping scope: cross-chain yield routing UI (Injective, Astroport, Axelar GMP, ICP)."
-        }
+        null
       ],
       "images": [],
       "githubStats": [
         "/cosmoverse-schedule-commit-log.csv",
         "/dyve-commit-log.csv",
-        "/turing-bet-commit-log.csv",
-        "/satsuma-commit-log.csv"
+        "/turing-bet-commit-log.csv"
       ],
       "role": "Design Engineer / Frontend Lead",
-      "stack": "React, TypeScript, Astroport, Axelar GMP, Injective, ICP",
-      "domain": "Cross-chain Yield and Routing",
+      "stack": "React, TypeScript, Framer, Ethers.js, Tailwind CSS",
+      "domain": "Scheduling & Hackathon Prototypes",
       "scope": [
-        "Designed and built the user interface for Satsuma yield routing",
-        "Handled multi-chain wallet status and status transitions",
-        "Implemented yield accounting calculations and route visualization"
+        "Built a dynamic event scheduling UI with ICS export for Cosmoverse 2023",
+        "Delivered rapid hackathon interfaces including Dyve NFTFi lending/shorting (Triple Prize Winner) and Turing.bet"
       ],
       "context": [
-        "Built during the Cosmoverse hackathon to automate the conversion of yield to Bitcoin across multiple chains.",
-        "Shipped at Cosmoverse hackathon operating in a fully agentic engineering flow, directing implementation through chat while maintaining product and design ownership throughout."
+        "Rapid event and hackathon builds delivered under tight time constraints with clean UX and wallet flows."
       ],
       "problemSpace": [
-        "High friction in cross-chain UX due to slow state handoffs between Injective and ICP",
-        "Yield accounting complexity across multiple pools and protocols",
-        "Wallet state syncing across multiple networks simultaneously"
+        "Delivering production-grade responsive interfaces under tight event/hackathon timelines",
+        "Wallet state synchronization and external data ingestion inside constrained sandboxes"
       ],
       "approach": [
-        "Model cross-chain transition stages as an animated, step-by-step progress tracker",
-        "Aggregate Astroport pool rates and ICP canister states on the client side"
+        "Externalize schedule schemas for quick event ops updates without code deploys",
+        "Pair Figma rapid prototyping directly with React/Tailwind component delivery"
       ],
       "outcomes": [
-        "Shipped the full working prototype under a fast hackathon schedule",
-        "Demonstrated cross-chain yield routing with Astroport and Axelar GMP integrations"
-      ]
-    },
-    {
-      "id": "satsuma",
-      "title": "Satsuma",
-      "section": "study",
-      "badge": "Hackathon",
-      "roleDescriptor": "Design Engineer / Frontend Lead · Cross-chain yield-to-Bitcoin routing (Cosmoverse Hackathon)",
-      "group": "projects",
-      "content": "Design engineer and frontend lead for <a href=\"https://github.com/All-About-Blockchain/satsuma\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Satsuma</strong></a>, a cross-chain yield routing and yield-to-Bitcoin conversion platform built during the <strong>Cosmoverse Hackathon</strong>.",
-      "content2": "Satsuma orchestrates a multi-network yield pipeline: routing USDC deposits on Injective, executing yield skimming and automated swaps via Astroport pools, coordinating cross-chain messaging using Axelar GMP, and executing Bitcoin purchases via canisters on the Internet Computer Protocol (ICP).",
-      "content3": "Designed and implemented a real-time cross-chain transition tracker visualizing exact deposit, bridge, and swap states, and unified multiple wallet adapters (Keplr, Metamask, ICP Internet Identity) into a single client interface. Delivered in 48 hours via spec-driven agentic workflows with human-in-the-loop architecture, UX review, and wallet integration testing.",
-      "highlights": [
-        "React",
-        "TypeScript",
-        "Injective",
-        "Astroport",
-        "Axelar GMP",
-        "ICP Canisters",
-        "Cross-chain flows",
-        "Multi-wallet connection",
-        "Spec-driven AI"
-      ],
-      "ctas": ["https://github.com/All-About-Blockchain/satsuma"],
-      "images": [
-        {
-          "src": "/diagrams/satsuma-architecture.svg",
-          "alt": "Satsuma Cross-Chain Yield Routing Architecture Diagram",
-          "type": "image"
-        }
-      ],
-      "tracks": ["frontend", "ai", "defi"],
-      "githubStats": ["/satsuma-commit-log.csv"],
-      "role": "Design Engineer / Frontend Lead",
-      "stack": "React, TypeScript, Astroport, Axelar GMP, Injective, ICP",
-      "domain": "Cross-chain DeFi / Yield Routing / Interoperability",
-      "scope": [
-        "Designed the multi-chain dashboard and state transition tracker in Figma",
-        "Architected Injective contract interactions and wallet state sync (Keplr)",
-        "Engineered Axelar General Message Passing (GMP) transaction state monitoring",
-        "Integrated ICP canister queries for yield-to-Bitcoin routing estimates",
-        "Paired spec-driven agentic implementation with manual multi-wallet integration verification"
-      ],
-      "context": [
-        "Satsuma was created at the Cosmoverse Hackathon to address the complexity of routing yield across disparate ecosystems (Cosmos/Injective, Axelar, and ICP).",
-        "The frontend coordinates multiple asynchronous state transitions across chains so transactions never stall without clear recovery feedback."
-      ],
-      "problemSpace": [
-        "High friction and lack of visibility in multi-chain transactions during cross-chain asset routing",
-        "Complexity of aggregating asynchronous state from Injective indexers, Astroport pools, Axelar relays, and ICP canisters concurrently",
-        "Managing wallet signing and network context across Cosmos (Keplr) and ICP (Internet Identity) simultaneously"
-      ],
-      "approach": [
-        "Define cross-chain transition stages upfront as an explicit state machine before generating UI views",
-        "Abstract multi-chain wallet status into a unified context provider that adapts actions based on active chain state"
-      ],
-      "outcomes": [
-        "Delivered a working 4-network cross-chain yield routing prototype within the 48-hour Cosmoverse Hackathon window",
-        "Demonstrated how strict state specs and human-in-the-loop verification keep rapid agentic delivery reliable under live wallet constraints"
+        "Delivered Cosmoverse 2023 scheduling UI cleanly in Framer and won three ETHGlobal HackFS prizes with Dyve"
       ]
     },
     {
@@ -1007,67 +938,6 @@
         "Successfully shipped the fully interactive MVP at HackFS 2022",
         "Won three sponsor prizes (Polygon Top 5, Covalent Best Use, NFTPort Pool Prize)",
         "Delivered a secure frontend mapping peer-to-peer escrow parameters directly to smart contract calls"
-      ]
-    },
-    {
-      "id": "craidle",
-      "title": "CrAIdle",
-      "section": "study",
-      "badge": "Hackathon",
-      "roleDescriptor": "AI Systems & Design Engineer · Agentic pipeline orchestration & yield treasury",
-      "group": "projects",
-      "content": "Lead architect and agent orchestrator for <a href=\"https://github.com/1biest/craidle\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>CrAIdle</strong></a>, a self-sustaining AI agent token launchpad and incubation treasury primitive built for the <strong>Synthesis Hackathon</strong>. Enables graduating AI agents to launch ERC-20 tokens on Base with automated fee routing back into operating budgets.",
-      "content2": "Engineered a principal-protected yield treasury invariant: user deposits remain locked inside the Incubator Vault while Lido stETH yield dynamically funds agent compute wallets—isolating principal risk from variable inference spend.",
-      "content3": "Built via a spec-driven agentic engineering pipeline powered by <strong>OpenClaw</strong> and <strong>MiniMax</strong>: authored contract specs, state invariants, and UI constraints upfront, then orchestrated agent codegen paired with Solidity compiler checks, test runs, and Base Sepolia testnet verification.",
-      "highlights": [
-        "Next.js",
-        "TypeScript",
-        "Tailwind CSS",
-        "OpenClaw",
-        "MiniMax",
-        "Solidity",
-        "Base Sepolia",
-        "Ethers.js",
-        "Lido stETH",
-        "Spec-driven agents"
-      ],
-      "ctas": ["https://github.com/1biest/craidle"],
-      "images": [
-        {
-          "src": "/diagrams/craidle-architecture.svg",
-          "alt": "CrAIdle Yield-Budgeted Treasury & OpenClaw Architecture",
-          "type": "image"
-        }
-      ],
-      "tracks": ["ai", "frontend", "defi"],
-      "githubStats": ["/craidle-commit-log.csv"],
-      "role": "AI Systems & Design Engineer",
-      "stack": "Next.js, TypeScript, Tailwind CSS, OpenClaw, MiniMax, Solidity",
-      "domain": "AI Agents / Token Launchpad / Yield Treasuries",
-      "scope": [
-        "Specified yield-budgeted treasury invariants and 4-contract Solidity architecture",
-        "Orchestrated OpenClaw + MiniMax coding agents against typed interfaces and test harnesses",
-        "Designed an interactive dark-mode monitoring interface for incubation phases and graduation",
-        "Verified Base Sepolia deployments (`AgentToken`, `AgentTokenFactory`, `IncubatorVault`, `GraduationManager`) and wallet connectivity"
-      ],
-      "context": [
-        "CrAIdle addresses compute-runway fragility in autonomous AI agent systems where inference spend quickly drains unpartitioned capital.",
-        "Demonstrates pragmatic multi-agent delivery: strict specification boundaries and compiler/testnet verification gates keep AI-generated Solidity and frontend code deployable."
-      ],
-      "problemSpace": [
-        "Variable AI inference costs drain agent runway unpredictably and expose supporter principal",
-        "Untyped prompt-only codegen drifts quickly across cross-contract ABIs and React frontend state",
-        "Operators need clear live observability over incubation yields, spend caps, and graduation readiness"
-      ],
-      "approach": [
-        "Enforce a non-spendable IncubatorVault invariant where only generated stETH yield funds the agent compute wallet",
-        "Drive OpenClaw + MiniMax agents from explicit interface specs and validate every iteration via Foundry/Solidity builds, TypeScript checks, and live wallet signing",
-        "Model agent lifecycle states (Incubating, Yield Accruing, Graduated) as structured visual state indicators"
-      ],
-      "outcomes": [
-        "Deployed verified `AgentToken`, `AgentTokenFactory`, `IncubatorVault`, and `GraduationManager` contracts on Base Sepolia",
-        "Shipped a Next.js/Tailwind dashboard monitoring live incubation state, compute budget runway, and graduation triggers",
-        "Established repeatable human-in-the-loop verification gates for spec-driven multi-agent software delivery"
       ]
     },
     {

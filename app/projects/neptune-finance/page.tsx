@@ -11,38 +11,101 @@ export default function NeptuneFinancePage() {
       {/* 1. Hero Section */}
       <ProjectHero
         title="Neptune Finance"
-        subtitle="Frontend Lead / DeFi Interface Systems"
-        summary="Built and operated a production lending interface on Injective with contract-aware transaction flows, low-latency market data, and wallet-driven execution paths."
+        subtitle="Senior Product, Forward-Deployed, Frontend & AI Engineer · Injective Mainnet"
+        summary="Engineered the web platform and smart-contract integration layer for Injective's leading money market—scaling across 9 lending and 21 collateral markets to $159.66M+ in cumulative loans originated, $27.76M peak gross TVL, and 882,800+ on-chain CosmWasm executions over 1,042+ days of mainnet uptime with $0 bad-debt exploits."
         links={[
           { label: 'Live App', url: 'https://app.nept.finance', primary: true },
           { label: 'Landing Page', url: 'https://nept.finance', primary: false },
         ]}
+        badge="$159.66M+ Loans Originated"
       />
 
       {/* 2. Snapshot */}
       <SnapshotGrid
-        role="Design Engineer / Frontend Lead"
-        stack="Next.js, TypeScript, Tailwind, CosmWasm"
-        domain="DeFi / Lending / Liquidity"
+        role="Senior Product / Forward-Deployed / Frontend & AI Engineer"
+        stack="Next.js, TypeScript, React Query (@neptunefinance/api-v2), @base-ui, Tailwind CSS, CosmWasm, Injective SDK, Figma"
+        domain="DeFi Money Market / Distributed UI State / AI-Accelerated Engineering"
         scope={[
-          'Full product ownership: Figma design system through production TypeScript',
-          'Custom Figma component library and visual design language',
-          'UX architecture for lending, staking, and liquidity flows',
-          'Full frontend architecture and engineering systems',
-          'Contract and wallet integration surfaces',
-          'Smart contract integrations (Mito, Astroport)',
-          'Staking, airdrop, and liquidity systems',
+          'Core platform & smart-contract integration across 9 lending and 21 collateral markets',
+          'Full-stack read-model migration (@neptunefinance/api-v2) with spec-driven AI agent playbooks',
+          'Automated on-chain gas telemetry analyzer across 10 tx profiles (15% limit reduction, 7.55M gas saved)',
+          'Centralized React Query state architecture + 600ms–3.5s state-fingerprinted post-tx polling engine',
+          '1-click Collateral & Debt Swap UX, 4-layer @base-ui Account Health Bar, and batch Dust Cleanup',
+          'Executive Tokenomics & Revenue Flywheel suite + self-initiated Balance Menu',
+          'Live Bech32 wallet-inspection diagnostic console, upstream SDK patches & Hydro / Stride / Mito / Astroport / Skip Go integrations',
         ]}
       />
 
       <div className="py-8">
+        {/* 2b. Mainnet Telemetry (3 Key Stats) */}
+        <SectionWrapper title="Protocol Scale & Mainnet Telemetry">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-5 shadow-[var(--shadow-sm)]">
+              <span className="font-mono text-2xl font-bold text-[#0a2540]">$159.66M+</span>
+              <p className="text-sm font-semibold text-[var(--text)] mt-1">All-Time Loans Originated</p>
+              <p className="text-xs leading-relaxed text-[var(--text-muted)] mt-1.5">
+                Peaking at $40.47M/month across 5,580+ active lenders and 2,955 borrower subaccounts.
+              </p>
+            </div>
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-5 shadow-[var(--shadow-sm)]">
+              <span className="font-mono text-2xl font-bold text-[#0a2540]">$27.76M</span>
+              <p className="text-sm font-semibold text-[var(--text)] mt-1">Peak Total Value Locked</p>
+              <p className="text-xs leading-relaxed text-[var(--text-muted)] mt-1.5">
+                $18.36M DeFiLlama Net TVL + $9.41M peak active borrows across 9 lending &amp; 21 collateral markets.
+              </p>
+            </div>
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-5 shadow-[var(--shadow-sm)]">
+              <span className="font-mono text-2xl font-bold text-[#0a2540]">882,800+</span>
+              <p className="text-sm font-semibold text-[var(--text)] mt-1">On-Chain Contract Executions</p>
+              <p className="text-xs leading-relaxed text-[var(--text-muted)] mt-1.5">
+                452,086 direct transactions on the core Neptune Market contract over 1,042+ days uptime ($0 bad debt).
+              </p>
+            </div>
+          </div>
+
+          <div className="rounded-xl border border-[var(--border)] border-l-3 border-l-[#0a2540] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-sm)]">
+            <h3 className="mb-3 text-base font-semibold tracking-tight text-[#0a2540]">
+              Executive Execution Summary
+            </h3>
+            <BulletList
+              items={[
+                {
+                  title: 'Scaled Core DeFi Frontend & Protocol UX',
+                  description:
+                    "Architected the Next.js/TypeScript web platform and CosmWasm integration layer for Injective's premier money market across 9 lending and 21 collateral markets (1,042+ days mainnet uptime, $0 bad-debt exploits).",
+                },
+                {
+                  title: 'AI-Driven Engineering & Telemetry',
+                  description:
+                    'Built spec-driven AI agent guardrails to execute a zero-downtime migration to @neptunefinance/api-v2, plus an automated on-chain gas telemetry analyzer that cut high-complexity gas estimates by 15% (7.55M gas saved).',
+                },
+                {
+                  title: 'Frontend Distributed Systems',
+                  description:
+                    'Eliminated client-side state waterfalls and InfluxDB dependencies with a centralized React Query read model and a state-fingerprinted post-tx polling engine that resolved blockchain indexer lag.',
+                },
+                {
+                  title: 'Product Design & 1-Click DeFi Flows',
+                  description:
+                    'Turned a 5-step atomic flash-loan + DEX routing flow into a 1-click Collateral/Debt Swap UX, designed a 4-layer @base-ui Account Health Bar with live liquidation modeling, and shipped a real-time Tokenomics & Revenue Flywheel analytics suite.',
+                },
+                {
+                  title: 'Forward-Deployed Triage & Partner Integrations',
+                  description:
+                    'Built a live production wallet-inspection and RPC-failover diagnostic tool for instant customer debugging, patched upstream EVM/WalletConnect SDK signing bugs, and shipped cross-protocol integrations with Hydro, Stride, Mito, Astroport, and Skip Go.',
+                },
+              ]}
+            />
+          </div>
+        </SectionWrapper>
+
         {/* 3. Context */}
         <SectionWrapper title="Context">
-          <p>
-            Neptune Finance is a DeFi lending protocol on Injective with CosmWasm contracts.
-            <br />
-            The frontend coordinates wallet actions, contract state, and market data to keep lending
-            and liquidity flows correct during live transaction execution.
+          <p className="leading-relaxed text-[var(--text-muted)]">
+            Neptune Finance is Injective&apos;s leading CosmWasm money market, serving 5,580+ active lenders and 2,955 borrower subaccounts across 9 lending pools and 21 collateral markets with 1,042+ days of mainnet uptime and $0 bad-debt exploits.
+          </p>
+          <p className="mt-4 leading-relaxed text-[var(--text-muted)]">
+            Operating at real capital stakes required solving distributed blockchain state consistency, transaction gas predictability, multi-wallet EVM/Cosmos signing edge cases, and high-cognitive-load DeFi UX—while designing the complete Figma component system and shipping every workflow in production Next.js and TypeScript.
           </p>
           <div className="mt-8">
             <ImageGallery
@@ -62,100 +125,123 @@ export default function NeptuneFinancePage() {
           </div>
         </SectionWrapper>
 
-        {/* 4. Problem Space */}
-        <SectionWrapper title="Problem Space">
-          <BulletList
-            items={[
-              'On-chain and UI state can drift during pending transactions; users making financial decisions need accurate state at all times',
-              'Market-sensitive screens require low-latency updates and interfaces designed for fast decision-making',
-              'Multi-step flows across lending, staking, and liquidity must feel simple despite significant underlying contract complexity',
-              'Wallet signing and broadcast failures need explicit recovery paths; confusion at this moment breaks user trust and risks funds',
-            ]}
-          />
+        {/* 4. Engineering, Product & AI Delivery Pillars */}
+        <SectionWrapper title="Deep-Dive Execution Across 4 Pillars">
+          <div className="space-y-4">
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-sm)]">
+              <h3 className="mb-2 text-lg font-semibold tracking-tight text-[#0a2540]">
+                01 // Protocol Scale &amp; Reliability
+              </h3>
+              <p className="text-sm leading-relaxed text-[var(--text-muted)]">
+                Engineered the web platform and smart-contract integration layer for Injective&apos;s leading money market, scaling to <strong className="text-[var(--text)]">$159.66M+</strong> in cumulative loans originated (peaking at <strong className="text-[var(--text)]">$40.47M/month</strong>), <strong className="text-[var(--text)]">$27.76M</strong> peak gross TVL (<strong className="text-[var(--text)]">$18.36M</strong> DeFiLlama Net TVL + <strong className="text-[var(--text)]">$9.41M</strong> peak active borrows), and <strong className="text-[var(--text)]">882,800+</strong> on-chain CosmWasm executions (<strong className="text-[var(--text)]">452,086</strong> direct Market contract txs) across 5,580+ lenders and 2,955 borrower subaccounts.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-sm)]">
+              <h3 className="mb-2 text-lg font-semibold tracking-tight text-[#0a2540]">
+                02 // AI Engineering &amp; Agentic Velocity
+              </h3>
+              <p className="text-sm leading-relaxed text-[var(--text-muted)]">
+                Designed spec-driven AI agent rulesets and verification playbooks to execute a full-stack read-model migration (<code className="font-mono text-xs text-[#0a2540]">@neptunefinance/api-v2</code>), and built a telemetry-driven gas estimation analyzer across 10 transaction profiles that reduced high-complexity gas limits by <strong className="text-[var(--text)]">15%</strong> (<strong className="text-[var(--text)]">7.55M gas saved</strong>) while preventing out-of-gas reverts.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-sm)]">
+              <h3 className="mb-2 text-lg font-semibold tracking-tight text-[#0a2540]">
+                03 // Frontend Systems &amp; Eventual Consistency
+              </h3>
+              <p className="text-sm leading-relaxed text-[var(--text-muted)]">
+                Replaced legacy client-side CosmWasm/InfluxDB state reconstruction with a centralized React Query architecture and engineered a state-fingerprinted post-transaction polling engine (<strong className="text-[var(--text)]">600ms–3.5s adaptive backoff</strong>) that eliminated 30-second stale UI states caused by blockchain indexer lag.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-sm)]">
+              <h3 className="mb-2 text-lg font-semibold tracking-tight text-[#0a2540]">
+                04 // Product Design &amp; 1-Click DeFi UX
+              </h3>
+              <p className="text-sm leading-relaxed text-[var(--text-muted)]">
+                Abstracted a 5-step atomic flash-loan, DEX routing, and nToken receipt conversion workflow into a <strong className="text-[var(--text)]">1-click Collateral &amp; Debt Swap UI</strong>; designed a 4-layer <code className="font-mono text-xs text-[#0a2540]">@base-ui</code> Account Health visualization with real-time liquidation simulation; and shipped a 1-click batch Dust Cleanup flow and executive Tokenomics/Revenue Flywheel analytics suite.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-sm)]">
+              <h3 className="mb-2 text-lg font-semibold tracking-tight text-[#0a2540]">
+                05 // Forward-Deployed Engineering &amp; Ecosystem Integrations
+              </h3>
+              <p className="text-sm leading-relaxed text-[var(--text-muted)]">
+                Built an in-production diagnostic console (hot-swappable Bech32 wallet inspection and RPC failover) for rapid live customer triage; diagnosed and patched upstream multi-decimal APY weighting and EVM/WalletConnect SDK signing bugs; and delivered cross-protocol integrations with <strong className="text-[var(--text)]">Hydro (hINJ)</strong>, <strong className="text-[var(--text)]">Stride (stATOM ICA oracle)</strong>, <strong className="text-[var(--text)]">Mito</strong>, <strong className="text-[var(--text)]">Astroport</strong>, and <strong className="text-[var(--text)]">Skip Go</strong>.
+              </p>
+            </div>
+          </div>
         </SectionWrapper>
 
-        {/* 5. Approach */}
-        <SectionWrapper title="Approach">
-          <BulletList
-            items={[
-              'Model transaction lifecycle states as first-class UI states',
-              'Use reusable query and component primitives for protocol modules',
-              'Align user actions to contract message boundaries',
-              'Provide deterministic error and retry handling around wallet operations',
-            ]}
-          />
-        </SectionWrapper>
-
-        {/* 6. Architecture & Implementation */}
-        <SectionWrapper title="Architecture & Implementation">
+        {/* 5. Architecture & Implementation */}
+        <SectionWrapper title="System Architecture & Implementation">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-sm)]">
-              <h3 className="mb-4 text-lg font-semibold tracking-tight text-[#0a2540]">Frontend</h3>
+              <h3 className="mb-4 text-lg font-semibold tracking-tight text-[#0a2540]">Read Model &amp; Consistency</h3>
               <BulletList
                 items={[
                   {
-                    title: 'Modular component system',
-                    description: 'Using Next.js + TS for robust structure.',
+                    title: 'Centralized @neptunefinance/api-v2',
+                    description: 'Replaced legacy client-side CosmWasm/InfluxDB reconstruction with typed React Query caching.',
                   },
                   {
-                    title: 'Reusable UI primitives',
-                    description: 'Tailwind-driven foundation for consistency.',
+                    title: 'Adaptive Post-Tx Polling Engine',
+                    description: 'State-fingerprinted 600ms–3.5s backoff removing 30s indexer-lag UI stalls.',
                   },
                 ]}
               />
             </div>
 
             <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-sm)]">
-              <h3 className="mb-4 text-lg font-semibold tracking-tight text-[#0a2540]">Performance</h3>
+              <h3 className="mb-4 text-lg font-semibold tracking-tight text-[#0a2540]">Gas Telemetry &amp; AI Tooling</h3>
               <BulletList
                 items={[
                   {
-                    title: 'Memoization',
-                    description: 'Preventing unnecessary re-renders in heavy data tables.',
+                    title: '10-Profile Gas Analyzer',
+                    description: 'Reduced high-complexity gas limits by 15% (7.55M gas saved) without out-of-gas reverts.',
                   },
                   {
-                    title: 'Render optimization',
-                    description: 'Streamlined React lifecycles for real-time tickers.',
+                    title: 'Spec-Driven Agent Playbooks',
+                    description: 'Verification rulesets guarding zero-downtime API-v2 schema migrations.',
                   },
                 ]}
               />
             </div>
 
             <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-sm)]">
-              <h3 className="mb-4 text-lg font-semibold tracking-tight text-[#0a2540]">Data Layer</h3>
+              <h3 className="mb-4 text-lg font-semibold tracking-tight text-[#0a2540]">Forward-Deployed Triage</h3>
               <BulletList
                 items={[
                   {
-                    title: 'Onchain integration',
-                    description: 'Interfacing directly with CosmWasm contracts.',
+                    title: 'Live Production Console',
+                    description: 'Hot-swappable Bech32 address inspection and RPC endpoint failover for instant customer debugging.',
                   },
                   {
-                    title: 'Unified multi-source data',
-                    description: 'Aggregating indexing APIs, RPCs, and in-house databases.',
+                    title: 'Upstream SDK & Precision Fixes',
+                    description: 'Patched multi-decimal APY weighting and EVM / WalletConnect signing failures upstream.',
                   },
                 ]}
               />
             </div>
 
             <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-sm)]">
-              <h3 className="mb-4 text-lg font-semibold tracking-tight text-[#0a2540]">Integrations</h3>
+              <h3 className="mb-4 text-lg font-semibold tracking-tight text-[#0a2540]">Ecosystem Integrations</h3>
               <BulletList
                 items={[
-                  { title: 'Mito', description: 'Automated trading vaults integration.' },
-                  { title: 'Astroport', description: 'AMM liquidity pools and routing.' },
+                  { title: 'Liquid Staking & Oracles', description: 'Hydro (hINJ) and Stride (stATOM ICA oracle) collateral markets.' },
+                  { title: 'Liquidity & Routing', description: 'Mito automated vaults, Astroport AMM pools, and Skip Go cross-chain routing.' },
                 ]}
               />
             </div>
 
             <div className="md:col-span-2 rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-sm)]">
-              <h3 className="mb-4 text-lg font-semibold tracking-tight text-[#0a2540]">Feature Gating</h3>
+              <h3 className="mb-4 text-lg font-semibold tracking-tight text-[#0a2540]">1-Click DeFi Flows &amp; Feature Gating</h3>
               <BulletList
                 items={[
-                  { title: 'Access control', description: 'NEPT staking-based tiered model.' },
-                  {
-                    title: 'Compliance',
-                    description: 'Geographic gating for regulatory requirements.',
-                  },
+                  { title: 'Atomic Collateral & Debt Swaps', description: '5-step flash-loan, DEX routing, and nToken receipt conversion compressed into one action.' },
+                  { title: 'Tokenomics, Dust & Gating', description: 'Batch 1-click Dust Cleanup, Revenue Flywheel analytics, NEPT staking tiers, and geographic compliance gating.' },
                 ]}
               />
             </div>
@@ -166,10 +252,10 @@ export default function NeptuneFinancePage() {
         <SectionWrapper title="UX & Product Design">
           <BulletList
             items={[
-              'Simplified multi-step flows',
-              'Custom liquidity / LP UX patterns',
-              'Clear user state visibility',
-              'Designed for fast decision-making',
+              '1-click Collateral & Debt Swap workflow abstracting 5-step atomic flash-loan and DEX routing sequences',
+              '4-layer @base-ui Account Health visualization with real-time liquidation threshold simulation',
+              '1-click batch Dust Cleanup across dormant subaccount balances and Executive Tokenomics / Revenue Flywheel charts',
+              'Unified Figma component tokens synchronized with Tailwind CSS and accessible @base-ui primitives',
             ]}
           />
           <div className="mt-8">
@@ -293,24 +379,14 @@ export default function NeptuneFinancePage() {
         </SectionWrapper>
 
         {/* 10. Impact */}
-        <SectionWrapper title="Impact">
+        <SectionWrapper title="Impact & Outcomes">
           <BulletList
             items={[
-              'Shipped lending, staking, airdrop, and liquidity workflows to production users with real funds at stake',
-              'Improved transaction reliability and reduced user confusion through explicit state handling and recovery UX',
-              'Built a design system that kept Figma components and production code in sync across a fast-moving codebase',
-              'Identified and shipped the balance menu independently: no brief, designed in Figma, implemented in production',
-            ]}
-          />
-        </SectionWrapper>
-
-        {/* 11. Improvements (Senior signal) */}
-        <SectionWrapper title="Improvements">
-          <BulletList
-            items={[
-              'Add automated integration tests for contract message permutations',
-              'Expand observability around failed and delayed transaction states',
-              'Harden cache invalidation for high-frequency market updates',
+              '$159.66M+ cumulative loans originated (peaking at $40.47M/month), $27.76M peak gross TVL ($18.36M DeFiLlama Net TVL), and 882,800+ on-chain CosmWasm executions across 5,580+ active lenders and 2,955 borrower subaccounts',
+              '1,042+ days of mainnet uptime with $0 bad-debt exploits across 9 lending and 21 collateral markets',
+              '15% high-complexity gas limit reduction (7.55M gas saved) across 10 transaction profiles via automated telemetry profiling',
+              'Eliminated 30-second indexer-lag stale UI states via the centralized @neptunefinance/api-v2 React Query read model and 600ms–3.5s adaptive backoff polling',
+              'Expanded ecosystem liquidity and borrower UX with Hydro (hINJ), Stride (stATOM), Mito, Astroport, and Skip Go integrations alongside 1-click swaps, batch Dust Cleanup, and the unbriefed Balance Menu',
             ]}
           />
         </SectionWrapper>

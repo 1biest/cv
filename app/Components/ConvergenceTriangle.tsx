@@ -56,8 +56,8 @@ const CONVERGENCE_DETAILS: Record<Exclude<ConvergenceElementId, null>, Convergen
       'Complex financial ratios and distributed inventories fail users when hidden across fragmented tabs. Surfaces pair high-contrast visual cues with deterministic tabular breakdowns.',
     bullets: [
       {
-        label: 'Neptune Lending UX',
-        detail: 'Live LTV slider simulation paired with collateral health boundaries before wallet signing.',
+        label: 'Neptune Lending & Swaps UX',
+        detail: 'Abstracted 5-step atomic flash-loan/DEX swaps into a 1-click flow alongside a 4-layer @base-ui Account Health Bar and live liquidation modeling.',
       },
       {
         label: 'AgOS Spatial + Tabular Parity',
@@ -105,7 +105,7 @@ const CONVERGENCE_DETAILS: Record<Exclude<ConvergenceElementId, null>, Convergen
       },
       {
         label: 'Spec-Driven Agentic Delivery',
-        detail: 'Directed OpenClaw, MiniMax, and Claude agents against strict interface invariants and manual verification.',
+        detail: 'Built spec-driven AI agent playbooks and telemetry tooling verified against strict TypeScript, schema, and mainnet bounds.',
       },
     ],
     tags: ['Embedded Discovery', '0 → 1 Product', 'Agent Orchestration'],
@@ -119,12 +119,12 @@ const CONVERGENCE_DETAILS: Record<Exclude<ConvergenceElementId, null>, Convergen
       'UI components never misrepresent asynchronous backend reality: indexer latency, confirmation stages, slippage checks, and optimistic retries remain transparent to users.',
     bullets: [
       {
-        label: 'Satsuma Cross-Chain Tracker',
-        detail: 'Explicit multi-step state machine tracing Injective, Astroport, Axelar GMP, and ICP canister finality.',
+        label: 'Neptune Adaptive Polling Engine',
+        detail: 'State-fingerprinted 600ms–3.5s backoff synced against @neptunefinance/api-v2 so UI eliminates 30-second indexer lag.',
       },
       {
-        label: 'CrAIdle Vault Guardrails',
-        detail: 'IncubatorVault locks supporter principal strictly while routing stETH yield separately to agent inference compute.',
+        label: 'Monad Block Heartbeat',
+        detail: 'High-frequency WebSocket consensus visualizer with HTTP polling fallback and deterministic EVM tx feedback.',
       },
     ],
     footerNote: 'Outcome: Deterministic signing guards & live state reflection under indexer latency',
@@ -139,8 +139,8 @@ const CONVERGENCE_DETAILS: Record<Exclude<ConvergenceElementId, null>, Convergen
       'Applications engineered with strict typing, deterministic recovery paths, memory/GPU cleanup, and clean separation between economic computation and presentation.',
     bullets: [
       {
-        label: 'Neptune ($300M+ Peak TVL)',
-        detail: 'Production Next.js/TypeScript app coordinating CosmWasm contracts, Mito vaults, and Astroport liquidity pools.',
+        label: 'Neptune ($159.66M+ Loans · $27.76M Peak TVL)',
+        detail: 'Injective money market scaling to 882,800+ CosmWasm executions via @neptunefinance/api-v2, adaptive post-tx polling, and Hydro/Stride/Mito/Astroport/Skip Go integrations.',
       },
       {
         label: 'AgOS (WebGL & Postgres)',
@@ -171,7 +171,7 @@ const CONVERGENCE_DETAILS: Record<Exclude<ConvergenceElementId, null>, Convergen
       },
       {
         label: 'Forward Deployed AI Track',
-        detail: 'Field discovery (Flat Land Farms -> AgOS) + spec-driven agentic delivery (CrAIdle, Satsuma) with HITL verification gates.',
+        detail: 'Field discovery (Flat Land Farms -> AgOS) + spec-driven AI playbooks & 7.55M gas telemetry at Neptune Finance.',
       },
     ],
     tags: ['Frontend Systems', 'Product Design', 'AI & Forward Deployed'],
@@ -288,24 +288,42 @@ function FloatingCard({
   );
 }
 
-function ConvergenceDetailBody({ detail }: { detail: ConvergenceDetail }) {
+function ConvergenceDetailBody({
+  detail,
+  stickyTags = false,
+}: {
+  detail: ConvergenceDetail;
+  stickyTags?: boolean;
+}) {
   return (
-    <div className="space-y-2.5 text-xs leading-relaxed text-[var(--text-muted)]">
-      <p>{detail.summary}</p>
-      <div className="space-y-1.5 border-t border-[var(--border)] pt-2 text-[11px]">
-        {detail.bullets.map((bullet) => (
-          <div key={bullet.label}>
-            <strong className="text-[var(--text)] font-semibold">{bullet.label}:</strong>{' '}
-            {bullet.detail}
-          </div>
-        ))}
-      </div>
-      {detail.footerNote ? (
-        <div className="pt-2 border-t border-[var(--border)] font-mono text-[11px] font-semibold text-[#0a2540]">
-          {detail.footerNote}
+    <div
+      className={
+        stickyTags
+          ? 'flex flex-1 min-h-0 flex-col justify-between text-xs leading-relaxed text-[var(--text-muted)]'
+          : 'space-y-2.5 text-xs leading-relaxed text-[var(--text-muted)]'
+      }
+    >
+      <div className={stickyTags ? 'space-y-2.5 overflow-y-auto pr-1 min-h-0' : 'space-y-2.5'}>
+        <p>{detail.summary}</p>
+        <div className="space-y-1.5 border-t border-[var(--border)] pt-2 text-[11px]">
+          {detail.bullets.map((bullet) => (
+            <div key={bullet.label}>
+              <strong className="text-[var(--text)] font-semibold">{bullet.label}:</strong>{' '}
+              {bullet.detail}
+            </div>
+          ))}
         </div>
-      ) : null}
-      <div className="pt-2 border-t border-[var(--border)] flex flex-wrap gap-1.5">
+        {detail.footerNote ? (
+          <div className="pt-2 border-t border-[var(--border)] font-mono text-[11px] font-semibold text-[#0a2540]">
+            {detail.footerNote}
+          </div>
+        ) : null}
+      </div>
+      <div
+        className={`${
+          stickyTags ? 'shrink-0 mt-2.5 ' : ''
+        }pt-2 border-t border-[var(--border)] flex flex-wrap gap-1.5`}
+      >
         {detail.tags.map((tag) => (
           <span
             key={tag}
@@ -349,7 +367,7 @@ export default function ConvergenceTriangle() {
   };
 
   return (
-    <div className="w-full relative py-2">
+    <div className="w-full relative pt-4 pb-2 lg:pt-14">
       {/* ========================================================================= */}
       {/* DESKTOP LAYOUT (lg & xl): Perfectly Fitted Stage (960x680)               */}
       {/* ========================================================================= */}
@@ -395,15 +413,15 @@ export default function ConvergenceTriangle() {
           {/* 1. NODE 1 TETHER */}
           <line
             x1="480"
-            y1="114"
+            y1="92"
             x2="480"
-            y2="84"
+            y2="79"
             stroke={isHighlighted('design') ? '#0a2540' : 'var(--border-strong)'}
             strokeWidth={isHighlighted('design') ? '2.5' : '1.5'}
             strokeDasharray="4 3"
             className="transition-all duration-300"
           />
-          <circle cx="480" cy="84" r="3.5" fill={isHighlighted('design') ? '#0a2540' : '#8a5a19'} stroke="#ffffff" strokeWidth="1.5" />
+          <circle cx="480" cy="79" r="3.5" fill={isHighlighted('design') ? '#0a2540' : '#8a5a19'} stroke="#ffffff" strokeWidth="1.5" />
 
           {/* 2. VECTOR A TETHER */}
           <line
@@ -436,13 +454,13 @@ export default function ConvergenceTriangle() {
             x1="480"
             y1="448"
             x2="480"
-            y2="560"
+            y2="545"
             stroke={isHighlighted('engineering-product') ? '#0a2540' : 'var(--border-strong)'}
             strokeWidth={isHighlighted('engineering-product') ? '2.5' : '1.5'}
             strokeDasharray="4 3"
             className="transition-all duration-300"
           />
-          <circle cx="480" cy="560" r="3.5" fill={isHighlighted('engineering-product') ? '#0a2540' : '#8a5a19'} stroke="#ffffff" strokeWidth="1.5" />
+          <circle cx="480" cy="545" r="3.5" fill={isHighlighted('engineering-product') ? '#0a2540' : '#8a5a19'} stroke="#ffffff" strokeWidth="1.5" />
 
           {/* 5. NODE 3 TETHER */}
           <line
@@ -678,7 +696,7 @@ export default function ConvergenceTriangle() {
               x="674"
               y="474"
               textAnchor="middle"
-              className="font-mono text-xs font-bold uppercase tracking-widest fill-[#0a2540] select-none"
+              className="font-mono text-[11px] font-bold uppercase tracking-wider fill-[#0a2540] select-none"
             >
               ENGINEERING
             </text>
@@ -716,7 +734,7 @@ export default function ConvergenceTriangle() {
               x="286"
               y="474"
               textAnchor="middle"
-              className="font-mono text-xs font-bold uppercase tracking-widest fill-[#0a2540] select-none"
+              className="font-mono text-[11px] font-bold uppercase tracking-wider fill-[#0a2540] select-none"
             >
               PRODUCT
             </text>
@@ -798,7 +816,7 @@ export default function ConvergenceTriangle() {
           onLeave={() => setHoveredId(null)}
           onClick={handleCardClick}
           compactOnly
-          style={{ left: 300, top: 8, width: 360 }}
+          style={{ left: 300, bottom: 601, width: 360 }}
           className="absolute"
         />
 
@@ -850,7 +868,7 @@ export default function ConvergenceTriangle() {
           onLeave={() => setHoveredId(null)}
           onClick={handleCardClick}
           compactOnly
-          style={{ left: 300, bottom: 44, width: 360 }}
+          style={{ left: 300, top: 545, width: 360 }}
           className="absolute"
         />
 
@@ -868,10 +886,10 @@ export default function ConvergenceTriangle() {
         />
       </div>
 
-      {/* Desktop Docked Inspector: Always legible below SVG, zero collision */}
-      <div className="hidden lg:block max-w-[960px] mx-auto mt-3">
-        <div className="rounded-2xl border border-[var(--border-strong)] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-card)]">
-          <div className="flex flex-wrap items-center justify-between gap-2 pb-3 mb-3 border-b border-[var(--border)]">
+      {/* Desktop Docked Inspector: Fixed height prevents UI thrashing across hover/pin states */}
+      <div className="hidden lg:block max-w-[960px] mx-auto mt-6">
+        <div className="rounded-2xl border border-[var(--border-strong)] bg-[var(--surface)] glass-surface p-6 shadow-[var(--shadow-card)] h-[312px] flex flex-col">
+          <div className="shrink-0 flex flex-wrap items-center justify-between gap-2 pb-3 mb-3 border-b border-[var(--border)]">
             <div>
               <p className="font-mono text-[11px] font-bold uppercase tracking-widest text-[var(--accent-warm)]">
                 {inspectedDetail.kicker}
@@ -884,17 +902,17 @@ export default function ConvergenceTriangle() {
               <button
                 type="button"
                 onClick={() => setPinnedId(null)}
-                className="rounded-full border border-[var(--border-strong)] bg-white/75 px-3 py-1 font-mono text-[11px] font-medium text-[var(--text-muted)] hover:border-[#0a2540] hover:text-[#0a2540] cursor-pointer"
+                className="inline-flex h-7 items-center rounded-full border border-[var(--border-strong)] bg-white/75 px-3 font-mono text-[11px] font-medium text-[var(--text-muted)] hover:border-[#0a2540] hover:text-[#0a2540] cursor-pointer"
               >
                 Reset to Convergence ↺
               </button>
             ) : (
-              <span className="font-mono text-[11px] text-[var(--text-subtle)]">
+              <span className="inline-flex h-7 items-center font-mono text-[11px] text-[var(--text-subtle)]">
                 Hover or click any node to pin details
               </span>
             )}
           </div>
-          <ConvergenceDetailBody detail={inspectedDetail} />
+          <ConvergenceDetailBody detail={inspectedDetail} stickyTags />
         </div>
       </div>
 

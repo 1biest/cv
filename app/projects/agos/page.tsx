@@ -51,8 +51,29 @@ export default function AgOSPage() {
             explore the platform live without compromising operational records.
           </p>
           <div className="mt-8">
+            <h3 className="mb-2 text-lg font-semibold tracking-tight text-[#0a2540]">
+              Core Spatial &amp; System Views
+            </h3>
+            <p className="text-sm text-[var(--text-muted)]">
+              End-to-end architecture paired with live production views for 3D storage yards, satellite field planning, and time-series inventory analytics.
+            </p>
             <ImageGallery
               images={[
+                {
+                  src: '/screenshots/AgOS-screenshot (2).png',
+                  alt: 'AgOS 3D Storage Yard (Home Yard — Main Setup) and Selected Bin D-02 Inspector',
+                  type: 'image',
+                },
+                {
+                  src: '/screenshots/AgOS-screenshot (3).png',
+                  alt: 'AgOS Fields & Crops Satellite Map and 4,800-Acre Crop Plan',
+                  type: 'image',
+                },
+                {
+                  src: '/screenshots/AgOS-screenshot (4).png',
+                  alt: 'AgOS Storage Overview — Inventory Mix and Accessible Stacked Time-Series Chart',
+                  type: 'image',
+                },
                 {
                   src: '/diagrams/agos-architecture.svg',
                   alt: 'AgOS Full-Stack Architecture: Field Discovery to 3D Spatial Engine & PostgreSQL',
@@ -140,6 +161,39 @@ export default function AgOSPage() {
                 ]}
               />
             </div>
+          </div>
+
+          <div className="mt-10">
+            <h3 className="mb-2 text-lg font-semibold tracking-tight text-[#0a2540]">
+              Financial, Pricing &amp; Multi-Tenant Workflows
+            </h3>
+            <p className="text-sm text-[var(--text-muted)]">
+              Production economics Sankey visualizations, commodity market benchmarks, field-to-bin shipping ticket intake, and isolated organization workspaces.
+            </p>
+            <ImageGallery
+              images={[
+                {
+                  src: '/screenshots/AgOS-screenshot (5).png',
+                  alt: 'AgOS Cash Flow Ledger and Production Economics Nivo Sankey Diagram',
+                  type: 'image',
+                },
+                {
+                  src: '/screenshots/AgOS-screenshot (1).png',
+                  alt: 'AgOS Markets Page — Durum Wheat Price History and Live Commodity Board',
+                  type: 'image',
+                },
+                {
+                  src: '/screenshots/AgOS-screenshot (7).png',
+                  alt: 'AgOS Field-to-Bin Shipping Ticket Modal with Manual Entry and Upload & Extract Intake',
+                  type: 'image',
+                },
+                {
+                  src: '/screenshots/AgOS-screenshot (6).png',
+                  alt: 'AgOS Multi-Tenant Organization and Legal Land Location Settings',
+                  type: 'image',
+                },
+              ]}
+            />
           </div>
         </SectionWrapper>
 

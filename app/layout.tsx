@@ -25,7 +25,7 @@ const cormorantDisplay = Cormorant_Garamond({
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://biest.ca';
 const title = 'Logan Biesterfeldt | Frontend, Design & Forward Deployed AI Engineer';
 const description =
-  'Frontend Engineer, Product Design Engineer, and Forward Deployed AI Software Engineer based in Calgary. Building high-reliability TypeScript/React interfaces, Figma design systems, 3D/PostgreSQL platforms (AgOS), DeFi lending systems ($300M+ peak TVL at Neptune Finance), and spec-driven agentic AI software.';
+  'Frontend Engineer, Product Design Engineer, and Forward Deployed AI Software Engineer based in Calgary. Building high-reliability TypeScript/React interfaces, Figma design systems, 3D/PostgreSQL platforms (AgOS), DeFi lending systems ($159.66M+ loans originated / $27.76M peak TVL at Neptune Finance), and spec-driven agentic AI software.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

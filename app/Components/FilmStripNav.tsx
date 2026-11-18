@@ -16,7 +16,7 @@ export const SYSTEM_FRAMES: SystemFrame[] = [
   { id: 'craft', category: 'CRAFT', number: '02', label: 'Craft', title: 'Convergence of Design, Engineering & Product' },
   { id: 'neptune', category: 'FLAGSHIP', number: '03', label: 'Neptune', title: 'DeFi Lending Architecture' },
   { id: 'agos', category: 'SPATIAL', number: '04', label: 'AgOS', title: '3D Spatial Operating System' },
-  { id: 'systems', category: 'SYSTEMS', number: '05', label: 'Systems', title: 'Production Work' },
+  { id: 'systems', category: 'PROJECTS', number: '05', label: 'Projects', title: 'Selected Projects' },
   { id: 'experience', category: 'HISTORY', number: '06', label: 'Experience', title: 'Leadership & Track Record' },
   { id: 'stack', category: 'TOOLKIT', number: '07', label: 'Stack', title: 'Engineering Primitives' },
   { id: 'contact', category: 'CONNECT', number: '08', label: 'Contact', title: 'Direct Engineering Hire' },

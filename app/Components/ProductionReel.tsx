@@ -24,10 +24,10 @@ interface ProductionReelProps {
 }
 
 const CATEGORIES = [
-  { id: 'all', label: 'All Systems' },
+  { id: 'all', label: 'All Projects' },
   { id: 'defi', label: 'Frontend & DeFi' },
   { id: 'infra', label: 'Infrastructure & Open Source' },
-  { id: 'ai', label: 'AI & Agentic Systems' },
+  { id: 'design', label: 'Product Design & UX' },
 ] as const;
 
 export default function ProductionReel({
@@ -46,7 +46,6 @@ export default function ProductionReel({
     if (activeCategory === 'defi') {
       return (
         system.projectId === 'dyve' ||
-        system.projectId === 'satsuma' ||
         system.projectId === 'etherfi-demo' ||
         system.projectId === 'cryptech' ||
         system.projectId === 'neptune-finance'
@@ -59,13 +58,12 @@ export default function ProductionReel({
         system.projectId === 'agos'
       );
     }
-    if (activeCategory === 'ai') {
+    if (activeCategory === 'design') {
       return (
-        system.projectId === 'craidle' ||
-        system.projectId === 'satsuma' ||
-        system.projectId === 'agos' ||
-        system.name.toLowerCase().includes('ai') ||
-        system.domain.toLowerCase().includes('ai')
+        system.projectId === 'dyve' ||
+        system.projectId === 'monad-heartbeat' ||
+        system.projectId === 'etherfi-demo' ||
+        system.projectId === 'cryptech'
       );
     }
     return true;

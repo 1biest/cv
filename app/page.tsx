@@ -5,7 +5,6 @@ import Image from 'next/image';
 import NeptuneFinanceCaseStudy from './Components/NeptuneFinanceCaseStudy';
 import AgOSCaseStudy from './Components/AgOSCaseStudy';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import SocialLinks from './Components/SocialLinks';
 import Backdrop from './Components/Backdrop';
 import { ThemeAccentColor } from './config';
 import { Project, ProjectsData } from './types/projects';
@@ -40,8 +39,6 @@ const STUDY_IDS = [
   'open-source-contributions',
   'dyve',
   'cryptech',
-  'satsuma',
-  'craidle',
   'monad-heartbeat',
   'etherfi-demo',
 ] as const;
@@ -64,15 +61,12 @@ const selectedStudies = cvData.systemsBuilt.filter(
   (system) => system.projectId !== 'neptune-finance' && system.projectId !== 'agos'
 );
 const competencies = cvData.coreCompetencies;
-const technicalSummary = cvData.technicalSummary;
 
 const systemBackgrounds: Record<string, string> = {
   'neptune-finance': '/screenshots/neptune-balance-menu.webp',
-  'agos': '/diagrams/agos-architecture.svg',
+  'agos': '/screenshots/AgOS-screenshot (2).png',
   'open-source-contributions': '/screenshots/cw3-multisig-screenshot.webp',
   'dyve': '/screenshots/dyve-screenshot.webp',
-  'satsuma': '/diagrams/satsuma-architecture.svg',
-  'craidle': '/diagrams/craidle-architecture.svg',
   'monad-heartbeat': '/screenshots/monad-heartbeat-screenshot.webp',
   'etherfi-demo': '/screenshots/etherfi-demo-screenshot.webp',
   'cryptech': '/screenshots/cryptech-airdrop-calculator.webp',
@@ -293,7 +287,7 @@ export default function Home() {
 
   return (
     <div
-      className="min-h-screen selection:text-[var(--text)] pb-0 relative"
+      className="min-h-screen pb-0 relative"
       style={
         {
           '--text': '#141414',
@@ -451,7 +445,7 @@ export default function Home() {
               </div>
 
               <p className="mt-5 max-w-3xl text-base text-[var(--text-muted)] leading-relaxed">
-                Bridging customer discovery and Figma component systems directly into production TypeScript, React 19, Three.js, and AI-accelerated software—spanning $300M+ peak TVL DeFi systems, full-stack agricultural operations (AgOS), and spec-driven agentic builds.
+                Bridging customer discovery and Figma component systems directly into production TypeScript, React 19, Three.js, and AI-accelerated software—spanning DeFi lending systems ($159.66M+ loans originated / $27.76M peak TVL at Neptune Finance), full-stack agricultural operations (AgOS), and spec-driven agentic builds.
               </p>
 
               {/* Status + Primary Hero CTA Bar */}
@@ -490,20 +484,16 @@ export default function Home() {
               </div>
 
               {/* Verified Impact Metrics */}
-              <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl">
+              <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-3xl">
                 <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-4 shadow-[var(--shadow-sm)]">
-                  <span className="font-mono text-xl sm:text-2xl font-bold text-[#0a2540]">$300M+</span>
-                  <p className="text-[11px] font-medium text-[var(--text-muted)] mt-1">Peak Protocol TVL</p>
+                  <span className="font-mono text-xl sm:text-2xl font-bold text-[#0a2540]">$159.66M+</span>
+                  <p className="text-[11px] font-medium text-[var(--text-muted)] mt-1">Loans Originated · $27.76M Peak TVL</p>
                 </div>
                 <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-4 shadow-[var(--shadow-sm)]">
                   <span className="font-mono text-xl sm:text-2xl font-bold text-[#0a2540]">0 → 1</span>
                   <p className="text-[11px] font-medium text-[var(--text-muted)] mt-1">Figma-to-Code Ownership</p>
                 </div>
-                <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-4 shadow-[var(--shadow-sm)]">
-                  <span className="font-mono text-xl sm:text-2xl font-bold text-[#0a2540]">8+</span>
-                  <p className="text-[11px] font-medium text-[var(--text-muted)] mt-1">Shipped Systems &amp; Apps</p>
-                </div>
-                <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-4 shadow-[var(--shadow-sm)]">
+                <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] glass-surface p-4 shadow-[var(--shadow-sm)] col-span-2 sm:col-span-1">
                   <span className="font-mono text-xl sm:text-2xl font-bold text-[#0a2540]">6+ Yrs</span>
                   <p className="text-[11px] font-medium text-[var(--text-muted)] mt-1">Frontend &amp; Product Systems</p>
                 </div>
@@ -551,15 +541,8 @@ export default function Home() {
             </p>
 
             {/* Triangular Visual Motif with Surrounding Discipline and Intersection Elements */}
-            <div className="mt-8">
+            <div className="mt-14">
               <ConvergenceTriangle />
-            </div>
-
-            {/* Technical Narrative Excerpt */}
-            <div className="mt-10 max-w-3xl border-l-2 border-[#0a2540] pl-6 space-y-4 text-base leading-relaxed text-[var(--text-muted)]">
-              {technicalSummary.map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
-              ))}
             </div>
           </div>
         </section>
@@ -598,12 +581,13 @@ export default function Home() {
         </section>
 
         {/* ========================================================================= */}
-        {/* SYSTEM 05: SYSTEMS // PRODUCTION SYSTEMS REEL */}
+        {/* SYSTEM 05: PROJECTS // SELECTED PROJECTS REEL */}
         {/* ========================================================================= */}
         <section
           id="systems"
           className="slide-section border-t border-[var(--border)] min-h-[85vh] py-16 flex flex-col justify-center scroll-mt-24"
         >
+          <span id="projects" className="sr-only" />
           <span id="studies" className="sr-only" />
           <span id="act-reel" className="sr-only" />
           <div
@@ -612,16 +596,16 @@ export default function Home() {
           >
             <SystemMarker
               index="05"
-              category="SYSTEMS"
-              title="Selected Production Systems"
+              category="PROJECTS"
+              title="Selected Projects"
             />
 
             <div className="flex flex-col gap-2 mb-6">
               <h2 className="heading-accent font-[family-name:var(--font-display)] text-3xl font-semibold tracking-tight text-[var(--text)] md:text-5xl">
-                Selected Systems in Production
+                Selected Projects
               </h2>
               <p className="text-sm font-medium text-[var(--text-muted)]">
-                Interactive archive of frontend applications, design systems, AI agentic builds, and protocol infrastructure.
+                Interactive archive of frontend applications, design systems, and protocol infrastructure.
               </p>
             </div>
 
@@ -850,7 +834,7 @@ export default function Home() {
                     <a
                       href={MAILTO}
                       onClick={() => trackRecruiterAction('email_click', { location: 'footer_direct' })}
-                      className="hover:text-[#e5c488] transition"
+                      className="text-white hover:text-[#e5c488] transition"
                     >
                       {EMAIL}
                     </a>
@@ -870,7 +854,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => trackEvent('social_link_click', { platform: 'GitHub', location: 'footer' })}
-                      className="hover:text-[#e5c488] underline-offset-2 hover:underline"
+                      className="text-slate-100 hover:text-[#e5c488] underline-offset-2 hover:underline transition"
                     >
                       GitHub
                     </a>
@@ -880,7 +864,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => trackEvent('social_link_click', { platform: 'LinkedIn', location: 'footer' })}
-                      className="hover:text-[#e5c488] underline-offset-2 hover:underline"
+                      className="text-slate-100 hover:text-[#e5c488] underline-offset-2 hover:underline transition"
                     >
                       LinkedIn
                     </a>
@@ -890,7 +874,7 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => trackEvent('social_link_click', { platform: 'Telegram', location: 'footer' })}
-                      className="hover:text-[#e5c488] underline-offset-2 hover:underline"
+                      className="text-slate-100 hover:text-[#e5c488] underline-offset-2 hover:underline transition"
                     >
                       Telegram
                     </a>
@@ -899,17 +883,12 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Social Links Row & Engineering Copyright */}
-            <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[var(--border)] pt-8 text-xs text-[var(--text-subtle)]">
-              <div>
-                <SocialLinks />
-              </div>
-              <div className="text-right">
-                <p>© {new Date().getFullYear()} Logan Biesterfeldt · Design Engineering</p>
-                <p className="text-[11px] text-[var(--text-subtle)] mt-0.5">
-                  Built with Next.js 16, TypeScript, Tailwind CSS &amp; Google Analytics 4
-                </p>
-              </div>
+            {/* Engineering Copyright */}
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-[var(--border)] pt-6 text-xs text-[var(--text-subtle)]">
+              <p>© {new Date().getFullYear()} Logan Biesterfeldt · Design Engineering</p>
+              <p className="text-[11px] text-[var(--text-subtle)]">
+                Built with Next.js 16, TypeScript, Tailwind CSS &amp; Google Analytics 4
+              </p>
             </div>
           </div>
         </section>

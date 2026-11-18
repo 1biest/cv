@@ -18,7 +18,7 @@ export interface RoleLensConfig {
   summary: string;
   resumeLabel: string;
   resumeHref: string;
-  reelFilter: 'all' | 'defi' | 'infra' | 'ai';
+  reelFilter: 'all' | 'defi' | 'infra' | 'design';
   highlights: string[];
   proofItems: RoleProofItem[];
   packetBlurb: string;
@@ -33,22 +33,22 @@ export const ROLE_LENSES: Record<RoleLens, RoleLensConfig> = {
     shortLabel: 'Overview',
     headline: 'Frontend Engineering · Product Design · Forward Deployed AI',
     summary:
-      '6+ years shipping React/TypeScript web applications, custom Figma systems, and embedded operator workflows—spanning DeFi liquidity interfaces ($300M+ peak TVL), spatial React 19 + Three.js software (AgOS), and spec-driven AI systems.',
+      '6+ years shipping React/TypeScript web applications, custom Figma systems, and embedded operator workflows—spanning DeFi money markets ($159.66M+ cumulative loans · $27.76M peak TVL · 882,800+ txs), spatial React 19 + Three.js software (AgOS), and spec-driven AI systems.',
     resumeLabel: 'Download Unified 1-Page CV',
     resumeHref: '/Logan Biesterfeldt Resume 2026.pdf',
     reelFilter: 'all',
     highlights: [
-      'Neptune Finance Frontend Lead ($300M+ Peak TVL)',
+      'Neptune Finance ($159.66M+ Loans Originated · $27.76M Peak TVL · 1,042+ Days Uptime)',
       'AgOS Full-Stack Spatial Platform (React 19 + Three.js + Postgres)',
-      'CrAIdle & Satsuma Spec-Driven Agentic Delivery',
+      'Spec-Driven AI Velocity (@neptunefinance/api-v2 Migration · 7.55M Gas Saved via Telemetry Analyzer)',
     ],
     proofItems: [
       {
         badge: 'Frontend · DeFi',
         title: 'Neptune Finance Application',
-        metric: '$300M+ Peak TVL',
+        metric: '$159.66M+ Loans · $27.76M Peak TVL',
         description:
-          'Owned Figma systems and production Next.js/TypeScript state architecture across lending, borrowing, Mito vaults, and Astroport LP flows.',
+          'Architected @neptunefinance/api-v2 React Query read models, 600ms–3.5s state-fingerprinted polling, 1-click swaps, and CosmWasm integrations across 9 lending & 21 collateral markets.',
         actionLabel: 'Read Neptune Case Study',
         actionType: 'section',
         targetId: 'neptune',
@@ -64,19 +64,19 @@ export const ROLE_LENSES: Record<RoleLens, RoleLensConfig> = {
         targetId: 'agos',
       },
       {
-        badge: 'AI Systems · 48h Ship',
-        title: 'CrAIdle & Satsuma Orchestration',
-        metric: 'Spec-Driven Agentic Flows',
+        badge: 'Ecosystem · Hackathon Winner',
+        title: 'CW3 Multisig & Dyve NFTFi',
+        metric: 'Injective OSS · Polygon Top 5',
         description:
-          'Directed OpenClaw/MiniMax agents against explicit contract invariants and testnet verification gates on Base Sepolia and Injective.',
-        actionLabel: 'Inspect CrAIdle Dossier',
+          'Ported Cosmos multisig governance UI to Injective with Base64 payload diagnostics and shipped Dyve (Covalent Best Use & NFTPort Pool Winner).',
+        actionLabel: 'Inspect CW3 OSS Dossier',
         actionType: 'drawer',
-        targetId: 'craidle',
+        targetId: 'open-source-contributions',
       },
     ],
     packetBlurb: `Logan Biesterfeldt — Frontend, Product Design & Forward Deployed AI Engineer
 • Summary: 6+ years shipping TypeScript/React systems, custom Figma component libraries, and embedded operator workflows (Calgary, AB · Open to Remote / Relocation).
-• Proof: Frontend Lead at Neptune Finance ($300M+ peak TVL on Injective); creator of AgOS (React 19, Three.js, Neon PostgreSQL, Drizzle); shipped CrAIdle & Satsuma via spec-driven AI agent orchestration; ETHGlobal HackFS Triple Winner (Dyve).
+• Proof: Neptune Finance Senior Product/Frontend/AI/FDE ($159.66M+ loans, $27.76M peak TVL, 882,800+ CosmWasm txs, 7.55M gas saved via telemetry AI); creator of AgOS (React 19, Three.js, Neon PostgreSQL, Drizzle); CW3 Multisig OSS port & ETHGlobal HackFS Triple Winner (Dyve).
 • Links: https://biest.ca · logan.biesterfeldt@gmail.com · github.com/1biest`,
   },
   frontend: {
@@ -85,22 +85,22 @@ export const ROLE_LENSES: Record<RoleLens, RoleLensConfig> = {
     shortLabel: 'Frontend',
     headline: 'Senior Frontend & UI Systems Engineer (React 19 · TypeScript · Next.js)',
     summary:
-      'Built production financial and real-time interfaces where wallet signing, WebGL lifecycles, optimistic state sync, and deterministic error recovery directly protect user outcomes.',
+      'Built production financial and real-time interfaces where centralized React Query read models, eventual consistency polling, WebGL lifecycles, and deterministic signing directly protect user capital.',
     resumeLabel: 'Frontend Engineer 1-Page CV',
     resumeHref: '/Logan Biesterfeldt - Frontend Engineer Resume 2026.pdf',
     reelFilter: 'all',
     highlights: [
-      'Deterministic transaction & wallet state machines across Injective & EVM',
-      'Custom React 19 + Three.js resource management & WebGL context recovery',
-      'Upstream OSS PRs merged in Injective Labs, Cosmos Chain Registry, Keplr & DefiLlama',
+      'Replaced legacy CosmWasm/InfluxDB state rebuilds with @neptunefinance/api-v2 React Query & 600ms–3.5s adaptive backoff polling',
+      '15% high-complexity gas limit reduction (7.55M gas saved) & patched EVM/WalletConnect SDK signing bugs upstream',
+      'Upstream OSS PRs merged in Injective Labs, Cosmos Chain Registry, Keplr & DefiLlama alongside React 19 + Three.js resource recovery',
     ],
     proofItems: [
       {
-        badge: 'Production Architecture',
-        title: 'Neptune Finance State Sync',
-        metric: 'Next.js · CosmWasm · Injective',
+        badge: 'Distributed Frontend State',
+        title: 'Neptune Finance Eventual Consistency',
+        metric: '882,800+ Txs · 600ms–3.5s Polling',
         description:
-          'Engineered resilient RPC/indexer aggregation, slippage guards, and deterministic retry UX across lending, staking, and vault flows.',
+          'Eliminated 30s stale UI states from blockchain indexer lag across 9 lending & 21 collateral markets ($159.66M+ cumulative loans).',
         actionLabel: 'Jump to Neptune Engineering',
         actionType: 'section',
         targetId: 'neptune',
@@ -127,8 +127,8 @@ export const ROLE_LENSES: Record<RoleLens, RoleLensConfig> = {
       },
     ],
     packetBlurb: `Logan Biesterfeldt — Senior Frontend Engineer (React 19 · TypeScript · Next.js)
-• Summary: Built mission-critical React/TypeScript UI for Neptune Finance ($300M+ peak TVL), ported CW3 Multisig to Injective, merged PRs to Injective Labs/Cosmos/DefiLlama, and engineered AgOS (React 19, Three.js, Drizzle ORM).
-• Strengths: State synchronization, WebSockets, WebGL lifecycle control, accessible UI primitives, design token architecture.
+• Summary: Built mission-critical React/TypeScript UI for Neptune Finance ($159.66M+ loans, $27.76M peak TVL, 882,800+ txs) with @neptunefinance/api-v2 React Query & 600ms–3.5s adaptive backoff polling; ported CW3 Multisig to Injective; engineered AgOS (React 19, Three.js, Drizzle ORM).
+• Strengths: Eventual consistency & React Query architecture, gas telemetry, WebSockets, WebGL lifecycle control, accessible UI primitives.
 • Links: https://biest.ca · logan.biesterfeldt@gmail.com · github.com/1biest`,
   },
   design: {
@@ -137,22 +137,22 @@ export const ROLE_LENSES: Record<RoleLens, RoleLensConfig> = {
     shortLabel: 'Design',
     headline: 'Product Designer & Design Engineer (0 → 1 Discovery · Figma Systems · Production Code)',
     summary:
-      'I build the Figma component library and ship the production code—translating complex workflows into clear visual hierarchy without losing intent in design-to-dev handoff.',
+      'I design the Figma component library and ship the production code—turning multi-step atomic swaps, debt health models, and spatial workflows into effortless UI without handoff drift.',
     resumeLabel: 'Product Design 1-Page CV',
     resumeHref: '/Logan Biesterfeldt - Product Design Resume 2026.pdf',
-    reelFilter: 'defi',
+    reelFilter: 'design',
     highlights: [
-      '0 -> 1 Figma design system & brand language across Neptune Finance and Cryptech',
-      'Self-initiated Balance Menu solved cross-page asset navigation gaps without a brief',
-      'Field Signal system in AgOS pairs accessibility (keyboard + tabular fallbacks) with spatial 3D',
+      '0 → 1 Figma design system & 1-click Collateral/Debt Swap UX compressing 5-step atomic flash loans into a single flow',
+      '4-layer @base-ui Account Health Bar with live liquidation simulation, 1-click Dust Cleanup, and Revenue Flywheel analytics',
+      'Self-initiated Balance Menu at Neptune & Field Signal accessible spatial 3D/tabular UI in AgOS',
     ],
     proofItems: [
       {
-        badge: 'Design Systems · 0 → 1',
-        title: 'Neptune Figma Library & Balance Menu',
-        metric: 'Figma -> Production Parity',
+        badge: '1-Click DeFi UX & Systems',
+        title: 'Neptune Figma, Swaps & Health UI',
+        metric: '5-Step Flash Loan → 1-Click UX',
         description:
-          'Designed token rules, lending screens, and the persistent Balance Menu after identifying cross-route navigation friction firsthand.',
+          'Designed the 0 → 1 Figma library, 4-layer @base-ui Account Health Bar, 1-click Collateral/Debt Swaps, Tokenomics suite, and persistent Balance Menu.',
         actionLabel: 'Inspect Neptune Design',
         actionType: 'section',
         targetId: 'neptune',
@@ -179,8 +179,8 @@ export const ROLE_LENSES: Record<RoleLens, RoleLensConfig> = {
       },
     ],
     packetBlurb: `Logan Biesterfeldt — Product Designer & Design Engineer
-• Summary: Full 0->1 design & frontend ownership from discovery and Figma libraries to shipped TSX. Created Neptune Finance's design system ($300M+ peak TVL), self-initiated Balance Menu UX, Field Signal system in AgOS, and Macro DEX / ether.fi UI concepts.
-• Strengths: Component tokens, high-trust financial flows, spatial UX, accessibility fallbacks.
+• Summary: Full 0->1 design & frontend ownership from discovery and Figma libraries to shipped TSX. Designed Neptune Finance's system ($159.66M+ cumulative loans, $27.76M peak TVL), 1-click Collateral/Debt Swaps, 4-layer @base-ui Account Health Bar, self-initiated Balance Menu, Field Signal in AgOS, and Macro DEX / ether.fi concepts.
+• Strengths: Component tokens, 1-click simplification of complex financial mechanics, spatial UX, accessibility fallbacks.
 • Links: https://biest.ca · logan.biesterfeldt@gmail.com · github.com/1biest`,
   },
   'ai-fde': {
@@ -189,16 +189,26 @@ export const ROLE_LENSES: Record<RoleLens, RoleLensConfig> = {
     shortLabel: 'AI / FDE',
     headline: 'Forward Deployed Engineer — AI Software & Embedded Domain Systems',
     summary:
-      'Comfortable in boots with domain operators and in the terminal orchestrating AI agents: I bridge messy customer constraints into typed schemas, verified smart/backend logic, and production software.',
+      'From live customer wallet triage on production DeFi markets to spec-driven AI agent migrations and boots-on-the-ground farm systems, I resolve high-stakes customer constraints directly in shipped code.',
     resumeLabel: 'AI / FDE 1-Page CV',
     resumeHref: '/Logan Biesterfeldt - Forward Deployed AI Engineer Resume 2026.pdf',
-    reelFilter: 'ai',
+    reelFilter: 'all',
     highlights: [
-      'Embedded domain discovery at Flat Land Farms -> shipped AgOS (Postgres + Drizzle + React 19)',
-      'Spec-driven multi-agent orchestration (OpenClaw, MiniMax, Claude, Cursor) with HITL gates',
-      '48-hour shipping velocity from customer/protocol constraint to live testnet/production deployment',
+      'Spec-driven AI agent rulesets executed zero-downtime @neptunefinance/api-v2 migration + 15% gas reduction (7.55M gas saved)',
+      'Live Bech32 wallet diagnostic console, RPC failover, upstream SDK fixes & Hydro/Stride/Mito/Astroport/Skip Go integrations at Neptune',
+      'Embedded discovery at Flat Land Farms -> AgOS (React 19 + Three.js + Postgres + Drizzle)',
     ],
     proofItems: [
+      {
+        badge: 'Production FDE · AI Playbooks',
+        title: 'Neptune Triage, Telemetry AI & Partner Flows',
+        metric: '7.55M Gas Saved · 5 Partner Integrations',
+        description:
+          'Built hot-swappable Bech32 wallet inspection + RPC failover console, patched upstream SDK bugs, integrated Hydro (hINJ), Stride (stATOM), Mito, Astroport & Skip Go, and drove api-v2 via AI guardrails.',
+        actionLabel: 'Inspect Neptune Architecture',
+        actionType: 'section',
+        targetId: 'neptune',
+      },
       {
         badge: 'Embedded Domain -> Product',
         title: 'Flat Land Farms → AgOS',
@@ -210,29 +220,19 @@ export const ROLE_LENSES: Record<RoleLens, RoleLensConfig> = {
         targetId: 'agos',
       },
       {
-        badge: 'Agentic Orchestration',
-        title: 'CrAIdle Yield-Budgeted Launchpad',
-        metric: 'OpenClaw · MiniMax · Solidity',
+        badge: 'Ecosystem & Protocol OSS',
+        title: 'CW3 Multisig & Upstream PRs',
+        metric: 'Injective · Cosmos · DefiLlama',
         description:
-          'Authored vault principal-lock specs and directed OpenClaw/MiniMax agents to ship 4 verified Base Sepolia contracts + Next.js monitoring UI.',
-        actionLabel: 'Inspect CrAIdle Architecture',
+          'Diagnosed chain signing and SDK quirks firsthand, porting CW3 multisig governance to Injective and landing upstream PRs across partner repositories.',
+        actionLabel: 'Inspect OSS Architecture',
         actionType: 'drawer',
-        targetId: 'craidle',
-      },
-      {
-        badge: 'Cross-Chain AI Delivery',
-        title: 'Satsuma 4-Network Router',
-        metric: '48h Spec-Driven Ship',
-        description:
-          'Paired explicit multi-chain transition specs with agentic codegen and manual Keplr/ICP wallet verification to ship in 48 hours at Cosmoverse.',
-        actionLabel: 'Inspect Satsuma Diagram',
-        actionType: 'drawer',
-        targetId: 'satsuma',
+        targetId: 'open-source-contributions',
       },
     ],
     packetBlurb: `Logan Biesterfeldt — Forward Deployed Engineer (AI Software & Customer Systems)
-• Summary: Hybrid engineer & designer connecting real-world operator workflows to shipped full-stack and agentic AI software.
-• Proof: Converted 2 years in precision agriculture (Flat Land Farms) into AgOS (React 19, Three.js, Neon Postgres, Drizzle); shipped CrAIdle (OpenClaw/MiniMax agent pipeline + 4 Base Sepolia contracts) and Satsuma (48h cross-chain router) using spec-driven HITL verification; 4 years leading customer-facing DeFi product at Neptune Finance ($300M+ TVL).
+• Summary: Hybrid engineer & designer connecting real-world operator and protocol constraints to shipped full-stack and agentic AI software.
+• Proof: Neptune Finance FDE/AI/Frontend/Product ($159.66M+ loans, $27.76M peak TVL, live Bech32 diagnostic console, Hydro/Stride/Mito/Astroport/Skip Go integrations, 7.55M gas saved & @neptunefinance/api-v2 via spec-driven AI playbooks); AgOS (React 19, Three.js, Neon Postgres); CW3 Multisig & upstream ecosystem PRs.
 • Links: https://biest.ca · logan.biesterfeldt@gmail.com · github.com/1biest`,
   },
 };
