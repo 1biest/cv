@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { createPortal } from 'react-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
+import { trackEvent } from '../lib/analytics';
 import { ProjectImage } from '../types/projects';
 
 export type ImageGalleryProps = {
@@ -55,6 +56,13 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
     setImgDims({ width: 0, height: 0 }); // Reset dims on open
     setShowImage(true); // Always show image on modal open
     setModalVisible(false);
+    trackEvent('lightbox_open', {
+      image_index: idx + 1,
+      total_images: images.length,
+      image_src: images[idx]?.src,
+      image_alt: images[idx]?.alt,
+      category: 'Case_Study_Media',
+    });
   };
 
   const closeModal = () => {
@@ -65,6 +73,11 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
   const nextImage = useCallback(
     (e?: React.MouseEvent | React.KeyboardEvent) => {
       e?.stopPropagation();
+      trackEvent('lightbox_navigate', {
+        direction: 'next',
+        total_images: images.length,
+        category: 'Case_Study_Media',
+      });
       setShowImage(false);
       setTimeout(() => {
         setCurrent((prev) => (prev + 1) % images.length);
@@ -78,6 +91,11 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
   const prevImage = useCallback(
     (e?: React.MouseEvent | React.KeyboardEvent) => {
       e?.stopPropagation();
+      trackEvent('lightbox_navigate', {
+        direction: 'prev',
+        total_images: images.length,
+        category: 'Case_Study_Media',
+      });
       setShowImage(false);
       setTimeout(() => {
         setCurrent((prev) => (prev - 1 + images.length) % images.length);
@@ -241,6 +259,11 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
   const handleImageClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (!canZoom) return;
+    trackEvent('lightbox_zoom_toggle', {
+      zoomed_in: !isFullSize,
+      image_src: currentItem?.src,
+      category: 'Case_Study_Media',
+    });
     setIsFullSize((prev) => !prev);
   };
 

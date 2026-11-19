@@ -6,7 +6,7 @@ import {
   type RoleLens,
   type RoleProofItem,
 } from '../lib/roleLenses';
-import { trackRecruiterAction } from '../lib/analytics';
+import { setAnalyticsRoleLens, trackRecruiterAction } from '../lib/analytics';
 
 interface RoleLensSwitcherProps {
   activeLens: RoleLens;
@@ -24,11 +24,13 @@ export default function RoleLensSwitcher({
   const current = ROLE_LENSES[activeLens];
 
   const handleProofAction = (item: RoleProofItem) => {
-    trackRecruiterAction('view_summary', {
+    trackRecruiterAction('proof_click', {
       lens: activeLens,
       proof_title: item.title,
+      proof_badge: item.badge,
+      proof_metric: item.metric,
       action_type: item.actionType,
-      target: item.targetId,
+      target_id: item.targetId,
     });
     if (item.actionType === 'drawer') {
       onOpenProject(item.targetId);
@@ -64,8 +66,15 @@ export default function RoleLensSwitcher({
                 role="tab"
                 aria-selected={isSelected}
                 onClick={() => {
+                  const previousLens = activeLens;
+                  setAnalyticsRoleLens(lensId);
                   onSelectLens(lensId);
-                  trackRecruiterAction('view_summary', { lens_selected: lensId });
+                  trackRecruiterAction('lens_select', {
+                    lens_selected: lensId,
+                    lens_label: lens.label,
+                    previous_lens: previousLens,
+                    source: 'hero_role_switcher',
+                  });
                 }}
                 className={`rounded-full px-3 py-1.5 text-xs font-medium transition-all cursor-pointer ${
                   isSelected
@@ -92,6 +101,8 @@ export default function RoleLensSwitcher({
             trackRecruiterAction('resume_download', {
               source: 'role_lens_switcher',
               lens: activeLens,
+              resume_file: current.resumeHref,
+              resume_label: current.resumeLabel,
             })
           }
           className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#0a2540] px-4 py-2 text-xs font-semibold text-white shadow-xs transition hover:bg-[var(--accent-hover)]"

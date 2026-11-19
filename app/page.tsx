@@ -19,6 +19,9 @@ import RoleLensSwitcher from './Components/RoleLensSwitcher';
 import RecruiterFastTrack from './Components/RecruiterFastTrack';
 import { ROLE_LENSES, type RoleLens } from './lib/roleLenses';
 import {
+  initRecruiterSessionAnalytics,
+  setAnalyticsActiveSection,
+  setAnalyticsRoleLens,
   trackEvent,
   trackRecruiterAction,
   trackCaseStudyEvent,
@@ -156,21 +159,51 @@ export default function Home() {
 
   // Scroll tracking hook (fires React state only when active section changes)
   const { activeSection } = useScrollProgress(SYSTEM_SECTION_IDS);
-  const lastTrackedSection = useRef<string>('');
+  const lastTrackedSection = useRef<string>('overview');
+  const sectionEnteredAtRef = useRef<{ id: string; enteredAt: number }>({
+    id: 'overview',
+    enteredAt: Date.now(),
+  });
   const trackedDepths = useRef<Set<number>>(new Set());
+  const activeLensRef = useRef<RoleLens>(activeLens);
+
+  useEffect(() => {
+    activeLensRef.current = activeLens;
+    setAnalyticsRoleLens(activeLens);
+  }, [activeLens]);
+
+  useEffect(() => {
+    initRecruiterSessionAnalytics();
+  }, []);
 
   const handleSelectLens = useCallback((lens: RoleLens) => {
+    setAnalyticsRoleLens(lens);
     setActiveLens(lens);
     setReelFilter(ROLE_LENSES[lens].reelFilter);
   }, []);
 
-  // Track section changes for GA4
+  // Track section transitions & dwell time for GA4
   useEffect(() => {
     if (!activeSection) return;
 
     const handler = setTimeout(() => {
       if (activeSection !== lastTrackedSection.current) {
+        const now = Date.now();
+        const prev = sectionEnteredAtRef.current;
+        const dwellSeconds = Math.round((now - prev.enteredAt) / 1000);
+        if (prev.id && dwellSeconds >= 2) {
+          trackEvent('section_dwell', {
+            section_id: prev.id,
+            dwell_seconds: dwellSeconds,
+            next_section_id: activeSection,
+            category: 'Engagement',
+          });
+        }
+
         lastTrackedSection.current = activeSection;
+        sectionEnteredAtRef.current = { id: activeSection, enteredAt: now };
+        setAnalyticsActiveSection(activeSection);
+
         const frame = SYSTEM_FRAMES.find((f) => f.id === activeSection);
         trackEvent('view_section', {
           section_id: activeSection,
@@ -183,6 +216,50 @@ export default function Home() {
 
     return () => clearTimeout(handler);
   }, [activeSection]);
+
+  // Track active visible engagement milestones (15s, 30s, 60s, 120s, 180s)
+  useEffect(() => {
+    const milestones = [15, 30, 60, 120, 180];
+    const firedMilestones = new Set<number>();
+    let activeSeconds = 0;
+
+    const interval = setInterval(() => {
+      if (document.visibilityState !== 'visible') return;
+      activeSeconds += 1;
+
+      milestones.forEach((milestone) => {
+        if (activeSeconds >= milestone && !firedMilestones.has(milestone)) {
+          firedMilestones.add(milestone);
+          trackEvent('engagement_milestone', {
+            active_seconds: milestone,
+            milestone_label: `${milestone}s`,
+            active_section: lastTrackedSection.current || 'overview',
+            active_lens: activeLensRef.current,
+            category: 'Engagement',
+          });
+        }
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Track text selection copies (e.g. email, metrics, stack summaries)
+  useEffect(() => {
+    const handleCopy = () => {
+      const text = window.getSelection()?.toString().trim();
+      if (!text) return;
+      trackEvent('content_copy', {
+        copied_length: text.length,
+        copied_preview: text.slice(0, 80),
+        contains_email: text.includes(EMAIL),
+        category: 'Recruiter_Conversion',
+      });
+    };
+
+    window.addEventListener('copy', handleCopy);
+    return () => window.removeEventListener('copy', handleCopy);
+  }, []);
 
   // Track scroll depth milestones (25%, 50%, 75%, 100%)
   useEffect(() => {
@@ -232,13 +309,10 @@ export default function Home() {
   }, []);
 
   const closeProject = useCallback(() => {
-    if (activeProjectId) {
-      trackCaseStudyEvent('close', activeProjectId);
-    }
     setActiveProjectId(null);
     const newUrl = window.location.pathname;
     window.history.pushState(null, '', newUrl);
-  }, [activeProjectId]);
+  }, []);
 
   const handleNextProject = useCallback(() => {
     if (!activeProjectId) return;
@@ -371,6 +445,7 @@ export default function Home() {
                   trackRecruiterAction('resume_download', {
                     location: 'header_nav',
                     lens: activeLens,
+                    resume_file: ROLE_LENSES[activeLens].resumeHref,
                   })
                 }
                 className="inline-flex h-9 items-center gap-1.5 rounded-full bg-[#0a2540] px-4 text-xs font-semibold text-white shadow-xs transition hover:bg-[var(--accent-hover)]"
@@ -470,6 +545,7 @@ export default function Home() {
                     trackRecruiterAction('resume_download', {
                       location: 'hero_cta',
                       lens: activeLens,
+                      resume_file: ROLE_LENSES[activeLens].resumeHref,
                     })
                   }
                   className="inline-flex items-center justify-center rounded-full border border-[var(--border-strong)] bg-[var(--surface)] glass-surface px-5 py-3 text-sm font-semibold text-[var(--text)] transition hover:border-[#0a2540] hover:text-[#0a2540] active:scale-[0.98]"
@@ -787,7 +863,13 @@ export default function Home() {
                   <a
                     href="/Logan Biesterfeldt Resume 2026.pdf"
                     download
-                    onClick={() => trackRecruiterAction('resume_download', { location: 'epilogue_unified' })}
+                    onClick={() =>
+                      trackRecruiterAction('resume_download', {
+                        location: 'epilogue_unified',
+                        lens: 'all',
+                        resume_file: '/Logan Biesterfeldt Resume 2026.pdf',
+                      })
+                    }
                     className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/10 hover:bg-white/15 text-white text-xs font-semibold border border-white/20 transition"
                   >
                     <span>📄</span> Unified 1-Page CV (PDF)
@@ -802,7 +884,13 @@ export default function Home() {
                   <a
                     href="/Logan Biesterfeldt - Frontend Engineer Resume 2026.pdf"
                     download
-                    onClick={() => trackRecruiterAction('resume_download', { location: 'epilogue_frontend' })}
+                    onClick={() =>
+                      trackRecruiterAction('resume_download', {
+                        location: 'epilogue_frontend',
+                        lens: 'frontend',
+                        resume_file: '/Logan Biesterfeldt - Frontend Engineer Resume 2026.pdf',
+                      })
+                    }
                     className="rounded-full border border-white/20 bg-white/[0.06] px-3.5 py-1.5 text-slate-100 hover:border-[#e5c488] hover:text-[#e5c488] transition"
                   >
                     Frontend Engineer ↓
@@ -810,7 +898,13 @@ export default function Home() {
                   <a
                     href="/Logan Biesterfeldt - Product Design Resume 2026.pdf"
                     download
-                    onClick={() => trackRecruiterAction('resume_download', { location: 'epilogue_design' })}
+                    onClick={() =>
+                      trackRecruiterAction('resume_download', {
+                        location: 'epilogue_design',
+                        lens: 'design',
+                        resume_file: '/Logan Biesterfeldt - Product Design Resume 2026.pdf',
+                      })
+                    }
                     className="rounded-full border border-white/20 bg-white/[0.06] px-3.5 py-1.5 text-slate-100 hover:border-[#e5c488] hover:text-[#e5c488] transition"
                   >
                     Product Design ↓
@@ -818,7 +912,13 @@ export default function Home() {
                   <a
                     href="/Logan Biesterfeldt - Forward Deployed AI Engineer Resume 2026.pdf"
                     download
-                    onClick={() => trackRecruiterAction('resume_download', { location: 'epilogue_ai_fde' })}
+                    onClick={() =>
+                      trackRecruiterAction('resume_download', {
+                        location: 'epilogue_ai_fde',
+                        lens: 'ai-fde',
+                        resume_file: '/Logan Biesterfeldt - Forward Deployed AI Engineer Resume 2026.pdf',
+                      })
+                    }
                     className="rounded-full border border-white/20 bg-white/[0.06] px-3.5 py-1.5 text-slate-100 hover:border-[#e5c488] hover:text-[#e5c488] transition"
                   >
                     Forward Deployed AI ↓

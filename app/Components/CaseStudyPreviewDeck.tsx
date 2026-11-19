@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import React, { useState } from 'react';
+import { trackCaseStudyEvent } from '../lib/analytics';
 
 export interface PreviewFrame {
   src: string;
@@ -12,6 +13,7 @@ export interface PreviewFrame {
 }
 
 interface CaseStudyPreviewDeckProps {
+  projectId: string;
   frames: readonly PreviewFrame[];
   onInspect: () => void;
   totalArtifactsCount?: number;
@@ -22,6 +24,7 @@ interface CaseStudyPreviewDeckProps {
 }
 
 export default function CaseStudyPreviewDeck({
+  projectId,
   frames,
   onInspect,
   totalArtifactsCount,
@@ -36,12 +39,21 @@ export default function CaseStudyPreviewDeck({
 
   if (!activeFrame) return null;
 
+  const handleOpenFromDeck = (source: 'preview_deck_stage' | 'preview_deck_footer_cta') => {
+    trackCaseStudyEvent('open', projectId, {
+      source,
+      active_frame_label: activeFrame.label,
+      active_frame_index: activeIndex + 1,
+    });
+    onInspect();
+  };
+
   return (
     <div>
       <div className="relative rounded-2xl border border-[var(--border-strong)] bg-[var(--surface)] glass-surface p-2 shadow-[var(--shadow-card)] overflow-hidden transition hover:border-[#0a2540]/45">
         <button
           type="button"
-          onClick={onInspect}
+          onClick={() => handleOpenFromDeck('preview_deck_stage')}
           className="w-full text-left block group cursor-pointer focus-visible:outline-none"
           aria-label={`${openAriaPrefix} (${activeFrame.caption})`}
         >
@@ -71,7 +83,16 @@ export default function CaseStudyPreviewDeck({
               <button
                 key={frame.src}
                 type="button"
-                onClick={() => setActiveIndex(idx)}
+                onClick={() => {
+                  setActiveIndex(idx);
+                  trackCaseStudyEvent('preview_select', projectId, {
+                    frame_index: idx + 1,
+                    frame_label: frame.label,
+                    frame_tag: frame.tag,
+                    frame_caption: frame.caption,
+                    frame_src: frame.src,
+                  });
+                }}
                 aria-pressed={isSelected}
                 className={`group/thumb relative overflow-hidden rounded-lg border text-left transition cursor-pointer ${
                   isSelected
@@ -104,7 +125,7 @@ export default function CaseStudyPreviewDeck({
 
         <button
           type="button"
-          onClick={onInspect}
+          onClick={() => handleOpenFromDeck('preview_deck_footer_cta')}
           className="mt-2 w-full rounded-xl bg-[#0a2540] px-4 py-2.5 text-white flex items-center justify-between text-[11px] font-mono cursor-pointer transition hover:bg-[var(--accent-hover)]"
         >
           <span>{activeFrame.tag}</span>

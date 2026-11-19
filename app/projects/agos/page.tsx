@@ -6,6 +6,7 @@ import { SnapshotGrid } from '../../Components/case-study/SnapshotGrid';
 import { SectionWrapper } from '../../Components/case-study/SectionWrapper';
 import { BulletList } from '../../Components/case-study/BulletList';
 import ImageGallery from '../../Components/ImageGallery';
+import { trackCaseStudyEvent } from '../../lib/analytics';
 
 export default function AgOSPage() {
   return (
@@ -206,7 +207,7 @@ export default function AgOSPage() {
             <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">
               AgOS demonstrates how modern frontend architecture—combining React 19, TypeScript, parametric 3D graphics,
               and design system rigor—can turn cumbersome physical enterprise workflows into an intuitive, elegant software product.
-              The platform continues active development, with live interactive previews available at <a href="https://ag-os.pro/" target="_blank" rel="noopener noreferrer" className="font-semibold text-[#0a2540] underline decoration-[#0a2540]/30 underline-offset-4 hover:decoration-[#0a2540]">ag-os.pro</a>.
+              The platform continues active development, with live interactive previews available at <a href="https://ag-os.pro/" target="_blank" rel="noopener noreferrer" onClick={() => trackCaseStudyEvent('external_link', 'agos', { link_label: 'ag-os.pro inline', url: 'https://ag-os.pro/', source: 'agos_outcomes_callout' })} className="font-semibold text-[#0a2540] underline decoration-[#0a2540]/30 underline-offset-4 hover:decoration-[#0a2540]">ag-os.pro</a>.
             </p>
           </div>
         </SectionWrapper>

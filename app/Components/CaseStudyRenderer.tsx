@@ -8,6 +8,7 @@ import { SectionWrapper } from './case-study/SectionWrapper';
 import { BulletList } from './case-study/BulletList';
 import { useLinkPreviews } from '../hooks/useOpenGraph';
 import { ThemeAccentColor } from '../config';
+import { trackCaseStudyEvent } from '../lib/analytics';
 import { Project } from '../types/projects';
 import NeptuneFinance from '../projects/neptune-finance/page';
 import Dyve from '../projects/dyve/page';
@@ -153,6 +154,14 @@ export default function CaseStudyRenderer({ project }: CaseStudyRendererProps) {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackCaseStudyEvent('external_link', id, {
+                      project_title: title,
+                      link_title: panelTitle,
+                      link_url: url,
+                      source: 'case_study_link_preview',
+                    })
+                  }
                   className="grid h-28 w-full max-w-xl animate-fadeIn grid-cols-3 overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface)] shadow-sm transition hover:border-[color:var(--accent-color)] hover:shadow-md no-underline"
                 >
                   {image && (

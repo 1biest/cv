@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faLink, faArrowRight, faArrowLeft, faExpand } from '@fortawesome/free-solid-svg-icons';
-import { trackEvent } from '../lib/analytics';
+import { trackCaseStudyEvent, trackEvent } from '../lib/analytics';
 import { Project } from '../types/projects';
 
 interface GalleryItem {
@@ -234,6 +234,10 @@ export default function CaseStudyDrawer({
   const [isRendered, setIsRendered] = useState(false);
   const [animateShow, setAnimateShow] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const openedAtRef = useRef<number>(Date.now());
+  const viewedImagesRef = useRef<Set<number>>(new Set([0]));
+  const maxScrollPctRef = useRef<number>(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const projectId = project?.id || '';
 
@@ -250,10 +254,73 @@ export default function CaseStudyDrawer({
           }))
       : []);
 
-  // Reset selected image when project changes
+  // Reset selected image and engagement metrics when project changes or drawer opens
   useEffect(() => {
     setSelectedImageIndex(0);
-  }, [projectId]);
+    openedAtRef.current = Date.now();
+    viewedImagesRef.current = new Set([0]);
+    maxScrollPctRef.current = 0;
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = 0;
+    }
+  }, [projectId, isOpen]);
+
+  const recordDwellClose = useCallback(
+    (closeMethod: 'backdrop' | 'escape' | 'header_close' | 'top_dismiss' | 'prev_project' | 'next_project') => {
+      if (!projectId) return;
+      trackCaseStudyEvent('close', projectId, {
+        project_title: projectTitle,
+        close_method: closeMethod,
+        dwell_seconds: Math.max(1, Math.round((Date.now() - openedAtRef.current) / 1000)),
+        max_scroll_pct: maxScrollPctRef.current,
+        artifacts_viewed_count: galleryItems.length > 0 ? viewedImagesRef.current.size : 0,
+        artifacts_total_count: galleryItems.length,
+      });
+    },
+    [galleryItems.length, projectId, projectTitle]
+  );
+
+  const handleTrackedClose = useCallback(
+    (closeMethod: 'backdrop' | 'escape' | 'header_close' | 'top_dismiss') => {
+      recordDwellClose(closeMethod);
+      onClose();
+    },
+    [onClose, recordDwellClose]
+  );
+
+  const selectGalleryImage = useCallback(
+    (
+      nextIdx: number,
+      method: 'thumbnail' | 'prev_button' | 'next_button' | 'keyboard_arrow' | 'mobile_thumbnail'
+    ) => {
+      setSelectedImageIndex(nextIdx);
+      viewedImagesRef.current.add(nextIdx);
+      const chosen = galleryItems[nextIdx];
+      trackCaseStudyEvent('gallery_select', projectId, {
+        project_title: projectTitle,
+        image_index: nextIdx + 1,
+        total_images: galleryItems.length,
+        image_title: chosen?.title,
+        image_src: chosen?.src,
+        interaction_method: method,
+      });
+    },
+    [galleryItems, projectId, projectTitle]
+  );
+
+  const handleDrawerScroll = useCallback(() => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    const scrollable = el.scrollHeight - el.clientHeight;
+    if (scrollable <= 0) {
+      maxScrollPctRef.current = 100;
+      return;
+    }
+    const pct = Math.min(100, Math.round((el.scrollTop / scrollable) * 100));
+    if (pct > maxScrollPctRef.current) {
+      maxScrollPctRef.current = pct;
+    }
+  }, []);
 
   // Handle animation lifecycle
   useEffect(() => {
@@ -288,24 +355,31 @@ export default function CaseStudyDrawer({
     if (!isOpen) return;
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        onClose();
+        handleTrackedClose('escape');
         return;
       }
       if (galleryItems.length > 1) {
         if (e.key === 'ArrowRight') {
-          setSelectedImageIndex((prev) => (prev + 1) % galleryItems.length);
+          const nextIdx = (selectedImageIndex + 1) % galleryItems.length;
+          selectGalleryImage(nextIdx, 'keyboard_arrow');
         } else if (e.key === 'ArrowLeft') {
-          setSelectedImageIndex((prev) => (prev - 1 + galleryItems.length) % galleryItems.length);
+          const prevIdx = (selectedImageIndex - 1 + galleryItems.length) % galleryItems.length;
+          selectGalleryImage(prevIdx, 'keyboard_arrow');
         }
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, onClose, galleryItems.length]);
+  }, [isOpen, galleryItems.length, handleTrackedClose, selectGalleryImage, selectedImageIndex]);
 
   const copyLink = async (e: React.MouseEvent) => {
     e.stopPropagation();
-    trackEvent('share_case_study', { project_title: projectTitle, project_url: projectUrl });
+    trackEvent('share_case_study', {
+      project_id: projectId,
+      project_title: projectTitle,
+      project_url: projectUrl,
+      category: 'Case_Study',
+    });
     try {
       await navigator.clipboard.writeText(projectUrl);
       setCopied(true);
@@ -330,7 +404,7 @@ export default function CaseStudyDrawer({
         className={`absolute inset-0 bg-[#061321]/78 backdrop-blur-md transition-opacity duration-300 ${
           animateShow ? 'opacity-100' : 'opacity-0'
         }`}
-        onClick={onClose}
+        onClick={() => handleTrackedClose('backdrop')}
         aria-hidden="true"
       />
 
@@ -360,6 +434,15 @@ export default function CaseStudyDrawer({
                 href={activeImage.src}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  trackCaseStudyEvent('image_expand', projectId, {
+                    project_title: projectTitle,
+                    image_index: selectedImageIndex + 1,
+                    image_title: activeImage.title,
+                    image_src: activeImage.src,
+                    source: 'desktop_drawer',
+                  })
+                }
                 className="flex h-8 w-8 items-center justify-center rounded-full bg-[#0a2540]/85 text-slate-200 border border-white/15 hover:text-white hover:border-white/40 transition backdrop-blur-xs"
                 title="Open full resolution"
                 aria-label="Open full resolution image"
@@ -369,7 +452,7 @@ export default function CaseStudyDrawer({
             )}
             <button
               type="button"
-              onClick={onClose}
+              onClick={() => handleTrackedClose('top_dismiss')}
               className="h-8 px-3 rounded-full bg-[#0a2540]/85 text-[11px] font-mono text-slate-200 hover:text-white border border-white/15 hover:border-white/40 transition backdrop-blur-xs cursor-pointer"
             >
               DISMISS [ESC]
@@ -394,8 +477,9 @@ export default function CaseStudyDrawer({
                   <button
                     type="button"
                     onClick={() =>
-                      setSelectedImageIndex(
-                        (prev) => (prev - 1 + galleryItems.length) % galleryItems.length
+                      selectGalleryImage(
+                        (selectedImageIndex - 1 + galleryItems.length) % galleryItems.length,
+                        'prev_button'
                       )
                     }
                     aria-label="Previous artifact"
@@ -406,7 +490,10 @@ export default function CaseStudyDrawer({
                   <button
                     type="button"
                     onClick={() =>
-                      setSelectedImageIndex((prev) => (prev + 1) % galleryItems.length)
+                      selectGalleryImage(
+                        (selectedImageIndex + 1) % galleryItems.length,
+                        'next_button'
+                      )
                     }
                     aria-label="Next artifact"
                     className="pointer-events-auto absolute right-3 top-1/2 -translate-y-1/2 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-[#061321]/70 text-slate-200 border border-white/15 hover:bg-[#0a2540] hover:text-white transition backdrop-blur-xs cursor-pointer"
@@ -458,7 +545,7 @@ export default function CaseStudyDrawer({
                       <button
                         key={item.src + idx}
                         type="button"
-                        onClick={() => setSelectedImageIndex(idx)}
+                        onClick={() => selectGalleryImage(idx, 'thumbnail')}
                         className={`group relative shrink-0 w-18 h-12 rounded-md overflow-hidden border transition-all cursor-pointer ${
                           isSelected
                             ? 'border-[#e5c488] ring-1 ring-[#e5c488] opacity-100'
@@ -496,7 +583,7 @@ export default function CaseStudyDrawer({
         <header className="sticky top-0 z-20 flex items-center justify-between border-b border-[var(--border)] bg-[var(--bg-elevated)]/95 px-6 py-4 backdrop-blur-md">
           <div className="flex items-center gap-3 overflow-hidden">
             <button
-              onClick={onClose}
+              onClick={() => handleTrackedClose('header_close')}
               className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--border-strong)] bg-white/80 text-[var(--text-muted)] hover:border-[#0a2540] hover:text-[#0a2540] transition shadow-xs"
               aria-label="Close case study"
             >
@@ -522,7 +609,11 @@ export default function CaseStudyDrawer({
         </header>
 
         {/* Scrollable Case Study Content */}
-        <div className="flex-1 overflow-y-auto px-6 py-8 md:px-12 md:py-12">
+        <div
+          ref={scrollContainerRef}
+          onScroll={handleDrawerScroll}
+          className="flex-1 overflow-y-auto px-6 py-8 md:px-12 md:py-12"
+        >
           <div className="mx-auto max-w-3xl">
             {/* Mobile Visual Artifacts Strip (since full-bleed desktop gallery sits on lg+) */}
             {activeImage ? (
@@ -546,6 +637,15 @@ export default function CaseStudyDrawer({
                         href={activeImage.src}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() =>
+                          trackCaseStudyEvent('image_expand', projectId, {
+                            project_title: projectTitle,
+                            image_index: selectedImageIndex + 1,
+                            image_title: activeImage.title,
+                            image_src: activeImage.src,
+                            source: 'mobile_drawer',
+                          })
+                        }
                         className="shrink-0 text-xs font-mono text-slate-300 underline"
                       >
                         Open ↗
@@ -563,7 +663,7 @@ export default function CaseStudyDrawer({
                         <button
                           key={item.src + idx}
                           type="button"
-                          onClick={() => setSelectedImageIndex(idx)}
+                          onClick={() => selectGalleryImage(idx, 'mobile_thumbnail')}
                           className={`relative h-11 w-16 shrink-0 overflow-hidden rounded border transition cursor-pointer ${
                             idx === selectedImageIndex
                               ? 'border-[#e5c488] ring-1 ring-[#e5c488]'
@@ -592,14 +692,20 @@ export default function CaseStudyDrawer({
         <footer className="border-t border-[var(--border)] bg-[var(--bg-page)]/95 px-6 py-4 backdrop-blur-md">
           <div className="mx-auto flex max-w-3xl items-center justify-between gap-4">
             <button
-              onClick={onPrev}
+              onClick={() => {
+                recordDwellClose('prev_project');
+                onPrev();
+              }}
               className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] hover:text-[#0a2540] transition"
             >
               <FontAwesomeIcon icon={faArrowLeft} />
               <span>Previous Project</span>
             </button>
             <button
-              onClick={onNext}
+              onClick={() => {
+                recordDwellClose('next_project');
+                onNext();
+              }}
               className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--text-muted)] hover:text-[#0a2540] transition"
             >
               <span>Next Project</span>

@@ -40,8 +40,8 @@ const NEPTUNE_PREVIEW_FRAMES: readonly PreviewFrame[] = [
 ];
 
 export default function NeptuneFinanceCaseStudy({ openProject }: NeptuneFinanceCaseStudyProps) {
-  const handleOpen = () => {
-    trackCaseStudyEvent('open', 'neptune-finance', { source: 'flagship_hero' });
+  const handlePrimaryInspect = () => {
+    trackCaseStudyEvent('open', 'neptune-finance', { source: 'neptune_primary_button' });
     openProject('neptune-finance');
   };
 
@@ -150,7 +150,7 @@ export default function NeptuneFinanceCaseStudy({ openProject }: NeptuneFinanceC
           <div className="mt-6 flex flex-wrap gap-3">
             <button
               type="button"
-              onClick={handleOpen}
+              onClick={handlePrimaryInspect}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0a2540] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--accent-hover)] active:scale-[0.98] shadow-xs cursor-pointer"
             >
               <span>Inspect Deep-Dive Case Study</span>
@@ -175,8 +175,9 @@ export default function NeptuneFinanceCaseStudy({ openProject }: NeptuneFinanceC
 
         {/* Right column — interactive Neptune UI showcase */}
         <CaseStudyPreviewDeck
+          projectId="neptune-finance"
           frames={NEPTUNE_PREVIEW_FRAMES}
-          onInspect={handleOpen}
+          onInspect={() => openProject('neptune-finance')}
           totalArtifactsCount={8}
           footerSummarySuffix="8 Production & Figma Views"
           stageBgClassName="bg-[#0a1324]"

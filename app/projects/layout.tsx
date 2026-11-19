@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import Backdrop from '../Components/Backdrop';
+import { trackEvent, trackRecruiterAction } from '../lib/analytics';
 
 export default function ProjectCaseStudyLayout({
   children,
@@ -15,6 +18,13 @@ export default function ProjectCaseStudyLayout({
           <div className="flex items-center gap-3 min-w-0">
             <Link
               href="/#systems"
+              onClick={() =>
+                trackEvent('subpage_nav_click', {
+                  target: 'portfolio_projects',
+                  location: 'subpage_header',
+                  category: 'Navigation',
+                })
+              }
               className="inline-flex h-9 items-center gap-1.5 rounded-full border border-[var(--border-strong)] bg-[var(--surface)] glass-surface px-3.5 text-xs font-semibold text-[var(--text)] transition hover:border-[#0a2540] hover:text-[#0a2540] shrink-0"
             >
               <span aria-hidden="true">←</span>
@@ -22,6 +32,13 @@ export default function ProjectCaseStudyLayout({
             </Link>
             <Link
               href="/"
+              onClick={() =>
+                trackEvent('subpage_nav_click', {
+                  target: 'home',
+                  location: 'subpage_header',
+                  category: 'Navigation',
+                })
+              }
               className="hidden sm:flex items-center gap-2.5 truncate font-[family-name:var(--font-display)] text-base font-semibold text-[var(--text)] hover:text-[#0a2540]"
             >
               <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#0a2540] font-mono text-[10px] font-bold text-[#e5c488]">
@@ -35,6 +52,12 @@ export default function ProjectCaseStudyLayout({
             <a
               href="/Logan Biesterfeldt Resume 2026.pdf"
               download
+              onClick={() =>
+                trackRecruiterAction('resume_download', {
+                  location: 'subpage_header',
+                  resume_file: '/Logan Biesterfeldt Resume 2026.pdf',
+                })
+              }
               className="inline-flex h-9 items-center gap-1.5 rounded-full border border-[var(--border-strong)] bg-[var(--surface)] glass-surface px-3.5 text-xs font-semibold text-[var(--text)] transition hover:border-[#0a2540]"
             >
               <span>Résumé</span>
@@ -42,6 +65,11 @@ export default function ProjectCaseStudyLayout({
             </a>
             <a
               href="mailto:logan.biesterfeldt@gmail.com?subject=Engineering%20%2F%20Product%20Role%20Inquiry"
+              onClick={() =>
+                trackRecruiterAction('email_click', {
+                  location: 'subpage_header',
+                })
+              }
               className="inline-flex h-9 items-center rounded-full bg-[#0a2540] px-4 text-xs font-semibold text-white transition hover:bg-[var(--accent-hover)]"
             >
               Contact

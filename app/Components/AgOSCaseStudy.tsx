@@ -40,8 +40,8 @@ const AGOS_PREVIEW_FRAMES: readonly PreviewFrame[] = [
 ];
 
 export default function AgOSCaseStudy({ openProject }: AgOSCaseStudyProps) {
-  const handleOpen = () => {
-    trackCaseStudyEvent('open', 'agos', { source: 'agos_feature_slide' });
+  const handlePrimaryInspect = () => {
+    trackCaseStudyEvent('open', 'agos', { source: 'agos_primary_button' });
     openProject('agos');
   };
 
@@ -146,7 +146,7 @@ export default function AgOSCaseStudy({ openProject }: AgOSCaseStudyProps) {
           <div className="mt-6 flex flex-wrap gap-3">
             <button
               type="button"
-              onClick={handleOpen}
+              onClick={handlePrimaryInspect}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0a2540] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--accent-hover)] active:scale-[0.98] shadow-xs cursor-pointer"
             >
               <span>Inspect AgOS Case Study</span>
@@ -171,8 +171,9 @@ export default function AgOSCaseStudy({ openProject }: AgOSCaseStudyProps) {
 
         {/* Right column — interactive AgOS UI showcase */}
         <CaseStudyPreviewDeck
+          projectId="agos"
           frames={AGOS_PREVIEW_FRAMES}
-          onInspect={handleOpen}
+          onInspect={() => openProject('agos')}
           totalArtifactsCount={8}
           footerSummarySuffix="7 Screens + Architecture"
           stageBgClassName="bg-[#1c2822]"

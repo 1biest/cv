@@ -6,7 +6,7 @@ import {
   ROLE_LENS_ORDER,
   type RoleLens,
 } from '../lib/roleLenses';
-import { trackRecruiterAction } from '../lib/analytics';
+import { setAnalyticsRoleLens, trackEvent, trackRecruiterAction } from '../lib/analytics';
 
 interface RecruiterFastTrackProps {
   isOpen: boolean;
@@ -57,7 +57,17 @@ export default function RecruiterFastTrack({
               <button
                 key={lensId}
                 type="button"
-                onClick={() => onSelectLens(lensId)}
+                onClick={() => {
+                  const previousLens = activeLens;
+                  setAnalyticsRoleLens(lensId);
+                  onSelectLens(lensId);
+                  trackEvent('recruiter_hud_lens_select', {
+                    lens_selected: lensId,
+                    previous_lens: previousLens,
+                    source: 'fast_track_hud',
+                    category: 'Recruiter_Conversion',
+                  });
+                }}
                 className={`px-3 py-1 rounded-full text-xs font-medium transition cursor-pointer ${
                   activeLens === lensId
                     ? 'bg-[#fafaf8] text-[#0a2540] font-semibold shadow-xs'
@@ -133,6 +143,8 @@ export default function RecruiterFastTrack({
                   trackRecruiterAction('resume_download', {
                     source: 'fast_track_hud',
                     lens: activeLens,
+                    resume_file: current.resumeHref,
+                    resume_label: current.resumeLabel,
                   })
                 }
                 className="flex items-center justify-center gap-2 w-full py-2 px-3 rounded-full bg-[#fafaf8] hover:bg-white text-[#0a2540] font-semibold text-xs transition shadow-xs"

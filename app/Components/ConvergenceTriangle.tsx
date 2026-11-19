@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { trackEvent } from '../lib/analytics';
 
 export type ConvergenceElementId =
   | 'design'
@@ -344,8 +345,32 @@ export default function ConvergenceTriangle() {
   const activeId = pinnedId || hoveredId;
   const inspectedDetail = CONVERGENCE_DETAILS[activeId || 'convergence'];
 
+  useEffect(() => {
+    if (!hoveredId) return;
+    const timer = setTimeout(() => {
+      const detail = CONVERGENCE_DETAILS[hoveredId];
+      trackEvent('craft_triangle_hover', {
+        node_id: hoveredId,
+        node_title: detail.title,
+        node_kicker: detail.kicker,
+        category: 'Craft_Exploration',
+      });
+    }, 650);
+
+    return () => clearTimeout(timer);
+  }, [hoveredId]);
+
   const handleCardClick = (id: ConvergenceElementId) => {
-    setPinnedId(pinnedId === id ? null : id);
+    const nextPinned = pinnedId === id ? null : id;
+    setPinnedId(nextPinned);
+    const detail = id ? CONVERGENCE_DETAILS[id] : CONVERGENCE_DETAILS.convergence;
+    trackEvent('craft_triangle_pin', {
+      node_id: id || 'convergence',
+      node_title: detail.title,
+      node_kicker: detail.kicker,
+      pin_action: nextPinned ? 'pin' : 'unpin',
+      category: 'Craft_Exploration',
+    });
   };
 
   const isHighlighted = (id: ConvergenceElementId) => {
@@ -901,7 +926,15 @@ export default function ConvergenceTriangle() {
             {pinnedId ? (
               <button
                 type="button"
-                onClick={() => setPinnedId(null)}
+                onClick={() => {
+                  trackEvent('craft_triangle_pin', {
+                    node_id: 'convergence',
+                    previous_node_id: pinnedId,
+                    pin_action: 'reset',
+                    category: 'Craft_Exploration',
+                  });
+                  setPinnedId(null);
+                }}
                 className="inline-flex h-7 items-center rounded-full border border-[var(--border-strong)] bg-white/75 px-3 font-mono text-[11px] font-medium text-[var(--text-muted)] hover:border-[#0a2540] hover:text-[#0a2540] cursor-pointer"
               >
                 Reset to Convergence ↺
